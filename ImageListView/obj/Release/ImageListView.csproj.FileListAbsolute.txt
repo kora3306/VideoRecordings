@@ -1,0 +1,61 @@
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\ImageListView.dll.config
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\ImageListView.dll
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\ImageListView.pdb
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\de\ImageListView.resources.dll
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\tr\ImageListView.resources.dll
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\Common.dll
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\log4net.dll
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\AForge.Video.DirectShow.dll
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\MySql.Data.dll
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\System.Data.SQLite.dll
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\AForge.Video.dll
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\AForge.dll
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\Common.pdb
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\Common.dll.config
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\log4net.xml
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\AForge.Video.DirectShow.xml
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\System.Data.SQLite.xml
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\System.Data.SQLite.dll.config
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\AForge.Video.xml
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\bin\Release\AForge.xml
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\obj\Release\ImageListView.csprojResolveAssemblyReference.cache
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\obj\Release\Manina.Windows.Forms.ImageListView.resources
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\obj\Release\Manina.Windows.Forms.ImageListViewResources.resources
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\obj\Release\Manina.Windows.Forms.ImageListViewResources.de.resources
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\obj\Release\Manina.Windows.Forms.ImageListViewResources.tr.resources
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\obj\Release\ImageListView.csproj.GenerateResource.Cache
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\obj\Release\ImageListView.csproj.CoreCompileInputs.cache
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\obj\Release\de\ImageListView.resources.dll
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\obj\Release\tr\ImageListView.resources.dll
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\obj\Release\ImageListView.dll
+C:\Users\JGW\Desktop\intedio_data_tools\ImageListView\obj\Release\ImageListView.pdb
+C:\Users\JGW\Documents\Visual Studio 2017\Projects\intedio_data_tools\ImageListView\bin\Release\ImageListView.dll.config
+C:\Users\JGW\Documents\Visual Studio 2017\Projects\intedio_data_tools\ImageListView\bin\Release\ImageListView.dll
+C:\Users\JGW\Documents\Visual Studio 2017\Projects\intedio_data_tools\ImageListView\bin\Release\ImageListView.pdb
+C:\Users\JGW\Documents\Visual Studio 2017\Projects\intedio_data_tools\ImageListView\obj\Release\Manina.Windows.Forms.ImageListView.resources
+C:\Users\JGW\Documents\Visual Studio 2017\Projects\intedio_data_tools\ImageListView\obj\Release\Manina.Windows.Forms.ImageListViewResources.resources
+C:\Users\JGW\Documents\Visual Studio 2017\Projects\intedio_data_tools\ImageListView\obj\Release\ImageListView.csproj.GenerateResource.cache
+C:\Users\JGW\Documents\Visual Studio 2017\Projects\intedio_data_tools\ImageListView\obj\Release\ImageListView.csproj.CoreCompileInputs.cache
+C:\Users\JGW\Documents\Visual Studio 2017\Projects\intedio_data_tools\ImageListView\obj\Release\ImageListView.dll
+C:\Users\JGW\Documents\Visual Studio 2017\Projects\intedio_data_tools\ImageListView\obj\Release\ImageListView.pdb
+C:\Users\JGW\Documents\Visual Studio 2017\Projects\intedio_data_tools\ImageListView\obj\Release\ImageListView.csprojResolveAssemblyReference.cache
+F:\接收\intedio_data_tools\ImageListView\obj\Release\Manina.Windows.Forms.ImageListView.resources
+F:\接收\intedio_data_tools\ImageListView\obj\Release\Manina.Windows.Forms.ImageListViewResources.resources
+F:\接收\intedio_data_tools\ImageListView\obj\Release\ImageListView.csproj.GenerateResource.Cache
+F:\接收\intedio_data_tools\ImageListView\obj\Release\ImageListView.csproj.CoreCompileInputs.cache
+F:\接收\intedio_data_tools\ImageListView\obj\Release\ImageListView.pdb
+F:\接收\intedio_data_tools\ImageListView\bin\Release\ImageListView.dll.config
+F:\接收\intedio_data_tools\ImageListView\bin\Release\ImageListView.dll
+F:\接收\intedio_data_tools\ImageListView\bin\Release\ImageListView.pdb
+F:\接收\intedio_data_tools\ImageListView\obj\Release\ImageListView.dll
+F:\接收\intedio_data_tools\ImageListView\obj\Release\ImageListView.csprojResolveAssemblyReference.cache
+F:\源码\VideoRecordings\ImageListView\bin\Release\ImageListView.dll.config
+F:\源码\VideoRecordings\ImageListView\bin\Release\ImageListView.dll
+F:\源码\VideoRecordings\ImageListView\bin\Release\ImageListView.pdb
+F:\源码\VideoRecordings\ImageListView\obj\Release\ImageListView.csprojResolveAssemblyReference.cache
+F:\源码\VideoRecordings\ImageListView\obj\Release\Manina.Windows.Forms.ImageListView.resources
+F:\源码\VideoRecordings\ImageListView\obj\Release\Manina.Windows.Forms.ImageListViewResources.resources
+F:\源码\VideoRecordings\ImageListView\obj\Release\ImageListView.csproj.GenerateResource.Cache
+F:\源码\VideoRecordings\ImageListView\obj\Release\ImageListView.csproj.CoreCompileInputs.cache
+F:\源码\VideoRecordings\ImageListView\obj\Release\ImageListView.dll
+F:\源码\VideoRecordings\ImageListView\obj\Release\ImageListView.pdb

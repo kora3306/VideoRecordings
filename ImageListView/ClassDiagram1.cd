@@ -1,0 +1,613 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Manina.Windows.Forms.CacheErrorEventArgs" Collapsed="true">
+    <Position X="31.5" Y="9.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAQAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.DropFileEventArgs" Collapsed="true">
+    <Position X="31.5" Y="12.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAEAAABAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ColumnEventArgs" Collapsed="true">
+    <Position X="31.5" Y="7.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ColumnClickEventArgs" Collapsed="true">
+    <Position X="31.5" Y="9" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAJAAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ColumnHoverEventArgs" Collapsed="true">
+    <Position X="31.5" Y="8.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgBAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ItemEventArgs" Collapsed="true">
+    <Position X="31.5" Y="3.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ItemClickEventArgs" Collapsed="true">
+    <Position X="31.5" Y="10.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAABAIAAAAEAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ItemHoverEventArgs" Collapsed="true">
+    <Position X="31.5" Y="5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAABAAAAgAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.LayoutEventArgs" Collapsed="true">
+    <Position X="31.5" Y="5.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ThumbnailCachingEventArgs" Collapsed="true">
+    <Position X="31.5" Y="1.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ThumbnailCachedEventArgs" Collapsed="true">
+    <Position X="31.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgBAAAAAACAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.PaneResizedEventArgs" Collapsed="true">
+    <Position X="31.5" Y="2" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.PaneResizingEventArgs" Collapsed="true">
+    <Position X="31.5" Y="4.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ItemCollectionChangedEventArgs" Collapsed="true">
+    <Position X="31.5" Y="2.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="3.75" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Events" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>d9bjrlBqBK7Lj6zBTmm2Zfp/Q3dVQRJMcd/QyUlrdyU=</HashCode>
+      <FileName>ImageListView.cs</FileName>
+      <NewMemberFileName>HitInfo.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewCacheMetadata" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="13.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAIiAAAAgCAAAAAhAABIFAAACAAKIgAAAAAAAAhAAAg=</HashCode>
+      <FileName>ImageListViewCacheMetadata.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewCacheShellInfo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="14.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAIiATAAACAAAAChAACIFAAAAAAKAgIAACAAAAhAAAA=</HashCode>
+      <FileName>ImageListViewCacheShellInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewCacheThumbnail" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="12.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AEIyBAgIgCAIAAAhCABIlEARCEB6IhMQACAMAAhAAAg=</HashCode>
+      <FileName>ImageListViewCacheThumbnail.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewColor" Collapsed="true">
+    <Position X="17" Y="8" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>ARAACR5mMMDQiCoH9GABJEgiE8EIAIiHAIIDAA7NgAk=</HashCode>
+      <FileName>ImageListViewColor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewColorTypeConverter" Collapsed="true">
+    <Position X="17" Y="9" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAACAAAAIAAAAAAAA=</HashCode>
+      <FileName>ImageListViewColorTypeConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewColumnHeaderTypeConverter" Collapsed="true">
+    <Position X="11.75" Y="3" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAIAAAAAAAA=</HashCode>
+      <FileName>ImageListViewColumnHeaderTypeConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewDesigner" Collapsed="true">
+    <Position X="4.5" Y="10" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>ImageListViewDesigner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewActionLists" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="11" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAABQgEIACCQRQAIAQAAAAEAAABBDAACAAAAAAEAAA=</HashCode>
+      <FileName>ImageListViewDesigner.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="0.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>YAQBIrEFDKEghIfkEAwwIK42gIg0zAchllPMiNhAAFI=</HashCode>
+      <FileName>ImageListViewItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewItemTypeConverter" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAIAAAAAAAA=</HashCode>
+      <FileName>ImageListViewItemTypeConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewLayoutManager" Collapsed="true">
+    <Position X="4.5" Y="6.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>EE4FIALAAAACBsCiBICAKcAEAMQEAAQBCQQEDhIAEAA=</HashCode>
+      <FileName>ImageListViewLayoutManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewRenderers" Collapsed="true">
+    <Position X="8.25" Y="7" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ImageListViewRenderers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewResources" Collapsed="true">
+    <Position X="17" Y="10" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>EAAAAgAhDAEAAABAAAABMQYAgYAwAANNAQJMAABAAJg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.MetadataExtractor" Collapsed="true">
+    <Position X="17" Y="13.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>FgQKgIBHDqEMBcCEBAAQJFQAE/UQAgeFhAIQACBAABA=</HashCode>
+      <FileName>MetadataExtractor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.OpenFileDialogEditor" Collapsed="true">
+    <Position X="17" Y="6" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OpenFileDialogEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.PersistentCache" Collapsed="true">
+    <Position X="17" Y="7" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AoAAABAAAIAAgAQQAAAABAAgAAAAAAAAAAAAAEFAEAA=</HashCode>
+      <FileName>PersistentCache.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.QueuedBackgroundWorker" Collapsed="true">
+    <Position X="9.25" Y="12.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>RAJkBSkUACQoAAAQgQgBkhECBQIAAIAAAAIAIQgAMAY=</HashCode>
+      <FileName>QueuedBackgroundWorker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.QueuedWorkerCompletedEventArgs" Collapsed="true">
+    <Position X="31.5" Y="6.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>QueuedBackgroundWorkerEvents.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.QueuedWorkerDoWorkEventArgs" Collapsed="true">
+    <Position X="31.5" Y="11.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>QueuedBackgroundWorkerEvents.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ShellInfoExtractor" Collapsed="true">
+    <Position X="17" Y="14.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAQBIgCAAAAAARAAAAAAAAAgAAAAAAAEAAAAAAAAAQA=</HashCode>
+      <FileName>ShellInfoExtractor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ThumbnailExtractor" Collapsed="true">
+    <Position X="17" Y="12.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAAACAAAAAAAQAAAAAIAACABAEAAAQAAAAQEA=</HashCode>
+      <FileName>ThumbnailExtractor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.Utility" Collapsed="true">
+    <Position X="17" Y="5.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAACAAAAAAAAEACAAABAIAAACAgIAAAAgA=</HashCode>
+      <FileName>Utility.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewColumnHeader" Collapsed="true">
+    <Position X="4.5" Y="3" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAIAAhAAkIAAgAFAGCAEABQwIAQAACAAAABA=</HashCode>
+      <FileName>ImageListViewColumnHeader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.HitInfo" Collapsed="true">
+    <Position X="17" Y="4.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>EAggAEAAAAAAAAYABABAAAAEAQQDAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HitInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewCheckedItemCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ACCAAAAEAAAEABAwCAAIAAQEAAAAAAAAAAEAAQBQAQA=</HashCode>
+      <FileName>ImageListViewCheckedItemCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewColumnHeaderCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="3" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AkIAAEACDIAEABgxCAAABCRUAAUAAAAECAAAAABUAAo=</HashCode>
+      <FileName>ImageListViewColumnHeaderCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewGroup" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="4" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAgQEIAAAAgBQgQDAAAAQAAEAAAAAEAAgAAABAAAA=</HashCode>
+      <FileName>ImageListViewGroup.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewGroupCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="4" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AkIAAEAACIAEABAzCAAABCUUAAUAAAAECAAAgABQAAo=</HashCode>
+      <FileName>ImageListViewGroupCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewItemAdaptor" BaseTypeListCollapsed="true">
+    <Position X="17" Y="0.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAACAAAAAAAAAAAAIAAAAAAAEAAAAAAAAAAIA=</HashCode>
+      <FileName>ImageListViewItemAdaptor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewItemCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="1.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>CmIAAEAMCIAEIRAxCIEQBCUUAAUAAQAADAAAgABUAGM=</HashCode>
+      <FileName>ImageListViewItemCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewNavigationManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="8.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>i4lgAwigAiAAiEAkQgiyUCRUBAggEAAAAACZoBCAMIA=</HashCode>
+      <FileName>ImageListViewNavigationManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewRenderer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="7" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>GQKAgAGAJCAgFQEIE1AgCBCOAMAGgARJAtAlIAAAERQ=</HashCode>
+      <FileName>ImageListViewRenderer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.ImageListViewSelectedItemCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="2" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ACCAAAAEAAAEABAwCAAIAAQEAAAAAAAAAAEAAQBQAQA=</HashCode>
+      <FileName>ImageListViewSelectedItemCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Manina.Windows.Forms.FileSystemAdaptor" Collapsed="true">
+    <Position X="17" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKAAAAAACAAAAAAAAAAAAIAAAAAAAEAAAAAAAAAAIA=</HashCode>
+      <FileName>ImageListViewItemAdaptors.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manina.Windows.Forms.URIAdaptor" Collapsed="true">
+    <Position X="19.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKAAAAAACAAAAAAAAAAAAIAAAAAAAEAAAAAAAAAAIA=</HashCode>
+      <FileName>ImageListViewItemAdaptors.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Manina.Windows.Forms.ProcessingMode">
+    <Position X="39.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Manina.Windows.Forms.CacheMode">
+    <Position X="38" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAQA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Manina.Windows.Forms.CachedImageType">
+    <Position X="35.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAACAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Manina.Windows.Forms.CacheState">
+    <Position X="38" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Manina.Windows.Forms.CacheThread">
+    <Position X="39.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Manina.Windows.Forms.ColumnState">
+    <Position X="41.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAgAAAAAQAAAABAAAAAAAAEAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Manina.Windows.Forms.ColumnType">
+    <Position X="43.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAhDAEAAABAAAAAIAYAAIAwAAMBAAJMAABAABA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Manina.Windows.Forms.ItemDrawOrder">
+    <Position X="35.25" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AABBAAAAAAAABAAAAAABAAAEAAAAAgAAAAAAAEAABAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Manina.Windows.Forms.ItemState">
+    <Position X="39.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAgAAAAACAAAAAAAAAAAAAAAAAAAEAAAI=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Manina.Windows.Forms.ItemVisibility">
+    <Position X="38" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAIAACAAAAAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Manina.Windows.Forms.UseEmbeddedThumbnails">
+    <Position X="37.25" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAgACAAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Manina.Windows.Forms.UseWIC">
+    <Position X="41.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAACAAAAQ=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Manina.Windows.Forms.View">
+    <Position X="39.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAARAAAAAAAAABAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Manina.Windows.Forms.SortOrder">
+    <Position X="41.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAJAABAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Manina.Windows.Forms.ItemHighlightState">
+    <Position X="35.25" Y="4.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAEAAEAAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="Manina.Windows.Forms.CacheErrorEventHandler" Collapsed="true">
+    <Position X="35.25" Y="6.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.DropFilesEventHandler" Collapsed="true">
+    <Position X="41.25" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.ColumnClickEventHandler" Collapsed="true">
+    <Position X="35.25" Y="7.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.ColumnHoverEventHandler" Collapsed="true">
+    <Position X="41.25" Y="8.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.ColumnWidthChangedEventHandler">
+    <Position X="38" Y="7.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.ItemClickEventHandler" Collapsed="true">
+    <Position X="41.25" Y="9.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.ItemCheckBoxClickEventHandler" Collapsed="true">
+    <Position X="38" Y="6.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.ItemHoverEventHandler" Collapsed="true">
+    <Position X="35.25" Y="8.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.ItemDoubleClickEventHandler" Collapsed="true">
+    <Position X="35.25" Y="8" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.ThumbnailCachingEventHandler" Collapsed="true">
+    <Position X="38" Y="9.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.ThumbnailCachedEventHandler" Collapsed="true">
+    <Position X="35.25" Y="9.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.RefreshDelegateInternal" Collapsed="true">
+    <Position X="35.25" Y="10.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.ItemCollectionChangedEventHandler" Collapsed="true">
+    <Position X="38" Y="8" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.PaneResizedEventHandler" Collapsed="true">
+    <Position X="41.25" Y="8" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.PaneResizingEventHandler" Collapsed="true">
+    <Position X="41.25" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.RunQueuedWorkerCompletedEventHandler" Collapsed="true">
+    <Position X="38" Y="10.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>QueuedBackgroundWorkerEvents.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Manina.Windows.Forms.QueuedWorkerDoWorkEventHandler" Collapsed="true">
+    <Position X="38" Y="8.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>QueuedBackgroundWorkerEvents.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
