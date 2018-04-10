@@ -53,12 +53,14 @@ namespace VideoRecordings
             timeEdit_start.Time = DateTime.Parse(videoplay.StartTime);
             timeEdit_end.Time = DateTime.Parse(videoplay.EndTime);
             dateTimePicker1.Text = videoplay.RecordTime;
+            label6.Text = videoplay.Id.ToString();
+            label6.ForeColor = Color.Red;
             if (label_treeView.Nodes.Count!=0)
             {
                 label_treeView.Nodes[0].Expand();
             }         
         }
-
+        bool folding = false;
 
         /// <summary>
         /// 删除图片
@@ -689,6 +691,20 @@ namespace VideoRecordings
                 }
             }
             Program.log.Debug($"清空文件夹{dir}");
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!folding)
+            {
+                label_treeView.ExpandAll();
+                folding = true;
+            }
+            else
+            {
+                label_treeView.CollapseAll();
+                folding = false;
+            }
         }
     }
 }

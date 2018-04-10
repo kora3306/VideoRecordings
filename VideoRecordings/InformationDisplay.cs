@@ -13,6 +13,7 @@ using System.Runtime.Serialization;
 using System.Web.Script.Serialization;
 using System.IO;
 using Manina.Windows.Forms;
+using Newtonsoft.Json.Linq;
 
 namespace VideoRecordings
 {
@@ -350,7 +351,7 @@ namespace VideoRecordings
             if (transmissionvideo == null|| transmissionvideo.Uri == null) return;
             if (File.Exists(Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri))))
             {
-                new VideoRecording(transmissionvideo, this).ShowDialog();
+                new VideoRecording(transmissionvideo, this).Show();
                 Program.log.Error($"打开{Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri))}",new Exception("打开成功"));
             }
             else
@@ -359,7 +360,7 @@ namespace VideoRecordings
                                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                 if (MsgBoxResult == DialogResult.Yes)
                 {
-                    new VideoRecording(transmissionvideo, this).ShowDialog();
+                    new VideoRecording(transmissionvideo, this).Show();
                     Program.log.Error($"打开{Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri))}", new Exception("没有找到视频"));
                 }
                 else
@@ -437,6 +438,24 @@ namespace VideoRecordings
                         break;
                 }
             }
+        }
+
+        private void DToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show($"是否删除编号{transmissionvideo.Id}的视频？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
+                return;
+            string url = Program.Urlpath + "/video/"+ transmissionvideo.Id;
+            JObject obj = WebClinetHepler.Delete_New(url);
+            if (obj==null)
+            {
+                MessageBox.Show("删除失败");
+                Program.log.Error($"删除{transmissionvideo.Id}失败", new Exception($"{url}"));
+            }
+            videoplays.Remove(transmissionvideo);
+            bindingSource1.DataSource = videoplays;
+            gridView1.RefreshData();
+            information.GetInformationShow();
+            Program.log.Error($"删除{transmissionvideo.Id}", new Exception($"{url}"));
         }
     }
 

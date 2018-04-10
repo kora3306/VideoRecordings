@@ -81,6 +81,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.timeEdit_start = new DevExpress.XtraEditors.TimeEdit();
             this.timeEdit_end = new DevExpress.XtraEditors.TimeEdit();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -90,6 +92,7 @@
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_start.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_end.Properties)).BeginInit();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -226,6 +229,7 @@
             // gridControl1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.gridControl1, 6);
+            this.gridControl1.ContextMenuStrip = this.contextMenuStrip2;
             this.gridControl1.DataSource = this.bindingSource1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(3, 163);
@@ -254,7 +258,9 @@
             this.gridColumn_create_time});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.AllowSortAnimation = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsCustomization.AllowRowSizing = true;
+            this.gridView1.OptionsCustomization.AllowSort = false;
             this.gridView1.OptionsFind.AlwaysVisible = true;
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.OptionsView.ShowFooter = true;
@@ -428,7 +434,7 @@
             this.imageListView1.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.imageListView1.Location = new System.Drawing.Point(3, 532);
             this.imageListView1.Name = "imageListView1";
-            //this.imageListView1.PersistentCacheDirectory = "";
+            //this.imageListView1.PersistentCacheDirectory = "F:\\源码\\VideoRecordings/cache";
             this.imageListView1.PersistentCacheSize = ((long)(0));
             this.imageListView1.Size = new System.Drawing.Size(1125, 124);
             this.imageListView1.TabIndex = 17;
@@ -660,6 +666,20 @@
             this.timeEdit_end.Size = new System.Drawing.Size(177, 20);
             this.timeEdit_end.TabIndex = 28;
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 48);
+            // 
+            // DToolStripMenuItem
+            // 
+            this.DToolStripMenuItem.Name = "DToolStripMenuItem";
+            this.DToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.DToolStripMenuItem.Text = " 删除视频记录";
+            this.DToolStripMenuItem.Click += new System.EventHandler(this.DToolStripMenuItem_Click);
+            // 
             // QueryVideo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -681,6 +701,7 @@
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_start.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_end.Properties)).EndInit();
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -738,5 +759,7 @@
         private DevExpress.XtraEditors.TimeEdit timeEdit_end;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_start;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_end;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem DToolStripMenuItem;
     }
 }

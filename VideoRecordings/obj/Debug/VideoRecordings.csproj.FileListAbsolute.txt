@@ -13,7 +13,6 @@ F:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraGrid.v17.2.dl
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraLayout.v17.2.dll
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraPrinting.v17.2.dll
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\DXApplication1.dll
-F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ImageListView.dll
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\Newtonsoft.Json.dll
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\AForge.Video.DirectShow.dll
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\MySql.Data.dll
@@ -29,8 +28,6 @@ F:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.Images.v17.2.dll
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\AForge.dll
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\Common.pdb
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\Common.dll.config
-F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ImageListView.pdb
-F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ImageListView.dll.config
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\DXApplication1.pdb
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.Data.v17.2.xml
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.Utils.v17.2.xml
@@ -126,8 +123,6 @@ F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.pdb
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.ShowImage.resources
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.UpdateContent.resources
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\MySql.Data.xml
-F:\源码\VideoRecordings\VideoRecordings\bin\Debug\de\ImageListView.resources.dll
-F:\源码\VideoRecordings\VideoRecordings\bin\Debug\tr\ImageListView.resources.dll
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.ManagementLabel.resources
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.UpdateLabel.resources
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\log4net.dll

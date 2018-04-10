@@ -49,11 +49,8 @@ namespace VideoRecordings
         private List<string> GetDicToList(Dictionary<string, string> dic)
         {
             List<string> label = new List<string>();
-            label.Add("0:新建标签种类");
-            foreach (var item in dic)
-            {
-                label.Add(item.Key + ":" + item.Value);
-            }          
+            label = dic.Select(t => $"{t.Key}:{t.Value}").ToList();
+            label.Insert(0, "0:新建标签种类");
             label.OrderBy(t => int.Parse(t.Split(':').First()));
             return label;
         }

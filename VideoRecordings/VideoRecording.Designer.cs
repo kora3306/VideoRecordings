@@ -34,27 +34,29 @@
             this.label_treeView = new System.Windows.Forms.TreeView();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.清空已有标签ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.button1 = new System.Windows.Forms.Button();
             this.imageListView1 = new Manina.Windows.Forms.ImageListView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ReToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.videoPlayer1 = new DXApplication1.VideoPlayer();
             this.save_button = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timeEdit_start = new DevExpress.XtraEditors.TimeEdit();
             this.timeEdit_end = new DevExpress.XtraEditors.TimeEdit();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.button1 = new System.Windows.Forms.Button();
             this.other_button = new System.Windows.Forms.Button();
             this.DelcontextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeletePToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label6 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -73,7 +75,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.48089F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.40443F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.71493F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 239F));
             this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label_treeView, 7, 1);
             this.tableLayoutPanel1.Controls.Add(this.treeView1, 6, 1);
@@ -81,7 +83,7 @@
             this.tableLayoutPanel1.Controls.Add(this.videoPlayer1, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.save_button, 7, 4);
             this.tableLayoutPanel1.Controls.Add(this.label3, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.timeEdit_start, 1, 1);
@@ -91,6 +93,7 @@
             this.tableLayoutPanel1.Controls.Add(this.linkLabel1, 6, 4);
             this.tableLayoutPanel1.Controls.Add(this.button1, 5, 4);
             this.tableLayoutPanel1.Controls.Add(this.other_button, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Tahoma", 12F);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -122,10 +125,10 @@
             // 
             this.label_treeView.ContextMenuStrip = this.contextMenuStrip2;
             this.label_treeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_treeView.Location = new System.Drawing.Point(997, 72);
+            this.label_treeView.Location = new System.Drawing.Point(887, 72);
             this.label_treeView.Name = "label_treeView";
             this.tableLayoutPanel1.SetRowSpan(this.label_treeView, 3);
-            this.label_treeView.Size = new System.Drawing.Size(127, 578);
+            this.label_treeView.Size = new System.Drawing.Size(237, 578);
             this.label_treeView.TabIndex = 16;
             this.label_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.label_treeView_AfterSelect);
             this.label_treeView.DoubleClick += new System.EventHandler(this.label_treeView_DoubleClick);
@@ -133,39 +136,35 @@
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.清空已有标签ToolStripMenuItem});
+            this.清空已有标签ToolStripMenuItem,
+            this.openToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(149, 26);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(178, 48);
             // 
             // 清空已有标签ToolStripMenuItem
             // 
             this.清空已有标签ToolStripMenuItem.Name = "清空已有标签ToolStripMenuItem";
-            this.清空已有标签ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.清空已有标签ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.清空已有标签ToolStripMenuItem.Text = "清空已有标签";
             this.清空已有标签ToolStripMenuItem.Click += new System.EventHandler(this.清空已有标签ToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.openToolStripMenuItem.Text = "打开/关闭所有节点";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // treeView1
             // 
             this.treeView1.ContextMenuStrip = this.contextMenuStrip2;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(771, 72);
+            this.treeView1.Location = new System.Drawing.Point(686, 72);
             this.treeView1.Name = "treeView1";
             this.tableLayoutPanel1.SetRowSpan(this.treeView1, 2);
-            this.treeView1.Size = new System.Drawing.Size(220, 143);
+            this.treeView1.Size = new System.Drawing.Size(195, 143);
             this.treeView1.TabIndex = 18;
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.button1.Location = new System.Drawing.Point(630, 660);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 26);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "使用外部播放器";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // imageListView1
             // 
@@ -173,11 +172,11 @@
             this.imageListView1.ContextMenuStrip = this.contextMenuStrip1;
             this.imageListView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imageListView1.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.imageListView1.Location = new System.Drawing.Point(771, 221);
+            this.imageListView1.Location = new System.Drawing.Point(686, 221);
             this.imageListView1.Name = "imageListView1";
-            this.imageListView1.PersistentCacheDirectory = "";
+            //this.imageListView1.PersistentCacheDirectory = "F:\\源码\\VideoRecordings/cache";
             this.imageListView1.PersistentCacheSize = ((long)(0));
-            this.imageListView1.Size = new System.Drawing.Size(220, 429);
+            this.imageListView1.Size = new System.Drawing.Size(195, 429);
             this.imageListView1.TabIndex = 21;
             this.imageListView1.UseWIC = Manina.Windows.Forms.UseWIC.ThumbnailsOnly;
             this.imageListView1.DoubleClick += new System.EventHandler(this.imageListView1_DoubleClick);
@@ -211,14 +210,14 @@
             this.videoPlayer1.Location = new System.Drawing.Point(3, 99);
             this.videoPlayer1.Name = "videoPlayer1";
             this.tableLayoutPanel1.SetRowSpan(this.videoPlayer1, 2);
-            this.videoPlayer1.Size = new System.Drawing.Size(762, 551);
+            this.videoPlayer1.Size = new System.Drawing.Size(677, 551);
             this.videoPlayer1.TabIndex = 22;
             // 
             // save_button
             // 
             this.save_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.save_button.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.save_button.Location = new System.Drawing.Point(1016, 656);
+            this.save_button.Location = new System.Drawing.Point(961, 656);
             this.save_button.Name = "save_button";
             this.save_button.Size = new System.Drawing.Size(89, 30);
             this.save_button.TabIndex = 14;
@@ -226,27 +225,13 @@
             this.save_button.UseVisualStyleBackColor = true;
             this.save_button.Click += new System.EventHandler(this.save_button_Click);
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(828, 663);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(105, 19);
-            this.linkLabel1.TabIndex = 23;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "截图存储地址";
-            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Red;
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label3, 2);
             this.label3.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label3.Location = new System.Drawing.Point(920, 23);
+            this.label3.Location = new System.Drawing.Point(878, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 23);
             this.label3.TabIndex = 5;
@@ -256,11 +241,11 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label2, 6);
-            this.label2.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label2.Location = new System.Drawing.Point(350, 23);
+            this.tableLayoutPanel1.SetColumnSpan(this.label2, 5);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.label2.Location = new System.Drawing.Point(359, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 23);
+            this.label2.Size = new System.Drawing.Size(78, 27);
             this.label2.TabIndex = 2;
             this.label2.Text = "播放区";
             // 
@@ -269,7 +254,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label1.Location = new System.Drawing.Point(11, 73);
+            this.label1.Location = new System.Drawing.Point(4, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 19);
             this.label1.TabIndex = 24;
@@ -280,7 +265,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label4.Location = new System.Drawing.Point(228, 73);
+            this.label4.Location = new System.Drawing.Point(197, 73);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 19);
             this.label4.TabIndex = 25;
@@ -290,23 +275,66 @@
             // 
             this.timeEdit_start.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.timeEdit_start.EditValue = new System.DateTime(2018, 3, 26, 0, 0, 0, 0);
-            this.timeEdit_start.Location = new System.Drawing.Point(130, 73);
+            this.timeEdit_start.Location = new System.Drawing.Point(116, 73);
             this.timeEdit_start.Name = "timeEdit_start";
             this.timeEdit_start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit_start.Size = new System.Drawing.Size(75, 20);
+            this.timeEdit_start.Size = new System.Drawing.Size(66, 20);
             this.timeEdit_start.TabIndex = 26;
             // 
             // timeEdit_end
             // 
             this.timeEdit_end.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.timeEdit_end.EditValue = new System.DateTime(2018, 3, 26, 0, 0, 0, 0);
-            this.timeEdit_end.Location = new System.Drawing.Point(356, 73);
+            this.timeEdit_end.Location = new System.Drawing.Point(317, 73);
             this.timeEdit_end.Name = "timeEdit_end";
             this.timeEdit_end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit_end.Size = new System.Drawing.Size(102, 20);
+            this.timeEdit_end.Size = new System.Drawing.Size(90, 20);
             this.timeEdit_end.TabIndex = 27;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(417, 73);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(105, 19);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "视频录制日期";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(532, 72);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(148, 27);
+            this.dateTimePicker1.TabIndex = 29;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Black;
+            this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(731, 663);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(105, 19);
+            this.linkLabel1.TabIndex = 23;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "截图存储地址";
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Red;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.button1.Location = new System.Drawing.Point(555, 660);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 26);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "使用外部播放器";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // other_button
             // 
@@ -314,7 +342,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.other_button, 3);
             this.other_button.ContextMenuStrip = this.DelcontextMenuStrip1;
             this.other_button.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.other_button.Location = new System.Drawing.Point(343, 656);
+            this.other_button.Location = new System.Drawing.Point(298, 656);
             this.other_button.Name = "other_button";
             this.other_button.Size = new System.Drawing.Size(117, 34);
             this.other_button.TabIndex = 15;
@@ -336,26 +364,19 @@
             this.DeletePToolStripMenuItem.Text = "清除已经保存的播放器";
             this.DeletePToolStripMenuItem.Click += new System.EventHandler(this.DeletePToolStripMenuItem_Click);
             // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(31, 25);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 19);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "label6";
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(475, 73);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 19);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "视频录制日期";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(598, 72);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(167, 27);
-            this.dateTimePicker1.TabIndex = 29;
             // 
             // VideoRecording
             // 
@@ -407,6 +428,8 @@
         private DevExpress.XtraEditors.TimeEdit timeEdit_end;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
     }
 }
 
