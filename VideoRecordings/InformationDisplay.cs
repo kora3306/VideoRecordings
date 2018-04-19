@@ -14,6 +14,8 @@ using System.Web.Script.Serialization;
 using System.IO;
 using Manina.Windows.Forms;
 using Newtonsoft.Json.Linq;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using System.Diagnostics;
 
 namespace VideoRecordings
 {
@@ -22,6 +24,7 @@ namespace VideoRecordings
         public VideoPlay transmissionvideo = new VideoPlay();     //当前选中的文件
         public List<VideoPlay> videoplays = new List<VideoPlay>();  //所有文件
         public List<string> imageurl = new List<string>();   //图片url
+        GridHitInfo hInfo = new GridHitInfo();
         VideoInformation information;     //主文件夹窗口
         VideoProject project;      //传入的文件夹
         bool isFirst = true;      //初次定位文件夹为0
@@ -32,6 +35,10 @@ namespace VideoRecordings
             InitializeComponent();
             information = info;
             PostVideos();
+            if (project!=null)
+            {
+                toolStripStatusLabel1.Text = $"视频 :{project.Name}    {project.Place}";
+            }           
         }
 
         /// <summary>
@@ -41,7 +48,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void InformationDisplay_Load(object sender, EventArgs e)
         {
-            label2.Text = $"欢迎:{Program.UserName}";
+            label2.Text = $"欢迎:{Program.UserName}";          
         }
 
 
@@ -62,7 +69,9 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void DELToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DelImage();
+            Methods.DelImage(imageListView1, imageurl);
+            PostVideos();
+            gridView1.RefreshData();
         }
 
         /// <summary>
@@ -85,7 +94,7 @@ namespace VideoRecordings
                     {
                         return true;
                     }
-                    transmissionvideo = videoplays[gridView1.FocusedRowHandle];
+                    transmissionvideo = (VideoPlay)gridView1.GetRow(gridView1.FocusedRowHandle);
                     GetIntToString();
                     return true;
                 case Keys.Down:
@@ -94,15 +103,27 @@ namespace VideoRecordings
                     {
                         return true;
                     }
-                    transmissionvideo = videoplays[gridView1.FocusedRowHandle];
+                    transmissionvideo = (VideoPlay)gridView1.GetRow(gridView1.FocusedRowHandle);
                     GetIntToString();
                     return true;
                 case Keys.D:
-                    DelImage();
+                    DELToolStripMenuItem.PerformClick();
                     return true;
                 case Keys.Escape:
                     this.WindowState = FormWindowState.Minimized;
                     information.Show();
+                    return true;
+                case Keys.Left:
+                    openimageToolStripMenuItem.PerformClick();
+                    return true;
+                case Keys.Right:
+                    openimageToolStripMenuItem.PerformClick();
+                    return true;
+                case Keys.F1:
+                    Methods.ShowListImages(imageListView1);
+                    return true;
+                case Keys.F2:
+                    OpenfolderToolStripMenuItem.PerformClick();
                     return true;
                 default:
                     break;
@@ -117,17 +138,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void imageListView1_DoubleClick(object sender, EventArgs e)
         {
-            if (imageListView1.SelectedItems.Count == 0)
-            {
-                return;
-            }
-            List<ImageListViewItem> showimages = new List<ImageListViewItem>();
-            foreach (var item in imageListView1.SelectedItems)
-            {
-                showimages.Add(item);
-            }
-            new ShowImage(showimages).ShowDialog();
-            Program.log.Error($"放大{showimages.First().FileName}");
+            Methods.ShowImage(imageListView1);
         }
 
         /// <summary>
@@ -137,7 +148,9 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            OpenVideoPaly();
+            if (gridView1.FocusedRowHandle < 0) return;
+            if (hInfo.InRowCell)
+                OpenVideoPaly();
         }
 
         /// <summary>
@@ -152,7 +165,7 @@ namespace VideoRecordings
             {
                 return;
             }
-            transmissionvideo = videoplays[rowIndex];
+            transmissionvideo = (VideoPlay)gridView1.GetRow(rowIndex);
             DeleteFolder(Program.ImageSavePath);
         }
 
@@ -163,10 +176,10 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void InformationDisplay_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (!Program.IsQuery)
-            {
-                information.Show();
-            }
+            //if (!Program.IsQuery)
+            //{
+            //    information.Show();
+            //}
         }
 
 
@@ -175,7 +188,7 @@ namespace VideoRecordings
         /// </summary>
         public void GetIntToString()
         {
-            if (transmissionvideo== null || transmissionvideo?.ImageId.Count == 0)
+            if (transmissionvideo == null || transmissionvideo?.ImageId.Count == 0)
             {
                 imageListView1.Items.Clear();
                 return;
@@ -196,7 +209,7 @@ namespace VideoRecordings
         {
             imageListView1.Items.Clear();
             List<ImageListViewItem> items = new List<ImageListViewItem>();
-            imageListView1.ThumbnailSize = new Size(260, 260);
+            imageListView1.ThumbnailSize = new Size(300, 180);
             foreach (string imageUrl in imageurl)
             {
                 ImageListViewItem item = new ImageListViewItem(imageUrl) { Text = imageUrl.Split('/').Last() };
@@ -234,33 +247,6 @@ namespace VideoRecordings
         }
 
         /// <summary>
-        /// 删除图片
-        /// </summary>
-        public void DelImage()
-        {
-            string url = Program.Urlpath + "/video/snapshot/";
-            if (imageListView1.SelectedItems.Count == 0)
-            {
-                return;
-            }
-            foreach (var item in imageListView1.SelectedItems)
-            {
-                JsonObject obj = WebClinetHepler.Delete(url + item.Text.Split('/').Last());
-                if (obj == null)
-                {
-                    MessageBox.Show(url + item.Text.Split('/').Last() + "删除失败");
-                    Program.log.Error($"删除了{item}", new Exception("删除失败"));
-                    return;
-                }
-                imageListView1.Items.Remove(item);
-                imageurl.Remove(url + item.Text.Split('/').Last());
-                Program.log.Error($"删除了{item}", new Exception("删除成功"));
-            }
-            PostVideos();
-            gridView1.RefreshData();          
-        }
-
-        /// <summary>
         /// 读取并加载信息
         /// </summary>
         public void PostVideos()
@@ -272,7 +258,7 @@ namespace VideoRecordings
             string posturl = Program.Urlpath + "/scan/video/project/" + project.Id.ToString();
             string geturl = Program.Urlpath + "/videos";
             string conditions = "project_name=" + project.Name;
-            JsonObject obj = WebClinetHepler.Post(posturl);
+            JObject obj = WebClinetHepler.Post_New(posturl);
             if (obj == null)
             {
                 MessageBox.Show("扫描文件失败");
@@ -331,15 +317,9 @@ namespace VideoRecordings
         public void GettListVideo(string url, string na)
         {
             videoplays.Clear();
-            JsonObject obj = WebClinetHepler.GetJson(url, na);
+            JObject obj = WebClinetHepler.GetJObject(url, na);
             if (obj == null) return;
-            JsonObject data = obj["videos"];
-            for (int i = 0; i < data.Length; i++)
-            {
-                string json = (new JavaScriptSerializer()).Serialize((Dictionary<string, object>)(object)data[i].Value);
-                VideoPlay video = JsonHelper.DeserializeDataContractJson<VideoPlay>(json);
-                videoplays.Add(video);
-            }
+            videoplays = JsonHelper.DeserializeDataContractJson<List<VideoPlay>>(obj["videos"].ToString());
             Program.log.Error($"获取{url}信息", new Exception("获取成功"));
         }
 
@@ -348,11 +328,11 @@ namespace VideoRecordings
         /// </summary>
         private void OpenVideoPaly()
         {
-            if (transmissionvideo == null|| transmissionvideo.Uri == null) return;
+            if (transmissionvideo == null || transmissionvideo.Uri == null) return;
             if (File.Exists(Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri))))
             {
-                new VideoRecording(transmissionvideo, this).Show();
-                Program.log.Error($"打开{Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri))}",new Exception("打开成功"));
+                new VideoRecording(transmissionvideo,false, this).Show();
+                Program.log.Error($"打开{Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri))}", new Exception("打开成功"));
             }
             else
             {
@@ -360,7 +340,7 @@ namespace VideoRecordings
                                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                 if (MsgBoxResult == DialogResult.Yes)
                 {
-                    new VideoRecording(transmissionvideo, this).Show();
+                    new VideoRecording(transmissionvideo,false, this).Show();
                     Program.log.Error($"打开{Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri))}", new Exception("没有找到视频"));
                 }
                 else
@@ -402,7 +382,7 @@ namespace VideoRecordings
                 return;
             }
             //e.Appearance.Font = new System.Drawing.Font("", 8, FontStyle.Regular);
-            VideoPlay video = videoplays[e.RowHandle];
+            VideoPlay video = (VideoPlay)gridView1.GetRow(e.RowHandle);
             if (video.ImageId.Count != 0 && video.Labels.Count != 0)
             {
                 e.Appearance.BackColor = Color.LightGreen;
@@ -444,9 +424,9 @@ namespace VideoRecordings
         {
             if (MessageBox.Show($"是否删除编号{transmissionvideo.Id}的视频？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
                 return;
-            string url = Program.Urlpath + "/video/"+ transmissionvideo.Id;
+            string url = Program.Urlpath + "/video/" + transmissionvideo.Id;
             JObject obj = WebClinetHepler.Delete_New(url);
-            if (obj==null)
+            if (obj == null)
             {
                 MessageBox.Show("删除失败");
                 Program.log.Error($"删除{transmissionvideo.Id}失败", new Exception($"{url}"));
@@ -457,72 +437,22 @@ namespace VideoRecordings
             information.GetInformationShow();
             Program.log.Error($"删除{transmissionvideo.Id}", new Exception($"{url}"));
         }
-    }
 
-    /// <summary>
-    /// 视频文件类
-    /// </summary>
-    [DataContract]
-    public class VideoPlay
-    {
-        [DataMember(Name = "id")]
-        public int Id { get; set; }
-
-        [DataMember(Name = "name")]
-        public string Name { get; set; }
-
-        [DataMember(Name = "project_name")]
-        public string ProjectName { get; set; }
-
-        [DataMember(Name = "uri")]
-        public string Uri { get; set; }
-
-        [DataMember(Name = "status")]
-        public string Status { get; set; }
-
-        [DataMember(Name = "recorded")]
-        public string Recorded { get; set; }
-
-        [DataMember(Name = "deframed")]
-        public string Deframed { get; set; }
-
-
-        [DataMember(Name = "frame_path")]
-        public string FramePath { get; set; }
-
-        [DataMember(Name = "create_time")]
-        public string CreateTime { get; set; }
-
-        [DataMember(Name = "labels")]
-        public List<string> Labels;
-
-        public string Label
+        private void openimageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            get
-            {
-                return string.Join(",", Labels);
-            }
+            Methods.ShowImage(imageListView1);
         }
 
-        [DataMember(Name = "snapshot_ids")]
-        public List<int> ImageId;
-
-        public string Images
+        private void OpenfolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            get
-            {
-                return string.Join(",", ImageId);
-            }
+            Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri)));
         }
 
-        [DataMember(Name = "start_time")]
-        public string StartTime { get; set; }
-
-        [DataMember(Name = "end_time")]
-        public string EndTime { get; set; }
-
-        [DataMember(Name = "record_time")]
-        public string RecordTime { get; set; }
+        private void gridView1_MouseDown(object sender, MouseEventArgs e)
+        {
+            hInfo = gridView1.CalcHitInfo(e.Y, e.Y);
+        }
     }
+
 
 }

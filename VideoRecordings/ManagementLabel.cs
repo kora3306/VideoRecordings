@@ -248,5 +248,16 @@ namespace VideoRecordings
             GetLabels();
             RefreshTreeView();
         }
+
+        private void treeView1_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            TreeNode node = e.Node;
+            if (node.Nodes.Count == 0)
+                return;
+            if (node.Checked)
+                node.Nodes.OfType<TreeNode>().ToList().ForEach(x => x.Checked = true);
+            else
+                node.Nodes.OfType<TreeNode>().ToList().ForEach(x => x.Checked = false);
+        }
     }
 }

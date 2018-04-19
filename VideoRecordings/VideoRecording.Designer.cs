@@ -35,11 +35,14 @@
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.清空已有标签ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.imageListView1 = new Manina.Windows.Forms.ImageListView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ReToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openimageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.videoPlayer1 = new DXApplication1.VideoPlayer();
             this.save_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -68,14 +71,14 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 8;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.74322F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.148893F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.58753F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.86519F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.48089F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.40443F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.71493F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 239F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.44355F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.957259F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.24448F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.60968F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.16387F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.99514F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.58603F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 244F));
             this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label_treeView, 7, 1);
             this.tableLayoutPanel1.Controls.Add(this.treeView1, 6, 1);
@@ -105,9 +108,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 435F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1127, 723);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -125,10 +125,10 @@
             // 
             this.label_treeView.ContextMenuStrip = this.contextMenuStrip2;
             this.label_treeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_treeView.Location = new System.Drawing.Point(887, 72);
+            this.label_treeView.Location = new System.Drawing.Point(882, 72);
             this.label_treeView.Name = "label_treeView";
             this.tableLayoutPanel1.SetRowSpan(this.label_treeView, 3);
-            this.label_treeView.Size = new System.Drawing.Size(237, 578);
+            this.label_treeView.Size = new System.Drawing.Size(242, 578);
             this.label_treeView.TabIndex = 16;
             this.label_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.label_treeView_AfterSelect);
             this.label_treeView.DoubleClick += new System.EventHandler(this.label_treeView_DoubleClick);
@@ -137,9 +137,11 @@
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.清空已有标签ToolStripMenuItem,
-            this.openToolStripMenuItem});
+            this.openToolStripMenuItem,
+            this.copyToolStripMenuItem,
+            this.pasteToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(178, 48);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(178, 92);
             // 
             // 清空已有标签ToolStripMenuItem
             // 
@@ -155,14 +157,29 @@
             this.openToolStripMenuItem.Text = "打开/关闭所有节点";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.copyToolStripMenuItem.Text = "复制标签";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // pasteToolStripMenuItem
+            // 
+            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.pasteToolStripMenuItem.Text = "粘贴标签";
+            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
+            // 
             // treeView1
             // 
             this.treeView1.ContextMenuStrip = this.contextMenuStrip2;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(686, 72);
+            this.treeView1.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.treeView1.Location = new System.Drawing.Point(677, 72);
             this.treeView1.Name = "treeView1";
             this.tableLayoutPanel1.SetRowSpan(this.treeView1, 2);
-            this.treeView1.Size = new System.Drawing.Size(195, 143);
+            this.treeView1.Size = new System.Drawing.Size(199, 143);
             this.treeView1.TabIndex = 18;
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
@@ -172,11 +189,11 @@
             this.imageListView1.ContextMenuStrip = this.contextMenuStrip1;
             this.imageListView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imageListView1.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.imageListView1.Location = new System.Drawing.Point(686, 221);
+            this.imageListView1.Location = new System.Drawing.Point(677, 221);
             this.imageListView1.Name = "imageListView1";
             //this.imageListView1.PersistentCacheDirectory = "F:\\源码\\VideoRecordings/cache";
             this.imageListView1.PersistentCacheSize = ((long)(0));
-            this.imageListView1.Size = new System.Drawing.Size(195, 429);
+            this.imageListView1.Size = new System.Drawing.Size(199, 429);
             this.imageListView1.TabIndex = 21;
             this.imageListView1.UseWIC = Manina.Windows.Forms.UseWIC.ThumbnailsOnly;
             this.imageListView1.DoubleClick += new System.EventHandler(this.imageListView1_DoubleClick);
@@ -185,23 +202,31 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DelToolStripMenuItem,
-            this.ReToolStripMenuItem});
+            this.ReToolStripMenuItem,
+            this.openimageToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 70);
             // 
             // DelToolStripMenuItem
             // 
             this.DelToolStripMenuItem.Name = "DelToolStripMenuItem";
-            this.DelToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.DelToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.DelToolStripMenuItem.Text = "删除截图";
             this.DelToolStripMenuItem.Click += new System.EventHandler(this.DelToolStripMenuItem_Click);
             // 
             // ReToolStripMenuItem
             // 
             this.ReToolStripMenuItem.Name = "ReToolStripMenuItem";
-            this.ReToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.ReToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.ReToolStripMenuItem.Text = "刷新图片";
             this.ReToolStripMenuItem.Click += new System.EventHandler(this.ReToolStripMenuItem_Click);
+            // 
+            // openimageToolStripMenuItem
+            // 
+            this.openimageToolStripMenuItem.Name = "openimageToolStripMenuItem";
+            this.openimageToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.openimageToolStripMenuItem.Text = "放大选中图片";
+            this.openimageToolStripMenuItem.Click += new System.EventHandler(this.openimageToolStripMenuItem_Click);
             // 
             // videoPlayer1
             // 
@@ -210,14 +235,14 @@
             this.videoPlayer1.Location = new System.Drawing.Point(3, 99);
             this.videoPlayer1.Name = "videoPlayer1";
             this.tableLayoutPanel1.SetRowSpan(this.videoPlayer1, 2);
-            this.videoPlayer1.Size = new System.Drawing.Size(677, 551);
+            this.videoPlayer1.Size = new System.Drawing.Size(668, 551);
             this.videoPlayer1.TabIndex = 22;
             // 
             // save_button
             // 
             this.save_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.save_button.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.save_button.Location = new System.Drawing.Point(961, 656);
+            this.save_button.Location = new System.Drawing.Point(958, 656);
             this.save_button.Name = "save_button";
             this.save_button.Size = new System.Drawing.Size(89, 30);
             this.save_button.TabIndex = 14;
@@ -231,7 +256,7 @@
             this.label3.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label3, 2);
             this.label3.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label3.Location = new System.Drawing.Point(878, 23);
+            this.label3.Location = new System.Drawing.Point(873, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 23);
             this.label3.TabIndex = 5;
@@ -243,7 +268,7 @@
             this.label2.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label2, 5);
             this.label2.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.label2.Location = new System.Drawing.Point(359, 21);
+            this.label2.Location = new System.Drawing.Point(353, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 27);
             this.label2.TabIndex = 2;
@@ -254,7 +279,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label1.Location = new System.Drawing.Point(4, 73);
+            this.label1.Location = new System.Drawing.Point(3, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 19);
             this.label1.TabIndex = 24;
@@ -265,7 +290,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label4.Location = new System.Drawing.Point(197, 73);
+            this.label4.Location = new System.Drawing.Point(193, 73);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 19);
             this.label4.TabIndex = 25;
@@ -275,29 +300,29 @@
             // 
             this.timeEdit_start.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.timeEdit_start.EditValue = new System.DateTime(2018, 3, 26, 0, 0, 0, 0);
-            this.timeEdit_start.Location = new System.Drawing.Point(116, 73);
+            this.timeEdit_start.Location = new System.Drawing.Point(114, 73);
             this.timeEdit_start.Name = "timeEdit_start";
             this.timeEdit_start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit_start.Size = new System.Drawing.Size(66, 20);
+            this.timeEdit_start.Size = new System.Drawing.Size(65, 20);
             this.timeEdit_start.TabIndex = 26;
             // 
             // timeEdit_end
             // 
             this.timeEdit_end.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.timeEdit_end.EditValue = new System.DateTime(2018, 3, 26, 0, 0, 0, 0);
-            this.timeEdit_end.Location = new System.Drawing.Point(317, 73);
+            this.timeEdit_end.Location = new System.Drawing.Point(312, 73);
             this.timeEdit_end.Name = "timeEdit_end";
             this.timeEdit_end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit_end.Size = new System.Drawing.Size(90, 20);
+            this.timeEdit_end.Size = new System.Drawing.Size(89, 20);
             this.timeEdit_end.TabIndex = 27;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(417, 73);
+            this.label5.Location = new System.Drawing.Point(410, 73);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 19);
             this.label5.TabIndex = 28;
@@ -305,9 +330,9 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(532, 72);
+            this.dateTimePicker1.Location = new System.Drawing.Point(525, 72);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(148, 27);
+            this.dateTimePicker1.Size = new System.Drawing.Size(142, 27);
             this.dateTimePicker1.TabIndex = 29;
             // 
             // linkLabel1
@@ -315,7 +340,7 @@
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Black;
             this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(731, 663);
+            this.linkLabel1.Location = new System.Drawing.Point(724, 663);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(105, 19);
             this.linkLabel1.TabIndex = 23;
@@ -328,7 +353,7 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.button1.Location = new System.Drawing.Point(555, 660);
+            this.button1.Location = new System.Drawing.Point(547, 660);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 26);
             this.button1.TabIndex = 19;
@@ -342,7 +367,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.other_button, 3);
             this.other_button.ContextMenuStrip = this.DelcontextMenuStrip1;
             this.other_button.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.other_button.Location = new System.Drawing.Point(298, 656);
+            this.other_button.Location = new System.Drawing.Point(293, 656);
             this.other_button.Name = "other_button";
             this.other_button.Size = new System.Drawing.Size(117, 34);
             this.other_button.TabIndex = 15;
@@ -368,7 +393,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 25);
+            this.label6.Location = new System.Drawing.Point(30, 25);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 19);
             this.label6.TabIndex = 30;
@@ -430,6 +455,9 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openimageToolStripMenuItem;
     }
 }
 

@@ -126,3 +126,4 @@ F:\源码\VideoRecordings\VideoRecordings\bin\Debug\MySql.Data.xml
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.ManagementLabel.resources
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.UpdateLabel.resources
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\log4net.dll
+F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.SelectLabel.resources

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Web.Script.Serialization;
 using Common;
+using Newtonsoft.Json.Linq;
 
 namespace VideoRecordings
 {
@@ -55,7 +56,7 @@ namespace VideoRecordings
             {
                 return;
             }
-            JsonObject obj = WebClinetHepler.Patch(url, json);
+            JObject obj = WebClinetHepler.Patch_New(url, json);
             if (obj == null)
             {
                 MessageBox.Show("修改失败");

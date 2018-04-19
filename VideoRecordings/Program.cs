@@ -43,7 +43,7 @@ namespace VideoRecordings
         /// </summary>
         public static string Urlpath = "http://192.168.1.198:16080";
         //public const string Urlpath = "http://192.168.1.225:18080";
-
+        public static List<string> labels = new List<string>();
 
 
         public const string PathUrl = @"\\192.168.1.158";
@@ -57,10 +57,6 @@ namespace VideoRecordings
 
         public static string UserName = string.Empty;
         public static string LogName = string.Empty;
-        /// <summary>
-        /// 是否进入的查询的界面
-        /// </summary>
-        public static bool IsQuery = false;
         /// <summary>
         /// 获取配置信息
         /// </summary>
@@ -175,6 +171,7 @@ namespace VideoRecordings
                 case "md4":
                     return Url2 + @"\iscdata" + url;
                 case "md5":
+                case "md6":
                     return Url3 + url;
                 default:
                     break;

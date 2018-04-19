@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Web.Script.Serialization;
 using Common;
+using Newtonsoft.Json.Linq;
 
 namespace VideoRecordings
 {
@@ -69,7 +70,7 @@ namespace VideoRecordings
             };
 
             string json = JsonHelper.SerializeDataContractJson(video_project);
-            JsonObject returnobj = WebClinetHepler.Post(posturl, json);
+            JObject returnobj = WebClinetHepler.Post_New(posturl, json);
             if (returnobj == null)
             {
                 MessageBox.Show("上传失败");

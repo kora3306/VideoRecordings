@@ -106,11 +106,19 @@
     <Compile Include="ManagementLabel.Designer.cs">
       <DependentUpon>ManagementLabel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Methods.cs" />
+    <Compile Include="Model.cs" />
     <Compile Include="QueryVideo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="QueryVideo.Designer.cs">
       <DependentUpon>QueryVideo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectLabel.Designer.cs">
+      <DependentUpon>SelectLabel.cs</DependentUpon>
     </Compile>
     <Compile Include="ShowImage.cs">
       <SubType>Form</SubType>
@@ -162,6 +170,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="QueryVideo.resx">
       <DependentUpon>QueryVideo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectLabel.resx">
+      <DependentUpon>SelectLabel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ShowImage.resx">
       <DependentUpon>ShowImage.cs</DependentUpon>

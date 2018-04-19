@@ -13,6 +13,9 @@ using System.Web.Script.Serialization;
 using System.IO;
 using Manina.Windows.Forms;
 using Newtonsoft.Json.Linq;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace VideoRecordings
 {
@@ -22,15 +25,57 @@ namespace VideoRecordings
         public List<VideoPlay> videoplays = new List<VideoPlay>();  //所有筛选的文件
         public List<string> imageurl = new List<string>();       //选中文件的图片的url
         bool isFirst = true;  //每次查询选择定位选中文件0
+        List<VideoProject> Videos = new List<VideoProject>();
         VideoInformation information;
-        public QueryVideo(VideoInformation video)
-        {   
+        GridHitInfo hInfo = new GridHitInfo();
+        Dictionary<string, string> LabelsNumber = new Dictionary<string, string>();   // 标签对照
+        Dictionary<string, string> LabelAll = new Dictionary<string, string>();
+        List<TreeNode> Nodes = new List<TreeNode>();
+
+        public QueryVideo(VideoInformation video, List<VideoProject> inform)
+        {
             InitializeComponent();
             information = video;
-            Program.IsQuery = true;
+            Videos = inform;           
             timeEdit_start.Time = DateTime.MinValue;
             timeEdit_end.Time = DateTime.MaxValue;
-            comboBox_jl.SelectedIndex = 1;
+        }
+
+        private void QueryVideo_Load(object sender, EventArgs e)
+        {
+            Nodes = GetLabels();
+            SetInformations();
+            SetRadioButton();
+            comboBox_proname.SelectedIndex = -1;
+            comboBox_place.SelectedIndex = -1;
+            comboBox_replicator.SelectedIndex = -1;
+            dateTimePicker1.Value = Convert.ToDateTime("2010-1-1");
+            dateTimePicker2.Value = DateTime.Now;
+            List<string> text = LabelAll.Select(t => t.Value).ToList();
+            textBox_label.AutoCompleteCustomSource.Clear();
+            textBox_label.AutoCompleteCustomSource.AddRange(text.ToArray());
+            textBox1.AutoCompleteCustomSource.Clear();
+            textBox1.AutoCompleteCustomSource.AddRange(text.ToArray());
+            label14.Text = $"欢迎:{Program.UserName}";
+        }
+
+        private void SetInformations()
+        {
+            if (Videos == null || Videos.Count == 0) return;
+            string getpath = Program.Urlpath + "/video/projects";
+            var result = Videos.Where(p => !Videos.Any(q => (p != q && p.Scenes == q.Scenes)));
+            List<string> pronames = Videos.Select(t => t.Name).ToList();
+            comboBox_proname.DataSource = pronames;
+            comboBox_proname.AutoCompleteCustomSource.Clear();
+            comboBox_proname.AutoCompleteCustomSource.AddRange(pronames.ToArray());
+            List<string> places = RepeatList(Videos, "place");
+            comboBox_place.DataSource = places;
+            comboBox_place.AutoCompleteCustomSource.Clear();
+            comboBox_place.AutoCompleteCustomSource.AddRange(places.ToArray());
+            List<string> replicators = RepeatList(Videos, "replicator");
+            comboBox_replicator.DataSource = replicators;
+            comboBox_replicator.AutoCompleteCustomSource.Clear();
+            comboBox_replicator.AutoCompleteCustomSource.AddRange(replicators.ToArray());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -48,39 +93,73 @@ namespace VideoRecordings
             string getjson = string.Empty;
             try
             {
-                if (textBox_name.Text.Trim() != string.Empty)
+                if (comboBox_proname.SelectedIndex != -1)
+                {
+                    getjson += $"project_name={comboBox_proname.Text.Trim()}&";
+                }
+                if (comboBox_place.SelectedIndex != -1)
+                {
+                    getjson += $"place={comboBox_place.Text}&";
+                }
+                if (comboBox_replicator.SelectedIndex != -1)
+                {
+                    getjson += $"replicator={comboBox_replicator.Text}&";
+                }
+                if (!string.IsNullOrEmpty(textBox_name.Text))
                 {
                     getjson += $"name={textBox_name.Text.Trim()}&";
                 }
-                if (comboBox_stu.Text != string.Empty)
-                {
-                    getjson += $"status={comboBox_stu.SelectedIndex}&";
-                }
-                if (textBox_fid.Text.Trim() != string.Empty)
-                {
-                    getjson += $"project_name={textBox_fid.Text.Trim()}&";
-                }
-                if (comboBox_jl.Text != string.Empty)
-                {
-                    getjson += $"recorded={comboBox_jl.SelectedIndex}&";
-                }
-                if (comboBox_jz.Text != string.Empty)
-                {
-                    getjson += $"deframed={comboBox_jz.SelectedIndex}&";
-                }
-                if (textBox_vid.Text.Trim() != string.Empty)
+                if (!string.IsNullOrEmpty(textBox_vid.Text))
                 {
                     getjson += $"id={textBox_vid.Text.Trim()}&";
                 }
+                if (!radioButton3.Checked)
+                {
+                    if (radioButton1.Checked)
+                    {
+                        getjson += "status=0&";
+                    }
+                    if (radioButton2.Checked)
+                    {
+                        getjson += "status=1&";
+                    }
+                }
+                if (!radioButton6.Checked)
+                {
+                    if (radioButton4.Checked)
+                    {
+                        getjson += "recorded=1&";
+                    }
+                    if (radioButton5.Checked)
+                    {
+                        getjson += "recorded=0&";
+                    }
+                }
+                if (!radioButton9.Checked)
+                {
+                    if (radioButton7.Checked)
+                    {
+                        getjson += "deframed=1&";
+                    }
+                    if (radioButton8.Checked)
+                    {
+                        getjson += "deframed=0&";
+                    }
+                }
+                getjson += $"start_date={dateTimePicker1.Value.ToString("yyyy-MM-dd")}&end_date={dateTimePicker2.Value.ToString("yyyy-MM-dd")}&";
+
+                getjson += $"start_time={timeEdit_start.Text}&end_time={timeEdit_end.Text}&";
+
                 if (textBox_label.Text.Trim() != string.Empty)
                 {
-                    getjson += $"label[]={Conversion(textBox_label.Text.Trim())}&";
+                    getjson += $"label[]=[{GetLabesString(textBox_label.Text)}]&";
                 }
-                if (!getjson.EndsWith("&"))
+
+                if (getjson.EndsWith("&"))
                 {
-                    getjson += "&";
+                    getjson = getjson.Substring(0, getjson.Length - 1);
                 }
-                getjson += $"start_time={timeEdit_start.Text}&end_time={timeEdit_end.Text}";
+
                 return getjson;
 
             }
@@ -106,7 +185,7 @@ namespace VideoRecordings
                 {
                     return;
                 }
-            }        
+            }
             string url = Program.Urlpath + "/videos";
             GettListVideo(url, json);
             bindingSource1.DataSource = videoplays;
@@ -147,15 +226,9 @@ namespace VideoRecordings
         public void GettListVideo(string url, string na)
         {
             videoplays.Clear();
-            JsonObject obj = WebClinetHepler.GetJson(url, na);
+            JObject obj = WebClinetHepler.GetJObject(url, na);
             if (obj == null) return;
-            JsonObject data = obj["videos"];
-            for (int i = 0; i < data.Length; i++)
-            {
-                string json = (new JavaScriptSerializer()).Serialize((Dictionary<string, object>)(object)data[i].Value);
-                VideoPlay video = JsonHelper.DeserializeDataContractJson<VideoPlay>(json);
-                videoplays.Add(video);
-            }
+            videoplays = JsonHelper.DeserializeDataContractJson<List<VideoPlay>>(obj["videos"].ToString());
         }
 
         /// <summary>
@@ -175,32 +248,56 @@ namespace VideoRecordings
             switch (keyData)
             {
                 case Keys.Enter:
+                    if (SetScreeningLabels())
+                    {
+                        return true;
+                    }
                     button1.PerformClick();
                     break;
                 case Keys.D:
-                    DelImage();
+                    DELToolStripMenuItem.PerformClick();
                     return true;
                 case Keys.Up:
-                    gridView1.FocusedRowHandle = gridView1.FocusedRowHandle == 0 ? 0 : gridView1.FocusedRowHandle - 1;
-                    if (gridView1.FocusedRowHandle<0)
+                    if (gridControl1.Focused)
                     {
+                        gridView1.FocusedRowHandle = gridView1.FocusedRowHandle == 0 ? 0 : gridView1.FocusedRowHandle - 1;
+                        if (gridView1.FocusedRowHandle < 0)
+                        {
+                            return true;
+                        }
+                        transmissionvideo = (VideoPlay)gridView1.GetRow(gridView1.FocusedRowHandle);
+                        GetIntToString();
                         return true;
                     }
-                    transmissionvideo = videoplays[gridView1.FocusedRowHandle];
-                    GetIntToString();
-                    return true;
+                    return base.ProcessCmdKey(ref msg, keyData);
                 case Keys.Down:
-                    gridView1.FocusedRowHandle = gridView1.FocusedRowHandle == gridView1.RowCount - 1 ? gridView1.RowCount - 1 : gridView1.FocusedRowHandle + 1;
-                    if (gridView1.FocusedRowHandle < 0)
+                    if (gridControl1.Focused)
                     {
+                        gridView1.FocusedRowHandle = gridView1.FocusedRowHandle == gridView1.RowCount - 1 ? gridView1.RowCount - 1 : gridView1.FocusedRowHandle + 1;
+                        if (gridView1.FocusedRowHandle < 0)
+                        {
+                            return true;
+                        }
+                        transmissionvideo = (VideoPlay)gridView1.GetRow(gridView1.FocusedRowHandle);
+                        GetIntToString();
                         return true;
                     }
-                    transmissionvideo = videoplays[gridView1.FocusedRowHandle];
-                    GetIntToString();
-                    return true;
+                    return base.ProcessCmdKey(ref msg, keyData);
                 case Keys.Escape:
                     information.Show();
                     this.Close();
+                    return true;
+                case Keys.Left:
+                    openToolStripMenuItem.PerformClick();
+                    return true;
+                case Keys.Right:
+                    openToolStripMenuItem.PerformClick();
+                    return true;
+                case Keys.F1:
+                    Methods.ShowListImages(imageListView1);
+                    return true;
+                case Keys.F2:
+                    Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri)));
                     return true;
                 default:
                     break;
@@ -243,7 +340,7 @@ namespace VideoRecordings
             {
                 return;
             }
-            transmissionvideo = videoplays[rowIndex];
+            transmissionvideo = (VideoPlay)gridView1.GetRow(rowIndex);
             DeleteFolder(Program.ImageSavePath);
         }
 
@@ -279,7 +376,7 @@ namespace VideoRecordings
         /// </summary>
         public void GetIntToString()
         {
-            if (transmissionvideo==null||transmissionvideo.ImageId == null)
+            if (transmissionvideo == null || transmissionvideo.ImageId == null)
             {
                 imageListView1.Items.Clear();
                 return;
@@ -300,7 +397,7 @@ namespace VideoRecordings
         {
             imageListView1.Items.Clear();
             List<ImageListViewItem> items = new List<ImageListViewItem>();
-            imageListView1.ThumbnailSize = new Size(260, 260);
+            imageListView1.ThumbnailSize = new Size(300, 150);
             foreach (string imageUrl in imageurl)
             {
                 ImageListViewItem item = new ImageListViewItem(imageUrl) { Text = imageUrl.Split('/').Last() };
@@ -326,7 +423,9 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            OpenVideoPaly();
+            if (gridView1.FocusedRowHandle < 0) return;
+            if (hInfo.InRowCell)
+                OpenVideoPaly();
         }
 
         /// <summary>
@@ -337,7 +436,7 @@ namespace VideoRecordings
             if (transmissionvideo.Uri == null) return;
             if (File.Exists(Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri))))
             {
-                new VideoRecording(transmissionvideo, new InformationDisplay(null, null), this).Show();
+                new VideoRecording(transmissionvideo,true, new InformationDisplay(null, null), this).Show();
             }
             else
             {
@@ -345,7 +444,7 @@ namespace VideoRecordings
                                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                 if (MsgBoxResult == DialogResult.Yes)
                 {
-                    new VideoRecording(transmissionvideo, new InformationDisplay(null, null), this).Show();
+                    new VideoRecording(transmissionvideo,true,new InformationDisplay(null,null),this).Show();
                 }
                 else
                 {
@@ -353,7 +452,6 @@ namespace VideoRecordings
                 }
             }
         }
-
 
         /// <summary>
         /// 转化需要的路径
@@ -382,6 +480,7 @@ namespace VideoRecordings
                 if (item.Name == play.Name)
                 {
                     item.Labels = play.Labels;
+                    gridView1.FocusedRowHandle = 0;
                     break;
                 }
             }
@@ -395,7 +494,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void QueryVideo_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Program.IsQuery = false;
+            //Program.IsQuery = false;
         }
 
         /// <summary>
@@ -405,42 +504,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void imageListView1_DoubleClick(object sender, EventArgs e)
         {
-            if (imageListView1.SelectedItems.Count == 0)
-            {
-                return;
-            }
-            List<ImageListViewItem> showimages = new List<ImageListViewItem>();
-            foreach (var item in imageListView1.SelectedItems)
-            {
-                showimages.Add(item);
-            }
-            new ShowImage(showimages).ShowDialog();
-        }
-
-        /// <summary>
-        /// 删除图片
-        /// </summary>
-        public void DelImage()
-        {
-            string url = Program.Urlpath + "/video/snapshot/";
-            if (imageListView1.SelectedItems.Count == 0)
-            {
-                return;
-            }
-            foreach (var item in imageListView1.SelectedItems)
-            {
-                JsonObject obj = WebClinetHepler.Delete(url + item.Text.Split('/').Last());
-                if (obj == null)
-                {
-                    MessageBox.Show(url + item.Text.Split('/').Last() + "删除失败");
-                    return;
-                }
-                imageListView1.Items.Remove(item);
-                imageurl.Remove(url + item.Text.Split('/').Last());
-            }
-            RefreshImage();
-            gridView1.RefreshData();
-            Program.log.Error($"删除图片{url}");
+            Methods.ShowImage(imageListView1);
         }
 
         /// <summary>
@@ -450,7 +514,9 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void DELToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DelImage();
+            Methods.DelImage(imageListView1, imageurl);
+            RefreshImage();
+            gridView1.RefreshData();
         }
 
         /// <summary>
@@ -464,7 +530,7 @@ namespace VideoRecordings
             {
                 return;
             }
-            VideoPlay video = videoplays[e.RowHandle];
+            VideoPlay video = (VideoPlay)gridView1.GetRow(e.RowHandle);
             if (video.ImageId.Count != 0 && video.Labels.Count != 0)
             {
                 e.Appearance.BackColor = Color.LightGreen;
@@ -496,5 +562,160 @@ namespace VideoRecordings
             information.GetInformationShow();
             Program.log.Error($"删除{transmissionvideo.Id}", new Exception($"{url}"));
         }
+
+        private void SetRadioButton()
+        {
+            radioButton1.Checked = true;
+            radioButton4.Checked = true;
+            radioButton9.Checked = true;
+        }
+
+        /// <summary>
+        /// 提取不重复的集合属性
+        /// </summary>
+        /// <param name="video"></param>
+        /// <param name="i"></param>
+        /// <returns></returns>
+        private List<string> RepeatList(List<VideoProject> video, string i)
+        {
+            List<string> relist = new List<string>();
+            switch (i)
+            {
+                case "place":
+                    foreach (var item in video)
+                    {
+                        if (!relist.Contains(item.Place))
+                        {
+                            relist.Add(item.Place);
+                        }
+                    }
+                    break;
+                case "replicator":
+                    foreach (var item in video)
+                    {
+                        if (!relist.Contains(item.Replicator))
+                        {
+                            relist.Add(item.Replicator);
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+            return relist;
+        }
+
+        public List<TreeNode> GetLabels()
+        {
+            string url = Program.Urlpath + "/labels";
+            JObject obj = WebClinetHepler.GetJObject(url);
+            if (obj == null || obj["result"] == null || obj["result"].Count() == 0)
+            {
+                return null;
+            }
+            List<TreeNode> items = new List<TreeNode>();
+            for (int i = 0; i < obj["result"].Count(); i++)
+            {
+                TreeNode tree = new TreeNode
+                {
+                    Text = obj["result"][i]["name"].ToString(),
+                    ForeColor = Color.Green
+                };
+                LabelsNumber.Add(obj["result"][i]["id"].ToString(), obj["result"][i]["name"].ToString());
+                for (int j = 0; j < obj["result"][i]["children"].Count(); j++)
+                {
+                    TreeNode node = new TreeNode
+                    {
+                        Text = obj["result"][i]["children"][j]["name"].ToString(),
+                        Tag = obj["result"][i]["children"][j]["is_fre"].ToString(),
+                        ForeColor = Color.Blue
+                    };
+                    LabelAll.Add(obj["result"][i]["children"][j]["id"].ToString(), obj["result"][i]["children"][j]["name"].ToString());
+                    tree.Nodes.Add(node);
+                }
+                items.Add(tree);
+            }
+            return items;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (LabelsNumber.Count == 0) return;
+            button1.Focus();
+            new SelectLabel(this, Nodes, LabelsNumber, textBox_label.Text).ShowDialog();
+        }
+
+        public void StartScreening(List<string> label)
+        {
+            textBox_label.Text = string.Join(",", label);
+        }
+
+        public string GetLabesString(string text)
+        {
+            List<string> labels = text.Split(',').ToList();
+            string labeljson = string.Empty; ;
+            foreach (var item in labels)
+            {
+                if (LabelAll.Values.Contains(item))
+                {
+                    string keys = LabelAll.Where(q => q.Value == item).Select(q => q.Key).First();
+                    labeljson += keys + ",";
+                }
+            }
+            if (labeljson.EndsWith(","))
+            {
+                labeljson = labeljson.Substring(0, labeljson.Length - 1);
+            }
+            return labeljson;
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Methods.ShowListImages(imageListView1);
+        }
+        /// <summary>
+        /// 重置标签
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button3_Click(object sender, EventArgs e)
+        {
+            RefAllConditions();
+        }
+
+        private void gridControl1_MouseDown(object sender, MouseEventArgs e)
+        {
+            hInfo = gridView1.CalcHitInfo(e.Y, e.Y);
+        }
+
+        private bool SetScreeningLabels()
+        {
+            if (textBox1.Focused)
+            {
+                textBox_label.Text += textBox1.Text + ",";
+                textBox1.Text = string.Empty;
+                return true;
+            }
+            return false;
+        }
+
+        private void RefAllConditions()
+        {
+            SetRadioButton();
+            comboBox_proname.SelectedIndex = -1;
+            comboBox_proname.Text = string.Empty;
+            comboBox_replicator.SelectedIndex = -1;
+            comboBox_replicator.Text = string.Empty;
+            comboBox_place.SelectedIndex = -1;
+            comboBox_place.Text = string.Empty;
+            dateTimePicker1.Value = Convert.ToDateTime("2010-1-1");
+            dateTimePicker2.Value = DateTime.Now;
+            timeEdit_start.Time = DateTime.MinValue;
+            timeEdit_end.Time = DateTime.MaxValue;
+            textBox_label.Text = string.Empty;
+            textBox_name.Text = string.Empty;
+            textBox_vid.Text = string.Empty;
+        }
+
     }
 }

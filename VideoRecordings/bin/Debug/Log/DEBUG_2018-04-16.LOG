@@ -1,0 +1,11 @@
+2018-04-16 09:32:32,301 [1]DEBUG Common.WebClinetHepler - 接口耗时578ms,url:http://192.168.1.198:18080/videos
+2018-04-16 09:43:30,024 [1]DEBUG VideoRecordings.Program - 清空文件夹F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 09:44:34,485 [1]DEBUG VideoRecordings.Program - 清空文件夹F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 09:45:11,720 [1]DEBUG Common.WebClinetHepler - 接口耗时515ms,url:http://192.168.1.198:16080/videos
+2018-04-16 15:07:39,234 [1]DEBUG Common.WebClinetHepler - 接口耗时584ms,url:http://192.168.1.198:16080/videos
+2018-04-16 15:12:20,449 [1]DEBUG Common.WebClinetHepler - 接口耗时506ms,url:http://192.168.1.198:16080/videos
+2018-04-16 15:37:03,351 [1]DEBUG Common.WebClinetHepler - 接口耗时508ms,url:http://192.168.1.198:16080/videos
+2018-04-16 16:19:49,107 [1]DEBUG Common.WebClinetHepler - 接口耗时597ms,url:http://192.168.1.198:16080/videos
+2018-04-16 16:20:47,355 [1]DEBUG Common.WebClinetHepler - 接口耗时513ms,url:http://192.168.1.198:16080/videos
+2018-04-16 16:35:33,579 [1]DEBUG Common.WebClinetHepler - 接口耗时705ms,url: http://192.168.1.225:18846/api/my/info
+2018-04-16 17:04:04,634 [1]DEBUG Common.WebClinetHepler - 接口耗时527ms,url:http://192.168.1.198:16080/videos

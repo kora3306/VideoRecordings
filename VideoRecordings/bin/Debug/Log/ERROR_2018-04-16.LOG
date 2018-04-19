@@ -1,0 +1,344 @@
+2018-04-16 09:05:50,633 [1]ERROR Common.WebClinetHepler - Get失败	url:http://192.168.1.198:16080/video/projects
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.GetJson(String url, String getParam) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 46
+2018-04-16 09:08:47,926 [1]ERROR Common.WebClinetHepler - Get失败	url:http://192.168.1.198:16080/video/projects
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.GetJson(String url, String getParam) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 46
+2018-04-16 09:09:41,010 [1]ERROR Common.WebClinetHepler - Get失败	url:http://192.168.1.198:16080/video/projects
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.GetJson(String url, String getParam) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 46
+2018-04-16 09:11:13,874 [1]ERROR Common.WebClinetHepler - Get失败	url:http://192.168.1.198:16080/video/projects
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.GetJson(String url, String getParam) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 46
+2018-04-16 09:11:55,651 [1]ERROR Common.WebClinetHepler - Get失败	url:http://192.168.1.198:16080/video/projects
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.GetJson(String url, String getParam) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 46
+2018-04-16 09:11:59,078 [1]ERROR Common.WebClinetHepler - GET异常->uri:http://192.168.1.198:16080/labels,exception:
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.DownloadData(WebClient client, String uri, Int64& time, Byte[]& result) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 214
+2018-04-16 09:12:31,172 [1]ERROR Common.WebClinetHepler - Get失败	url:http://192.168.1.198:18080/videos
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.GetJson(String url, String getParam) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 46
+2018-04-16 09:12:31,252 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 09:12:32,343 [1]ERROR Common.WebClinetHepler - Get失败	url:http://192.168.1.198:18080/videos
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.GetJson(String url, String getParam) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 46
+2018-04-16 09:12:32,354 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 09:12:33,074 [1]ERROR Common.WebClinetHepler - Get失败	url:http://192.168.1.198:18080/videos
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.GetJson(String url, String getParam) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 46
+2018-04-16 09:12:33,082 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 09:14:07,993 [1]ERROR Common.WebClinetHepler - Get失败	url:http://192.168.1.198:16080/video/projects
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.GetJson(String url, String getParam) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 46
+2018-04-16 09:14:11,453 [1]ERROR Common.WebClinetHepler - GET异常->uri:http://192.168.1.198:16080/labels,exception:
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.DownloadData(WebClient client, String uri, Int64& time, Byte[]& result) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 214
+2018-04-16 09:28:38,347 [1]ERROR Common.WebClinetHepler - Get失败	url:http://192.168.1.198:16080/video/projects
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.GetJson(String url, String getParam) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 46
+2018-04-16 09:29:05,134 [1]ERROR Common.WebClinetHepler - Get失败	url:http://192.168.1.198:16080/video/projects
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.GetJson(String url, String getParam) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 46
+2018-04-16 09:32:13,316 [1]ERROR VideoRecordings.Program - 搜索条件replicator=张旺&status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 09:32:14,722 [1]ERROR VideoRecordings.Program - 搜索条件replicator=张旺&status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 09:32:15,097 [1]ERROR VideoRecordings.Program - 搜索条件replicator=张旺&status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 09:32:20,254 [1]ERROR VideoRecordings.Program - 搜索条件replicator=张旺&status=0&recorded=0&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 09:32:32,567 [1]ERROR VideoRecordings.Program - 搜索条件replicator=李工&status=0&recorded=0&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 09:32:39,239 [1]ERROR VideoRecordings.Program - 搜索条件replicator=李工&status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 09:33:01,872 [1]ERROR VideoRecordings.Program - 搜索条件replicator=李工&status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,99,100,101,97,98]
+2018-04-16 09:37:40,489 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,99,100,101]
+2018-04-16 09:37:44,543 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,99,100,101]
+2018-04-16 09:37:49,215 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,99,100,101]
+2018-04-16 09:39:12,445 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 09:42:37,504 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,99,100,101]
+2018-04-16 09:42:37,550 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,99,100,101]
+2018-04-16 09:44:29,169 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 09:44:29,216 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 09:44:30,013 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 09:44:30,734 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.158\msdata\人车物-视频资料\大华园区\SP0011-视频结构化-浙江杭州大华园区-非机动车及行人多-20170525\A楼17层上监控_室外#5_20170525173000_20170525183000.dav
+System.Exception: 打开成功
+2018-04-16 09:44:34,509 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 09:44:35,816 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 09:44:36,399 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 09:44:44,352 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 09:44:45,687 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 09:44:46,850 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.158\msdata\人车物-视频资料\大华园区\SP0011-视频结构化-浙江杭州大华园区-非机动车及行人多-20170525\A楼17层上监控_室外#9_20170525080000_20170525090000.dav
+System.Exception: 打开成功
+2018-04-16 09:44:50,066 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 09:44:50,465 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.158\msdata\人车物-视频资料\大华园区\SP0011-视频结构化-浙江杭州大华园区-非机动车及行人多-20170525\A楼17层上监控_室外#7_20170525080000_20170525090000.dav
+System.Exception: 打开成功
+2018-04-16 09:45:11,829 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 09:45:11,908 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 09:45:14,835 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 09:45:15,440 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.198\iscdata\md2\SP0042-视频结构化-江夏-江夏视频-20170509\usb2\all-video\3\420115010013212777371_20170421180000_20170421183000.avi
+System.Exception: 打开成功
+2018-04-16 14:55:43,133 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 14:56:40,481 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 14:59:25,968 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 15:07:18,053 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 15:07:18,153 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:07:20,168 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:07:21,482 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:07:22,242 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:07:34,219 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 15:07:34,267 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:07:39,336 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 15:07:39,414 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:08:36,414 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 15:08:36,476 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:08:51,853 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:08:53,114 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:08:53,699 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:08:54,234 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:08:55,010 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:08:55,954 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:08:56,306 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:09:37,233 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:09:38,355 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:10:52,115 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:10:52,498 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:10:52,747 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:10:53,250 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:10:59,098 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:10:59,697 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:01,932 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:03,195 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:19,883 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:21,107 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:21,803 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:22,114 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:22,794 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:23,163 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:25,539 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:26,339 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:26,715 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:30,234 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:31,586 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:32,426 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:32,811 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:38,478 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 15:11:38,513 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:42,741 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:11:45,681 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 15:11:45,756 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:12:20,551 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 15:12:20,647 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:12:23,372 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:12:24,386 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:12:24,723 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:12:25,059 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:12:25,603 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:37:03,460 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 15:37:03,568 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:37:05,208 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:37:06,623 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:37:08,089 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:37:08,785 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:37:09,889 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:37:10,785 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:37:11,001 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:37:11,489 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:37:12,585 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:37:13,248 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 15:37:14,568 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:09:34,321 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[104]
+2018-04-16 16:09:41,453 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[104,95]
+2018-04-16 16:09:49,371 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[100,104]
+2018-04-16 16:09:49,783 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[100,104]
+2018-04-16 16:09:53,816 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[100]
+2018-04-16 16:10:04,669 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[]
+2018-04-16 16:10:14,529 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[100,95]
+2018-04-16 16:10:29,887 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,100,101,104]
+2018-04-16 16:11:20,392 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,100]
+2018-04-16 16:11:24,249 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,100]
+2018-04-16 16:13:18,400 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,100,101,104]
+2018-04-16 16:16:27,875 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,100,101,104]
+2018-04-16 16:18:37,002 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 16:18:37,069 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:18:39,319 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:18:39,922 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.158\msdata\人车物-视频资料\大华园区\SP0011-视频结构化-浙江杭州大华园区-非机动车及行人多-20170525\A楼17层上监控_室外#5_20170525173000_20170525183000.dav
+System.Exception: 打开成功
+2018-04-16 16:19:49,233 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 16:19:49,333 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:19:50,129 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:19:50,785 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.198\iscdata\md2\SP0042-视频结构化-江夏-江夏视频-20170509\usb2\all-video\3\420115010013212777371_20170421163000_20170421170000.avi
+System.Exception: 打开成功
+2018-04-16 16:20:41,778 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 16:20:41,838 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:20:42,672 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:20:43,324 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.158\msdata\人车物-视频资料\大华园区\SP0058-视频结构化-杭州大华园区-车头车尾-2017090120170905\EVS10_13102B茶山医院路口x东南GA_20170901080000_20170901083000.dav
+System.Exception: 打开成功
+2018-04-16 16:20:47,459 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 16:20:47,570 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:20:48,551 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:20:48,973 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:20:49,888 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.198\iscdata\md2\SP0042-视频结构化-江夏-江夏视频-20170509\usb2\all-video\3\420115010013212777371_20170421163000_20170421170000.avi
+System.Exception: 打开成功
+2018-04-16 16:24:43,782 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 16:24:43,865 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:24:45,223 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:24:50,310 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.158\msdata\人车物-视频资料\大华园区\SP0011-视频结构化-浙江杭州大华园区-非机动车及行人多-20170525\A楼17层上监控_室外#9_20170525113000_20170525123000.dav
+System.Exception: 打开成功
+2018-04-16 16:24:56,708 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:24:57,484 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.158\msdata\人车物-视频资料\大华园区\SP0011-视频结构化-浙江杭州大华园区-非机动车及行人多-20170525\A楼17层上监控_室外#7_20170525113000_20170525123000.dav
+System.Exception: 打开成功
+2018-04-16 16:32:03,679 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 16:32:03,747 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:32:04,737 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:32:05,885 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:32:06,171 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:32:07,676 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:32:09,052 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:32:09,772 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:32:10,164 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:32:10,908 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:32:48,455 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:32:49,076 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.158\msdata\人车物-视频资料\大华园区\SP0011-视频结构化-浙江杭州大华园区-非机动车及行人多-20170525\A楼17层上监控_室外#5_20170525080000_20170525090000.dav
+System.Exception: 打开成功
+2018-04-16 16:32:51,716 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:32:52,132 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:32:52,574 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.158\msdata\人车物-视频资料\大华园区\SP0011-视频结构化-浙江杭州大华园区-非机动车及行人多-20170525\A楼17层上监控_室外#6_20170525113000_20170525123000.dav
+System.Exception: 打开成功
+2018-04-16 16:35:47,404 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[99,100,101,104]
+2018-04-16 16:35:54,344 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[99,100,101,104]
+2018-04-16 16:39:36,801 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[99,100,101]
+2018-04-16 16:39:46,585 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[99,100,101,104]
+2018-04-16 16:39:54,276 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[99,100,101,104,105]
+2018-04-16 16:39:57,068 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[99,100,101,104]
+2018-04-16 16:39:59,314 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[99,100,101]
+2018-04-16 16:39:59,488 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[99,100,101]
+2018-04-16 16:42:00,952 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 16:42:01,020 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:42:01,823 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 16:43:23,408 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,99,101,104]
+2018-04-16 17:04:04,757 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 17:04:04,895 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 17:08:22,521 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[104,105,106,107]
+2018-04-16 17:08:23,459 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[104,105,106,107]
+2018-04-16 17:08:27,808 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 17:08:33,203 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[100,101]
+2018-04-16 18:04:55,805 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 18:05:24,869 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 18:05:40,524 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 18:06:28,084 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 18:07:42,922 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 18:13:09,870 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 18:13:12,251 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 18:19:04,346 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[104,107]
+2018-04-16 18:19:05,842 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[104,107]
+2018-04-16 18:19:06,001 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[104,107]
+2018-04-16 18:19:08,788 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[104]
+2018-04-16 18:19:20,772 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,104]
+2018-04-16 18:19:21,400 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,104]
+2018-04-16 18:19:21,570 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,104]
+2018-04-16 18:19:21,768 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,104]
+2018-04-16 18:19:29,301 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[95,104,101]
+2018-04-16 18:19:40,025 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 18:19:50,811 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[99,100]
+2018-04-16 18:20:24,802 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[99,100,101]
+2018-04-16 18:20:34,970 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[99]
+2018-04-16 18:21:40,279 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 18:21:40,342 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 18:21:52,926 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 18:22:08,168 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[106]
+2018-04-16 18:22:10,718 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[106]
+2018-04-16 18:22:11,085 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[106]
+2018-04-16 18:22:11,505 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[106]
+2018-04-16 18:22:12,695 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[106]
+2018-04-16 18:22:13,149 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[106]
+2018-04-16 18:22:13,430 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[106]
+2018-04-16 18:22:13,876 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[106]
+2018-04-16 18:22:14,410 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[106]
+2018-04-16 18:22:14,794 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[106]
+2018-04-16 18:22:14,968 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[106]
+2018-04-16 18:22:17,954 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 18:22:35,108 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[106]
+2018-04-16 18:22:38,729 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[106]
+2018-04-16 18:22:41,348 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59
+2018-04-16 18:22:49,038 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[104]
+2018-04-16 18:22:58,810 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[104,95]
+2018-04-16 18:23:10,867 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-04-16&start_time=0:00:00&end_time=23:59:59&label[]=[104,95,101]
+2018-04-16 19:20:24,363 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-04-16 19:20:24,484 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:25,133 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:25,854 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.158\msdata\人车物-视频资料\大华园区\SP0011-视频结构化-浙江杭州大华园区-非机动车及行人多-20170525\A楼17层上监控_室外#9_20170525113000_20170525123000.dav
+System.Exception: 打开成功
+2018-04-16 19:20:29,898 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:30,394 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:31,457 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:32,009 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:32,772 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:33,787 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.158\msdata\人车物-视频资料\大华园区\SP0011-视频结构化-浙江杭州大华园区-非机动车及行人多-20170525\A楼17层上监控_室外#9_20170525113000_20170525123000.dav
+System.Exception: 打开成功
+2018-04-16 19:20:37,906 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:38,435 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:38,777 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:39,402 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:39,833 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:40,290 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:40,882 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:41,274 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:42,728 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:47,186 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-04-16 19:20:47,809 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture

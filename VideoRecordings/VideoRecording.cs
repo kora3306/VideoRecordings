@@ -34,11 +34,14 @@ namespace VideoRecordings
         List<string> imageurl = new List<string>();        //已有图片读取
         Dictionary<string, string> LabelsNumber = new Dictionary<string, string>();   // 标签对照
         Dictionary<string, string> AllLabel = new Dictionary<string, string>();
-        public VideoRecording(VideoPlay videopath, InformationDisplay info = null, QueryVideo video = null)
+        bool folding = false;
+        bool isquery;
+        public VideoRecording(VideoPlay videopath, bool query ,InformationDisplay info = null, QueryVideo video = null)
         {
             information = info;
             videoplay = videopath;
             queryVideo = video;
+            isquery = query;
             InitializeComponent();
             videoPlayer1.MyEvent += new DXApplication1.VideoPlayer.MyDelegate(ImageAdd);
             videoPlayer1.path = Program.ImageSavePath;
@@ -55,12 +58,12 @@ namespace VideoRecordings
             dateTimePicker1.Text = videoplay.RecordTime;
             label6.Text = videoplay.Id.ToString();
             label6.ForeColor = Color.Red;
-            if (label_treeView.Nodes.Count!=0)
+            if (label_treeView.Nodes.Count != 0)
             {
                 label_treeView.Nodes[0].Expand();
-            }         
+            }
         }
-        bool folding = false;
+
 
         /// <summary>
         /// 删除图片
@@ -146,7 +149,7 @@ namespace VideoRecordings
             //}
             DeleteFolder(Program.ImageSavePath);
             videoplay.Labels = labels;
-            if (!Program.IsQuery)
+            if (!isquery)
             {
                 information.RefreshData(videoplay);
                 information.PostVideos();
@@ -169,11 +172,7 @@ namespace VideoRecordings
         private void label_treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             TreeNode tree = label_treeView.SelectedNode;
-            if (LabelsNumber.Values.Contains(tree.Text))
-            {
-                return;
-            }
-            if (labels.Contains(tree.Text))
+            if (LabelsNumber.Values.Contains(tree.Text) || labels.Contains(tree.Text))
             {
                 return;
             }
@@ -265,6 +264,15 @@ namespace VideoRecordings
                 case Keys.Q:
                     ImageAdd();
                     return true;
+                case Keys.Control | Keys.C:
+                    copyToolStripMenuItem.PerformClick();
+                    return true;
+                case Keys.Control | Keys.V:
+                    pasteToolStripMenuItem.PerformClick();
+                    return true;
+                case Keys.F1:
+                    Methods.ShowListImages(imageListView1);
+                    return true;
                 default:
                     break;
             }
@@ -351,7 +359,7 @@ namespace VideoRecordings
                 }
                 paths.Add(f.FullName.Replace("bmp", "jpg"));//添加文件的路径到列表
             }
-            imageListView1.ThumbnailSize = new Size(170, 170);
+            imageListView1.ThumbnailSize = new Size(150, 70);
             foreach (var item in paths)
             {
                 imageListView1
@@ -380,13 +388,17 @@ namespace VideoRecordings
         /// </summary>
         public void SaveLabel()
         {
+            string json = string.Empty;
             if (labels == null || labels.Count == 0)
             {
-                return;
+                json = "[]";
             }
-            string posturl = Program.Urlpath + $"/video/{videoplay.Id}/labels";
-            List<int> postlabel = labels.Select(t => StringToInt(t)).ToList();
-            string json = (new JavaScriptSerializer()).Serialize(postlabel);
+            else
+            {
+                List<int> postlabel = labels.Select(t => StringToInt(t)).ToList();
+                json = (new JavaScriptSerializer()).Serialize(postlabel);
+            }
+            string posturl = Program.Urlpath + $"/video/{videoplay.Id}/labels";          
             JObject obj = WebClinetHepler.Post_New(posturl, json);
             if (obj == null)
             {
@@ -498,7 +510,7 @@ namespace VideoRecordings
                 Text = t,
                 Name = t,
                 ForeColor = Color.Blue,
-                NodeFont = new Font("Arial", 9)
+                NodeFont = new Font("Arial", 12)
             }).ToArray());
         }
 
@@ -551,10 +563,10 @@ namespace VideoRecordings
             List<ImageListViewItem> items = new List<ImageListViewItem>();
             foreach (string imageUrl in imageurl)
             {
-                ImageListViewItem item = new ImageListViewItem(imageUrl) { Text = imageUrl };
+                ImageListViewItem item = new ImageListViewItem(imageUrl) { Text = imageUrl.Split('/').Last() };
                 items.Add(item);
             }
-            imageListView1.ThumbnailSize = new Size(180, 180);
+            imageListView1.ThumbnailSize = new Size(180, 90);
             imageListView1.Items.AddRange(items.ToArray());
 
         }
@@ -590,7 +602,7 @@ namespace VideoRecordings
         }
 
         /// <summary>
-        /// 删除图片
+        /// 删除图片 本地..网络
         /// </summary>
         public void DelImage()
         {
@@ -601,13 +613,13 @@ namespace VideoRecordings
             }
             foreach (var item in imageListView1.SelectedItems)
             {
-                if (imageurl.Contains(item.Text))
+                if (imageurl.Contains(item.FileName))
                 {
-                    JsonObject obj = WebClinetHepler.Delete(url + item.Text.Split('/').Last());
+                    JObject obj = WebClinetHepler.Delete_New(url + item.Text.Split('/').Last());
                     if (obj == null)
                     {
                         MessageBox.Show(url + item.Text.Split('/').Last() + "删除失败");
-                       
+
                         return;
                     }
                     imageListView1.Items.Remove(item);
@@ -631,16 +643,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void imageListView1_DoubleClick(object sender, EventArgs e)
         {
-            if (imageListView1.SelectedItems.Count == 0)
-            {
-                return;
-            }
-            List<ImageListViewItem> showimages = new List<ImageListViewItem>();
-            foreach (var item in imageListView1.SelectedItems)
-            {
-                showimages.Add(item);
-            }
-            new ShowImage(showimages).ShowDialog();
+            Methods.ShowImage(imageListView1);
         }
 
         /// <summary>
@@ -654,9 +657,9 @@ namespace VideoRecordings
             string url = Program.Urlpath + "/video/" + videoplay.Id;
             patchjson.Add("start_time", start);
             patchjson.Add("end_time", end);
-            patchjson.Add("record_time",dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+            patchjson.Add("record_time", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
             string json = (new JavaScriptSerializer()).Serialize(patchjson);
-            JsonObject obj = WebClinetHepler.Patch(url, json);
+            JObject obj = WebClinetHepler.Patch_New(url, json);
             if (obj == null)
             {
                 MessageBox.Show("起止时间上传失败");
@@ -693,6 +696,11 @@ namespace VideoRecordings
             Program.log.Debug($"清空文件夹{dir}");
         }
 
+        /// <summary>
+        /// 打开关闭节点
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!folding)
@@ -706,5 +714,46 @@ namespace VideoRecordings
                 folding = false;
             }
         }
+        /// <summary>
+        /// 复制
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (labels.Count==0)
+            {
+                return;
+            }
+            Program.labels = labels;          
+            Program.log.Info($"复制{string.Join(",",labels)}");
+        }
+        /// <summary>
+        /// 粘贴
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.labels.Count==0)
+            {
+                return;
+            }
+            foreach (var item in Program.labels)
+            {
+                if (AllLabel.Values.Contains(item))
+                {
+                    labels.Add(item);
+                    SetLabelText();
+                }              
+            }
+            Program.log.Info($"粘贴{string.Join(",",Program.labels)}到{videoplay.Id.ToString()}");
+        }
+
+        private void openimageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Methods.ShowImage(imageListView1);
+        }
+
     }
 }

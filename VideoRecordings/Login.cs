@@ -14,6 +14,7 @@ using System.Diagnostics;
 using Common;
 using log4net;
 using System.Reflection;
+using Newtonsoft.Json.Linq;
 
 namespace VideoRecordings
 {
@@ -24,6 +25,17 @@ namespace VideoRecordings
         {
             InitializeComponent();
             textBox1.Text = Program.GetAppConfig("LogName");
+          
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            if (Program.Urlpath == "http://192.168.1.198:18080")
+            {
+                textBox1.Text = "xiekai";
+                textBox2.Text = "xk111";
+                button1.PerformClick();
+            }
         }
 
         /// <summary>
@@ -50,10 +62,9 @@ namespace VideoRecordings
                 textBox2.Focus();
                 return;
             }
-            JsonObject obj = WebClinetHepler.GetJson(url);
-            JsonObject person = obj["result"];
-            Program.UserName = ((Dictionary<string, object>)person.Value).Last().Value.ToString();
-            Program.LogName = ((Dictionary<string, object>)person.Value).First().Value.ToString();
+            JObject obj = WebClinetHepler.GetJObject(url);
+            Program.UserName = obj["result"]["real_name"].ToString() ;
+            Program.LogName = obj["result"]["name"].ToString();
             Program.UpdataLongName();
             new VideoInformation(this).Show();
             this.Hide();

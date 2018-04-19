@@ -183,8 +183,10 @@
             this.gridView1.OptionsCustomization.AllowRowSizing = true;
             this.gridView1.OptionsFind.AlwaysVisible = true;
             this.gridView1.OptionsView.RowAutoHeight = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.RowHeight = 30;
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
+            this.gridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView1_MouseDown);
             // 
             // gridColumn_Id
             // 
@@ -193,9 +195,8 @@
             this.gridColumn_Id.MinWidth = 30;
             this.gridColumn_Id.Name = "gridColumn_Id";
             this.gridColumn_Id.OptionsColumn.AllowEdit = false;
-            this.gridColumn_Id.Visible = true;
-            this.gridColumn_Id.VisibleIndex = 0;
-            this.gridColumn_Id.Width = 79;
+            this.gridColumn_Id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
+            this.gridColumn_Id.Width = 80;
             // 
             // gridColumn_name
             // 
@@ -203,9 +204,10 @@
             this.gridColumn_name.FieldName = "Name";
             this.gridColumn_name.Name = "gridColumn_name";
             this.gridColumn_name.OptionsColumn.AllowEdit = false;
+            this.gridColumn_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_name.Visible = true;
-            this.gridColumn_name.VisibleIndex = 1;
-            this.gridColumn_name.Width = 65;
+            this.gridColumn_name.VisibleIndex = 0;
+            this.gridColumn_name.Width = 60;
             // 
             // gridColumn_place
             // 
@@ -213,9 +215,10 @@
             this.gridColumn_place.FieldName = "Place";
             this.gridColumn_place.Name = "gridColumn_place";
             this.gridColumn_place.OptionsColumn.AllowEdit = false;
+            this.gridColumn_place.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_place.Visible = true;
-            this.gridColumn_place.VisibleIndex = 2;
-            this.gridColumn_place.Width = 68;
+            this.gridColumn_place.VisibleIndex = 1;
+            this.gridColumn_place.Width = 63;
             // 
             // gridColumn_scenes
             // 
@@ -223,9 +226,10 @@
             this.gridColumn_scenes.FieldName = "ScenesName";
             this.gridColumn_scenes.Name = "gridColumn_scenes";
             this.gridColumn_scenes.OptionsColumn.AllowEdit = false;
+            this.gridColumn_scenes.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_scenes.Visible = true;
-            this.gridColumn_scenes.VisibleIndex = 3;
-            this.gridColumn_scenes.Width = 51;
+            this.gridColumn_scenes.VisibleIndex = 2;
+            this.gridColumn_scenes.Width = 42;
             // 
             // gridColumn_start_date
             // 
@@ -235,7 +239,7 @@
             this.gridColumn_start_date.OptionsColumn.AllowEdit = false;
             this.gridColumn_start_date.Visible = true;
             this.gridColumn_start_date.VisibleIndex = 4;
-            this.gridColumn_start_date.Width = 65;
+            this.gridColumn_start_date.Width = 62;
             // 
             // gridColumn_end_date
             // 
@@ -245,7 +249,7 @@
             this.gridColumn_end_date.OptionsColumn.AllowEdit = false;
             this.gridColumn_end_date.Visible = true;
             this.gridColumn_end_date.VisibleIndex = 5;
-            this.gridColumn_end_date.Width = 60;
+            this.gridColumn_end_date.Width = 62;
             // 
             // gridColumn_uri
             // 
@@ -254,8 +258,8 @@
             this.gridColumn_uri.Name = "gridColumn_uri";
             this.gridColumn_uri.OptionsColumn.ReadOnly = true;
             this.gridColumn_uri.Visible = true;
-            this.gridColumn_uri.VisibleIndex = 12;
-            this.gridColumn_uri.Width = 235;
+            this.gridColumn_uri.VisibleIndex = 10;
+            this.gridColumn_uri.Width = 265;
             // 
             // gridColumn_size
             // 
@@ -265,7 +269,7 @@
             this.gridColumn_size.OptionsColumn.AllowEdit = false;
             this.gridColumn_size.Visible = true;
             this.gridColumn_size.VisibleIndex = 6;
-            this.gridColumn_size.Width = 70;
+            this.gridColumn_size.Width = 35;
             // 
             // gridColumn_video_count
             // 
@@ -275,7 +279,7 @@
             this.gridColumn_video_count.OptionsColumn.AllowEdit = false;
             this.gridColumn_video_count.Visible = true;
             this.gridColumn_video_count.VisibleIndex = 7;
-            this.gridColumn_video_count.Width = 62;
+            this.gridColumn_video_count.Width = 35;
             // 
             // gridColumn_replicator
             // 
@@ -285,7 +289,7 @@
             this.gridColumn_replicator.OptionsColumn.AllowEdit = false;
             this.gridColumn_replicator.Visible = true;
             this.gridColumn_replicator.VisibleIndex = 8;
-            this.gridColumn_replicator.Width = 61;
+            this.gridColumn_replicator.Width = 62;
             // 
             // gridColumn_recorder
             // 
@@ -295,7 +299,7 @@
             this.gridColumn_recorder.OptionsColumn.AllowEdit = false;
             this.gridColumn_recorder.Visible = true;
             this.gridColumn_recorder.VisibleIndex = 9;
-            this.gridColumn_recorder.Width = 57;
+            this.gridColumn_recorder.Width = 62;
             // 
             // gridColumn_note
             // 
@@ -304,8 +308,8 @@
             this.gridColumn_note.Name = "gridColumn_note";
             this.gridColumn_note.OptionsColumn.AllowEdit = false;
             this.gridColumn_note.Visible = true;
-            this.gridColumn_note.VisibleIndex = 10;
-            this.gridColumn_note.Width = 52;
+            this.gridColumn_note.VisibleIndex = 12;
+            this.gridColumn_note.Width = 166;
             // 
             // gridColumn_record_time
             // 
@@ -314,8 +318,8 @@
             this.gridColumn_record_time.Name = "gridColumn_record_time";
             this.gridColumn_record_time.OptionsColumn.AllowEdit = false;
             this.gridColumn_record_time.Visible = true;
-            this.gridColumn_record_time.VisibleIndex = 13;
-            this.gridColumn_record_time.Width = 101;
+            this.gridColumn_record_time.VisibleIndex = 11;
+            this.gridColumn_record_time.Width = 80;
             // 
             // gridColumn_status
             // 
@@ -324,8 +328,8 @@
             this.gridColumn_status.Name = "gridColumn_status";
             this.gridColumn_status.OptionsColumn.AllowEdit = false;
             this.gridColumn_status.Visible = true;
-            this.gridColumn_status.VisibleIndex = 11;
-            this.gridColumn_status.Width = 44;
+            this.gridColumn_status.VisibleIndex = 3;
+            this.gridColumn_status.Width = 80;
             // 
             // statusStrip1
             // 
@@ -447,9 +451,9 @@
             // 
             // button3
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.button3.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.button3.Location = new System.Drawing.Point(84, 53);
+            this.button3.Location = new System.Drawing.Point(83, 53);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(72, 24);
             this.button3.TabIndex = 5;
@@ -459,7 +463,7 @@
             // 
             // button1
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.button1.Font = new System.Drawing.Font("Tahoma", 9F);
             this.button1.Location = new System.Drawing.Point(3, 53);
             this.button1.Name = "button1";
@@ -482,8 +486,8 @@
             // 
             // button2
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(173, 53);
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.button2.Location = new System.Drawing.Point(163, 53);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 24);
             this.button2.TabIndex = 8;
