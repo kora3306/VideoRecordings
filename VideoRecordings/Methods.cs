@@ -47,12 +47,12 @@ namespace VideoRecordings
         /// </summary>
         public static void ShowImage(ImageListView image)
         {
-            if (image.SelectedItems.Count == 0)
+            if (image.Items.Count == 0)
             {
                 return;
             }
             List<ImageListViewItem> showimages = new List<ImageListViewItem>();
-            foreach (var item in image.SelectedItems)
+            foreach (var item in image.Items)
             {
                 showimages.Add(item);
             }

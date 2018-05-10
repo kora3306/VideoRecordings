@@ -127,3 +127,8 @@ F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.ManagementLa
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.UpdateLabel.resources
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\log4net.dll
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.SelectLabel.resources
+F:\源码\VideoRecordings\VideoRecordings\bin\Debug\VideoRecordings.exe.manifest
+F:\源码\VideoRecordings\VideoRecordings\bin\Debug\APlayer_3.9.7.781.dll
+F:\源码\VideoRecordings\VideoRecordings\bin\Debug\Native.DXApplication1.manifest
+F:\源码\VideoRecordings\VideoRecordings\obj\Debug\Interop.APlayer3Lib.dll
+F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe.manifest

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Manina.Windows.Forms;
 using System.Net;
+using VideoRecordings.Properties;
 
 namespace VideoRecordings
 {
@@ -31,6 +32,8 @@ namespace VideoRecordings
         private void ShowImage_Load(object sender, EventArgs e)
         {
             ImageFromWebTest();
+            pictureBox2.Image = Resources._01;
+            pictureBox3.Image = Resources._02;
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -72,14 +75,26 @@ namespace VideoRecordings
         {
             if (e.Delta>110)
             {
-                index = index == 0 ? 0 : index - 1;
+                index = index == 0 ? items.Count - 1 : index - 1;
                 ImageFromWebTest();
             }
             else if (e.Delta<-110)
             {
-                index = index == items.Count - 1 ? items.Count - 1 : index + 1;
+                index = index == items.Count - 1 ? 0 : index + 1;
                 ImageFromWebTest();
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            index = index == items.Count - 1 ? 0 : index + 1;
+            ImageFromWebTest();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            index = index == 0 ? items.Count-1 : index - 1;
+            ImageFromWebTest();
         }
     }
 }

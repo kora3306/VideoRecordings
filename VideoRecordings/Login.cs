@@ -45,7 +45,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            string url = " http://192.168.1.225:18846/api/my/info";           
+            string url = "http://192.168.1.225:19886/api/my/info";           
             string name = textBox1.Text == string.Empty ? string.Empty : textBox1.Text.Trim();
             string passWord = textBox2.Text == string.Empty ? string.Empty : textBox2.Text.Trim();
             if (name == string.Empty || passWord == string.Empty)
