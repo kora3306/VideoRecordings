@@ -19,8 +19,10 @@ namespace VideoRecordings
         /// <param name="fileFullName"></param>
         public static void OpenFolderAndSelectFile(String fileFullName)
         {
-            ProcessStartInfo psi = new ProcessStartInfo("Explorer.exe");
-            psi.Arguments = "/e,/select," + fileFullName;
+            ProcessStartInfo psi = new ProcessStartInfo("Explorer.exe")
+            {
+                Arguments = "/e,/select," + fileFullName
+            };
             Process.Start(psi);
         }
 

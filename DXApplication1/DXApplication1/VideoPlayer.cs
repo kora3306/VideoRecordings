@@ -10,10 +10,12 @@ using System.Windows.Forms;
 using AxAPlayer3Lib;
 using VideoPlayer;
 using System.IO;
+using DXApplication1.Properties;
+using Common;
 
 namespace DXApplication1
 {
-    public partial class VideoPlayer : UserControl
+    public partial class VideoPlayers : UserControl
     {
 
         ToolTip tip = new ToolTip();
@@ -22,7 +24,8 @@ namespace DXApplication1
         public Point point = new Point();
         public string URL = string.Empty;
         public string path = "";
-        public VideoPlayer()
+        private Control _fouseControl => WinFormExtend.GetControls(Controls);
+        public VideoPlayers()
         {
             InitializeComponent();
             tableLayoutPanel1.BackColor = Color.Black;
@@ -102,7 +105,7 @@ namespace DXApplication1
             label1.Text = "00:00:00";
             label2.Text = TimeToString(TimeSpan.FromMilliseconds(axPlayer1.GetDuration()));
             colorSlider2.Enabled = true;
-            colorSlider2.Maximum = axPlayer1.GetDuration();
+            colorSlider2.Maximum = axPlayer1.GetDuration()/1000;
             timer1.Start();
         }
         /// <summary>
@@ -124,8 +127,6 @@ namespace DXApplication1
             if (e.nNewState == 0)  //就绪
             {
                 //初始化
-
-
             }
             switch (e.nNewState)
             {
@@ -142,14 +143,15 @@ namespace DXApplication1
                 case (int)PlayClass.PLAY_STATE.PS_PLAY:
                 case (int)PlayClass.PLAY_STATE.PS_PLAYING:
                     label3.Text = "正在播放";
-                    pic_play_pause.ErrorImage = Properties.Resources.pause;
+                    pic_play_pause.ErrorImage =Resources.strat;
                     ChangErrPic(pic_play_pause); break;
                 case (int)PlayClass.PLAY_STATE.PS_PAUSED:
                 case (int)PlayClass.PLAY_STATE.PS_PAUSING:
-                    label3.Text = "暂停播放"; pic_play_pause.ErrorImage = Properties.Resources.play;
+                    label3.Text = "暂停播放";
+                    pic_play_pause.ErrorImage = Resources.stop1;
                     ChangErrPic(pic_play_pause); break;
                 case (int)PlayClass.PLAY_STATE.PS_CLOSING:
-                    pic_play_pause.ErrorImage = Properties.Resources.play;
+                    pic_play_pause.ErrorImage = Resources.strat;
                     ChangErrPic(pic_play_pause); break;
                 default:
                     break;
@@ -235,7 +237,7 @@ namespace DXApplication1
         private void timer1_Tick(object sender, EventArgs e)
         {
             label1.Text = TimeToString(TimeSpan.FromMilliseconds(axPlayer1.GetPosition()));
-            colorSlider2.Value = axPlayer1.GetPosition() <= 0 ? 0 : axPlayer1.GetPosition();
+            colorSlider2.Value = axPlayer1.GetPosition() <= 0 ? 0 : axPlayer1.GetPosition()/1000;
 
         }
 
@@ -326,7 +328,7 @@ namespace DXApplication1
 
         void ChangePic(PictureBox pic, PlayClass.MouseStaue status)
         {
-            pic.Image = ImageHelper.GetImageByAverageIndex(pic.ErrorImage, 4, (int)status);
+            pic.Image = /*ImageHelper.GetImageByAverageIndex(*/pic.ErrorImage/*, 4, (int)status)*/;
         }
 
         private void VideoPlayer_Resize(object sender, EventArgs e)
@@ -338,11 +340,11 @@ namespace DXApplication1
         {
             _Player.Width = this.Width;
             _Player.Height = this.Height - paneltop.Height - panelbottom.Height - panelpro.Height;
-            picsavapic.Left = picopen.Left - picsavapic.Width;
-            pic_play_pause.Left = (this.Width - pic_play_pause.Width) / 2;
-            picstop.Left = pic_play_pause.Left - picstop.Width - 10;
-            picsound.Left = pic_play_pause.Left + pic_play_pause.Width + 10;
-            colorSlidersound.Left = picsound.Left + picsound.Width + 5;
+            //picsavapic.Left = picopen.Left - picsavapic.Width;
+            //pic_play_pause.Left = (this.Width - pic_play_pause.Width) / 2;
+            ////picstop.Left = pic_play_pause.Left - picstop.Width - 10;
+            //picsound.Left = pic_play_pause.Left + pic_play_pause.Width + 10;
+            //colorSlidersound.Left = picsound.Left + picsound.Width + 5;
 
         }
 
@@ -381,7 +383,7 @@ namespace DXApplication1
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            SavePic();
+            CaptureTheScreen();
         }
 
         private void SavePic()
@@ -403,13 +405,13 @@ namespace DXApplication1
 
         private void colorSlider2_MouseHover(object sender, EventArgs e)
         {
-            tip.Show(TimeToString(TimeSpan.FromMilliseconds(colorSlider2.Value)), colorSlider2, 2000);
+            tip.Show(TimeToString(TimeSpan.FromMilliseconds(colorSlider2.Value*1000)), colorSlider2, 2000);
         }
 
         private void colorSlider2_Scroll(object sender, ScrollEventArgs e)
         {
-            axPlayer1.SetPosition(colorSlider2.Value);
-            label1.Text = TimeToString(TimeSpan.FromMilliseconds(colorSlider2.Value));
+            axPlayer1.SetPosition(colorSlider2.Value*1000);
+            label1.Text = TimeToString(TimeSpan.FromMilliseconds(colorSlider2.Value*1000));
         }
 
         private void picmax_Click(object sender, EventArgs e)
@@ -457,10 +459,8 @@ namespace DXApplication1
         {
             switch (keyData)
             {
-                case Keys.F5:
-                    CaptureTheScreen();
-                    SavePic();
-                    MyEvent?.Invoke();
+                case Keys.F6:
+                    截图ToolStripMenuItem.PerformClick();
                     return true;
                 default:
                     break;
@@ -514,7 +514,7 @@ namespace DXApplication1
             }
             catch (Exception e)
             {
-                throw;
+                throw e;
             }
         }
 
@@ -529,6 +529,12 @@ namespace DXApplication1
             }
             return str.Substring(0,str.Length-1);
         }
+
+        private void picsound_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
 

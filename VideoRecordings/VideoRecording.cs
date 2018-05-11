@@ -43,7 +43,7 @@ namespace VideoRecordings
             queryVideo = video;
             isquery = query;
             InitializeComponent();
-            videoPlayer1.MyEvent += new DXApplication1.VideoPlayer.MyDelegate(ImageAdd);
+            videoPlayer1.MyEvent += new DXApplication1.VideoPlayers.MyDelegate(ImageAdd);
             videoPlayer1.path = Program.ImageSavePath;
             PlayVideo();
             GetLabels();
@@ -58,6 +58,7 @@ namespace VideoRecordings
             dateTimePicker1.Text = videoplay.RecordTime;
             label6.Text = videoplay.Id.ToString();
             label6.ForeColor = Color.Red;
+            imageListView1.Focus();
             if (label_treeView.Nodes.Count != 0)
             {
                 label_treeView.Nodes[0].Expand();
@@ -312,10 +313,6 @@ namespace VideoRecordings
             po = PointToScreen(new Point(videoPlayer1.Left, videoPlayer1.Top));
             videoPlayer1.point = po;
         }
-
-
-
-
 
 
         /// <summary>

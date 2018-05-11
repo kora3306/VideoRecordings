@@ -35,23 +35,23 @@ namespace VideoPlayer
         /// <summary>
         /// 是否在全屏
         /// </summary>
-        public bool isScreen;
-        /// <summary>
-        /// 是否最大化
-        /// </summary>
-        public bool isMaximization;
-        /// <summary>
-        /// 是否静音
-        /// </summary>
-        public bool isMute;
-        /// <summary>
-        /// 移动窗口时临时记录当前X
-        /// </summary>
-        public int VM_X;
+        //public bool isScreen;
+        ///// <summary>
+        ///// 是否最大化
+        ///// </summary>
+        //public bool isMaximization;
+        ///// <summary>
+        ///// 是否静音
+        ///// </summary>
+        //public bool isMute;
+        ///// <summary>
+        ///// 移动窗口时临时记录当前X
+        ///// </summary>
+        //public int VM_X;
         /// <summary>
         /// 移动窗口时临时记录当前Y
         /// </summary>
-        public int VM_Y;
+        //public int VM_Y;
         public Position position;
 
         /// <summary>

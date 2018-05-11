@@ -62,23 +62,33 @@ namespace VideoRecordings
         private void ImageFromWebTest()
         {
             string url = Program.Urlpath + "/video/snapshot/" + items[index].Text;
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            using (WebResponse response = request.GetResponse())
+            if (items[index].FileName.StartsWith("http"))
             {
-                Image img = Image.FromStream(response.GetResponseStream());
-                pictureBox1.Image = img;
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                using (WebResponse response = request.GetResponse())
+                {
+                    Image img = Image.FromStream(response.GetResponseStream());
+                    pictureBox1.Image = img;
+                }
             }
+            else
+            {
+                Image img = Image.FromFile(items[index].FileName);
+                Image bmp = new Bitmap(img);
+                pictureBox1.Image = bmp;
+            }
+
             label2.Text = items[index].Text;
         }
 
         private void panel1_MouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            if (e.Delta>110)
+            if (e.Delta > 110)
             {
                 index = index == 0 ? items.Count - 1 : index - 1;
                 ImageFromWebTest();
             }
-            else if (e.Delta<-110)
+            else if (e.Delta < -110)
             {
                 index = index == items.Count - 1 ? 0 : index + 1;
                 ImageFromWebTest();
@@ -93,7 +103,7 @@ namespace VideoRecordings
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            index = index == 0 ? items.Count-1 : index - 1;
+            index = index == 0 ? items.Count - 1 : index - 1;
             ImageFromWebTest();
         }
     }
