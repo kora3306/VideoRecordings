@@ -290,3 +290,8 @@
 2018-05-11 15:23:43,677 [1]INFO  Common.WebClinetHepler - GET->12ms,code:0,uri:http://192.168.1.198:18080/video/projects,
 2018-05-11 15:23:45,506 [1]INFO  Common.WebClinetHepler - POST->6ms,code:0,uri:http://192.168.1.198:18080/scan/video/project/3,
 2018-05-11 15:23:45,521 [1]INFO  Common.WebClinetHepler - GET->17ms,code:0,uri:http://192.168.1.198:18080/videos?project_name=SP0058,
+2018-05-11 16:50:11,635 [1]INFO  Common.WebClinetHepler - GET->9ms,code:200,uri:http://192.168.1.225:19886/api/my/info,
+2018-05-11 16:50:12,021 [1]INFO  Common.WebClinetHepler - GET->13ms,code:0,uri:http://192.168.1.198:18080/video/projects,
+2018-05-11 16:50:14,327 [1]INFO  Common.WebClinetHepler - POST->9ms,code:0,uri:http://192.168.1.198:18080/scan/video/project/2,
+2018-05-11 16:50:14,355 [1]INFO  Common.WebClinetHepler - GET->27ms,code:0,uri:http://192.168.1.198:18080/videos?project_name=SP0011,
+2018-05-11 16:50:16,047 [1]INFO  Common.WebClinetHepler - GET->46ms,code:0,uri:http://192.168.1.198:18080/labels,

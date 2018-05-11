@@ -359,3 +359,9 @@ System.Exception: 打开成功
 2018-05-11 15:23:45,537 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
 System.Exception: 获取成功
 2018-05-11 15:23:45,584 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-11 16:50:14,364 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-05-11 16:50:14,478 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-11 16:50:15,587 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-11 16:50:16,153 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.158\msdata\人车物-视频资料\大华园区\SP0011-视频结构化-浙江杭州大华园区-非机动车及行人多-20170525\A楼17层上监控_室外#6_20170525113000_20170525123000.dav
+System.Exception: 打开成功
