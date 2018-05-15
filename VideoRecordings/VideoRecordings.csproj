@@ -215,20 +215,20 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\02.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\..\接收\intedio_data_tools\Common\Common.csproj">
-      <Project>{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}</Project>
+      <Project>{16f51870-4fce-4868-bcac-2c2620c1a4fe}</Project>
       <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\DXApplication1\DXApplication1\DXApplication.csproj">
       <Project>{a396a433-6389-4fff-b4bb-2d1016363dc2}</Project>
       <Name>DXApplication</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\01.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\02.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

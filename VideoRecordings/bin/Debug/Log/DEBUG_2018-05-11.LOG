@@ -5,3 +5,15 @@
 2018-05-11 14:21:11,188 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->560ms,code:0,uri:http://192.168.1.198:18080/videos?project_name=SP0042
 2018-05-11 14:24:37,148 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->680ms,code:0,uri:http://192.168.1.198:18080/videos?project_name=SP0042
 2018-05-11 15:22:22,709 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->537ms,code:0,uri:http://192.168.1.198:18080/videos?project_name=SP0042
+2018-05-11 17:01:41,993 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->548ms,code:0,uri:http://192.168.1.198:18080/videos?project_name=SP0042
+2018-05-11 17:11:45,850 [1]DEBUG VideoRecordings.Program - 清空文件夹F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-11 17:12:00,633 [1]DEBUG VideoRecordings.Program - 清空文件夹F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-11 17:12:29,068 [1]DEBUG VideoRecordings.Program - 清空文件夹F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-11 17:17:09,355 [1]DEBUG VideoRecordings.Program - 清空文件夹F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-11 17:17:14,397 [1]DEBUG VideoRecordings.Program - 清空文件夹F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-11 17:17:23,522 [1]DEBUG VideoRecordings.Program - 清空文件夹F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-11 17:17:42,859 [1]DEBUG VideoRecordings.Program - 清空文件夹F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-11 17:17:46,655 [1]DEBUG VideoRecordings.Program - 清空文件夹F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-11 17:53:30,401 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->535ms,code:0,uri:http://192.168.1.198:18080/videos?project_name=SP0042
+2018-05-11 18:01:51,483 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->524ms,code:0,uri:http://192.168.1.198:18080/videos?project_name=SP0042
+2018-05-11 18:28:48,968 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->552ms,code:0,uri:http://192.168.1.198:18080/videos?project_name=SP0042

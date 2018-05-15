@@ -81,6 +81,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void gridControl1_Click(object sender, EventArgs e)
         {
+            transmissionvideo = (VideoPlay)gridView1.GetRow(gridView1.FocusedRowHandle);
             GetIntToString();
         }
 
@@ -149,6 +150,7 @@ namespace VideoRecordings
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             if (gridView1.FocusedRowHandle < 0) return;
+            transmissionvideo = (VideoPlay)gridView1.GetRow(gridView1.FocusedRowHandle);
             if (hInfo.InRowCell)
                 OpenVideoPaly();
         }
@@ -166,6 +168,7 @@ namespace VideoRecordings
                 return;
             }
             transmissionvideo = (VideoPlay)gridView1.GetRow(rowIndex);
+            RefreshImage();
             DeleteFolder(Program.ImageSavePath);
         }
 
@@ -201,6 +204,8 @@ namespace VideoRecordings
             }
             SetTheListView();
         }
+
+
 
         /// <summary>
         /// 控件加载图片
@@ -277,6 +282,8 @@ namespace VideoRecordings
 
         }
 
+
+
         /// <summary>
         /// 刷新标签
         /// </summary>
@@ -288,10 +295,25 @@ namespace VideoRecordings
                 if (item.Name == play.Name)
                 {
                     item.Labels = play.Labels;
+                    item.ImageId = play.ImageId;
+                    item.StartTime = play.StartTime;
+                    item.EndTime = play.EndTime;
+                    item.RecordTime = play.RecordTime;
                     break;
                 }
             }
             bindingSource1.DataSource = videoplays;
+        }
+
+        public void RefreshNewImage(VideoPlay video)
+        {
+            imageurl.Clear();
+            string url = Program.Urlpath + "/video/snapshot/";
+            foreach (var item in video.ImageId)
+            {
+                imageurl.Add(url + item);
+            }
+            SetTheListView();
         }
 
         /// <summary>

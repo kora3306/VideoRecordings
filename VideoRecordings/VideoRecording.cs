@@ -43,7 +43,7 @@ namespace VideoRecordings
             queryVideo = video;
             isquery = query;
             InitializeComponent();
-            videoPlayer1.MyEvent += new DXApplication1.VideoPlayers.MyDelegate(ImageAdd);
+            videoPlayer1.MyEvent += new DXApplication1.VideoPlayers_test.MyDelegate(ImageAdd);
             videoPlayer1.path = Program.ImageSavePath;
             PlayVideo();
             GetLabels();
@@ -150,16 +150,17 @@ namespace VideoRecordings
             //}
             DeleteFolder(Program.ImageSavePath);
             videoplay.Labels = labels;
+            VideoPlay play = Methods.GetNewImages(videoplay.Id);
             if (!isquery)
             {
-                information.RefreshData(videoplay);
-                information.PostVideos();
+                information.RefreshData(play);
+                information.RefreshNewImage(play);
                 information.Show();
             }
             else
             {
-                queryVideo.RefreshData(videoplay);
-                queryVideo.RefreshImage();
+                queryVideo.RefreshData(play);
+                queryVideo.RefreshNewImage(play);
                 queryVideo.Show();
             }
             this.Close();

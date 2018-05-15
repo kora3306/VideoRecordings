@@ -28,22 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.label_treeView = new System.Windows.Forms.TreeView();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip();
             this.清空已有标签ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.imageListView1 = new Manina.Windows.Forms.ImageListView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.DelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ReToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openimageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.videoPlayer1 = new DXApplication1.VideoPlayers();
+            this.videoPlayer1 = new DXApplication1.VideoPlayers_test();
             this.save_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,7 +55,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.other_button = new System.Windows.Forms.Button();
-            this.DelcontextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.DelcontextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.DeletePToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -78,7 +77,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.16387F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.99514F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.58603F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 254F));
             this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label_treeView, 7, 1);
             this.tableLayoutPanel1.Controls.Add(this.treeView1, 6, 1);
@@ -125,10 +124,10 @@
             // 
             this.label_treeView.ContextMenuStrip = this.contextMenuStrip2;
             this.label_treeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_treeView.Location = new System.Drawing.Point(1075, 72);
+            this.label_treeView.Location = new System.Drawing.Point(1072, 72);
             this.label_treeView.Name = "label_treeView";
             this.tableLayoutPanel1.SetRowSpan(this.label_treeView, 3);
-            this.label_treeView.Size = new System.Drawing.Size(248, 630);
+            this.label_treeView.Size = new System.Drawing.Size(251, 630);
             this.label_treeView.TabIndex = 16;
             this.label_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.label_treeView_AfterSelect);
             this.label_treeView.DoubleClick += new System.EventHandler(this.label_treeView_DoubleClick);
@@ -176,10 +175,10 @@
             this.treeView1.ContextMenuStrip = this.contextMenuStrip2;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Font = new System.Drawing.Font("Tahoma", 13F);
-            this.treeView1.Location = new System.Drawing.Point(811, 72);
+            this.treeView1.Location = new System.Drawing.Point(809, 72);
             this.treeView1.Name = "treeView1";
             this.tableLayoutPanel1.SetRowSpan(this.treeView1, 2);
-            this.treeView1.Size = new System.Drawing.Size(258, 195);
+            this.treeView1.Size = new System.Drawing.Size(257, 195);
             this.treeView1.TabIndex = 18;
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
@@ -189,11 +188,11 @@
             this.imageListView1.ContextMenuStrip = this.contextMenuStrip1;
             this.imageListView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imageListView1.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.imageListView1.Location = new System.Drawing.Point(811, 273);
+            this.imageListView1.Location = new System.Drawing.Point(809, 273);
             this.imageListView1.Name = "imageListView1";
-            this.imageListView1.PersistentCacheDirectory = "F:\\源码/cache";
+            //this.imageListView1.PersistentCacheDirectory = "F:\\源码/cache";
             this.imageListView1.PersistentCacheSize = ((long)(0));
-            this.imageListView1.Size = new System.Drawing.Size(258, 429);
+            this.imageListView1.Size = new System.Drawing.Size(257, 429);
             this.imageListView1.TabIndex = 21;
             this.imageListView1.UseWIC = Manina.Windows.Forms.UseWIC.ThumbnailsOnly;
             this.imageListView1.DoubleClick += new System.EventHandler(this.imageListView1_DoubleClick);
@@ -236,14 +235,14 @@
             this.videoPlayer1.Location = new System.Drawing.Point(3, 99);
             this.videoPlayer1.Name = "videoPlayer1";
             this.tableLayoutPanel1.SetRowSpan(this.videoPlayer1, 2);
-            this.videoPlayer1.Size = new System.Drawing.Size(802, 603);
+            this.videoPlayer1.Size = new System.Drawing.Size(800, 603);
             this.videoPlayer1.TabIndex = 22;
             // 
             // save_button
             // 
             this.save_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.save_button.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.save_button.Location = new System.Drawing.Point(1154, 708);
+            this.save_button.Location = new System.Drawing.Point(1153, 708);
             this.save_button.Name = "save_button";
             this.save_button.Size = new System.Drawing.Size(89, 30);
             this.save_button.TabIndex = 14;
@@ -257,7 +256,7 @@
             this.label3.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label3, 2);
             this.label3.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label3.Location = new System.Drawing.Point(1040, 23);
+            this.label3.Location = new System.Drawing.Point(1039, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 23);
             this.label3.TabIndex = 5;
@@ -269,7 +268,7 @@
             this.label2.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label2, 5);
             this.label2.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.label2.Location = new System.Drawing.Point(431, 21);
+            this.label2.Location = new System.Drawing.Point(430, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 27);
             this.label2.TabIndex = 2;
@@ -291,7 +290,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label4.Location = new System.Drawing.Point(242, 73);
+            this.label4.Location = new System.Drawing.Point(241, 73);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 19);
             this.label4.TabIndex = 25;
@@ -312,18 +311,18 @@
             // 
             this.timeEdit_end.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.timeEdit_end.EditValue = new System.DateTime(2018, 3, 26, 0, 0, 0, 0);
-            this.timeEdit_end.Location = new System.Drawing.Point(374, 73);
+            this.timeEdit_end.Location = new System.Drawing.Point(373, 73);
             this.timeEdit_end.Name = "timeEdit_end";
             this.timeEdit_end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit_end.Size = new System.Drawing.Size(108, 20);
+            this.timeEdit_end.Size = new System.Drawing.Size(107, 20);
             this.timeEdit_end.TabIndex = 27;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(503, 73);
+            this.label5.Location = new System.Drawing.Point(501, 73);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 19);
             this.label5.TabIndex = 28;
@@ -331,7 +330,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(629, 72);
+            this.dateTimePicker1.Location = new System.Drawing.Point(627, 72);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(142, 27);
             this.dateTimePicker1.TabIndex = 29;
@@ -341,7 +340,7 @@
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Black;
             this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(887, 715);
+            this.linkLabel1.Location = new System.Drawing.Point(885, 715);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(105, 19);
             this.linkLabel1.TabIndex = 23;
@@ -354,7 +353,7 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.button1.Location = new System.Drawing.Point(666, 712);
+            this.button1.Location = new System.Drawing.Point(664, 712);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 26);
             this.button1.TabIndex = 19;
@@ -368,7 +367,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.other_button, 3);
             this.other_button.ContextMenuStrip = this.DelcontextMenuStrip1;
             this.other_button.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.other_button.Location = new System.Drawing.Point(363, 708);
+            this.other_button.Location = new System.Drawing.Point(362, 708);
             this.other_button.Name = "other_button";
             this.other_button.Size = new System.Drawing.Size(117, 34);
             this.other_button.TabIndex = 15;
@@ -443,7 +442,7 @@
         private System.Windows.Forms.ToolStripMenuItem DeletePToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private Manina.Windows.Forms.ImageListView imageListView1;
-        private DXApplication1.VideoPlayers videoPlayer1;
+        private DXApplication1.VideoPlayers_test videoPlayer1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem DelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ReToolStripMenuItem;

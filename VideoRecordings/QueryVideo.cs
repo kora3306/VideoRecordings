@@ -203,6 +203,18 @@ namespace VideoRecordings
             Program.log.Error($"搜索条件{json}");
         }
 
+        public void RefreshNewImage(VideoPlay video)
+        {
+            imageurl.Clear();
+            string url = Program.Urlpath + "/video/snapshot/";
+            foreach (var item in video.ImageId)
+            {
+                imageurl.Add(url + item);
+            }
+            SetTheListView();
+        }
+
+
         /// <summary>
         /// 刷新选中的图片的标签和图片
         /// </summary>
@@ -341,6 +353,7 @@ namespace VideoRecordings
                 return;
             }
             transmissionvideo = (VideoPlay)gridView1.GetRow(rowIndex);
+            GetIntToString();
             DeleteFolder(Program.ImageSavePath);
         }
 
@@ -413,6 +426,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void gridView1_Click(object sender, EventArgs e)
         {
+            transmissionvideo = (VideoPlay)gridView1.GetRow(gridView1.FocusedRowHandle);
             GetIntToString();
         }
 
@@ -424,6 +438,7 @@ namespace VideoRecordings
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             if (gridView1.FocusedRowHandle < 0) return;
+            transmissionvideo = (VideoPlay)gridView1.GetRow(gridView1.FocusedRowHandle);
             if (hInfo.InRowCell)
                 OpenVideoPaly();
         }
@@ -480,7 +495,10 @@ namespace VideoRecordings
                 if (item.Name == play.Name)
                 {
                     item.Labels = play.Labels;
-                    gridView1.FocusedRowHandle = 0;
+                    item.ImageId = play.ImageId;
+                    item.StartTime = play.StartTime;
+                    item.EndTime = play.EndTime;
+                    item.RecordTime = play.RecordTime;
                     break;
                 }
             }

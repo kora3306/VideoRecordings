@@ -1,0 +1,18 @@
+2018-05-15 15:47:00,951 [1]ERROR Common.WebClinetHepler - GET异常->uri:http://192.168.1.198:18080/video/projects,exception:
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.1.198:18080
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.DownloadData(WebClient client, String uri, Int64& time, Byte[]& result) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 214
+2018-05-15 15:47:05,401 [1]ERROR Common.WebClinetHepler - GET异常->uri:http://192.168.1.198:18080/labels,exception:
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.1.198:18080
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.DownloadData(WebClient client, String uri, Int64& time, Byte[]& result) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 214

@@ -172,6 +172,7 @@ namespace VideoRecordings
                     return Url2 + @"\iscdata" + url;
                 case "md5":
                 case "md6":
+                case "md7":
                     return Url3 + url;
                 default:
                     break;

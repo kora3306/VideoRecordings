@@ -1,6 +1,6 @@
 ﻿namespace DXApplication1
 {
-    partial class VideoPlayers
+    partial class VideoPlayers_test
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoPlayers));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DXApplication1.VideoPlayers_test));
             this.axPlayer1 = new AxAPlayer3Lib.AxPlayer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelpro = new System.Windows.Forms.Panel();

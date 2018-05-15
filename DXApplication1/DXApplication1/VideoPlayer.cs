@@ -11,11 +11,10 @@ using AxAPlayer3Lib;
 using VideoPlayer;
 using System.IO;
 using DXApplication1.Properties;
-using Common;
 
 namespace DXApplication1
 {
-    public partial class VideoPlayers : UserControl
+    public partial class VideoPlayers_test : UserControl
     {
 
         ToolTip tip = new ToolTip();
@@ -24,8 +23,7 @@ namespace DXApplication1
         public Point point = new Point();
         public string URL = string.Empty;
         public string path = "";
-        private Control _fouseControl => WinFormExtend.GetControls(Controls);
-        public VideoPlayers()
+        public VideoPlayers_test()
         {
             InitializeComponent();
             tableLayoutPanel1.BackColor = Color.Black;
@@ -143,19 +141,22 @@ namespace DXApplication1
                 case (int)PlayClass.PLAY_STATE.PS_PLAY:
                 case (int)PlayClass.PLAY_STATE.PS_PLAYING:
                     label3.Text = "正在播放";
-                    pic_play_pause.ErrorImage =Resources.strat;
+                    pic_play_pause.ErrorImage =Resources.stop1;
                     ChangErrPic(pic_play_pause); break;
                 case (int)PlayClass.PLAY_STATE.PS_PAUSED:
                 case (int)PlayClass.PLAY_STATE.PS_PAUSING:
                     label3.Text = "暂停播放";
-                    pic_play_pause.ErrorImage = Resources.stop1;
-                    ChangErrPic(pic_play_pause); break;
-                case (int)PlayClass.PLAY_STATE.PS_CLOSING:
                     pic_play_pause.ErrorImage = Resources.strat;
                     ChangErrPic(pic_play_pause); break;
+                case (int)PlayClass.PLAY_STATE.PS_CLOSING:
+                    pic_play_pause.ErrorImage = Resources.stop1;
+                    ChangErrPic(pic_play_pause);
+                    playpause.PerformClick();
+                    break;
                 default:
                     break;
             }
+
             Console.WriteLine("播放器状态:" + e.nNewState);
         }
         /// <summary>
@@ -328,7 +329,7 @@ namespace DXApplication1
 
         void ChangePic(PictureBox pic, PlayClass.MouseStaue status)
         {
-            pic.Image = /*ImageHelper.GetImageByAverageIndex(*/pic.ErrorImage/*, 4, (int)status)*/;
+            pic.Image = pic.ErrorImage;
         }
 
         private void VideoPlayer_Resize(object sender, EventArgs e)

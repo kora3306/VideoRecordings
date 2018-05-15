@@ -85,5 +85,14 @@ namespace VideoRecordings
             }
             Program.log.Error($"删除图片{url}");
         }
+
+
+        public static VideoPlay GetNewImages(int index)
+        {
+            string url = Program.Urlpath + $"/videos?id={index}";
+            JObject obj = WebClinetHepler.GetJObject(url);
+            List<VideoPlay> videoplay = JsonHelper.DeserializeDataContractJson<List<VideoPlay>>(obj["videos"].ToString());
+            return videoplay.First();
+        }
     }
 }

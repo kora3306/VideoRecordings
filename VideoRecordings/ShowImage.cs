@@ -68,13 +68,17 @@ namespace VideoRecordings
                 using (WebResponse response = request.GetResponse())
                 {
                     Image img = Image.FromStream(response.GetResponseStream());
-                    pictureBox1.Image = img;
+                    Image bmp = new Bitmap(img);
+                    img.Dispose();
+                    pictureBox1.Image = bmp;
                 }
             }
             else
             {
+
                 Image img = Image.FromFile(items[index].FileName);
                 Image bmp = new Bitmap(img);
+                img.Dispose();
                 pictureBox1.Image = bmp;
             }
 

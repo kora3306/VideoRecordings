@@ -62,7 +62,8 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void gridControl1_DoubleClick(object sender, EventArgs e)
         {
-            if (gridView1.FocusedRowHandle < 0) return;          
+            if (gridView1.FocusedRowHandle < 0) return;
+            focusedfolder = (VideoProject)gridView1.GetRow(gridView1.FocusedRowHandle);
             if (hInfo.InRowCell)
             {
                 new InformationDisplay(this, focusedfolder).Show();
@@ -158,7 +159,7 @@ namespace VideoRecordings
             {
                 return;
             }
-            focusedfolder =(VideoProject)gridView1.GetRow(rowIndex);
+            focusedfolder = (VideoProject)gridView1.GetRow(rowIndex);
         }
 
         /// <summary>
