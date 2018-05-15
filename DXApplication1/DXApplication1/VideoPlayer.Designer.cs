@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DXApplication1.VideoPlayers_test));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoPlayers_test));
             this.axPlayer1 = new AxAPlayer3Lib.AxPlayer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelpro = new System.Windows.Forms.Panel();
@@ -237,9 +237,9 @@
             // 
             this.pic_play_pause.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pic_play_pause.BackColor = System.Drawing.Color.Transparent;
-            this.pic_play_pause.ErrorImage = global::DXApplication1.Properties.Resources.play;
+            this.pic_play_pause.ErrorImage = global::DXApplication1.Properties.Resources.strat;
             this.pic_play_pause.Image = global::DXApplication1.Properties.Resources.strat;
-            this.pic_play_pause.InitialImage = global::DXApplication1.Properties.Resources.play;
+            this.pic_play_pause.InitialImage = global::DXApplication1.Properties.Resources.strat;
             this.pic_play_pause.Location = new System.Drawing.Point(432, 6);
             this.pic_play_pause.Name = "pic_play_pause";
             this.pic_play_pause.Size = new System.Drawing.Size(45, 32);

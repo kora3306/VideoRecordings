@@ -118,46 +118,10 @@
     <None Include="Resources\bottom.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\close.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ico.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\list.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\logo.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\max.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\open.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pause.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\play.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\savepic.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sound.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\stop.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\top.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\play_1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\start1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\strat.png" />
@@ -173,6 +137,9 @@
       <Project>{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}</Project>
       <Name>Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

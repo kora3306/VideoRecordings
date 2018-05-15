@@ -114,17 +114,8 @@ namespace VideoRecordings
                     this.WindowState = FormWindowState.Minimized;
                     information.Show();
                     return true;
-                case Keys.Left:
-                    openimageToolStripMenuItem.PerformClick();
-                    return true;
-                case Keys.Right:
-                    openimageToolStripMenuItem.PerformClick();
-                    return true;
-                case Keys.F1:
-                    Methods.ShowListImages(imageListView1);
-                    return true;
                 case Keys.F2:
-                    OpenfolderToolStripMenuItem.PerformClick();
+                    Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri)));
                     return true;
                 default:
                     break;
@@ -204,8 +195,6 @@ namespace VideoRecordings
             }
             SetTheListView();
         }
-
-
 
         /// <summary>
         /// 控件加载图片

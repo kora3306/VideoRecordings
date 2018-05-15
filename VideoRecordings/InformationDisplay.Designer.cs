@@ -68,7 +68,6 @@
             this.imageListView1 = new Manina.Windows.Forms.ImageListView();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DELToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openimageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
@@ -484,24 +483,16 @@
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.DELToolStripMenuItem,
-            this.openimageToolStripMenuItem});
+            this.DELToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(149, 48);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(125, 26);
             // 
             // DELToolStripMenuItem
             // 
             this.DELToolStripMenuItem.Name = "DELToolStripMenuItem";
-            this.DELToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.DELToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.DELToolStripMenuItem.Text = "删除截图";
             this.DELToolStripMenuItem.Click += new System.EventHandler(this.DELToolStripMenuItem_Click);
-            // 
-            // openimageToolStripMenuItem
-            // 
-            this.openimageToolStripMenuItem.Name = "openimageToolStripMenuItem";
-            this.openimageToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.openimageToolStripMenuItem.Text = "放大选中图片";
-            this.openimageToolStripMenuItem.Click += new System.EventHandler(this.openimageToolStripMenuItem_Click);
             // 
             // label2
             // 
@@ -584,7 +575,6 @@
         private System.Windows.Forms.ToolStripMenuItem DToolStripMenuItem;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripMenuItem openimageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OpenfolderToolStripMenuItem;
     }
 }

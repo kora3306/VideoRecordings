@@ -272,9 +272,6 @@ namespace VideoRecordings
                 case Keys.Control | Keys.V:
                     pasteToolStripMenuItem.PerformClick();
                     return true;
-                case Keys.F1:
-                    Methods.ShowListImages(imageListView1);
-                    return true;
                 default:
                     break;
             }

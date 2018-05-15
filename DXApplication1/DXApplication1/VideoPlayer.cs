@@ -27,6 +27,7 @@ namespace DXApplication1
         {
             InitializeComponent();
             tableLayoutPanel1.BackColor = Color.Black;
+           
         }
 
 
@@ -45,7 +46,8 @@ namespace DXApplication1
             axPlayer1.OnDownloadCodec += new _IPlayerEvents_OnDownloadCodecEventHandler(axPlayer1_OnDownloadCodec);
             axPlayer1.SetCustomLogo(Properties.Resources.logo.GetHbitmap().ToInt32());  //自定义logo
             axPlayer1.SetVolume(50);
-            this.Resize += new EventHandler(FormResize);           
+            this.Resize += new EventHandler(FormResize);
+            pic_play_pause.SizeMode = PictureBoxSizeMode.Zoom;
         }
         #region  axPlayer事件处理程序
 
@@ -454,19 +456,6 @@ namespace DXApplication1
         private void paneltop_DoubleClick(object sender, EventArgs e)
         {
             Console.WriteLine(lbltitle.Text);
-        }
-
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            switch (keyData)
-            {
-                case Keys.F6:
-                    截图ToolStripMenuItem.PerformClick();
-                    return true;
-                default:
-                    break;
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
         }
 
         public delegate void MyDelegate();

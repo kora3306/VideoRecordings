@@ -299,15 +299,6 @@ namespace VideoRecordings
                     information.Show();
                     this.Close();
                     return true;
-                case Keys.Left:
-                    openToolStripMenuItem.PerformClick();
-                    return true;
-                case Keys.Right:
-                    openToolStripMenuItem.PerformClick();
-                    return true;
-                case Keys.F1:
-                    Methods.ShowListImages(imageListView1);
-                    return true;
                 case Keys.F2:
                     Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri)));
                     return true;
@@ -689,7 +680,7 @@ namespace VideoRecordings
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Methods.ShowListImages(imageListView1);
+            
         }
         /// <summary>
         /// 重置标签

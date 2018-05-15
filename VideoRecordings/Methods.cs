@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace VideoRecordings
 {
-   public class Methods
+    public class Methods
     {
         /// <summary>
         /// 路径定位文件夹
@@ -27,24 +27,6 @@ namespace VideoRecordings
         }
 
         /// <summary>
-        /// 将所有图片加入控件显示
-        /// </summary>
-        /// <param name="image"></param>
-        public static void ShowListImages(ImageListView image)
-        {
-            if (image.Items.Count == 0)
-            {
-                return;
-            }
-            List<ImageListViewItem> showimages = new List<ImageListViewItem>();
-            foreach (var item in image.Items)
-            {
-                showimages.Add(item);
-            }
-            new ShowImage(showimages).ShowDialog();
-        }
-
-        /// <summary>
         /// 将选中图片加入控件显示
         /// </summary>
         public static void ShowImage(ImageListView image)
@@ -53,19 +35,27 @@ namespace VideoRecordings
             {
                 return;
             }
+            int i = 0;
+            int index = 0;
             List<ImageListViewItem> showimages = new List<ImageListViewItem>();
             foreach (var item in image.Items)
             {
+                if (item.Selected)
+                {
+                    index = i;
+                }
                 showimages.Add(item);
+                i++;
             }
-            new ShowImage(showimages).ShowDialog();
-
+            new ShowImage(showimages, index).ShowDialog();
         }
+
+
 
         /// <summary>
         /// 删除图片
         /// </summary>
-        public static void DelImage(ImageListView image,List<string> imageurl)
+        public static void DelImage(ImageListView image, List<string> imageurl)
         {
             string url = Program.Urlpath + "/video/snapshot/";
             if (image.SelectedItems.Count == 0)

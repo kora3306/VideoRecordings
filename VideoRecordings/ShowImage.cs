@@ -18,11 +18,11 @@ namespace VideoRecordings
     {
         List<ImageListViewItem> items;
         int index = 0;
-        public ShowImage(List<ImageListViewItem> item)
+        public ShowImage(List<ImageListViewItem> item, int id)
         {
             InitializeComponent();
-            this.MouseWheel += new MouseEventHandler(this.panel1_MouseWheel);
             items = item;
+            index = id;
         }
         /// <summary>
         /// 放大传入的图片
@@ -31,9 +31,11 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void ShowImage_Load(object sender, EventArgs e)
         {
+            if (items == null || items.Count == 0) return;
             ImageFromWebTest();
             pictureBox2.Image = Resources._01;
             pictureBox3.Image = Resources._02;
+
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -44,11 +46,11 @@ namespace VideoRecordings
                     this.Close();
                     return true;
                 case Keys.Left:
-                    index = index == 0 ? 0 : index - 1;
+                    index = index == 0 ? items.Count - 1 : index - 1;
                     ImageFromWebTest();
                     return true;
                 case Keys.Right:
-                    index = index == items.Count - 1 ? items.Count - 1 : index + 1;
+                    index = index == items.Count - 1 ? 0 : index + 1;
                     ImageFromWebTest();
                     return true;
                 case Keys.F1:
@@ -61,43 +63,26 @@ namespace VideoRecordings
 
         private void ImageFromWebTest()
         {
-            string url = Program.Urlpath + "/video/snapshot/" + items[index].Text;
+            Image img;
             if (items[index].FileName.StartsWith("http"))
             {
+                string url = Program.Urlpath + "/video/snapshot/" + items[index].Text;
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 using (WebResponse response = request.GetResponse())
                 {
-                    Image img = Image.FromStream(response.GetResponseStream());
-                    Image bmp = new Bitmap(img);
-                    img.Dispose();
-                    pictureBox1.Image = bmp;
+                    img = Image.FromStream(response.GetResponseStream());
                 }
             }
             else
             {
-
-                Image img = Image.FromFile(items[index].FileName);
-                Image bmp = new Bitmap(img);
-                img.Dispose();
-                pictureBox1.Image = bmp;
+                Image bmg = Image.FromFile(items[index].FileName);
+                img = new System.Drawing.Bitmap(bmg);
+                bmg.Dispose();
             }
-
+            pictureBox1.Image = img;
             label2.Text = items[index].Text;
         }
 
-        private void panel1_MouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            if (e.Delta > 110)
-            {
-                index = index == 0 ? items.Count - 1 : index - 1;
-                ImageFromWebTest();
-            }
-            else if (e.Delta < -110)
-            {
-                index = index == items.Count - 1 ? 0 : index + 1;
-                ImageFromWebTest();
-            }
-        }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
