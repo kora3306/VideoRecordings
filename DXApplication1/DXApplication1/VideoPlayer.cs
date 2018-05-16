@@ -372,6 +372,18 @@ namespace DXApplication1
             return true;
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.F6:
+                    截图ToolStripMenuItem.PerformClick();
+                    break;
+                default:
+                    break;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -396,9 +408,7 @@ namespace DXApplication1
 
         private void 截图ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CaptureTheScreen();
-            SavePic();
-            MyEvent?.Invoke();
+            Screenshots();
         }
 
         private void colorSlider1_Scroll(object sender, ScrollEventArgs e)
@@ -473,6 +483,14 @@ namespace DXApplication1
                 path = path + @"\";
             bit.Save(path + "\\" + photoname + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
             g.Dispose();
+        }
+
+        public void Screenshots()
+        {
+            CaptureTheScreen();
+            SavePic();
+            MyEvent?.Invoke();
+            point= new Point(point.X, point.Y - paneltop.Height);
         }
 
         private void SetPoint()

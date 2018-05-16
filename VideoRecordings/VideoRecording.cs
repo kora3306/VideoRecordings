@@ -44,6 +44,7 @@ namespace VideoRecordings
             isquery = query;
             InitializeComponent();
             videoPlayer1.MyEvent += new DXApplication1.VideoPlayers_test.MyDelegate(ImageAdd);
+            //videoPlayer1.MyPlay+=
             videoPlayer1.path = Program.ImageSavePath;
             PlayVideo();
             GetLabels();
@@ -254,8 +255,8 @@ namespace VideoRecordings
             switch (keyData)
             {
                 case Keys.F6:
-                    CaptureTheScreen();
-                    ImageAdd();
+                    SetPoint();
+                    videoPlayer1.Screenshots();
                     return true;
                 case Keys.S:
                     save_button.PerformClick();

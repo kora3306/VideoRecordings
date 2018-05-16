@@ -1,0 +1,46 @@
+2018-05-16 11:05:11,131 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-05-16 11:05:11,240 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:05:12,234 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:05:13,325 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\桐乡视频\SP0144-视频结构化-桐乡-行人搜图（3.7-3.8）-20180312\城河路附近13个点3.7-3.8\8.256WT城河路宏源路电枪\205211001211800371-00010001-20180301120000-20180301130000-205211-01.nsf
+System.Exception: 打开成功
+2018-05-16 11:07:48,300 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-05-16 11:07:48,363 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:07:49,224 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:07:49,772 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\桐乡视频\SP0144-视频结构化-桐乡-行人搜图（3.7-3.8）-20180312\城河路附近13个点3.7-3.8\8.256WT城河路宏源路电枪\205211001211800371-00010001-20180301120000-20180301130000-205211-01.nsf
+System.Exception: 打开成功
+2018-05-16 11:09:05,085 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:10:03,965 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-05-16 11:10:04,027 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:10:04,975 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:10:05,528 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\桐乡视频\SP0144-视频结构化-桐乡-行人搜图（3.7-3.8）-20180312\城河路附近13个点3.7-3.8\8.256WT城河路宏源路电枪\205211001211800371-00010001-20180301120000-20180301130000-205211-01.nsf
+System.Exception: 打开成功
+2018-05-16 11:15:09,319 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-05-16 11:15:09,441 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:15:11,919 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-05-16 11:15:11,997 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:15:15,872 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-05-16 11:15:15,934 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:15:16,834 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:15:17,381 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md6\视频\桐乡视频\SP0158-视频结构化-桐乡-行人搜图-20180409\2.13点位和部分高铁站12点位\303WT东兴街东兴南弄1电枪\205211001211800374-00010001-20180316170000-20180316180000-205211-01.avi
+System.Exception: 打开成功
+2018-05-16 11:17:29,316 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-05-16 11:17:29,363 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:17:30,306 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:17:30,792 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\桐乡视频\SP0144-视频结构化-桐乡-行人搜图（3.7-3.8）-20180312\城河路附近13个点3.7-3.8\8.256WT城河路宏源路电枪\205211001211800371-00010001-20180301130000-20180301140000-205211-01.nsf
+System.Exception: 打开成功
+2018-05-16 11:19:40,112 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-05-16 11:19:40,237 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:19:45,841 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-05-16 11:19:45,888 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:19:47,178 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-16 11:19:47,704 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md6\视频\桐乡视频\SP0158-视频结构化-桐乡-行人搜图-20180409\2.13点位和部分高铁站12点位\303WT东兴街东兴南弄1电枪\205211001211800374-00010001-20180316160000-20180316170000-205211-01.avi
+System.Exception: 打开成功
