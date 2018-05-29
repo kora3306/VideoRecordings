@@ -1,6 +1,0 @@
-2018-05-11 17:20:55,404 [1]INFO  Common.WebClinetHepler - GET->7ms,code:200,uri:http://192.168.1.225:19886/api/my/info,
-2018-05-11 17:20:55,734 [1]INFO  Common.WebClinetHepler - GET->11ms,code:0,uri:http://192.168.1.198:18080/video/projects,
-2018-05-11 17:20:57,565 [1]INFO  Common.WebClinetHepler - POST->6ms,code:0,uri:http://192.168.1.198:18080/scan/video/project/2,
-2018-05-11 17:20:57,586 [1]INFO  Common.WebClinetHepler - GET->21ms,code:0,uri:http://192.168.1.198:18080/videos?project_name=SP0011,
-2018-05-11 17:20:58,758 [1]INFO  Common.WebClinetHepler - GET->28ms,code:0,uri:http://192.168.1.198:18080/labels,
-2018-05-11 17:21:04,752 [1]INFO  Common.WebClinetHepler - GET->29ms,code:0,uri:http://192.168.1.198:18080/labels,

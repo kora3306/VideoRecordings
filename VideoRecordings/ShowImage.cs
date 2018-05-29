@@ -18,6 +18,7 @@ namespace VideoRecordings
     {
         List<ImageListViewItem> items;
         int index = 0;
+        bool isblack=false;
         public ShowImage(List<ImageListViewItem> item, int id)
         {
             InitializeComponent();

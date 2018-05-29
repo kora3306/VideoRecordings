@@ -107,7 +107,6 @@ F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ja\DevExpress.Office.v17.2.C
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ru\DevExpress.Office.v17.2.Core.resources.dll
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\APlayer_3.9.7.781.dll
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\Native.DXApplication1.manifest
-F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.csprojResolveAssemblyReference.cache
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\Interop.WMPLib.dll
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\Interop.APlayer3Lib.dll
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.csproj.ResolveComReference.cache
@@ -130,3 +129,5 @@ F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.csproj.CoreC
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe.manifest
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.pdb
+F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.csprojAssemblyReference.cache
+F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.csproj.CopyComplete

@@ -153,7 +153,6 @@ namespace DXApplication1
                 case (int)PlayClass.PLAY_STATE.PS_CLOSING:
                     pic_play_pause.ErrorImage = Resources.stop1;
                     ChangErrPic(pic_play_pause);
-                    playpause.PerformClick();
                     break;
                 default:
                     break;
@@ -241,6 +240,10 @@ namespace DXApplication1
         {
             label1.Text = TimeToString(TimeSpan.FromMilliseconds(axPlayer1.GetPosition()));
             colorSlider2.Value = axPlayer1.GetPosition() <= 0 ? 0 : axPlayer1.GetPosition()/1000;
+            if (axPlayer1.GetDuration()-1==axPlayer1.GetPosition())
+            {
+                VideoPalying();
+            }
 
         }
 
@@ -276,7 +279,7 @@ namespace DXApplication1
                 axPlayer1.SetConfig(504, "0");
             }
         }
-
+        
         private void playpause_Click(object sender, EventArgs e)
         {
 
@@ -288,7 +291,7 @@ namespace DXApplication1
         {
             Stop();
         }
-
+    
 
         private void pic_play_pause_Click(object sender, EventArgs e)
         {
@@ -372,19 +375,6 @@ namespace DXApplication1
             return true;
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            switch (keyData)
-            {
-                case Keys.F6:
-                    截图ToolStripMenuItem.PerformClick();
-                    break;
-                default:
-                    break;
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Stop();
@@ -409,6 +399,7 @@ namespace DXApplication1
         private void 截图ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Screenshots();
+            point = new Point(point.X, point.Y - paneltop.Height);
         }
 
         private void colorSlider1_Scroll(object sender, ScrollEventArgs e)
@@ -468,13 +459,21 @@ namespace DXApplication1
             Console.WriteLine(lbltitle.Text);
         }
 
+        public void Getimage()
+        {
+            string photoname = DateTime.Now.Ticks.ToString();
+            if (path.Substring(path.Length - 1, 1) != @"\")
+                path = path + @"\";
+            axPlayer1.SetConfig(702, path + "\\" + photoname + ".jpg");
+        }
+
         public delegate void MyDelegate();
         public event MyDelegate MyEvent;
         public event MyDelegate MyPlay;
         public void CaptureTheScreen()
         {
             SetPoint();
-            Bitmap bit = new Bitmap(axPlayer1.Width, axPlayer1.Height);
+            Bitmap bit = new Bitmap(axPlayer1.Width+10, axPlayer1.Height+25);
             Graphics g = Graphics.FromImage(bit);
             g.CopyFromScreen(point, new Point(0, 0), bit.Size);
             string photoname = DateTime.Now.Ticks.ToString();
@@ -487,10 +486,9 @@ namespace DXApplication1
 
         public void Screenshots()
         {
-            CaptureTheScreen();
+            Getimage();
             SavePic();
             MyEvent?.Invoke();
-            point= new Point(point.X, point.Y - paneltop.Height);
         }
 
         private void SetPoint()

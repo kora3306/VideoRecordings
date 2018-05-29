@@ -45,7 +45,11 @@ namespace VideoRecordings
             InitializeComponent();
             videoPlayer1.MyEvent += new DXApplication1.VideoPlayers_test.MyDelegate(ImageAdd);
             //videoPlayer1.MyPlay+=
-            videoPlayer1.path = Program.ImageSavePath;
+            videoPlayer1.path = Program.ImageSavePath;       
+        }
+
+        private void VideoRecording_Load(object sender, EventArgs e)
+        {
             PlayVideo();
             GetLabels();
             SetPoint();
@@ -65,7 +69,6 @@ namespace VideoRecordings
                 label_treeView.Nodes[0].Expand();
             }
         }
-
 
         /// <summary>
         /// 删除图片
@@ -750,6 +753,5 @@ namespace VideoRecordings
         {
             Methods.ShowImage(imageListView1);
         }
-
     }
 }

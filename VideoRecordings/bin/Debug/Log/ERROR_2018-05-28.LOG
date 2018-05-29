@@ -1,0 +1,6 @@
+2018-05-28 10:52:02,005 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-05-28 10:52:02,171 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-28 10:52:03,255 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-05-28 10:52:04,659 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\桐乡视频\SP0144-视频结构化-桐乡-行人搜图（3.7-3.8）-20180312\城河路附近13个点3.7-3.8\8.256WT城河路宏源路电枪\205211001211800371-00010001-20180301110000-20180301120000-205211-01.nsf
+System.Exception: 打开成功
