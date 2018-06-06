@@ -66,7 +66,7 @@ namespace VideoRecordings
             Program.UserName = obj["result"]["real_name"].ToString() ;
             Program.LogName = obj["result"]["name"].ToString();
             Program.UpdataLongName();
-            new VideoInformation(this).Show();
+            new FileManagement(this).Show();
             this.Hide();
         }
 

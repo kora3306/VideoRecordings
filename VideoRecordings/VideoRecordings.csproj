@@ -34,10 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="DevExpress.BonusSkins.v17.2" />
     <Reference Include="DevExpress.Data.v17.2" />
     <Reference Include="DevExpress.Utils.v17.2" />
     <Reference Include="DevExpress.Sparkline.v17.2.Core" />
+    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v17.2" />
     <Reference Include="DevExpress.Printing.v17.2.Core" />
     <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -68,22 +70,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddLabel.cs">
+    <Compile Include="Images\AddImage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddLabel.Designer.cs">
+    <Compile Include="Images\AddImage.Designer.cs">
+      <DependentUpon>AddImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Images\ImageDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Images\ImageDisplay.Designer.cs">
+      <DependentUpon>ImageDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Images\ImagePull.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Images\ImagePull.Designer.cs">
+      <DependentUpon>ImagePull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Images\QueryImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Images\QueryImage.Designer.cs">
+      <DependentUpon>QueryImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Images\UpdateImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Images\UpdateImage.Designer.cs">
+      <DependentUpon>UpdateImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Label\AddLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Label\AddLabel.Designer.cs">
       <DependentUpon>AddLabel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddVideo.cs">
+    <Compile Include="Video\AddVideo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddVideo.Designer.cs">
+    <Compile Include="Video\AddVideo.Designer.cs">
       <DependentUpon>AddVideo.cs</DependentUpon>
     </Compile>
-    <Compile Include="InformationDisplay.cs">
+    <Compile Include="FileManagement .cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InformationDisplay.Designer.cs">
+    <Compile Include="FileManagement .Designer.cs">
+      <DependentUpon>FileManagement .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Images\ImageInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Images\ImageInformation.Designer.cs">
+      <DependentUpon>ImageInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Video\InformationDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Video\InformationDisplay.Designer.cs">
       <DependentUpon>InformationDisplay.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -92,24 +136,24 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManagementLabel.cs">
+    <Compile Include="Label\ManagementLabel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManagementLabel.Designer.cs">
+    <Compile Include="Label\ManagementLabel.Designer.cs">
       <DependentUpon>ManagementLabel.cs</DependentUpon>
     </Compile>
     <Compile Include="Methods.cs" />
     <Compile Include="Model.cs" />
-    <Compile Include="QueryVideo.cs">
+    <Compile Include="Video\QueryVideo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QueryVideo.Designer.cs">
+    <Compile Include="Video\QueryVideo.Designer.cs">
       <DependentUpon>QueryVideo.cs</DependentUpon>
     </Compile>
-    <Compile Include="SelectLabel.cs">
+    <Compile Include="Label\SelectLabel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SelectLabel.Designer.cs">
+    <Compile Include="Label\SelectLabel.Designer.cs">
       <DependentUpon>SelectLabel.cs</DependentUpon>
     </Compile>
     <Compile Include="ShowImage.cs">
@@ -118,67 +162,88 @@
     <Compile Include="ShowImage.Designer.cs">
       <DependentUpon>ShowImage.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateContent.cs">
+    <Compile Include="Video\UpdateContent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateContent.Designer.cs">
+    <Compile Include="Video\UpdateContent.Designer.cs">
       <DependentUpon>UpdateContent.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateLabel.cs">
+    <Compile Include="Label\UpdateLabel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateLabel.Designer.cs">
+    <Compile Include="Label\UpdateLabel.Designer.cs">
       <DependentUpon>UpdateLabel.cs</DependentUpon>
     </Compile>
-    <Compile Include="VideoInformation.cs">
+    <Compile Include="Video\VideoInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VideoInformation.Designer.cs">
+    <Compile Include="Video\VideoInformation.Designer.cs">
       <DependentUpon>VideoInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="VideoRecording.cs">
+    <Compile Include="Video\VideoRecording.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VideoRecording.Designer.cs">
+    <Compile Include="Video\VideoRecording.Designer.cs">
       <DependentUpon>VideoRecording.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddLabel.resx">
+    <EmbeddedResource Include="Images\AddImage.resx">
+      <DependentUpon>AddImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\ImageDisplay.resx">
+      <DependentUpon>ImageDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\ImageInformation.resx">
+      <DependentUpon>ImageInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\ImagePull.resx">
+      <DependentUpon>ImagePull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\QueryImage.resx">
+      <DependentUpon>QueryImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\UpdateImage.resx">
+      <DependentUpon>UpdateImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Label\AddLabel.resx">
       <DependentUpon>AddLabel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddVideo.resx">
+    <EmbeddedResource Include="Video\AddVideo.resx">
       <DependentUpon>AddVideo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InformationDisplay.resx">
+    <EmbeddedResource Include="FileManagement .resx">
+      <DependentUpon>FileManagement .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Video\InformationDisplay.resx">
       <DependentUpon>InformationDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManagementLabel.resx">
+    <EmbeddedResource Include="Label\ManagementLabel.resx">
       <DependentUpon>ManagementLabel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="QueryVideo.resx">
+    <EmbeddedResource Include="Video\QueryVideo.resx">
       <DependentUpon>QueryVideo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SelectLabel.resx">
+    <EmbeddedResource Include="Label\SelectLabel.resx">
       <DependentUpon>SelectLabel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ShowImage.resx">
       <DependentUpon>ShowImage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateContent.resx">
+    <EmbeddedResource Include="Video\UpdateContent.resx">
       <DependentUpon>UpdateContent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateLabel.resx">
+    <EmbeddedResource Include="Label\UpdateLabel.resx">
       <DependentUpon>UpdateLabel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VideoInformation.resx">
+    <EmbeddedResource Include="Video\VideoInformation.resx">
       <DependentUpon>VideoInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VideoRecording.resx">
+    <EmbeddedResource Include="Video\VideoRecording.resx">
       <DependentUpon>VideoRecording.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -224,6 +289,10 @@
     <ProjectReference Include="..\..\..\接收\intedio_data_tools\Common\Common.csproj">
       <Project>{16f51870-4fce-4868-bcac-2c2620c1a4fe}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\intedio_data_tools\MyControl\MyControl.csproj">
+      <Project>{433BE916-116D-41F4-A309-88A18920B21D}</Project>
+      <Name>MyControl</Name>
     </ProjectReference>
     <ProjectReference Include="..\DXApplication1\DXApplication1\DXApplication.csproj">
       <Project>{a396a433-6389-4fff-b4bb-2d1016363dc2}</Project>

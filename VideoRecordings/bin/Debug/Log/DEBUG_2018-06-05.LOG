@@ -1,0 +1,3 @@
+2018-06-05 09:21:41,898 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->1374ms,code:0,uri:http://192.168.1.225:18080/videos?status=0&recorded=1&start_date=2010-01-01&end_date=2018-06-05&start_time=0:00:00&end_time=23:59:59
+2018-06-05 09:24:05,857 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->1102ms,code:0,uri:http://192.168.1.225:18080/videos?status=0&recorded=1&start_date=2010-01-01&end_date=2018-06-05&start_time=0:00:00&end_time=23:59:59
+2018-06-05 17:47:28,282 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->1309ms,code:0,uri:http://192.168.1.225:18080/videos?status=0&recorded=1&start_date=2010-01-01&end_date=2018-06-05&start_time=0:00:00&end_time=23:59:59
