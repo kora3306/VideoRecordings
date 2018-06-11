@@ -21,6 +21,9 @@ namespace VideoRecordings.Images
         ImageProject project;
         GridHitInfo hInfo = new GridHitInfo();
 
+        public int imagesize = 96;
+        public int fittersize = 96;
+
         public ImagePlay transmissionvideo = new ImagePlay();     //当前选中的文件
 
         public List<ImagePlay> images = new List<ImagePlay>();
@@ -33,7 +36,7 @@ namespace VideoRecordings.Images
             InitializeComponent();
             imageInformation = information;
             project = imageproject;
-            CeShi();          
+            CeShi();
             if (project != null)
             {
                 toolStripStatusLabel1.Text = $"视频 :{project.Name}    {project.Place}";
@@ -44,7 +47,7 @@ namespace VideoRecordings.Images
 
         private void CeShi()
         {
-             List<string>path=getDirectory(project.Uri.ToString());
+            List<string> path = getDirectory(project.Uri.ToString());
             int i = 1;
             foreach (var item in path)
             {
@@ -57,9 +60,9 @@ namespace VideoRecordings.Images
                     RecordTime = "20170905",
                     EndTime = "20180605",
                     Status = "在用",
-                    Labels = new List<string>() {"11","22" },
-                    ImageId = new List<int>(){1,2}
-                    
+                    Labels = new List<string>() { "11", "22" },
+                    ImageId = new List<int>() { 1, 2 }
+
                 });
             }
             bindingSource1.DataSource = images;

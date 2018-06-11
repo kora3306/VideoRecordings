@@ -84,5 +84,17 @@ namespace VideoRecordings
             List<VideoPlay> videoplay = JsonHelper.DeserializeDataContractJson<List<VideoPlay>>(obj["videos"].ToString());
             return videoplay.First();
         }
+
+
+        public static List<string> CopyToList(List<string> list)
+        {
+            List<string> copys = new List<string>();
+            foreach (var item in list)
+            {
+                string copy = string.Copy(item);
+                copys.Add(copy);
+            }
+            return copys;
+        }
     }
 }

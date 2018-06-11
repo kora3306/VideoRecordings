@@ -204,8 +204,7 @@ namespace DXApplication1
             }
         }
 
-
-        private void PlayOrPause()
+        public void PlayOrPause()
         {
 
             int tempstatus = _Player.GetState();
@@ -258,7 +257,6 @@ namespace DXApplication1
             span.Minutes.ToString("00") + ":" +
             span.Seconds.ToString("00");
         }
-
 
 
         /// <summary>
@@ -380,7 +378,6 @@ namespace DXApplication1
             Stop();
         }
 
-
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             openfile();
@@ -470,6 +467,7 @@ namespace DXApplication1
         public delegate void MyDelegate();
         public event MyDelegate MyEvent;
         public event MyDelegate MyPlay;
+
         public void CaptureTheScreen()
         {
             SetPoint();
@@ -541,6 +539,39 @@ namespace DXApplication1
 
         }
 
+        public void  SetTime(int time)
+        {
+            switch ((TimeType)time)
+            {
+                case TimeType.Start:
+                    colorSlider2.Value = 1 ;
+                    break;
+                case TimeType.Append:
+                    if (colorSlider2.Value > (axPlayer1.GetDuration() / 1000)-100)
+                    {
+                        colorSlider2.Value = (axPlayer1.GetDuration() / 1000) - 1;
+                        break;
+                    }
+                    colorSlider2.Value += 100;
+                    break;
+                case TimeType.End:
+                    colorSlider2.Value = (axPlayer1.GetDuration() / 1000)-1;
+                    PlayOrPause();
+                    break;
+                default:
+                    break;
+            }
+            axPlayer1.SetPosition(colorSlider2.Value * 1000);
+            label1.Text = TimeToString(TimeSpan.FromMilliseconds(colorSlider2.Value * 1000));
+        }
+
+    }
+
+    public enum TimeType
+    {
+        Start = 0,
+        Append = 1,
+        End = 2
     }
 }
 

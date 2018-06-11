@@ -17,30 +17,57 @@ namespace VideoRecordings.Images
         ImageDisplay display;
         ImagePlay play;
         List<string> paths = new List<string>();
-       public ImagePull(ImageDisplay imageDisplay, ImagePlay imagePlay)
+        List<string> size = new List<string>() { "96*96", "124*124", "196*196", "240*240" };
+        List<string> size1 = new List<string>() { "96*96", "124*124", "196*196", "240*240" };
+        private string selectFilterPath = string.Empty;
+        private string selectImagePath = string.Empty;
+        private string selectTxtPath = string.Empty;
+        List<string> images = new List<string>();
+        const int ShowSize= 10;
+
+        public ImagePull(ImageDisplay imageDisplay, ImagePlay imagePlay)
         {
             InitializeComponent();
             display = imageDisplay;
             play = imagePlay;
+            selectImagePath = imagePlay.Uri;
+            selectFilterPath = Path.Combine(selectImagePath, "filter");          
         }
 
         private void ImagePull_Load(object sender, EventArgs e)
         {
-            
-            List<TreeNode> nodes = GetTreeNode();
-            toolStripStatusLabel1.Text = $"0/{nodes.Count}";
-            treeView_image.Nodes.AddRange(nodes.ToArray());
-            RefrashImage();
+            images = Directory.GetFiles(selectImagePath).ToList();
+            comboBox1.DataSource = size;
+            SetComIndex(comboBox1, display.imagesize);
+            comboBox2.DataSource = size1;
+            SetComIndex(comboBox2,display.fittersize);
+            //imageListView_image.ThumbnailSize = new Size(display.imagesize, display.imagesize);
+            //imageListView_filter.ThumbnailSize = new Size(display.fittersize, display.fittersize);
+            SetImage();
         }
 
+        private void SetComIndex(ComboBox box,int num)
+        {
+            int i = 0;
+            foreach (var item in box.Items)
+            {
+                if (item.ToString().StartsWith(num.ToString()))
+                {
+                    box.SelectedIndex = i;
+                    break;
+                }
+                i++;
+            }
+        }
 
         private void RefrashImage()
         {
+            List<string> showimage = GenerateRandomNumber(ShowSize, images.Count);
             imageListView_image.Items.Clear();
             if (Directory.Exists(play.Uri))
             {
                 imageListView_image
-                    .Items.AddRange(Directory.GetFiles(play.Uri).OrderBy(t => t).Select(t =>
+                    .Items.AddRange(showimage.OrderBy(t => t).Select(t =>
                     new ImageListViewItem
                     {
                         Text = t.Split('\\').Last().Substring(0, t.Split('\\').Last().Length - 4),
@@ -50,36 +77,141 @@ namespace VideoRecordings.Images
             }
         }
 
-        private List<string> GetListTreeNode()
-        {
-            List<string> tree = new List<string>();
-            var files = Directory.GetFiles(play.Uri);
-            foreach (var item in files)
-            {
-                paths.Add(item);
-                tree.Add(item.Split('\\').Last());
-            }
-            return tree;
-        }
+        //private List<string> GetListTreeNode()
+        //{
+        //    List<string> tree = new List<string>();
+        //    var files = Directory.GetFiles(play.Uri);
+        //    foreach (var item in files)
+        //    {
+        //        paths.Add(item);
+        //        tree.Add(item.Split('\\').Last());
+        //    }
+        //    return tree;
+        //}
 
-        private List<TreeNode> GetTreeNode()
-        {
-            int i = 1;
-            List<TreeNode> nodes = new List<TreeNode>();
-            foreach (var item in GetListTreeNode())
-            {
-                TreeNode node = new TreeNode() { Name = item, Text = item, Tag =i++};
-                nodes.Add(node);
-            }
-            return nodes;
-        }
+        //private List<TreeNode> GetTreeNode()
+        //{
+        //    int i = 1;
+        //    List<TreeNode> nodes = new List<TreeNode>();
+        //    foreach (var item in GetListTreeNode())
+        //    {
+        //        TreeNode node = new TreeNode() { Name = item, Text = item, Tag =i++};
+        //        nodes.Add(node);
+        //    }
+        //    return nodes;
+        //}
 
         private void imageListView_image_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (e.Buttons == MouseButtons.Left )
             {
                 e.Item.Checked = !e.Item.Checked;
+                e.Item.BackColor = e.Item.Checked ? Color.PowderBlue:Color.White;
             }
+        }
+
+        private void imageListView_image_DoubleClick(object sender, EventArgs e)
+        {
+            Methods.ShowImage(imageListView_image);
+        }
+
+        private void imageListView_fitter_DragDrop(object sender, DragEventArgs e)
+        {
+            try
+            {
+                //DataObject data = e.Data as DataObject;
+                //if (data == null) return;
+                //Dictionary<string, string> images = (Dictionary<string, string>)data.GetData(DataFormats.FileDrop);
+                if (!Directory.Exists(selectFilterPath))
+                    Directory.CreateDirectory(selectFilterPath);
+                foreach (var item in imageListView_image.CheckedItems)
+                {
+                    if (File.Exists(item.FileName.Replace(selectImagePath, selectFilterPath)))
+                    {
+                        continue;
+                    }
+                    File.Copy(item.FileName, item.FileName.Replace(selectImagePath, selectFilterPath));
+                }                        
+                SetImage();
+                //OperationLog.InfoLog(_className, $"choose\tfilter_image\t{images.Count}\tchoose {images.Count} pic from image to filter");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void RefrashFilterImage()
+        {
+            imageListView_filter.Items.Clear();
+            if (Directory.Exists(selectFilterPath))
+            {
+                imageListView_filter
+                    .Items.AddRange(Directory.GetFiles(selectFilterPath).OrderBy(t => t).Select(t =>
+                    new ImageListViewItem
+                    {
+                        Text = t.Split('\\').Last().Substring(0, t.Split('\\').Last().Length - 4),
+                        FileName = t,
+                        Tag = t
+                    }).ToArray());
+            }
+        }
+
+        private void SetImage()
+        {
+            RefrashImage();
+            RefrashFilterImage();
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {   
+                case Keys.D:
+                    DeleteFilter();
+                    break;
+                default:
+                    break;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void DeleteFilter()
+        {
+            foreach (var item in imageListView_filter.SelectedItems)
+            {
+                File.Delete(item.FileName);
+            }
+            RefrashFilterImage();
+        }
+
+
+        public List<string> GenerateRandomNumber(int Length,int max)
+        {
+            List<string> newRandom = new List<string>(Length);
+            Random rd = new Random();
+            for (int i = 0; i < Length; i++)
+            {
+                newRandom.Add(images[rd.Next(max)]);
+            }
+            return newRandom;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RefrashImage();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {          
+            imageListView_image.ThumbnailSize = new Size(int.Parse(comboBox1.Text.Split('*').First()), int.Parse(comboBox1.Text.Split('*').Last()));
+            display.imagesize = int.Parse(comboBox1.Text.Split('*').First());
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            imageListView_filter.ThumbnailSize = new Size(int.Parse(comboBox2.Text.Split('*').First()), int.Parse(comboBox2.Text.Split('*').Last()));
+            display.fittersize = int.Parse(comboBox2.Text.Split('*').First());
         }
     }
 }

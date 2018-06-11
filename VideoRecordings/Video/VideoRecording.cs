@@ -251,8 +251,7 @@ namespace VideoRecordings
             }
 
         }
-
-        //
+      //
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             switch (keyData)
@@ -276,13 +275,32 @@ namespace VideoRecordings
                 case Keys.Control | Keys.V:
                     pasteToolStripMenuItem.PerformClick();
                     return true;
+                case Keys.Z:
+                    videoPlayer1.SetTime(0);
+                    return true;
+                case Keys.X:
+                    videoPlayer1.SetTime(1);
+                    return true;
+                case Keys.C:
+                    videoPlayer1.SetTime(2);
+                    return true;
+                case Keys.Space:
+                    videoPlayer1.PlayOrPause();
+                    return true;
+                case Keys.E:
+                    timeEdit_start.Focus();
+                    return true;
+                case Keys.R:
+                    timeEdit_end.Focus();
+                    return true;
+                case Keys.T:
+                    dateTimePicker1.Focus();
+                    return true;
                 default:
                     break;
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-
-
 
         /// <summary>
         /// 关联关闭外部播放器
@@ -724,7 +742,7 @@ namespace VideoRecordings
             {
                 return;
             }
-            Program.labels = labels;          
+            Program.labels =Methods.CopyToList(labels);          
             Program.log.Info($"复制{string.Join(",",labels)}");
         }
         /// <summary>
@@ -742,6 +760,7 @@ namespace VideoRecordings
             {
                 if (AllLabel.Values.Contains(item))
                 {
+                    if (labels.Contains(item)) continue;
                     labels.Add(item);
                     SetLabelText();
                 }              
@@ -753,5 +772,7 @@ namespace VideoRecordings
         {
             Methods.ShowImage(imageListView1);
         }
+
+
     }
 }

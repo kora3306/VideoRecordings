@@ -51,7 +51,6 @@ namespace VideoRecordings
             label2.Text = $"欢迎:{Program.UserName}";          
         }
 
-
         /// <summary>
         /// 打开文件按钮
         /// </summary>
@@ -269,8 +268,6 @@ namespace VideoRecordings
             bindingSource1.DataSource = videoplays;
         }
 
-
-
         /// <summary>
         /// 刷新标签
         /// </summary>
@@ -466,6 +463,7 @@ namespace VideoRecordings
         {
             MessageBox.Show(transmissionvideo.Name);
         }
+
     }
 
 

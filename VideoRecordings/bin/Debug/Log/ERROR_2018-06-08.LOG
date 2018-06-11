@@ -1,0 +1,33 @@
+2018-06-08 17:50:57,467 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-08 17:50:57,726 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-08 17:51:04,010 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-08 17:51:04,096 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-08 17:51:08,236 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-08 17:51:09,558 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md7\视频\桐乡视频\SP0177-视频结构化-桐乡-人脸视频-2018051420180518\222GQ高铁站售票大厅电球\205211001211804393-00010001-20180516070000-20180516073000-205211-01.nsf
+System.Exception: 打开成功
+2018-06-08 17:51:18,519 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-08 17:51:18,892 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md7\视频\桐乡视频\SP0177-视频结构化-桐乡-人脸视频-2018051420180518\222GQ高铁站售票大厅电球\205211001211804393-00010001-20180516083000-20180516090000-205211-01.nsf
+System.Exception: 打开成功
+2018-06-08 17:52:28,143 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-08 17:52:28,247 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-08 17:52:31,629 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-08 17:52:31,711 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-08 17:52:34,358 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-08 17:52:34,431 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-08 17:52:36,532 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-08 17:52:36,595 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-08 17:52:41,536 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-08 17:52:41,614 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-08 17:52:45,013 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-08 17:52:46,598 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md7\视频\桐乡视频\SP0177-视频结构化-桐乡-人脸视频-2018051420180518\222GQ高铁站售票大厅电球\205211001211804393-00010001-20180516070000-20180516073000-205211-01.nsf
+System.Exception: 打开成功
+2018-06-08 17:52:50,070 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-08 17:52:50,469 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md7\视频\桐乡视频\SP0177-视频结构化-桐乡-人脸视频-2018051420180518\222GQ高铁站售票大厅电球\205211001211804393-00010001-20180516073000-20180516080000-205211-01.nsf
+System.Exception: 打开成功
