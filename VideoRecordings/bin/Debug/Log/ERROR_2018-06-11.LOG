@@ -112,3 +112,9 @@ System.Exception: 清除扫描信息False
 2018-06-11 14:43:28,594 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
 System.Exception: 获取成功
 2018-06-11 14:43:28,626 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:06:40,398 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-11 17:06:40,590 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:06:41,392 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:06:42,612 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\黄石视频\SP0155-视频结构化-黄石-街道路口行人车辆混杂-20180326\19、黄石A00175(高枪)房产局路口(南)\2018-03-23\黄石A00175(高枪)房产局路口(南) 20180320-063006--20180320-064006.mp4
+System.Exception: 打开成功
