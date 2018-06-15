@@ -84,7 +84,6 @@ namespace VideoRecordings
             label2.Text = items[index].Text;
         }
 
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             index = index == items.Count - 1 ? 0 : index + 1;

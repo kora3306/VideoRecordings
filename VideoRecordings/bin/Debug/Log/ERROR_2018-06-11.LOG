@@ -118,3 +118,98 @@ System.Exception: 获取成功
 2018-06-11 17:06:41,392 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
 2018-06-11 17:06:42,612 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\黄石视频\SP0155-视频结构化-黄石-街道路口行人车辆混杂-20180326\19、黄石A00175(高枪)房产局路口(南)\2018-03-23\黄石A00175(高枪)房产局路口(南) 20180320-063006--20180320-064006.mp4
 System.Exception: 打开成功
+2018-06-11 17:12:03,055 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-11 17:12:03,160 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:12:04,196 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:12:04,876 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\青岛视频\SP0157-视频结构化-青岛-海信PK数据-20180327\视频样本\1520293980.h264
+System.Exception: 打开成功
+2018-06-11 17:12:12,729 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:12:13,233 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\青岛视频\SP0157-视频结构化-青岛-海信PK数据-20180327\视频样本\1520293987.h264
+System.Exception: 打开成功
+2018-06-11 17:12:23,602 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-11 17:12:23,636 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:12:24,767 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:12:25,421 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md7\视频\深圳视频\SP0182-视频结构化-深圳-深圳交警无人机视频-20180605\DJI_0525.MOV
+System.Exception: 打开成功
+2018-06-11 17:12:36,259 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:12:36,923 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:12:37,329 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md7\视频\深圳视频\SP0182-视频结构化-深圳-深圳交警无人机视频-20180605\DJI_0521.MOV
+System.Exception: 打开成功
+2018-06-11 17:12:40,836 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:12:41,278 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md7\视频\深圳视频\SP0182-视频结构化-深圳-深圳交警无人机视频-20180605\DJI_0526.MOV
+System.Exception: 打开成功
+2018-06-11 17:12:45,198 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-11 17:12:45,256 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:12:46,514 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:12:46,956 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md6\视频\武汉视频\SP0162-视频结构化-武汉-烽火测试-20180331\省博物馆-梨园隧道（逆）_20180331090157_20180331092757.avi
+System.Exception: 打开成功
+2018-06-11 17:13:52,477 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-11 17:13:52,602 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:13:53,942 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:13:55,232 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\桐乡视频\SP0144-视频结构化-桐乡-行人搜图（3.7-3.8）-20180312\城河路附近13个点3.7-3.8\8.256WT城河路宏源路电枪\205211001211800371-00010001-20180301160000-20180301170000-205211-01.nsf
+System.Exception: 打开成功
+2018-06-11 17:14:02,760 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:14:03,207 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\桐乡视频\SP0144-视频结构化-桐乡-行人搜图（3.7-3.8）-20180312\城河路附近13个点3.7-3.8\9.008WT宏远路城河路电枪\205211001211804231-00010001-20180307130000-20180307140000-205211-01.nsf
+System.Exception: 打开成功
+2018-06-11 17:14:06,246 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-11 17:14:06,285 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:14:07,366 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:14:07,753 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md7\视频\深圳视频\SP0182-视频结构化-深圳-深圳交警无人机视频-20180605\DJI_0522.MOV
+System.Exception: 打开成功
+2018-06-11 17:15:57,605 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-11 17:15:57,739 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:15:58,472 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:16:01,125 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\西藏视频\SP0156-视频结构化-西藏-行人密集-20180321\次旦康萨全景球机_20180321173744_1000136-1-0-0.dav
+System.Exception: 打开成功
+2018-06-11 17:37:24,709 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-11 17:37:24,881 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:37:25,866 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 17:37:27,756 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\桐乡视频\SP0144-视频结构化-桐乡-行人搜图（3.7-3.8）-20180312\城河路附近13个点3.7-3.8\8.256WT城河路宏源路电枪\205211001211800371-00010001-20180301140000-20180301150000-205211-01.nsf
+System.Exception: 打开成功
+2018-06-11 18:05:38,990 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-11 18:05:39,093 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:05:41,101 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:05:51,391 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:06:18,776 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-11 18:06:18,873 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:06:20,345 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:07:39,261 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-11 18:07:39,308 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:07:41,215 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:08:00,773 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:08:01,914 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:09:50,070 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-11 18:09:50,224 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:09:52,071 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:10:20,725 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-11 18:10:20,823 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:10:22,496 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:10:39,238 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:10:50,940 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:11:30,605 [1]ERROR VideoRecordings.Program - 账号登录
+System.Exception: xiekai登录失败,账号密码错误
+2018-06-11 18:11:38,303 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-06-11 18:11:38,397 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:11:39,569 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:11:42,051 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md6\视频\海口视频\SP0163-视频结构化-海口-海口办公区视频-2018033120180416\4月16日视频-CH01-12\办公区视频-出入口及内部各区域（楼道，电梯口，谈话室等）\ch01_20180416094558.mp4
+System.Exception: 打开成功
+2018-06-11 18:11:45,315 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:11:51,246 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:11:52,203 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:11:53,856 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md6\视频\海口视频\SP0163-视频结构化-海口-海口办公区视频-2018033120180416\4月16日视频-CH01-12\办公区视频-出入口及内部各区域（楼道，电梯口，谈话室等）\ch05_20180416083549.mp4
+System.Exception: 打开成功
+2018-06-11 18:11:57,194 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-06-11 18:12:02,075 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture

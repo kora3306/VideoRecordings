@@ -14,11 +14,13 @@ namespace VideoRecordings
 {
     public partial class FileManagement : Form
     {
-        Login _log;
-        public FileManagement(Login login)
+        public FileManagement()
         {
             InitializeComponent();
-            _log = login;
+            if (Program.GetAppConfig("TestApi") != "0")
+            {
+                this.Text += "(测试库)";
+            }
         }
 
 
@@ -77,7 +79,7 @@ namespace VideoRecordings
 
         private void FileManagement_FormClosed(object sender, FormClosedEventArgs e)
         {
-            _log.Close();
+
         }
     }
 

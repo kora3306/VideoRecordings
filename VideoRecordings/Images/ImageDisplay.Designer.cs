@@ -51,7 +51,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gridColumn_record_time = new DevExpress.XtraGrid.Columns.GridColumn();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.gridColumn_end_time = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dispalyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,13 +63,11 @@
             this.gridColumn_uri = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_status = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_recorded = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn_deframed = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn_frame_path = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_label = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn_start_time = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.gridColumn_count = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -85,13 +82,13 @@
             // 
             // gridColumn_images
             // 
-            this.gridColumn_images.Caption = "截图数量";
+            this.gridColumn_images.Caption = "示例图片";
             this.gridColumn_images.FieldName = "Images";
             this.gridColumn_images.Name = "gridColumn_images";
             this.gridColumn_images.OptionsColumn.AllowEdit = false;
             this.gridColumn_images.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_images.Visible = true;
-            this.gridColumn_images.VisibleIndex = 6;
+            this.gridColumn_images.VisibleIndex = 4;
             this.gridColumn_images.Width = 35;
             // 
             // gridColumn_create_time
@@ -102,7 +99,7 @@
             this.gridColumn_create_time.OptionsColumn.AllowEdit = false;
             this.gridColumn_create_time.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_create_time.Visible = true;
-            this.gridColumn_create_time.VisibleIndex = 12;
+            this.gridColumn_create_time.VisibleIndex = 9;
             this.gridColumn_create_time.Width = 100;
             // 
             // label1
@@ -253,7 +250,7 @@
             // 
             // gridColumn_record_time
             // 
-            this.gridColumn_record_time.Caption = "视频录制时间";
+            this.gridColumn_record_time.Caption = "采集日期";
             this.gridColumn_record_time.FieldName = "RecordTime";
             this.gridColumn_record_time.Name = "gridColumn_record_time";
             this.gridColumn_record_time.OptionsColumn.AllowEdit = false;
@@ -261,17 +258,6 @@
             this.gridColumn_record_time.Visible = true;
             this.gridColumn_record_time.VisibleIndex = 2;
             this.gridColumn_record_time.Width = 78;
-            // 
-            // gridColumn_end_time
-            // 
-            this.gridColumn_end_time.Caption = "结束时间";
-            this.gridColumn_end_time.FieldName = "EndTime";
-            this.gridColumn_end_time.Name = "gridColumn_end_time";
-            this.gridColumn_end_time.OptionsColumn.AllowEdit = false;
-            this.gridColumn_end_time.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
-            this.gridColumn_end_time.Visible = true;
-            this.gridColumn_end_time.VisibleIndex = 4;
-            this.gridColumn_end_time.Width = 56;
             // 
             // gridControl1
             // 
@@ -326,12 +312,9 @@
             this.gridColumn_project_name,
             this.gridColumn_uri,
             this.gridColumn_status,
+            this.gridColumn_count,
             this.gridColumn_recorded,
-            this.gridColumn_deframed,
-            this.gridColumn_frame_path,
             this.gridColumn_label,
-            this.gridColumn_start_time,
-            this.gridColumn_end_time,
             this.gridColumn_record_time,
             this.gridColumn_images,
             this.gridColumn_create_time});
@@ -349,7 +332,7 @@
             // 
             // gridColumn_id
             // 
-            this.gridColumn_id.Caption = "视频编号";
+            this.gridColumn_id.Caption = "文件夹编号";
             this.gridColumn_id.FieldName = "Id";
             this.gridColumn_id.Name = "gridColumn_id";
             this.gridColumn_id.OptionsColumn.AllowEdit = false;
@@ -360,7 +343,7 @@
             // 
             // gridColumn_name
             // 
-            this.gridColumn_name.Caption = "视频名称";
+            this.gridColumn_name.Caption = "文件夹名称";
             this.gridColumn_name.FieldName = "Name";
             this.gridColumn_name.Name = "gridColumn_name";
             this.gridColumn_name.OptionsColumn.AllowEdit = false;
@@ -380,24 +363,24 @@
             // 
             // gridColumn_uri
             // 
-            this.gridColumn_uri.Caption = "视频相对路径";
+            this.gridColumn_uri.Caption = "图片相对路径";
             this.gridColumn_uri.FieldName = "Uri";
             this.gridColumn_uri.Name = "gridColumn_uri";
             this.gridColumn_uri.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_uri.OptionsColumn.ReadOnly = true;
             this.gridColumn_uri.Visible = true;
-            this.gridColumn_uri.VisibleIndex = 10;
+            this.gridColumn_uri.VisibleIndex = 8;
             this.gridColumn_uri.Width = 248;
             // 
             // gridColumn_status
             // 
-            this.gridColumn_status.Caption = "视频状态";
+            this.gridColumn_status.Caption = "图片状态";
             this.gridColumn_status.FieldName = "Status";
             this.gridColumn_status.Name = "gridColumn_status";
             this.gridColumn_status.OptionsColumn.AllowEdit = false;
             this.gridColumn_status.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_status.Visible = true;
-            this.gridColumn_status.VisibleIndex = 7;
+            this.gridColumn_status.VisibleIndex = 6;
             this.gridColumn_status.Width = 60;
             // 
             // gridColumn_recorded
@@ -408,30 +391,8 @@
             this.gridColumn_recorded.OptionsColumn.AllowEdit = false;
             this.gridColumn_recorded.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_recorded.Visible = true;
-            this.gridColumn_recorded.VisibleIndex = 8;
+            this.gridColumn_recorded.VisibleIndex = 7;
             this.gridColumn_recorded.Width = 60;
-            // 
-            // gridColumn_deframed
-            // 
-            this.gridColumn_deframed.Caption = "是否解帧";
-            this.gridColumn_deframed.FieldName = "Deframed";
-            this.gridColumn_deframed.Name = "gridColumn_deframed";
-            this.gridColumn_deframed.OptionsColumn.AllowEdit = false;
-            this.gridColumn_deframed.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
-            this.gridColumn_deframed.Visible = true;
-            this.gridColumn_deframed.VisibleIndex = 9;
-            this.gridColumn_deframed.Width = 60;
-            // 
-            // gridColumn_frame_path
-            // 
-            this.gridColumn_frame_path.Caption = "解帧路径";
-            this.gridColumn_frame_path.FieldName = "FramePath";
-            this.gridColumn_frame_path.Name = "gridColumn_frame_path";
-            this.gridColumn_frame_path.OptionsColumn.AllowEdit = false;
-            this.gridColumn_frame_path.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
-            this.gridColumn_frame_path.Visible = true;
-            this.gridColumn_frame_path.VisibleIndex = 11;
-            this.gridColumn_frame_path.Width = 71;
             // 
             // gridColumn_label
             // 
@@ -441,19 +402,8 @@
             this.gridColumn_label.OptionsColumn.AllowEdit = false;
             this.gridColumn_label.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_label.Visible = true;
-            this.gridColumn_label.VisibleIndex = 5;
+            this.gridColumn_label.VisibleIndex = 3;
             this.gridColumn_label.Width = 131;
-            // 
-            // gridColumn_start_time
-            // 
-            this.gridColumn_start_time.Caption = "开始时间";
-            this.gridColumn_start_time.FieldName = "StartTime";
-            this.gridColumn_start_time.Name = "gridColumn_start_time";
-            this.gridColumn_start_time.OptionsColumn.AllowEdit = false;
-            this.gridColumn_start_time.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
-            this.gridColumn_start_time.Visible = true;
-            this.gridColumn_start_time.VisibleIndex = 3;
-            this.gridColumn_start_time.Width = 56;
             // 
             // tableLayoutPanel1
             // 
@@ -496,6 +446,14 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(171, 77);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // gridColumn_count
+            // 
+            this.gridColumn_count.Caption = "图片数量";
+            this.gridColumn_count.FieldName = "Count";
+            this.gridColumn_count.Name = "gridColumn_count";
+            this.gridColumn_count.Visible = true;
+            this.gridColumn_count.VisibleIndex = 5;
             // 
             // ImageDisplay
             // 
@@ -546,11 +504,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_uri;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_status;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_recorded;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn_deframed;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn_frame_path;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_label;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn_start_time;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn_end_time;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_record_time;
         private Manina.Windows.Forms.ImageListView imageListView1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
@@ -566,5 +520,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn_count;
     }
 }

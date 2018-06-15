@@ -303,38 +303,38 @@
             this.在最前toolStripMenuItem3,
             this.截图ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 180);
             // 
             // playpause
             // 
             this.playpause.Name = "playpause";
-            this.playpause.Size = new System.Drawing.Size(124, 22);
+            this.playpause.Size = new System.Drawing.Size(180, 22);
             this.playpause.Text = "播放";
             this.playpause.Click += new System.EventHandler(this.playpause_Click);
             // 
             // 停止toolStripMenuItem2
             // 
             this.停止toolStripMenuItem2.Name = "停止toolStripMenuItem2";
-            this.停止toolStripMenuItem2.Size = new System.Drawing.Size(124, 22);
+            this.停止toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.停止toolStripMenuItem2.Text = "停止";
             this.停止toolStripMenuItem2.Click += new System.EventHandler(this.停止toolStripMenuItem2_Click);
             // 
             // 快进
             // 
             this.快进.Name = "快进";
-            this.快进.Size = new System.Drawing.Size(124, 22);
+            this.快进.Size = new System.Drawing.Size(180, 22);
             this.快进.Text = "快进";
             // 
             // 后退
             // 
             this.后退.Name = "后退";
-            this.后退.Size = new System.Drawing.Size(124, 22);
+            this.后退.Size = new System.Drawing.Size(180, 22);
             this.后退.Text = "后退";
             // 
             // 显示字母ToolStripMenuItem
             // 
             this.显示字母ToolStripMenuItem.Name = "显示字母ToolStripMenuItem";
-            this.显示字母ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.显示字母ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.显示字母ToolStripMenuItem.Text = "显示字幕";
             this.显示字母ToolStripMenuItem.Click += new System.EventHandler(this.显示字母ToolStripMenuItem_Click);
             // 
@@ -345,7 +345,7 @@
             this.播放时在最前toolStripMenuItem3,
             this.toolStripMenuItem2});
             this.在最前toolStripMenuItem3.Name = "在最前toolStripMenuItem3";
-            this.在最前toolStripMenuItem3.Size = new System.Drawing.Size(124, 22);
+            this.在最前toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.在最前toolStripMenuItem3.Text = "在最前";
             // 
             // toolStripMenuItem1
@@ -371,17 +371,17 @@
             // 截图ToolStripMenuItem
             // 
             this.截图ToolStripMenuItem.Name = "截图ToolStripMenuItem";
-            this.截图ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.截图ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.截图ToolStripMenuItem.Text = "截图";
             this.截图ToolStripMenuItem.Click += new System.EventHandler(this.截图ToolStripMenuItem_Click);
             // 
-            // VideoPlayers
+            // VideoPlayers_test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "VideoPlayers";
+            this.Name = "VideoPlayers_test";
             this.Size = new System.Drawing.Size(932, 621);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.VideoPlayer_Resize);

@@ -232,3 +232,5 @@ F:\源码\VideoRecordings\VideoRecordings\bin\Debug\zh-Hans\DevExpress.Pdf.v18.1
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\zh-Hans\DevExpress.RichEdit.v18.1.Core.resources.dll
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\zh-Hans\DevExpress.XtraTreeList.v18.1.resources.dll
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\zh-Hans\DevExpress.Office.v18.1.Core.resources.dll
+F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.SolutionFrame.resources
+F:\源码\VideoRecordings\VideoRecordings\obj\Debug\SeemmoData.Controls.WaitFormEx.resources

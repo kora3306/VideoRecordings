@@ -60,6 +60,7 @@ namespace VideoRecordings.Images
                     RecordTime = "20170905",
                     EndTime = "20180605",
                     Status = "在用",
+                    Count = new DirectoryInfo(item).GetFiles().Count(),
                     Labels = new List<string>() { "11", "22" },
                     ImageId = new List<int>() { 1, 2 }
 

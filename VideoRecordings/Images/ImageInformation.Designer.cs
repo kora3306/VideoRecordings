@@ -433,7 +433,7 @@
             // 
             // gridColumn_video_count
             // 
-            this.gridColumn_video_count.Caption = "视频数量";
+            this.gridColumn_video_count.Caption = "图片数量";
             this.gridColumn_video_count.FieldName = "ImageCount";
             this.gridColumn_video_count.Name = "gridColumn_video_count";
             this.gridColumn_video_count.OptionsColumn.AllowEdit = false;

@@ -20,7 +20,7 @@ namespace VideoRecordings
 {
     public partial class Login : DevExpress.XtraEditors.XtraForm
     {
-
+        public bool LogSucceed=false;
         public Login()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace VideoRecordings
             if (Program.Urlpath == "http://192.168.1.198:18080")
             {
                 textBox1.Text = "xiekai";
-                textBox2.Text = "xk111";
+                textBox2.Text = "xk";
                 button1.PerformClick();
             }
         }
@@ -62,12 +62,12 @@ namespace VideoRecordings
                 textBox2.Focus();
                 return;
             }
+            LogSucceed = true;
             JObject obj = WebClinetHepler.GetJObject(url);
             Program.UserName = obj["result"]["real_name"].ToString() ;
             Program.LogName = obj["result"]["name"].ToString();
             Program.UpdataLongName();
-            new FileManagement(this).Show();
-            this.Hide();
+            this.Close();
         }
 
         /// <summary>

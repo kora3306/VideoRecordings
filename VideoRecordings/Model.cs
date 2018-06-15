@@ -228,29 +228,41 @@ namespace VideoRecordings
     [DataContract]
     public class ImagePlay
     {
+        /// <summary>
+        /// 文件夹ID
+        /// </summary>
         [DataMember(Name = "id")]
         public int Id { get; set; }
 
+        /// <summary>
+        /// 文件夹名称
+        /// </summary>
         [DataMember(Name = "name")]
         public string Name { get; set; }
 
+        /// <summary>
+        /// 数据编号
+        /// </summary>
         [DataMember(Name = "project_name")]
         public string ProjectName { get; set; }
 
+        /// <summary>
+        /// 地址
+        /// </summary>
         [DataMember(Name = "uri")]
         public string Uri { get; set; }
 
+        /// <summary>
+        /// 图片状态
+        /// </summary>
         [DataMember(Name = "status")]
         public string Status { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [DataMember(Name = "recorded")]
         public string Recorded { get; set; }
-
-        [DataMember(Name = "deframed")]
-        public string Deframed { get; set; }
-
-        [DataMember(Name = "frame_path")]
-        public string FramePath { get; set; }
 
         [DataMember(Name = "create_time")]
         public string CreateTime { get; set; }
@@ -288,6 +300,9 @@ namespace VideoRecordings
 
         [DataMember(Name = "project")]
         public Projects Project { get; set; }
+
+        [DataMember(Name = "count")]
+        public int Count { get; set; }
 
         public string Place { get => Project.Place; }
 

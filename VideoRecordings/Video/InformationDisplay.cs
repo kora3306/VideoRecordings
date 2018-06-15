@@ -16,6 +16,7 @@ using Manina.Windows.Forms;
 using Newtonsoft.Json.Linq;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using System.Diagnostics;
+using VideoRecordings.Video;
 
 namespace VideoRecordings
 {
@@ -283,6 +284,8 @@ namespace VideoRecordings
                     item.StartTime = play.StartTime;
                     item.EndTime = play.EndTime;
                     item.RecordTime = play.RecordTime;
+                    item.Deframed = play.Deframed;
+                    item.FramePath = play.FramePath;
                     break;
                 }
             }
@@ -461,9 +464,20 @@ namespace VideoRecordings
 
         private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            MessageBox.Show(transmissionvideo.Name);
+            if (transmissionvideo.Deframed != "未解帧")
+            {
+                MessageBox.Show("该视频已经解帧,如要重新解帧请删除原解帧路径");
+                return;
+            }
+            new SolutionFrame(this,transmissionvideo).ShowDialog();
         }
 
+        private void 清除解帧信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("是否删除解帧文件夹？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
+                return;
+            MessageBox.Show("已经删除");
+        }
     }
 
 

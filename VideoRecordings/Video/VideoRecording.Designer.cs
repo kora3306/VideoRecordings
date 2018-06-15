@@ -78,7 +78,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.16387F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.99514F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.58603F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 260F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 263F));
             this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label_treeView, 7, 1);
             this.tableLayoutPanel1.Controls.Add(this.treeView1, 6, 1);
@@ -125,10 +125,10 @@
             // 
             this.label_treeView.ContextMenuStrip = this.contextMenuStrip2;
             this.label_treeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_treeView.Location = new System.Drawing.Point(1066, 72);
+            this.label_treeView.Location = new System.Drawing.Point(1062, 72);
             this.label_treeView.Name = "label_treeView";
             this.tableLayoutPanel1.SetRowSpan(this.label_treeView, 3);
-            this.label_treeView.Size = new System.Drawing.Size(257, 630);
+            this.label_treeView.Size = new System.Drawing.Size(261, 630);
             this.label_treeView.TabIndex = 16;
             this.label_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.label_treeView_AfterSelect);
             this.label_treeView.DoubleClick += new System.EventHandler(this.label_treeView_DoubleClick);
@@ -176,10 +176,10 @@
             this.treeView1.ContextMenuStrip = this.contextMenuStrip2;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Font = new System.Drawing.Font("Tahoma", 13F);
-            this.treeView1.Location = new System.Drawing.Point(804, 72);
+            this.treeView1.Location = new System.Drawing.Point(801, 72);
             this.treeView1.Name = "treeView1";
             this.tableLayoutPanel1.SetRowSpan(this.treeView1, 2);
-            this.treeView1.Size = new System.Drawing.Size(256, 195);
+            this.treeView1.Size = new System.Drawing.Size(255, 195);
             this.treeView1.TabIndex = 18;
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
@@ -189,11 +189,11 @@
             this.imageListView1.ContextMenuStrip = this.contextMenuStrip1;
             this.imageListView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imageListView1.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.imageListView1.Location = new System.Drawing.Point(804, 273);
+            this.imageListView1.Location = new System.Drawing.Point(801, 273);
             this.imageListView1.Name = "imageListView1";
-            this.imageListView1.PersistentCacheDirectory = "F:\\源码\\VideoRecordings/cache";
+            //this.imageListView1.PersistentCacheDirectory = "F:\\源码\\VideoRecordings/cache";
             this.imageListView1.PersistentCacheSize = ((long)(0));
-            this.imageListView1.Size = new System.Drawing.Size(256, 429);
+            this.imageListView1.Size = new System.Drawing.Size(255, 429);
             this.imageListView1.TabIndex = 21;
             this.imageListView1.UseWIC = Manina.Windows.Forms.UseWIC.ThumbnailsOnly;
             this.imageListView1.DoubleClick += new System.EventHandler(this.imageListView1_DoubleClick);
@@ -236,14 +236,14 @@
             this.videoPlayer1.Location = new System.Drawing.Point(3, 99);
             this.videoPlayer1.Name = "videoPlayer1";
             this.tableLayoutPanel1.SetRowSpan(this.videoPlayer1, 2);
-            this.videoPlayer1.Size = new System.Drawing.Size(795, 603);
+            this.videoPlayer1.Size = new System.Drawing.Size(792, 603);
             this.videoPlayer1.TabIndex = 22;
             // 
             // save_button
             // 
             this.save_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.save_button.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.save_button.Location = new System.Drawing.Point(1150, 708);
+            this.save_button.Location = new System.Drawing.Point(1148, 708);
             this.save_button.Name = "save_button";
             this.save_button.Size = new System.Drawing.Size(89, 30);
             this.save_button.TabIndex = 14;
@@ -257,7 +257,7 @@
             this.label3.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label3, 2);
             this.label3.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label3.Location = new System.Drawing.Point(1036, 23);
+            this.label3.Location = new System.Drawing.Point(1035, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 23);
             this.label3.TabIndex = 5;
@@ -269,7 +269,7 @@
             this.label2.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label2, 5);
             this.label2.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.label2.Location = new System.Drawing.Point(427, 21);
+            this.label2.Location = new System.Drawing.Point(426, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 27);
             this.label2.TabIndex = 2;
@@ -280,22 +280,22 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label1.Location = new System.Drawing.Point(13, 73);
+            this.label1.Location = new System.Drawing.Point(3, 73);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 19);
+            this.label1.Size = new System.Drawing.Size(126, 19);
             this.label1.TabIndex = 24;
-            this.label1.Text = "视频开始时间";
+            this.label1.Text = "视频开始时间(E)";
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label4.Location = new System.Drawing.Point(239, 73);
+            this.label4.Location = new System.Drawing.Point(228, 73);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 19);
+            this.label4.Size = new System.Drawing.Size(127, 19);
             this.label4.TabIndex = 25;
-            this.label4.Text = "视频结束时间";
+            this.label4.Text = "视频结束时间(R)";
             // 
             // timeEdit_start
             // 
@@ -316,22 +316,22 @@
             this.timeEdit_end.Name = "timeEdit_end";
             this.timeEdit_end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit_end.Size = new System.Drawing.Size(107, 20);
+            this.timeEdit_end.Size = new System.Drawing.Size(106, 20);
             this.timeEdit_end.TabIndex = 27;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(497, 73);
+            this.label5.Location = new System.Drawing.Point(485, 73);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 19);
+            this.label5.Size = new System.Drawing.Size(127, 19);
             this.label5.TabIndex = 28;
-            this.label5.Text = "视频录制日期";
+            this.label5.Text = "视频录制日期(T)";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(623, 72);
+            this.dateTimePicker1.Location = new System.Drawing.Point(621, 72);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(142, 27);
             this.dateTimePicker1.TabIndex = 29;
@@ -341,7 +341,7 @@
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Black;
             this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(879, 715);
+            this.linkLabel1.Location = new System.Drawing.Point(876, 715);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(105, 19);
             this.linkLabel1.TabIndex = 23;
@@ -354,7 +354,7 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.button1.Location = new System.Drawing.Point(659, 712);
+            this.button1.Location = new System.Drawing.Point(657, 712);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 26);
             this.button1.TabIndex = 19;
@@ -368,7 +368,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.other_button, 3);
             this.other_button.ContextMenuStrip = this.DelcontextMenuStrip1;
             this.other_button.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.other_button.Location = new System.Drawing.Point(359, 708);
+            this.other_button.Location = new System.Drawing.Point(358, 708);
             this.other_button.Name = "other_button";
             this.other_button.Size = new System.Drawing.Size(117, 34);
             this.other_button.TabIndex = 15;

@@ -24,25 +24,27 @@ namespace VideoRecordings.Images
         private string selectTxtPath = string.Empty;
         List<string> images = new List<string>();
         const int ShowSize= 10;
+        int imagesize;
+        int filtersize;
 
         public ImagePull(ImageDisplay imageDisplay, ImagePlay imagePlay)
         {
             InitializeComponent();
             display = imageDisplay;
             play = imagePlay;
-            selectImagePath = imagePlay.Uri;
+            selectImagePath = imagePlay.Uri;      
             selectFilterPath = Path.Combine(selectImagePath, "filter");          
         }
 
         private void ImagePull_Load(object sender, EventArgs e)
         {
             images = Directory.GetFiles(selectImagePath).ToList();
+            imagesize = display.imagesize;
+            filtersize = display.fittersize;
             comboBox1.DataSource = size;
-            SetComIndex(comboBox1, display.imagesize);
             comboBox2.DataSource = size1;
-            SetComIndex(comboBox2,display.fittersize);
-            //imageListView_image.ThumbnailSize = new Size(display.imagesize, display.imagesize);
-            //imageListView_filter.ThumbnailSize = new Size(display.fittersize, display.fittersize);
+            SetComIndex(comboBox1,imagesize);
+            SetComIndex(comboBox2,filtersize);
             SetImage();
         }
 
@@ -75,6 +77,7 @@ namespace VideoRecordings.Images
                         Tag = t
                     }).ToArray());
             }
+            toolStripStatusLabel1.Text = imageListView_image.Items.Count.ToString();
         }
 
         //private List<string> GetListTreeNode()
@@ -185,14 +188,18 @@ namespace VideoRecordings.Images
             RefrashFilterImage();
         }
 
-
         public List<string> GenerateRandomNumber(int Length,int max)
         {
+            if (Length > max) Length = max;
             List<string> newRandom = new List<string>(Length);
+            List<int> vs = new List<int>();
             Random rd = new Random();
-            for (int i = 0; i < Length; i++)
+            while (vs.Count< Length)
             {
-                newRandom.Add(images[rd.Next(max)]);
+                int index = rd.Next(max);
+                if (vs.Contains(index)) continue;
+                newRandom.Add(images[index]);
+                vs.Add(index);
             }
             return newRandom;
         }
@@ -213,5 +220,16 @@ namespace VideoRecordings.Images
             imageListView_filter.ThumbnailSize = new Size(int.Parse(comboBox2.Text.Split('*').First()), int.Parse(comboBox2.Text.Split('*').Last()));
             display.fittersize = int.Parse(comboBox2.Text.Split('*').First());
         }
+
+        private void imageListView_image_SelectionChanged(object sender, EventArgs e)
+        {
+            bool _checked = !imageListView_image.SelectedItems.All(s => s.Checked);
+            foreach (var item in imageListView_image.SelectedItems)
+            {
+                item.Checked = _checked;
+            }
+        }
+
+
     }
 }

@@ -552,7 +552,7 @@ namespace DXApplication1
                         colorSlider2.Value = (axPlayer1.GetDuration() / 1000) - 1;
                         break;
                     }
-                    colorSlider2.Value += 100;
+                    colorSlider2.Value += 30;
                     break;
                 case TimeType.End:
                     colorSlider2.Value = (axPlayer1.GetDuration() / 1000)-1;

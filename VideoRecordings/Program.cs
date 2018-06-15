@@ -31,7 +31,10 @@ namespace VideoRecordings
             Directory.CreateDirectory("Log");
             CheckedFile();
             Checkconfiguration();
-            Application.Run(new Login());
+            Login log = new Login();
+            log.ShowDialog();
+            if (!log.LogSucceed) return;
+            Application.Run(new FileManagement());
         }
 
        public static ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
