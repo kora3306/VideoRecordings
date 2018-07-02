@@ -1,9 +1,0 @@
-2018-06-12 10:17:32,709 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->502ms,code:0,uri:http://192.168.1.225:18080/videos?project_name=SP0155
-2018-06-12 10:29:02,016 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:POST->20284ms,code:0,uri:http://192.168.1.224:8081/deframe
-2018-06-12 11:03:41,425 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->763ms,code:0,uri:http://192.168.1.225:18080/videos?project_name=SP0155
-2018-06-12 12:02:03,035 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:POST->510ms,code:0,uri:http://192.168.1.224:8081/deframe
-2018-06-12 14:36:18,419 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->585ms,code:0,uri:http://192.168.1.198:18080/videos?project_name=SP0042
-2018-06-12 14:39:38,621 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->1520ms,code:0,uri:http://192.168.1.198:18080/videos?project_name=SP0148
-2018-06-12 14:41:03,937 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->610ms,code:0,uri:http://192.168.1.198:18080/videos?project_name=SP0042
-2018-06-12 15:00:16,582 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:POST->554ms,code:0,uri:http://192.168.1.224:8081/deframe
-2018-06-12 15:05:51,178 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->559ms,code:0,uri:http://192.168.1.198:18080/videos?project_name=SP0042

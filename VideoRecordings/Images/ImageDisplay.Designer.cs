@@ -218,8 +218,6 @@
             this.imageListView1.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.imageListView1.Location = new System.Drawing.Point(3, 446);
             this.imageListView1.Name = "imageListView1";
-            this.imageListView1.PersistentCacheDirectory = "F:\\源码\\VideoRecordings/cache";
-            this.imageListView1.PersistentCacheSize = ((long)(0));
             this.imageListView1.Size = new System.Drawing.Size(1178, 140);
             this.imageListView1.TabIndex = 4;
             this.imageListView1.UseWIC = Manina.Windows.Forms.UseWIC.ThumbnailsOnly;

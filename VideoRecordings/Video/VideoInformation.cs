@@ -233,7 +233,7 @@ namespace VideoRecordings
 
         private void TestText()
         {
-            if (Program.GetAppConfig("TestApi") != "0")
+            if (Program.IsTest)
             {
                 Text += "(测试)";
             }

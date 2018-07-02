@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using Common;
 using System.Reflection;
 using log4net;
+using Manina.Windows.Forms;
 
 namespace VideoRecordings
 {
@@ -37,7 +38,7 @@ namespace VideoRecordings
             Application.Run(new FileManagement());
         }
 
-       public static ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        public static ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         public static string VideoPlay;
         public const string PlayerName = "PlayerPath";    //储存的播放器路径
@@ -48,6 +49,7 @@ namespace VideoRecordings
         //public const string Urlpath = "http://192.168.1.225:18080";
         public static List<string> labels = new List<string>();
 
+        public static PersistentCache Persistent = new PersistentCache(@".\Cache", 100000000000);
 
         public const string PathUrl = @"\\192.168.1.158";
         /// <summary>
@@ -239,13 +241,28 @@ namespace VideoRecordings
             }
         }
 
+        public static bool _istest;
+
+        public static bool IsTest
+        {
+            get
+            {
+                return _istest;
+            }
+            set
+            {
+                _istest = value;
+            }
+        }
+
         private static void Checkconfiguration()
         {
             bool open = Connect(PathUrl, "leets", "songnana1234");
             bool open1 = Connect("\\\\192.168.1.234", "work", "test234");
             VideoPlay = GetAppConfig(PlayerName);
             ImageSavePath = GetAppConfig(ImageName);
-            if (GetAppConfig("TestApi") == "0")
+            IsTest = GetAppConfig("TestApi") == "1";
+            if (!IsTest)
             {
                 Urlpath = GetAppConfig("UrlPath");
             }
@@ -266,7 +283,7 @@ namespace VideoRecordings
             CopyConfig();
             if (!open)
             {
-                log.Error("连接服务器",new Exception("158连接失败"));
+                log.Error("连接服务器", new Exception("158连接失败"));
             }
             if (!open1)
             {
@@ -294,6 +311,14 @@ namespace VideoRecordings
             {
                 log.Error("删除文件出错" + ex);
             }
+        }
+
+        public static void AddIsTest(Form form)
+        {
+            if (IsTest)
+            {
+                form.Text += "(测试)";
+            }      
         }
     }
 }

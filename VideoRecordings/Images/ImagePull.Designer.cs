@@ -59,7 +59,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.87634F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.12366F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 265F));
             this.tableLayoutPanel1.Controls.Add(this.splitContainerControl1, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.treeView_newlabel, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 2);
@@ -92,8 +92,8 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.imageListView_filter);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.tableLayoutPanel1.SetRowSpan(this.splitContainerControl1, 2);
-            this.splitContainerControl1.Size = new System.Drawing.Size(834, 564);
-            this.splitContainerControl1.SplitterPosition = 728;
+            this.splitContainerControl1.Size = new System.Drawing.Size(833, 564);
+            this.splitContainerControl1.SplitterPosition = 431;
             this.splitContainerControl1.TabIndex = 3;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -105,14 +105,11 @@
             this.imageListView_image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.imageListView_image.CheckBoxAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.imageListView_image.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.imageListView_image.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imageListView_image.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.imageListView_image.Location = new System.Drawing.Point(0, 0);
+            this.imageListView_image.Location = new System.Drawing.Point(0, 3);
             this.imageListView_image.Name = "imageListView_image";
-            this.imageListView_image.PersistentCacheDirectory = "F:\\源码\\VideoRecordings/cache";
-            this.imageListView_image.PersistentCacheSize = ((long)(0));
             this.imageListView_image.ShowCheckBoxes = true;
-            this.imageListView_image.Size = new System.Drawing.Size(728, 564);
+            this.imageListView_image.Size = new System.Drawing.Size(430, 561);
             this.imageListView_image.TabIndex = 1;
             this.imageListView_image.UseEmbeddedThumbnails = Manina.Windows.Forms.UseEmbeddedThumbnails.Always;
             this.imageListView_image.UseWIC = Manina.Windows.Forms.UseWIC.ThumbnailsOnly;
@@ -129,9 +126,7 @@
             this.imageListView_filter.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.imageListView_filter.Location = new System.Drawing.Point(0, 0);
             this.imageListView_filter.Name = "imageListView_filter";
-            this.imageListView_filter.PersistentCacheDirectory = "F:\\源码\\VideoRecordings/cache";
-            this.imageListView_filter.PersistentCacheSize = ((long)(0));
-            this.imageListView_filter.Size = new System.Drawing.Size(101, 564);
+            this.imageListView_filter.Size = new System.Drawing.Size(397, 564);
             this.imageListView_filter.TabIndex = 2;
             this.imageListView_filter.UseWIC = Manina.Windows.Forms.UseWIC.ThumbnailsOnly;
             this.imageListView_filter.DragDrop += new System.Windows.Forms.DragEventHandler(this.imageListView_fitter_DragDrop);
@@ -139,9 +134,9 @@
             // treeView_newlabel
             // 
             this.treeView_newlabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView_newlabel.Location = new System.Drawing.Point(893, 122);
+            this.treeView_newlabel.Location = new System.Drawing.Point(892, 122);
             this.treeView_newlabel.Name = "treeView_newlabel";
-            this.treeView_newlabel.Size = new System.Drawing.Size(259, 165);
+            this.treeView_newlabel.Size = new System.Drawing.Size(260, 165);
             this.treeView_newlabel.TabIndex = 6;
             // 
             // tableLayoutPanel2
@@ -149,7 +144,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.22884F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.77116F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 157F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.comboBox1, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.button1, 2, 0);
@@ -183,7 +178,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(323, 3);
+            this.button1.Location = new System.Drawing.Point(322, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(134, 27);
             this.button1.TabIndex = 2;
@@ -240,9 +235,9 @@
             // treeView_labels
             // 
             this.treeView_labels.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView_labels.Location = new System.Drawing.Point(893, 293);
+            this.treeView_labels.Location = new System.Drawing.Point(892, 293);
             this.treeView_labels.Name = "treeView_labels";
-            this.treeView_labels.Size = new System.Drawing.Size(259, 393);
+            this.treeView_labels.Size = new System.Drawing.Size(260, 393);
             this.treeView_labels.TabIndex = 5;
             // 
             // statusStrip1

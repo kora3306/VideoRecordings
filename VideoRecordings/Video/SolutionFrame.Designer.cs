@@ -76,7 +76,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label1, 4);
-            this.label1.Font = new System.Drawing.Font("宋体", 14F);
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 14F);
             this.label1.Location = new System.Drawing.Point(415, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 19);
@@ -87,7 +87,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 12F);
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.label2.Location = new System.Drawing.Point(53, 176);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 16);
@@ -96,7 +96,7 @@
             // 
             // textBox_interval
             // 
-            this.textBox_interval.Font = new System.Drawing.Font("宋体", 12F);
+            this.textBox_interval.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.textBox_interval.Location = new System.Drawing.Point(181, 169);
             this.textBox_interval.Multiline = true;
             this.textBox_interval.Name = "textBox_interval";
@@ -105,7 +105,7 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("宋体", 12F);
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.button1.Location = new System.Drawing.Point(400, 205);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(211, 32);
@@ -118,7 +118,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("宋体", 12F);
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.label3.Location = new System.Drawing.Point(53, 125);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 16);
@@ -129,7 +129,7 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.textBox_url, 3);
             this.textBox_url.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_url.Font = new System.Drawing.Font("宋体", 12F);
+            this.textBox_url.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.textBox_url.Location = new System.Drawing.Point(181, 104);
             this.textBox_url.Multiline = true;
             this.textBox_url.Name = "textBox_url";
@@ -141,7 +141,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("宋体", 12F);
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.label4.Location = new System.Drawing.Point(474, 76);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 16);
@@ -152,7 +152,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("宋体", 12F);
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.label5.Location = new System.Drawing.Point(53, 76);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 16);
@@ -161,7 +161,7 @@
             // 
             // textBox_SP
             // 
-            this.textBox_SP.Font = new System.Drawing.Font("宋体", 12F);
+            this.textBox_SP.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.textBox_SP.Location = new System.Drawing.Point(181, 70);
             this.textBox_SP.Multiline = true;
             this.textBox_SP.Name = "textBox_SP";
@@ -171,7 +171,7 @@
             // 
             // textBox_numb
             // 
-            this.textBox_numb.Font = new System.Drawing.Font("宋体", 12F);
+            this.textBox_numb.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.textBox_numb.Location = new System.Drawing.Point(627, 70);
             this.textBox_numb.Multiline = true;
             this.textBox_numb.Name = "textBox_numb";

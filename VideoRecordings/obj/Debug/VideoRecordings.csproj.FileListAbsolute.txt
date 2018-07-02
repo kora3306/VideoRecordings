@@ -234,3 +234,6 @@ F:\源码\VideoRecordings\VideoRecordings\bin\Debug\zh-Hans\DevExpress.XtraTreeL
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\zh-Hans\DevExpress.Office.v18.1.Core.resources.dll
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.SolutionFrame.resources
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\SeemmoData.Controls.WaitFormEx.resources
+F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ImageListView.dll
+F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ImageListView.pdb
+F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ImageListView.dll.config

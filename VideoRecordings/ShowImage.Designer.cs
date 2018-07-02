@@ -81,7 +81,9 @@ namespace VideoRecordings
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(418, 647);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 19);

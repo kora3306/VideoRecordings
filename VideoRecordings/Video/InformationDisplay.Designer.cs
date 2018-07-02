@@ -30,20 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.KeyShortcut keyShortcut2 = new DevExpress.Utils.KeyShortcut();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InformationDisplay));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dispalyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenfolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.清除解帧信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExeclToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.JsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn_id = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -63,16 +66,6 @@
             this.gridColumn_but = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.label1 = new System.Windows.Forms.Label();
-            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.imageListView1 = new Manina.Windows.Forms.ImageListView();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DELToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,8 +79,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
@@ -100,8 +91,7 @@
             this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.gridControl1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.bindingNavigator1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.imageListView1, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.imageListView1, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -120,7 +110,8 @@
             this.tableLayoutPanel1.SetColumnSpan(this.statusStrip1, 2);
             this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2});
             this.statusStrip1.Location = new System.Drawing.Point(0, 522);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1236, 72);
@@ -129,10 +120,17 @@
             // 
             // toolStripStatusLabel1
             // 
-            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F);
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(171, 67);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            //
+            //
+            //
+            this.toolStripStatusLabel2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(171, 67);
+            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
             // 
             // gridControl1
             // 
@@ -140,6 +138,12 @@
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl1.DataSource = this.bindingSource1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            // 
+            // 
+            // 
+            this.gridControl1.EmbeddedNavigator.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridControl1.EmbeddedNavigator.Appearance.Options.UseFont = true;
+            this.gridControl1.EmbeddedNavigator.TextStringFormat = "当前数量 {0} / {1}";
             this.gridControl1.Location = new System.Drawing.Point(3, 38);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
@@ -147,6 +151,7 @@
             this.repositoryItemButtonEdit1});
             this.gridControl1.Size = new System.Drawing.Size(1230, 328);
             this.gridControl1.TabIndex = 0;
+            this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
@@ -157,9 +162,11 @@
             this.dispalyToolStripMenuItem,
             this.DToolStripMenuItem,
             this.OpenfolderToolStripMenuItem,
-            this.清除解帧信息ToolStripMenuItem});
+            this.清除解帧信息ToolStripMenuItem,
+            this.ExeclToolStripMenuItem,
+            this.JsonToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 136);
             // 
             // dispalyToolStripMenuItem
             // 
@@ -188,6 +195,20 @@
             this.清除解帧信息ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.清除解帧信息ToolStripMenuItem.Text = "清除解帧信息";
             this.清除解帧信息ToolStripMenuItem.Click += new System.EventHandler(this.清除解帧信息ToolStripMenuItem_Click);
+            // 
+            // ExeclToolStripMenuItem
+            // 
+            this.ExeclToolStripMenuItem.Name = "ExeclToolStripMenuItem";
+            this.ExeclToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.ExeclToolStripMenuItem.Text = "导出信息到Execl";
+            this.ExeclToolStripMenuItem.Click += new System.EventHandler(this.ExeclToolStripMenuItem_Click);
+            // 
+            // JsonToolStripMenuItem
+            // 
+            this.JsonToolStripMenuItem.Name = "JsonToolStripMenuItem";
+            this.JsonToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.JsonToolStripMenuItem.Text = "导出信息到Json";
+            this.JsonToolStripMenuItem.Click += new System.EventHandler(this.JsonToolStripMenuItem_Click);
             // 
             // gridView1
             // 
@@ -235,7 +256,7 @@
             this.gridColumn_id.OptionsColumn.AllowEdit = false;
             this.gridColumn_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_id.Visible = true;
-            this.gridColumn_id.VisibleIndex = 0;
+            this.gridColumn_id.VisibleIndex = 1;
             this.gridColumn_id.Width = 55;
             // 
             // gridColumn_name
@@ -255,7 +276,7 @@
             this.gridColumn_project_name.OptionsColumn.AllowEdit = false;
             this.gridColumn_project_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_project_name.Visible = true;
-            this.gridColumn_project_name.VisibleIndex = 1;
+            this.gridColumn_project_name.VisibleIndex = 2;
             this.gridColumn_project_name.Width = 60;
             // 
             // gridColumn_uri
@@ -266,7 +287,7 @@
             this.gridColumn_uri.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_uri.OptionsColumn.ReadOnly = true;
             this.gridColumn_uri.Visible = true;
-            this.gridColumn_uri.VisibleIndex = 10;
+            this.gridColumn_uri.VisibleIndex = 11;
             this.gridColumn_uri.Width = 248;
             // 
             // gridColumn_status
@@ -277,7 +298,7 @@
             this.gridColumn_status.OptionsColumn.AllowEdit = false;
             this.gridColumn_status.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_status.Visible = true;
-            this.gridColumn_status.VisibleIndex = 7;
+            this.gridColumn_status.VisibleIndex = 8;
             this.gridColumn_status.Width = 60;
             // 
             // gridColumn_recorded
@@ -288,7 +309,7 @@
             this.gridColumn_recorded.OptionsColumn.AllowEdit = false;
             this.gridColumn_recorded.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_recorded.Visible = true;
-            this.gridColumn_recorded.VisibleIndex = 8;
+            this.gridColumn_recorded.VisibleIndex = 9;
             this.gridColumn_recorded.Width = 60;
             // 
             // gridColumn_deframed
@@ -299,7 +320,7 @@
             this.gridColumn_deframed.OptionsColumn.AllowEdit = false;
             this.gridColumn_deframed.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_deframed.Visible = true;
-            this.gridColumn_deframed.VisibleIndex = 9;
+            this.gridColumn_deframed.VisibleIndex = 10;
             this.gridColumn_deframed.Width = 60;
             // 
             // gridColumn_frame_path
@@ -310,7 +331,7 @@
             this.gridColumn_frame_path.OptionsColumn.AllowEdit = false;
             this.gridColumn_frame_path.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_frame_path.Visible = true;
-            this.gridColumn_frame_path.VisibleIndex = 11;
+            this.gridColumn_frame_path.VisibleIndex = 12;
             this.gridColumn_frame_path.Width = 71;
             // 
             // gridColumn_label
@@ -321,7 +342,7 @@
             this.gridColumn_label.OptionsColumn.AllowEdit = false;
             this.gridColumn_label.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_label.Visible = true;
-            this.gridColumn_label.VisibleIndex = 5;
+            this.gridColumn_label.VisibleIndex = 6;
             this.gridColumn_label.Width = 131;
             // 
             // gridColumn_start_time
@@ -332,7 +353,7 @@
             this.gridColumn_start_time.OptionsColumn.AllowEdit = false;
             this.gridColumn_start_time.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_start_time.Visible = true;
-            this.gridColumn_start_time.VisibleIndex = 3;
+            this.gridColumn_start_time.VisibleIndex = 4;
             this.gridColumn_start_time.Width = 56;
             // 
             // gridColumn_end_time
@@ -343,7 +364,7 @@
             this.gridColumn_end_time.OptionsColumn.AllowEdit = false;
             this.gridColumn_end_time.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_end_time.Visible = true;
-            this.gridColumn_end_time.VisibleIndex = 4;
+            this.gridColumn_end_time.VisibleIndex = 5;
             this.gridColumn_end_time.Width = 56;
             // 
             // gridColumn_record_time
@@ -354,7 +375,7 @@
             this.gridColumn_record_time.OptionsColumn.AllowEdit = false;
             this.gridColumn_record_time.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_record_time.Visible = true;
-            this.gridColumn_record_time.VisibleIndex = 2;
+            this.gridColumn_record_time.VisibleIndex = 3;
             this.gridColumn_record_time.Width = 78;
             // 
             // gridColumn_images
@@ -365,7 +386,7 @@
             this.gridColumn_images.OptionsColumn.AllowEdit = false;
             this.gridColumn_images.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_images.Visible = true;
-            this.gridColumn_images.VisibleIndex = 6;
+            this.gridColumn_images.VisibleIndex = 7;
             this.gridColumn_images.Width = 35;
             // 
             // gridColumn_create_time
@@ -376,7 +397,7 @@
             this.gridColumn_create_time.OptionsColumn.AllowEdit = false;
             this.gridColumn_create_time.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_create_time.Visible = true;
-            this.gridColumn_create_time.VisibleIndex = 12;
+            this.gridColumn_create_time.VisibleIndex = 13;
             this.gridColumn_create_time.Width = 100;
             // 
             // gridColumn_but
@@ -391,7 +412,7 @@
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "解帧", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "解帧", -1, true, true, false, editorButtonImageOptions2, keyShortcut2, serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
@@ -400,121 +421,24 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 14F);
             this.label1.Location = new System.Drawing.Point(500, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "文件信息";
             // 
-            // bindingNavigator1
-            // 
-            this.bindingNavigator1.AddNewItem = null;
-            this.bindingNavigator1.BindingSource = this.bindingSource1;
-            this.tableLayoutPanel1.SetColumnSpan(this.bindingNavigator1, 2);
-            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
-            this.bindingNavigator1.DeleteItem = null;
-            this.bindingNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 369);
-            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bindingNavigator1.Name = "bindingNavigator1";
-            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(1236, 25);
-            this.bindingNavigator1.TabIndex = 3;
-            this.bindingNavigator1.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(32, 22);
-            this.bindingNavigatorCountItem.Text = "/ {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "总项数";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "移到第一条记录";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "移到上一条记录";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "位置";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "当前位置";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "移到下一条记录";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "移到最后一条记录";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
             // imageListView1
             // 
-            this.imageListView1.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.imageListView1.ColumnHeaderFont = new System.Drawing.Font("微软雅黑", 8.25F);
             this.tableLayoutPanel1.SetColumnSpan(this.imageListView1, 2);
             this.imageListView1.ContextMenuStrip = this.contextMenuStrip2;
             this.imageListView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imageListView1.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.imageListView1.Location = new System.Drawing.Point(3, 397);
+            this.imageListView1.GroupHeaderFont = new System.Drawing.Font("微软雅黑", 8.25F, System.Drawing.FontStyle.Bold);
+            this.imageListView1.Location = new System.Drawing.Point(3, 372);
             this.imageListView1.Name = "imageListView1";
-            this.imageListView1.PersistentCacheDirectory = "F:\\源码\\VideoRecordings/cache";
-            this.imageListView1.PersistentCacheSize = ((long)(0));
-            this.imageListView1.Size = new System.Drawing.Size(1230, 122);
+            this.tableLayoutPanel1.SetRowSpan(this.imageListView1, 2);
+            this.imageListView1.Size = new System.Drawing.Size(1230, 147);
             this.imageListView1.TabIndex = 4;
             this.imageListView1.UseWIC = Manina.Windows.Forms.UseWIC.ThumbnailsOnly;
             this.imageListView1.DoubleClick += new System.EventHandler(this.imageListView1_DoubleClick);
@@ -537,7 +461,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.label2.Location = new System.Drawing.Point(1128, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 19);
@@ -564,9 +488,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-            this.bindingNavigator1.ResumeLayout(false);
-            this.bindingNavigator1.PerformLayout();
             this.contextMenuStrip2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
@@ -594,16 +515,6 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private DevExpress.Utils.ToolTipController toolTipController1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_label;
-        private System.Windows.Forms.BindingNavigator bindingNavigator1;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private Manina.Windows.Forms.ImageListView imageListView1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_images;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
@@ -615,9 +526,12 @@
         private System.Windows.Forms.ToolStripMenuItem DToolStripMenuItem;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripMenuItem OpenfolderToolStripMenuItem;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_but;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private System.Windows.Forms.ToolStripMenuItem 清除解帧信息ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ExeclToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem JsonToolStripMenuItem;
     }
 }

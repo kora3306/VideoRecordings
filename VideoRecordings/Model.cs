@@ -61,6 +61,24 @@ namespace VideoRecordings
 
         [DataMember(Name = "status_name")]
         public string Status { get; set; }
+
+        [DataMember(Name = "statistic")]
+        public Completeness Statistic { get; set; }
+
+        public string Percent { get => (Convert.ToDouble(Statistic.Recorded) / Convert.ToDouble(Statistic.Total)).ToString(("0.00%")); }
+    }
+
+    [DataContract]
+    public class Completeness
+    {
+        [DataMember(Name = "deframed")]
+        public int Deframed { get; set; }
+
+        [DataMember(Name = "recorded")]
+        public int Recorded { get; set; }
+
+        [DataMember(Name = "total")]
+        public int Total { get; set; }
     }
 
     /// <summary>
@@ -77,6 +95,9 @@ namespace VideoRecordings
 
         [DataMember(Name = "replicator")]
         public string Replicator { get; set; }
+
+        [DataMember(Name = "project_id")]
+        public string ProjectId { get; set; }
     }
 
 
@@ -158,6 +179,7 @@ namespace VideoRecordings
         public string Place { get => Project.Place; }
 
         public string Replicator { get => Project.Replicator; }
+
     }
 
 

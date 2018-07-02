@@ -45,9 +45,6 @@
     <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="ImageListView">
-      <HintPath>..\..\..\接收\intedio_data_tools\ImageListView\bin\Debug\ImageListView.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
@@ -307,6 +304,10 @@
     <ProjectReference Include="..\..\..\接收\intedio_data_tools\Common\Common.csproj">
       <Project>{16f51870-4fce-4868-bcac-2c2620c1a4fe}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\接收\intedio_data_tools\ImageListView\ImageListView.csproj">
+      <Project>{0c295fb8-c6c6-4a40-9f19-05a43f353a04}</Project>
+      <Name>ImageListView</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\intedio_data_tools\MyControl\MyControl.csproj">
       <Project>{433BE916-116D-41F4-A309-88A18920B21D}</Project>

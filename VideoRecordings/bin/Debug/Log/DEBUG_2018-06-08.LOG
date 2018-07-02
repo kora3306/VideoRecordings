@@ -1,3 +1,0 @@
-2018-06-08 17:51:03,945 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->838ms,code:0,uri:http://192.168.1.225:18080/videos?project_name=SP0177
-2018-06-08 17:52:41,456 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->768ms,code:0,uri:http://192.168.1.225:18080/videos?project_name=SP0177
-2018-06-08 17:52:46,442 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->954ms,code:0,uri:http://192.168.1.225:18080/labels

@@ -1,0 +1,5 @@
+F:\源码\VideoRecordings\SimpleControl\obj\Debug\SimpleControl.csprojAssemblyReference.cache
+F:\源码\VideoRecordings\SimpleControl\obj\Debug\SimpleControl.ChooseImage.resources
+F:\源码\VideoRecordings\SimpleControl\obj\Debug\SimpleControl.csproj.GenerateResource.cache
+F:\源码\VideoRecordings\SimpleControl\obj\Debug\SimpleControl.dll.licenses
+F:\源码\VideoRecordings\SimpleControl\obj\Debug\SimpleControl.csproj.CoreCompileInputs.cache

@@ -17,6 +17,9 @@ using Newtonsoft.Json.Linq;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using System.Diagnostics;
 using VideoRecordings.Video;
+using DevExpress.XtraGrid;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace VideoRecordings
 {
@@ -25,6 +28,7 @@ namespace VideoRecordings
         public VideoPlay transmissionvideo = new VideoPlay();     //当前选中的文件
         public List<VideoPlay> videoplays = new List<VideoPlay>();  //所有文件
         public List<string> imageurl = new List<string>();   //图片url
+        private Completeness comple ;
         GridHitInfo hInfo = new GridHitInfo();
         VideoInformation information;     //主文件夹窗口
         VideoProject project;      //传入的文件夹
@@ -49,7 +53,9 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void InformationDisplay_Load(object sender, EventArgs e)
         {
-            label2.Text = $"欢迎:{Program.UserName}";          
+            imageListView1.DiskCache = Program.Persistent;
+            label2.Text = $"欢迎:{Program.UserName}";
+            Program.AddIsTest(this);
         }
 
         /// <summary>
@@ -82,7 +88,6 @@ namespace VideoRecordings
         private void gridControl1_Click(object sender, EventArgs e)
         {
             transmissionvideo = (VideoPlay)gridView1.GetRow(gridView1.FocusedRowHandle);
-            GetIntToString();
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -160,6 +165,7 @@ namespace VideoRecordings
             }
             transmissionvideo = (VideoPlay)gridView1.GetRow(rowIndex);
             RefreshImage();
+            GetIntToString();
             DeleteFolder(Program.ImageSavePath);
         }
 
@@ -175,7 +181,6 @@ namespace VideoRecordings
             //    information.Show();
             //}
         }
-
 
         /// <summary>
         /// 加载图片集合
@@ -264,8 +269,10 @@ namespace VideoRecordings
                 transmissionvideo = videoplays.Count == 0 ? null : videoplays.First();
                 isFirst = false;
             }
+            toolStripStatusLabel2.Text ="           完成度"+"  "+(Convert.ToDouble(comple.Recorded) / Convert.ToDouble(comple.Total)).ToString(("0.00%"))
+                +$"({comple.Recorded}/{comple.Total})";
             RefreshImage();
-            GetIntToString();
+            //GetIntToString();
             bindingSource1.DataSource = videoplays;
         }
 
@@ -328,7 +335,8 @@ namespace VideoRecordings
             videoplays.Clear();
             JObject obj = WebClinetHepler.GetJObject(url, na);
             if (obj == null) return;
-            videoplays = JsonHelper.DeserializeDataContractJson<List<VideoPlay>>(obj["videos"].ToString());
+            videoplays = JsonHelper.DeserializeDataContractJson<List<VideoPlay>>(obj["result"][0]["videos"].ToString());
+            comple= JsonHelper.DeserializeDataContractJson<Completeness>(obj["result"][0]["statistic"].ToString());
             Program.log.Error($"获取{url}信息", new Exception("获取成功"));
         }
 
@@ -477,6 +485,86 @@ namespace VideoRecordings
             if (MessageBox.Show("是否删除解帧文件夹？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
                 return;
             MessageBox.Show("已经删除");
+        }
+
+        private void ExeclToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataGridToExcel1(gridControl1);
+        }
+
+        private void JsonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WriteJson(GetCheckList());
+        }
+
+        /// <summary>
+        /// 导出GridControl选中的信息
+        /// </summary>
+        /// <param name="gridControl1"></param>
+        private void DataGridToExcel1(GridControl gridControl1)
+        {
+            gridView1.OptionsSelection.MultiSelect = true;
+            gridView1.OptionsPrint.PrintSelectedRowsOnly = true;
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "导出Excel";
+            saveFileDialog.Filter = "Excel文件(*.pdf)|*.pdf";
+            saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
+            DialogResult dialogResult = saveFileDialog.ShowDialog(this);
+            if (dialogResult == DialogResult.OK)
+            {
+                DevExpress.XtraPrinting.XlsExportOptions options = new DevExpress.XtraPrinting.XlsExportOptions();
+                gridControl1.ExportToXls(saveFileDialog.FileName, options);
+                DevExpress.XtraEditors.XtraMessageBox.Show("保存成功！", "提示",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        public void WriteJson(List<VideoPlay> palys)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "导出Json";
+            saveFileDialog.Filter = "Jsom文件(*.json)|*.json";
+            DialogResult dialogResult = saveFileDialog.ShowDialog(this);
+            //构成配置文件路径 
+            string con_file_path = saveFileDialog.FileName;
+            if (string.IsNullOrEmpty(con_file_path)) return;
+            if (!File.Exists(con_file_path))
+            {
+                File.Create(con_file_path).Close();
+            }
+
+            //把模型数据写到文件 
+            using (StreamWriter sw = new StreamWriter(con_file_path))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Converters.Add(new JavaScriptDateTimeConverter());
+                serializer.NullValueHandling = NullValueHandling.Ignore;
+
+                //构建Json.net的写入流 
+                JsonWriter writer = new JsonTextWriter(sw);
+                writer.Formatting = Formatting.Indented;
+                //把模型数据序列化并写入Json.net的JsonWriter流中 
+                serializer.Serialize(writer, palys);
+                //ser.Serialize(writer, ht); 
+                DevExpress.XtraEditors.XtraMessageBox.Show("保存成功！", "提示",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                writer.Close();
+                sw.Close();
+            }
+        }
+
+        private List<VideoPlay> GetCheckList()
+        {
+            gridView1.CloseEditor();
+            List<VideoPlay> plays = new List<VideoPlay>();
+            int[] rownumber = gridView1.GetSelectedRows();
+            for (int i = 0; i < rownumber.Count(); i++)
+            {
+                VideoPlay video = (VideoPlay)gridView1.GetRow(rownumber[i]);
+                plays.Add(video);
+            }
+
+            return plays;
         }
     }
 

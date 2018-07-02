@@ -64,6 +64,11 @@ namespace VideoRecordings
             label6.Text = videoplay.Id.ToString();
             label6.ForeColor = Color.Red;
             imageListView1.Focus();
+            imageListView1.DiskCache = Program.Persistent;
+            if (Program.IsTest)
+            {
+                Text += "(测试)";
+            }
             if (label_treeView.Nodes.Count != 0)
             {
                 label_treeView.Nodes[0].Expand();
@@ -334,7 +339,6 @@ namespace VideoRecordings
             videoPlayer1.point = po;
         }
 
-
         /// <summary>
         /// 删除已经选择的标签
         /// </summary>
@@ -349,7 +353,6 @@ namespace VideoRecordings
             labels.Remove(tree.Text);
             treeView1.Nodes.Remove(tree);
         }
-
 
         /// <summary>
         /// 将已经截图的图片加入显示栏
@@ -451,10 +454,6 @@ namespace VideoRecordings
                 }
 
             }
-            //JavaScriptSerializer javaScript = new JavaScriptSerializer();
-            //javaScript.MaxJsonLength = int.MaxValue;
-            //string json= javaScript.Serialize(saveimage);
-
         }
 
         /// <summary>

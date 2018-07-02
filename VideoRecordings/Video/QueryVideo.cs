@@ -18,6 +18,10 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using DevExpress.XtraWaitForm;
+using SeemmoData.Controls;
 
 namespace VideoRecordings
 {
@@ -32,6 +36,7 @@ namespace VideoRecordings
         GridHitInfo hInfo = new GridHitInfo();
         Dictionary<string, string> LabelsNumber = new Dictionary<string, string>();   // 标签对照
         Dictionary<string, string> LabelAll = new Dictionary<string, string>();
+        Dictionary<string, int> queryvidoe = new Dictionary<string, int>();
         List<TreeNode> Nodes = new List<TreeNode>();
 
         public QueryVideo(VideoInformation video, List<VideoProject> inform)
@@ -58,7 +63,12 @@ namespace VideoRecordings
             textBox_label.AutoCompleteCustomSource.AddRange(text.ToArray());
             textBox1.AutoCompleteCustomSource.Clear();
             textBox1.AutoCompleteCustomSource.AddRange(text.ToArray());
+            imageListView1.DiskCache = Program.Persistent;
             label14.Text = $"欢迎:{Program.UserName}";
+            if (Program.IsTest)
+            {
+                Text += "(测试)";
+            }
         }
 
         private void SetInformations()
@@ -179,9 +189,11 @@ namespace VideoRecordings
         public void RefreshImage()
         {
             string json = GetJson();
-            if (string.IsNullOrEmpty(json))
+            WaitFormEx.Run(() =>
             {
-                DialogResult dr = MessageBox.Show("没有筛选信息,确认显示所有文件?", "提示信息！",
+                if (string.IsNullOrEmpty(textBox_label.Text.Trim()))
+            {
+                DialogResult dr = MessageBox.Show("没有筛选标签信息,确认显示所有文件?", "提示信息！",
              MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dr != DialogResult.Yes)
                 {
@@ -189,19 +201,17 @@ namespace VideoRecordings
                 }
             }
             string url = Program.Urlpath + "/videos";
-            GettListVideo(url, json);
+            if (!GettListVideo(url, json))
+                return;
             bindingSource1.DataSource = videoplays;
-            bindingNavigator1.BindingSource = bindingSource1;
             if (isFirst)
             {
                 transmissionvideo = videoplays.Count == 0 ? null : videoplays.First();
                 isFirst = false;
             }
-            bindingNavigatorCountItem.Text = $"/ {videoplays.Count}";
+            });
             RefreshFocus();
             gridView1.RefreshData();
-            bindingNavigator1.Refresh();
-            GetIntToString();
             Program.log.Error($"搜索条件{json}");
         }
 
@@ -237,12 +247,33 @@ namespace VideoRecordings
         /// </summary>
         /// <param name="url"></param>
         /// <param name="na"></param>
-        public void GettListVideo(string url, string na)
+        public bool GettListVideo(string url, string na)
         {
             videoplays.Clear();
             JObject obj = WebClinetHepler.GetJObject(url, na);
-            if (obj == null) return;
-            videoplays = JsonHelper.DeserializeDataContractJson<List<VideoPlay>>(obj["videos"].ToString());
+            if (obj == null)
+            {
+                MessageBox.Show("请求失败");
+                return false;
+            }
+            videoplays = GerQueryVideos(obj);
+            return true;
+        }
+
+        private List<VideoPlay> GerQueryVideos(JObject obj)
+        {
+            queryvidoe.Clear();
+            List<VideoPlay> palys = new List<VideoPlay>();
+            for (int i = 0; i < obj["result"].Count(); i++)
+            {
+                Projects project = JsonHelper.DeserializeDataContractJson<Projects>(obj["result"][i]["project"].ToString());
+                List<VideoPlay> videos = JsonHelper.DeserializeDataContractJson<List<VideoPlay>>(obj["result"][i]["videos"].ToString());
+                videos.ForEach(t => t.Project = project);
+                palys.AddRange(videos);
+                Completeness comple= JsonHelper.DeserializeDataContractJson<Completeness>(obj["result"][i]["statistic"].ToString());
+                queryvidoe.Add(project.ProjectId,comple.Total);
+            }
+            return palys;
         }
 
         /// <summary>
@@ -389,10 +420,7 @@ namespace VideoRecordings
             }
             imageurl.Clear();
             string url = Program.Urlpath + "/video/snapshot/";
-            foreach (var item in transmissionvideo.ImageId)
-            {
-                imageurl.Add(url + item);
-            }
+            imageurl = transmissionvideo.ImageId.Select(t => url + t).ToList();
             SetTheListView();
         }
 
@@ -401,15 +429,17 @@ namespace VideoRecordings
         /// </summary>
         public void SetTheListView()
         {
+            imageListView1.SuspendPaint();
             imageListView1.Items.Clear();
+            imageListView1.ThumbnailSize = new Size(300, 180);
             List<ImageListViewItem> items = new List<ImageListViewItem>();
-            imageListView1.ThumbnailSize = new Size(300, 150);
-            foreach (string imageUrl in imageurl)
+            foreach (string item in imageurl)
             {
-                ImageListViewItem item = new ImageListViewItem(imageUrl) { Text = imageUrl.Split('/').Last() };
-                items.Add(item);
+                ImageListViewItem it = new ImageListViewItem(item) { Text = item.Split('/').Last() };
+                items.Add(it);
             }
             imageListView1.Items.AddRange(items.ToArray());
+            imageListView1.ResumePaint();
         }
 
         /// <summary>
@@ -420,7 +450,6 @@ namespace VideoRecordings
         private void gridView1_Click(object sender, EventArgs e)
         {
             transmissionvideo = (VideoPlay)gridView1.GetRow(gridView1.FocusedRowHandle);
-            GetIntToString();
         }
 
         /// <summary>
@@ -556,6 +585,17 @@ namespace VideoRecordings
             }
         }
 
+        private void gridControl1_EmbeddedNavigator_ButtonClick(object sender, DevExpress.XtraEditors.NavigatorButtonClickEventArgs e)
+        {
+            if (e.Button.ButtonType == DevExpress.XtraEditors.NavigatorButtonType.Remove)
+            {
+                if (MessageBox.Show("删除?", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
         private void DToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show($"是否删除编号{transmissionvideo.Id}的视频？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
@@ -653,7 +693,7 @@ namespace VideoRecordings
         {
             if (LabelsNumber.Count == 0) return;
             button1.Focus();
-            new SelectLabel(this, Nodes, LabelsNumber, textBox_label.Text).ShowDialog();
+            new SelectLabel(this, Nodes, LabelsNumber, LabelAll, textBox_label.Text).ShowDialog();
         }
 
         public void StartScreening(List<string> label)
@@ -734,8 +774,9 @@ namespace VideoRecordings
             GridView gridview = sender as GridView;
             int index = gridview.GetDataRowHandleByGroupRowHandle(e.RowHandle);
             string uri = gridview.GetRowCellValue(index, "Uri").ToString();
+            string project_name = gridview.GetRowCellValue(index, "ProjectName").ToString();
             GridGroupRowInfo.GroupText = uri.Split('/').ToList()
-                 .First(t => t.StartsWith("SP") || t.StartsWith("Sp"));
+                 .First(t => t.StartsWith("SP") || t.StartsWith("Sp"))+$"({queryvidoe[$"{project_name}"]})";
         }
 
         /// <summary>
@@ -788,6 +829,64 @@ namespace VideoRecordings
                 DevExpress.XtraEditors.XtraMessageBox.Show("保存成功！", "提示",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        public void WriteJson(List<VideoPlay> palys)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "导出Json";
+            saveFileDialog.Filter = "Jsom文件(*.json)|*.json";
+            DialogResult dialogResult = saveFileDialog.ShowDialog(this);
+            //构成配置文件路径 
+            string con_file_path = saveFileDialog.FileName;
+            if (string.IsNullOrEmpty(con_file_path)) return;
+            if (!File.Exists(con_file_path))
+            {
+                File.Create(con_file_path).Close();
+            }
+
+            //把模型数据写到文件 
+            using (StreamWriter sw = new StreamWriter(con_file_path))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+
+                serializer.Converters.Add(new JavaScriptDateTimeConverter());
+                serializer.NullValueHandling = NullValueHandling.Ignore;
+
+                //构建Json.net的写入流 
+                JsonWriter writer = new JsonTextWriter(sw);
+                //把模型数据序列化并写入Json.net的JsonWriter流中 
+                writer.Formatting = Formatting.Indented;
+                serializer.Serialize(writer, palys);
+                //ser.Serialize(writer, ht); 
+                DevExpress.XtraEditors.XtraMessageBox.Show("保存成功！", "提示",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                writer.Close();
+                sw.Close();
+            }
+        }
+
+        private List<VideoPlay> GetCheckList()
+        {
+            gridView1.CloseEditor();
+            List<VideoPlay> plays = new List<VideoPlay>();
+            int[] rownumber = gridView1.GetSelectedRows();
+            for (int i = 0; i < rownumber.Count(); i++)
+            {
+                VideoPlay video = (VideoPlay)gridView1.GetRow(rownumber[i]);
+                plays.Add(video);
+            }
+
+            return plays;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            WriteJson(GetCheckList());
+        }
+
+        private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
         }
     }
 }

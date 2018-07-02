@@ -11,6 +11,9 @@ using DevExpress.XtraEditors;
 using Common;
 using Newtonsoft.Json.Linq;
 using System.Web.Script.Serialization;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace VideoRecordings
 {
@@ -26,6 +29,8 @@ namespace VideoRecordings
         private void ManagementLabel_Load(object sender, EventArgs e)
         {
             GetLabels();
+            textBox1.AutoCompleteCustomSource.Clear();
+            textBox1.AutoCompleteCustomSource.AddRange(LabelAll.Select(t => t.Value).ToArray());
             treeView1.ExpandAll();
         }
 
@@ -259,5 +264,53 @@ namespace VideoRecordings
             else
                 node.Nodes.OfType<TreeNode>().ToList().ForEach(x => x.Checked = false);
         }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {              
+                case Keys.Enter:
+                    if (textBox1.Focused)
+                    {
+                        InquireTreeNode();
+                        return true;
+                    }
+                    return true;
+                default:
+                    break;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);    
+        }
+
+        private void InquireTreeNode()
+        {
+            string text = textBox1.Text.Trim();
+            if (string.IsNullOrEmpty(text) || treeView1.Nodes.Count == 0)
+                return;
+            treeView1.Focus();
+            foreach (TreeNode tree in treeView1.Nodes)
+            {
+                if (tree.Text == text)
+                {
+                    treeView1.SelectedNode = tree;
+                    return;
+                }
+                foreach (TreeNode node in tree.Nodes)
+                {
+                    if (node.Text == text)
+                    {
+                        treeView1.SelectedNode = node;
+                        return;
+                    }
+                }
+            }
+            treeView1.Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            InquireTreeNode();
+        }
+
     }
 }

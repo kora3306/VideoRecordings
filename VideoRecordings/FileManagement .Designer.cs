@@ -60,6 +60,7 @@
             this._imagetoolStripMenuItem.Name = "_imagetoolStripMenuItem";
             this._imagetoolStripMenuItem.Size = new System.Drawing.Size(105, 24);
             this._imagetoolStripMenuItem.Text = "图片文件管理";
+            this._imagetoolStripMenuItem.Visible = false;
             this._imagetoolStripMenuItem.Click += new System.EventHandler(this._imagetoolStripMenuItem_Click);
             // 
             // tabControlExHfrz

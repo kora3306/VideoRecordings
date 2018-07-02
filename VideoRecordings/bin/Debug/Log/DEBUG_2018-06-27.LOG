@@ -1,0 +1,4 @@
+2018-06-27 17:49:24,321 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->634ms,code:0,uri:http://192.168.1.198:18080/labels
+2018-06-27 19:05:20,135 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->36613ms,code:200,uri:http://192.168.1.225:19886/api/my/info
+2018-06-27 19:07:56,370 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->97662ms,code:200,uri:http://192.168.1.225:19886/api/my/info
+2018-06-27 19:09:47,285 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->42339ms,code:200,uri:http://192.168.1.225:19886/api/my/info

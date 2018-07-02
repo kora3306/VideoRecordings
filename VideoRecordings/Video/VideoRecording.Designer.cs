@@ -98,7 +98,7 @@
             this.tableLayoutPanel1.Controls.Add(this.other_button, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.tableLayoutPanel1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
@@ -175,7 +175,7 @@
             // 
             this.treeView1.ContextMenuStrip = this.contextMenuStrip2;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.treeView1.Font = new System.Drawing.Font("微软雅黑", 13F);
             this.treeView1.Location = new System.Drawing.Point(801, 72);
             this.treeView1.Name = "treeView1";
             this.tableLayoutPanel1.SetRowSpan(this.treeView1, 2);
@@ -185,14 +185,12 @@
             // 
             // imageListView1
             // 
-            this.imageListView1.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.imageListView1.ColumnHeaderFont = new System.Drawing.Font("微软雅黑", 8.25F);
             this.imageListView1.ContextMenuStrip = this.contextMenuStrip1;
             this.imageListView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imageListView1.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.imageListView1.GroupHeaderFont = new System.Drawing.Font("微软雅黑", 8.25F, System.Drawing.FontStyle.Bold);
             this.imageListView1.Location = new System.Drawing.Point(801, 273);
             this.imageListView1.Name = "imageListView1";
-            //this.imageListView1.PersistentCacheDirectory = "F:\\源码\\VideoRecordings/cache";
-            this.imageListView1.PersistentCacheSize = ((long)(0));
             this.imageListView1.Size = new System.Drawing.Size(255, 429);
             this.imageListView1.TabIndex = 21;
             this.imageListView1.UseWIC = Manina.Windows.Forms.UseWIC.ThumbnailsOnly;
@@ -242,7 +240,7 @@
             // save_button
             // 
             this.save_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.save_button.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.save_button.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.save_button.Location = new System.Drawing.Point(1148, 708);
             this.save_button.Name = "save_button";
             this.save_button.Size = new System.Drawing.Size(89, 30);
@@ -256,7 +254,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label3, 2);
-            this.label3.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 14F);
             this.label3.Location = new System.Drawing.Point(1035, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 23);
@@ -268,7 +266,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label2, 5);
-            this.label2.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 16F);
             this.label2.Location = new System.Drawing.Point(426, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 27);
@@ -279,7 +277,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.label1.Location = new System.Drawing.Point(3, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 19);
@@ -290,7 +288,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.label4.Location = new System.Drawing.Point(228, 73);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 19);
@@ -353,7 +351,7 @@
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.button1.Location = new System.Drawing.Point(657, 712);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 26);
@@ -367,7 +365,7 @@
             this.other_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tableLayoutPanel1.SetColumnSpan(this.other_button, 3);
             this.other_button.ContextMenuStrip = this.DelcontextMenuStrip1;
-            this.other_button.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.other_button.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.other_button.Location = new System.Drawing.Point(358, 708);
             this.other_button.Name = "other_button";
             this.other_button.Size = new System.Drawing.Size(117, 34);
