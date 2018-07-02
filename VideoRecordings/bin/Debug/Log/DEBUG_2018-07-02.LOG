@@ -35,3 +35,9 @@
 2018-07-02 14:53:45,413 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->987ms,code:0,uri:http://192.168.1.198:18080/video/projects
 2018-07-02 14:53:53,370 [5]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->1958ms,code:0,uri:http://192.168.1.198:18080/videos?status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-02&start_time=0:00:00&end_time=23:59:59
 2018-07-02 15:00:56,631 [4]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->733ms,code:0,uri:http://192.168.1.225:18080/videos?status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-02&start_time=0:00:00&end_time=23:59:59&label[]=[191]
+2018-07-02 15:16:44,288 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->1039ms,code:0,uri:http://192.168.1.198:18080/video/projects
+2018-07-02 15:16:50,748 [5]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->802ms,code:0,uri:http://192.168.1.198:18080/videos?status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-02&start_time=0:00:00&end_time=23:59:59&label[]=[191]
+2018-07-02 15:17:29,005 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->974ms,code:0,uri:http://192.168.1.198:18080/video/projects
+2018-07-02 15:17:42,006 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->538ms,code:0,uri:http://192.168.1.198:18080/videos?project_name=SP0143
+2018-07-02 15:18:21,733 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->747ms,code:0,uri:http://192.168.1.198:18080/videos?status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-02&start_time=0:00:00&end_time=23:59:59&label[]=[191]
+2018-07-02 15:18:41,725 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->740ms,code:0,uri:http://192.168.1.198:18080/videos?status=0&start_date=2010-01-01&end_date=2018-07-02&start_time=0:00:00&end_time=23:59:59&label[]=[191]

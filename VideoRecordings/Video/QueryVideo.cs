@@ -189,8 +189,8 @@ namespace VideoRecordings
         public void RefreshImage()
         {
             string json = GetJson();
-            WaitFormEx.Run(() =>
-            {
+            //WaitFormEx.Run(() =>
+            //{
                 if (string.IsNullOrEmpty(textBox_label.Text.Trim()))
             {
                 DialogResult dr = MessageBox.Show("没有筛选标签信息,确认显示所有文件?", "提示信息！",
@@ -209,7 +209,7 @@ namespace VideoRecordings
                 transmissionvideo = videoplays.Count == 0 ? null : videoplays.First();
                 isFirst = false;
             }
-            });
+            //});
             RefreshFocus();
             gridView1.RefreshData();
             Program.log.Error($"搜索条件{json}");
@@ -225,7 +225,6 @@ namespace VideoRecordings
             }
             SetTheListView();
         }
-
 
         /// <summary>
         /// 刷新选中的图片的标签和图片
