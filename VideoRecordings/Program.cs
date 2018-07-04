@@ -13,6 +13,9 @@ using Common;
 using System.Reflection;
 using log4net;
 using Manina.Windows.Forms;
+using System.Threading;
+using System.Net;
+using System.Web.Script.Serialization;
 
 namespace VideoRecordings
 {
@@ -32,6 +35,7 @@ namespace VideoRecordings
             Directory.CreateDirectory("Log");
             CheckedFile();
             Checkconfiguration();
+            CheckUpdate();
             Login log = new Login();
             log.ShowDialog();
             if (!log.LogSucceed) return;
@@ -41,7 +45,7 @@ namespace VideoRecordings
         public static ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         public static string VideoPlay;
-        public const string PlayerName = "PlayerPath";    //储存的播放器路径
+        public const string PlayerPath = @".\VideoPlayPath.txt";    //储存的播放器路径
         /// <summary>
         /// 接口
         /// </summary>
@@ -49,7 +53,7 @@ namespace VideoRecordings
         //public const string Urlpath = "http://192.168.1.225:18080";
         public static List<string> labels = new List<string>();
 
-        public static PersistentCache Persistent = new PersistentCache(@".\Cache", 100000000000);
+        public static PersistentCache Persistent = new PersistentCache(@".\cache", 100000000000);
 
         public const string PathUrl = @"\\192.168.1.158";
         /// <summary>
@@ -59,7 +63,8 @@ namespace VideoRecordings
         public const string ImageName = "ImageName";
 
         public static string Cookies = string.Empty;
-
+        public static string Version = string.Empty;
+        public static string UpdateApi = string.Empty;
         public static string UserName = string.Empty;
         public static string LogName = string.Empty;
         /// <summary>
@@ -259,7 +264,7 @@ namespace VideoRecordings
         {
             bool open = Connect(PathUrl, "leets", "songnana1234");
             bool open1 = Connect("\\\\192.168.1.234", "work", "test234");
-            VideoPlay = GetAppConfig(PlayerName);
+            VideoPlay = Methods.ReadPath(PlayerPath);
             ImageSavePath = GetAppConfig(ImageName);
             IsTest = GetAppConfig("TestApi") == "1";
             if (!IsTest)
@@ -270,6 +275,8 @@ namespace VideoRecordings
             {
                 Urlpath = GetAppConfig("TestPath");
             }
+            Version = GetAppConfig("Version");
+            UpdateApi = GetAppConfig("UpdateApi");
             string savepath = Directory.GetCurrentDirectory() + "\\" + "ScreenCapture";
             if (ImageSavePath != savepath)
             {
@@ -287,7 +294,7 @@ namespace VideoRecordings
             }
             if (!open1)
             {
-                log.Error("连接服务器", new Exception("158连接失败"));
+                log.Error("连接服务器", new Exception("234连接失败"));
             }
         }
 
@@ -313,12 +320,74 @@ namespace VideoRecordings
             }
         }
 
-        public static void AddIsTest(Form form)
+        /// <summary>
+        /// 检查更新版本，有的话选择更新
+        /// </summary>
+        /// <returns></returns>
+        private static bool CheckUpdate()
         {
-            if (IsTest)
+            CheckUpdaterUpdate();
+            if (WebClinetHepler.Get($"{UpdateApi}/api/VideoRecordings/verson") == Version ||
+                !File.Exists("Updater.exe"))
+                return false;
+            if (MessageBox.Show("有新版本需要更新？", @"提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
+                return true;
+            //ImageListViewCacheThumbnail.DiskCache.Clear();
+            var p = new Process
             {
-                form.Text += "(测试)";
-            }      
+                StartInfo =
+                {
+                    FileName = Path.Combine(Application.StartupPath, "Updater.exe"),
+                    Arguments =
+                        "\"VideoRecordings\" " +
+                        "\"VideoRecordings.exe\" " +
+                        "\"http://192.168.1.222:18820\" " +
+                         "*.bat|LabelConfig.json|update server/|Log/|cache/|config.json|*.txt",
+                    UseShellExecute = true
+                }
+            };
+            p.Start();
+            Environment.Exit(0);
+            return true;
         }
+
+        /// <summary>
+        /// 每过一个小时检查一次是否有新版本，有的话提示
+        /// </summary>
+        private static void CheckUpdateThread()
+        {
+            DateTime now = DateTime.Now;
+            int hours = now.Hour;
+            while (true)
+            {
+                Thread.Sleep(1000);
+                now = DateTime.Now;
+                if (hours == now.Hour)
+                    continue;
+                hours = now.Hour;
+                CheckUpdate();
+            }
+        }
+
+        /// <summary>
+        /// 检查updater更新
+        /// </summary>
+        private static void CheckUpdaterUpdate()
+        {
+            string newversion = WebClinetHepler.Get($"{UpdateApi}/api/Updater/verson");
+            if (File.Exists("Updater.exe") &&
+                FileVersionInfo.GetVersionInfo("Updater.exe").FileVersion == newversion)
+                return;
+            using (var webclient = new WebClient())
+            {
+                File.Delete("Updater.exe");
+                foreach (var temp in (Dictionary<string, object>)new JavaScriptSerializer().DeserializeObject(
+                    WebClinetHepler.Get($"{UpdateApi}/api/Updater/{newversion}/filelist")))
+                {
+                    webclient.DownloadFile($"{UpdateApi}/api/{temp.Value}", temp.Key);
+                }
+            }
+        }
+
     }
 }

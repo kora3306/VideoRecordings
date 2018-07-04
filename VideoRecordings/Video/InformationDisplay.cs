@@ -55,7 +55,7 @@ namespace VideoRecordings
         {
             imageListView1.DiskCache = Program.Persistent;
             label2.Text = $"欢迎:{Program.UserName}";
-            Program.AddIsTest(this);
+            Methods.AddIsTest(this);
         }
 
         /// <summary>
@@ -565,6 +565,11 @@ namespace VideoRecordings
             }
 
             return plays;
+        }
+
+        public void RefshHomePage()
+        {
+            information.RefshData();
         }
     }
 

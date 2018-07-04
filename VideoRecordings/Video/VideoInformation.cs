@@ -32,7 +32,9 @@ namespace VideoRecordings
             InitializeComponent();
             GetInformationShow();
             TestText();
+            ShowCompleteness();
             label2.Text = $"欢迎:{Program.UserName}";
+            Methods.AddIsTest(this);
         }
 
         /// <summary>
@@ -100,7 +102,6 @@ namespace VideoRecordings
         {
             new InformationDisplay(this, focusedfolder).Show();
         }
-
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -247,6 +248,19 @@ namespace VideoRecordings
         private void gridView1_MouseDown(object sender, MouseEventArgs e)
         {
             hInfo = gridView1.CalcHitInfo(e.Y, e.Y);
+        }
+
+        public void ShowCompleteness()
+        {
+            int all = Videos.Sum(t=>t.Statistic.Total);
+            int comple = Videos.Sum(t=>t.Statistic.Recorded);
+            toolStripStatusLabel1.Text = "完成度:" + (Convert.ToDouble(comple) / Convert.ToDouble(all)).ToString(("0.00%"))
+            + $"({comple}/{all})";
+        }
+
+        public void RefshData()
+        {
+            GetInformationShow();
         }
     }
 

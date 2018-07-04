@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using Manina.Windows.Forms;
 using System.Net;
 using VideoRecordings.Properties;
+using System.IO;
 
 namespace VideoRecordings
 {
@@ -18,7 +19,6 @@ namespace VideoRecordings
     {
         List<ImageListViewItem> items;
         int index = 0;
-        bool isblack=false;
         public ShowImage(List<ImageListViewItem> item, int id)
         {
             InitializeComponent();

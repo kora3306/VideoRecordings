@@ -47,6 +47,8 @@ namespace VideoRecordings
         [DataMember(Name = "video_count")]
         public int VideoCount { get; set; }
 
+        public int Count { get => Statistic.Total; }
+
         [DataMember(Name = "replicator")]
         public string Replicator { get; set; }
 
@@ -56,7 +58,7 @@ namespace VideoRecordings
         [DataMember(Name = "note")]
         public string Note { get; set; }
 
-        [DataMember(Name = "record_tim")]
+        [DataMember(Name = "record_time")]
         public string RecordTime { get; set; }
 
         [DataMember(Name = "status_name")]
@@ -65,7 +67,8 @@ namespace VideoRecordings
         [DataMember(Name = "statistic")]
         public Completeness Statistic { get; set; }
 
-        public string Percent { get => (Convert.ToDouble(Statistic.Recorded) / Convert.ToDouble(Statistic.Total)).ToString(("0.00%")); }
+        public string Percent { get => (Convert.ToDouble(Statistic.Recorded) / Convert.ToDouble(Statistic.Total)).ToString(("0.00%"))
+                +$"({Statistic.Recorded}/{Statistic.Total})"; }
     }
 
     [DataContract]

@@ -1,0 +1,185 @@
+2018-07-04 10:00:36,226 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 10:00:36,407 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:13:31,367 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 10:13:31,451 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:20:46,723 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 10:20:46,842 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:21:06,777 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-04&start_time=0:00:00&end_time=23:59:59
+2018-07-04 10:21:14,159 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-04&start_time=0:00:00&end_time=23:59:59&label[]=[191]
+2018-07-04 10:24:26,507 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-04&start_time=0:00:00&end_time=23:59:59&label[]=[191]
+2018-07-04 10:35:36,695 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-04&start_time=0:00:00&end_time=23:59:59
+2018-07-04 10:35:49,607 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-04&start_time=0:00:00&end_time=23:59:59&label[]=[137]
+2018-07-04 10:36:29,918 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-04&start_time=0:00:00&end_time=23:59:59&label[]=[199]
+2018-07-04 10:37:43,010 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-04&start_time=0:00:00&end_time=23:59:59&label[]=[191]
+2018-07-04 10:40:54,441 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-04&start_time=0:00:00&end_time=23:59:59&label[]=[137]
+2018-07-04 10:52:42,980 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 10:52:43,120 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:52:45,402 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:52:46,183 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\桐乡视频\SP0143-视频结构化-桐乡-行人搜图（3.2-3.6）-20180313\城河路附近13个点3.2-3.6\1.258WT城河路鱼行街2电枪\205211001211800379-00010001-20180302130000-20180302140000-205211-01.nsf
+System.Exception: 打开成功
+2018-07-04 10:52:49,234 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:52:49,635 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:52:50,076 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:52:50,737 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:52:51,180 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:52:51,536 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:53:01,655 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-04&start_time=0:00:00&end_time=23:59:59&label[]=[137]
+2018-07-04 10:53:55,262 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 10:53:55,434 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:54:45,814 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 10:54:45,956 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:54:48,117 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:54:48,588 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:54:49,123 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:54:49,775 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:54:50,243 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:54:50,651 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:54:51,298 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:54:59,605 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 10:54:59,665 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:55:04,840 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:55:06,446 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:55:07,422 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:55:10,846 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:55:42,657 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:57:14,621 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:57:39,581 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:04,857 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-04&start_time=0:00:00&end_time=23:59:59&label[]=[191]
+2018-07-04 10:59:18,111 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 10:59:18,176 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:24,815 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 10:59:24,878 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:26,293 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:26,543 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:26,746 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:27,280 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:28,093 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:30,164 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:30,925 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:34,107 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:34,549 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:35,002 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:35,824 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:36,577 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:39,887 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 10:59:39,934 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:42,012 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:42,556 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:52,034 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:54,794 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:55,378 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:55,847 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:56,422 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 10:59:57,220 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\桐乡视频\SP0144-视频结构化-桐乡-行人搜图（3.7-3.8）-20180312\城河路附近13个点3.7-3.8\11.305WT东兴街东兴南弄3电枪\205211001211800376-00010001-20180307170000-20180307180000-205211-01.nsf
+System.Exception: 打开成功
+2018-07-04 11:07:52,222 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 11:07:52,381 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 11:07:53,023 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 11:07:53,971 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\桐乡视频\SP0143-视频结构化-桐乡-行人搜图（3.2-3.6）-20180313\城河路附近13个点3.2-3.6\1.258WT城河路鱼行街2电枪\205211001211800379-00010001-20180302110000-20180302120000-205211-01.nsf
+System.Exception: 打开成功
+2018-07-04 14:17:15,415 [1]ERROR Common.WebClinetHepler - POST错误->8ms,code:-4,uri:http://192.168.1.225:18080/video/project,result:
+{
+  "code": -4,
+  "message": "invalid uri"
+}
+2018-07-04 14:20:00,702 [1]ERROR Common.WebClinetHepler - POST错误->11ms,code:-4,uri:http://192.168.1.225:18080/video/project,result:
+{
+  "code": -4,
+  "message": "invalid uri"
+}
+2018-07-04 14:36:52,567 [1]ERROR VideoRecordings.Program - 上传文件夹
+System.Exception: {"end_date":"2018-06-24","id":0,"name":"SP0187","note":"遵义行人视频,近场景,人流量大","place":"遵义","record_time":null,"recorder":"李奇","replicator":"张旺","scenes":0,"scenes_name":null,"size":"4.73","start_date":"2018-06-24","statistic":null,"status_name":null,"uri":"\/md7\/视频\/遵义视频\/SP0187-行人标注-遵义-行人视频数据-20180624","video_count":8}
+2018-07-04 14:37:12,712 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.225:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 14:37:12,773 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 15:29:29,045 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 15:29:29,135 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 15:29:39,408 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 15:29:39,955 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 15:29:40,243 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 15:29:40,605 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 16:39:35,578 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 16:39:35,718 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 16:39:37,193 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 16:39:39,216 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\汉阳视频\SP0150-视频结构化-汉阳-行人-20180320\路口行人车辆混杂\武展西路距解放大道南侧80米\420103090013269944651_20180317090000_20180317093000.avi
+System.Exception: 打开成功
+2018-07-04 16:40:55,906 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 16:40:56,017 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 16:40:56,968 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 16:40:58,142 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\青岛视频\SP0157-视频结构化-青岛-海信PK数据-20180327\视频样本\1520293986.h264
+System.Exception: 打开成功
+2018-07-04 16:41:54,869 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 16:41:54,982 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 16:41:55,784 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 16:41:56,686 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\黄石视频\SP0155-视频结构化-黄石-街道路口行人车辆混杂-20180326\19、黄石A00175(高枪)房产局路口(南)\2018-03-23\黄石A00175(高枪)房产局路口(南) 20180320-064006--20180320-065006.mp4
+System.Exception: 打开成功
+2018-07-04 16:51:13,034 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 16:51:13,157 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 16:51:13,800 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 16:51:15,018 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\桐乡视频\SP0143-视频结构化-桐乡-行人搜图（3.2-3.6）-20180313\城河路附近13个点3.2-3.6\1.258WT城河路鱼行街2电枪\205211001211800379-00010001-20180302100000-20180302110000-205211-01.nsf
+System.Exception: 打开成功
+2018-07-04 16:56:25,761 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 16:56:25,891 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 16:56:26,787 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 16:56:27,906 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md5\视频\桐乡视频\SP0144-视频结构化-桐乡-行人搜图（3.7-3.8）-20180312\城河路附近13个点3.7-3.8\8.256WT城河路宏源路电枪\205211001211800371-00010001-20180301130000-20180301140000-205211-01.nsf
+System.Exception: 打开成功
+2018-07-04 18:01:35,249 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 18:01:35,494 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 18:03:01,420 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 18:03:01,501 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 18:03:01,624 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 18:03:38,796 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 18:03:38,898 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 18:04:01,940 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 18:04:02,079 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 18:14:10,978 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 18:14:11,136 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 18:14:12,798 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 18:14:17,524 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 18:14:18,050 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 18:14:19,389 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md7\视频\合肥视频\SP0184-行人标注-合肥-合肥行人搜图数据-2018052620180602\video\录像下载\1.B店埠-安美街与农贸市场交界处\20180528070354-20180528090354.mp4
+System.Exception: 打开成功
+2018-07-04 18:14:28,805 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 18:14:28,929 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 18:14:31,484 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 18:14:31,961 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md7\视频\合肥视频\SP0184-行人标注-合肥-合肥行人搜图数据-2018052620180602\video\录像下载\6.店埠-老街大众巷巷口\20180602152632-20180602164521.mp4
+System.Exception: 打开成功
+2018-07-04 18:14:54,191 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-04&start_time=0:00:00&end_time=23:59:59
+2018-07-04 18:15:16,295 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=0&start_date=2010-01-01&end_date=2018-07-04&start_time=0:00:00&end_time=23:59:59
+2018-07-04 18:15:40,382 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=0&start_date=2010-01-01&end_date=2018-07-04&start_time=0:00:00&end_time=23:59:59
+2018-07-04 18:18:34,751 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 18:18:34,886 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 18:19:09,623 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 18:19:09,724 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 18:19:14,526 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-04 18:19:14,582 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 18:19:18,838 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-04 18:19:19,465 [1]ERROR VideoRecordings.Program - 打开\\192.168.1.234\md7\视频\合肥视频\SP0184-行人标注-合肥-合肥行人搜图数据-2018052620180602\video\录像下载\3.B店埠-新街工会巷出口\20180528180004-20180528200004.mp4
+System.Exception: 打开成功
+2018-07-04 18:19:41,092 [1]ERROR VideoRecordings.Program - 搜索条件status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-04&start_time=0:00:00&end_time=23:59:59

@@ -60,12 +60,12 @@ namespace VideoRecordings
                 Place = place,
                 Scenes = scenes,
                 StartDate = start_time,
+                VideoCount = count,
                 EndDate = end_time,
                 Uri = url,
-                Size = size,
-                VideoCount = count,
+                Size = size,               
                 Replicator = replicator,
-                Recorder = recorder,
+                Recorder = recorder,              
                 Note = note,
             };
 

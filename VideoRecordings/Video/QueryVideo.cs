@@ -31,6 +31,7 @@ namespace VideoRecordings
         public List<VideoPlay> videoplays = new List<VideoPlay>();  //所有筛选的文件
         public List<string> imageurl = new List<string>();       //选中文件的图片的url
         bool isFirst = true;  //每次查询选择定位选中文件0
+        bool iscollpase = false;
         List<VideoProject> Videos = new List<VideoProject>();
         VideoInformation information;
         GridHitInfo hInfo = new GridHitInfo();
@@ -64,11 +65,9 @@ namespace VideoRecordings
             textBox1.AutoCompleteCustomSource.Clear();
             textBox1.AutoCompleteCustomSource.AddRange(text.ToArray());
             imageListView1.DiskCache = Program.Persistent;
+            gridView1.OptionsBehavior.AutoExpandAllGroups = false;
             label14.Text = $"欢迎:{Program.UserName}";
-            if (Program.IsTest)
-            {
-                Text += "(测试)";
-            }
+            Methods.AddIsTest(this);
         }
 
         private void SetInformations()
@@ -93,6 +92,8 @@ namespace VideoRecordings
         private void button1_Click(object sender, EventArgs e)
         {
             isFirst = true;
+            iscollpase = false;
+            gridView1.OptionsBehavior.AutoExpandAllGroups = false;
             RefreshImage();
         }
 
@@ -102,7 +103,7 @@ namespace VideoRecordings
         /// <returns></returns>
         public string GetJson()
         {
-            string getjson = string.Empty;
+           string getjson = string.Empty;
             try
             {
                 if (comboBox_proname.SelectedIndex != -1)
@@ -162,9 +163,13 @@ namespace VideoRecordings
 
                 getjson += $"start_time={timeEdit_start.Text}&end_time={timeEdit_end.Text}&";
 
-                if (textBox_label.Text.Trim() != string.Empty)
+                if (textBox_label.Text.Trim()!= string.Empty)
                 {
-                    getjson += $"label[]=[{GetLabesString(textBox_label.Text)}]&";
+                    string labelnum = GetLabesString(textBox_label.Text);
+                    if (!string.IsNullOrEmpty(labelnum))
+                    {
+                        getjson += $"label[]=[{labelnum}]";
+                    }
                 }
 
                 if (getjson.EndsWith("&"))
@@ -189,27 +194,27 @@ namespace VideoRecordings
         public void RefreshImage()
         {
             string json = GetJson();
-            //WaitFormEx.Run(() =>
-            //{
-                if (string.IsNullOrEmpty(textBox_label.Text.Trim()))
+            WaitFormEx.Run(() =>
             {
-                DialogResult dr = MessageBox.Show("没有筛选标签信息,确认显示所有文件?", "提示信息！",
-             MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dr != DialogResult.Yes)
-                {
-                    return;
-                }
-            }
+            //    if (string.IsNullOrEmpty(textBox_label.Text.Trim()))
+            //{
+            //    DialogResult dr = MessageBox.Show("没有筛选标签信息,确认显示所有文件?", "提示信息！",
+            // MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            //    if (dr != DialogResult.Yes)
+            //    {
+            //        return;
+            //    }
+            //}
             string url = Program.Urlpath + "/videos";
             if (!GettListVideo(url, json))
                 return;
+            });
             bindingSource1.DataSource = videoplays;
             if (isFirst)
             {
                 transmissionvideo = videoplays.Count == 0 ? null : videoplays.First();
                 isFirst = false;
             }
-            //});
             RefreshFocus();
             gridView1.RefreshData();
             Program.log.Error($"搜索条件{json}");
@@ -703,7 +708,7 @@ namespace VideoRecordings
         public string GetLabesString(string text)
         {
             List<string> labels = text.Split(',').ToList();
-            string labeljson = string.Empty; ;
+            string labeljson = string.Empty;
             foreach (var item in labels)
             {
                 if (LabelAll.Values.Contains(item))
@@ -769,13 +774,21 @@ namespace VideoRecordings
 
         private void gridView1_CustomDrawGroupRow(object sender, DevExpress.XtraGrid.Views.Base.RowObjectCustomDrawEventArgs e)
         {
-            GridGroupRowInfo GridGroupRowInfo = e.Info as GridGroupRowInfo;
-            GridView gridview = sender as GridView;
-            int index = gridview.GetDataRowHandleByGroupRowHandle(e.RowHandle);
-            string uri = gridview.GetRowCellValue(index, "Uri").ToString();
-            string project_name = gridview.GetRowCellValue(index, "ProjectName").ToString();
-            GridGroupRowInfo.GroupText = uri.Split('/').ToList()
-                 .First(t => t.StartsWith("SP") || t.StartsWith("Sp"))+$"({queryvidoe[$"{project_name}"]})";
+            try
+            {
+                GridGroupRowInfo GridGroupRowInfo = e.Info as GridGroupRowInfo;
+                GridView gridview = sender as GridView;
+                int index = gridview.GetDataRowHandleByGroupRowHandle(e.RowHandle);
+                string uri = gridview.GetRowCellValue(index, "Uri").ToString();
+                string project_name = gridview.GetRowCellValue(index, "ProjectName").ToString();
+                GridGroupRowInfo.GroupText = uri.Split('/').ToList()
+                     .First(t => t.StartsWith("SP") || t.StartsWith("Sp")) + $" (数量:{queryvidoe[$"{project_name}"]})";
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
         }
 
         /// <summary>
@@ -886,6 +899,31 @@ namespace VideoRecordings
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
+        }
+
+        public void Unfold()
+        {
+            if (!iscollpase)
+            {
+                iscollpase = true;
+                gridView1.ExpandAllGroups();
+            }
+            else
+            {
+                iscollpase = false;
+                gridView1.CollapseAllGroups();
+            }
+           
+        }
+
+        private void openToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Unfold();
+        }
+
+        public void RefshHomePage()
+        {
+            information.RefshData();
         }
     }
 }

@@ -59,6 +59,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -92,6 +93,13 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1094, 618);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(171, 67);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // gridControl1
             // 
@@ -270,7 +278,7 @@
             // gridColumn_video_count
             // 
             this.gridColumn_video_count.Caption = "视频数量";
-            this.gridColumn_video_count.FieldName = "VideoCount";
+            this.gridColumn_video_count.FieldName = "Count";
             this.gridColumn_video_count.Name = "gridColumn_video_count";
             this.gridColumn_video_count.OptionsColumn.AllowEdit = false;
             this.gridColumn_video_count.Visible = true;
@@ -346,6 +354,8 @@
             this.statusStrip1.Size = new System.Drawing.Size(1094, 85);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
             // 
             // label1
             // 
@@ -445,6 +455,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_note;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_record_time;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_percent;
+          private DevExpress.Utils.ToolTipController toolTipController1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem scanning_ToolStripMenuItem;
@@ -456,5 +467,6 @@
         private System.Windows.Forms.ToolStripMenuItem ModifyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DELToolStripMenuItem;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

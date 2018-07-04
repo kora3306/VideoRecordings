@@ -1,0 +1,6 @@
+F:\源码\VideoRecordings\DXApplication1\DXApplication1\obj\Release\DXApplication.csprojAssemblyReference.cache
+F:\源码\VideoRecordings\DXApplication1\DXApplication1\obj\Release\DXApplication.csproj.ResolveComReference.cache
+F:\源码\VideoRecordings\DXApplication1\DXApplication1\obj\Release\DXApplication1.Properties.Resources.resources
+F:\源码\VideoRecordings\DXApplication1\DXApplication1\obj\Release\DXApplication1.VideoPlayers_test.resources
+F:\源码\VideoRecordings\DXApplication1\DXApplication1\obj\Release\DXApplication.csproj.GenerateResource.cache
+F:\源码\VideoRecordings\DXApplication1\DXApplication1\obj\Release\DXApplication.csproj.CoreCompileInputs.cache

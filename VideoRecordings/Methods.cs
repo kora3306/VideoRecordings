@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,7 +51,17 @@ namespace VideoRecordings
             new ShowImage(showimages, index).ShowDialog();
         }
 
-
+        public static void AddIsTest(Form form)
+        {
+            if (Program.IsTest)
+            {
+                form.Text += "(测试)";
+            }
+            else
+            {
+                form.Text += $"(Version:{Program.Version})";
+            }
+        }
 
         /// <summary>
         /// 删除图片
@@ -76,15 +87,15 @@ namespace VideoRecordings
             Program.log.Error($"删除图片{url}");
         }
 
-
         public static VideoPlay GetNewImages(int index)
         {
             string url = Program.Urlpath + $"/videos?id={index}";
             JObject obj = WebClinetHepler.GetJObject(url);
-            List<VideoPlay> videoplay = JsonHelper.DeserializeDataContractJson<List<VideoPlay>>(obj["videos"].ToString());
-            return videoplay.First();
+            Projects project = JsonHelper.DeserializeDataContractJson<Projects>(obj["result"][0]["project"].ToString());
+            VideoPlay videoplay = JsonHelper.DeserializeDataContractJson<VideoPlay>(obj["result"][0]["videos"][0].ToString());
+            videoplay.Project = project;
+            return videoplay;
         }
-
 
         public static List<string> CopyToList(List<string> list)
         {
@@ -97,6 +108,32 @@ namespace VideoRecordings
             return copys;
         }
 
+        public static string ReadPath(string path)
+        {
+            if(!File.Exists(path))
+            {
+                return string.Empty;
+            }
+            FileStream fs = new FileStream(path, FileMode.Open);
+            StreamReader sr = new StreamReader(fs, Encoding.Default);
+            string read= sr.ReadToEnd();
+            sr.Close();
+            fs.Close();
+            return read;
+        }
+
+        public static void WritePath(string path,string text)
+        {
+            if (!File.Exists(path))
+            {
+                File.Create(path).Close();
+            }
+            FileStream fs = new FileStream(path, FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs, Encoding.Default);
+            sw.Write(text);
+            sw.Close();
+            fs.Close();
+        }
 
     }
 }

@@ -17,10 +17,7 @@ namespace VideoRecordings
         public FileManagement()
         {
             InitializeComponent();
-            if (Program.GetAppConfig("TestApi") != "0")
-            {
-                this.Text += "(测试库)";
-            }
+            Methods.AddIsTest(this);
         }
 
 
@@ -33,7 +30,6 @@ namespace VideoRecordings
         {
             SetForm(2,"图片文件管理");
         }
-
 
         /// <summary>
         /// 反射获取窗体
@@ -80,6 +76,11 @@ namespace VideoRecordings
         private void FileManagement_FormClosed(object sender, FormClosedEventArgs e)
         {
 
+        }
+
+        private void FileManagement_Load(object sender, EventArgs e)
+        {
+            video_toolStripMenuItem.PerformClick();
         }
     }
 

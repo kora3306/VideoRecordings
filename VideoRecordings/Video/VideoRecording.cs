@@ -65,10 +65,7 @@ namespace VideoRecordings
             label6.ForeColor = Color.Red;
             imageListView1.Focus();
             imageListView1.DiskCache = Program.Persistent;
-            if (Program.IsTest)
-            {
-                Text += "(测试)";
-            }
+            Methods.AddIsTest(this);
             if (label_treeView.Nodes.Count != 0)
             {
                 label_treeView.Nodes[0].Expand();
@@ -119,7 +116,7 @@ namespace VideoRecordings
             {
                 if (!File.Exists(Program.VideoPlay))
                 {
-                    MessageBox.Show("指定目录没有找到该视频");
+                    MessageBox.Show("没有指定播放器");
                     return;
                 }
                 process = Process.Start(Program.VideoPlay, Program.ReturnStringUrl(information.ConversionString(videoplay.Uri)));
@@ -130,7 +127,7 @@ namespace VideoRecordings
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     Program.VideoPlay = openFileDialog1.FileName;
-                    Program.UpdateAppConfig(Program.PlayerName, Program.VideoPlay);
+                    Methods.WritePath(Program.PlayerPath,openFileDialog1.FileName);
                     process = Process.Start(Program.VideoPlay, Program.ReturnStringUrl(information.ConversionString(videoplay.Uri)));
                     Program.log.Info("使用关联播放器播放", new Exception($"Program.VideoPlay"));
                 }
@@ -148,15 +145,6 @@ namespace VideoRecordings
             SaveLabel();
             SaveImage();
             SaveTime();
-            //List<ImageListViewItem> refresh = new List<ImageListViewItem>();
-            //foreach (var item in imageListView1.Items)
-            //{
-            //    refresh.Add(item);
-            //    if (!imageurl.Contains(item.Text))
-            //    {
-            //        File.Delete(item.FileName);
-            //    }
-            //}
             DeleteFolder(Program.ImageSavePath);
             videoplay.Labels = labels;
             VideoPlay play = Methods.GetNewImages(videoplay.Id);
@@ -165,11 +153,16 @@ namespace VideoRecordings
                 information.RefreshData(play);
                 information.RefreshNewImage(play);
                 information.Show();
+                if (play.Labels.Count()!=0&&play.ImageId.Count()!=0)
+                {
+                    information.RefshHomePage();
+                }
             }
             else
             {
                 queryVideo.RefreshData(play);
                 queryVideo.RefreshNewImage(play);
+                queryVideo.RefshHomePage();
                 queryVideo.Show();
             }
             this.Close();
@@ -190,6 +183,7 @@ namespace VideoRecordings
             labels.Add(tree.Text);
             SetLabelText();
         }
+
         /// <summary>
         /// 选择标签加入已有标签栏
         /// </summary>
@@ -771,7 +765,6 @@ namespace VideoRecordings
         {
             Methods.ShowImage(imageListView1);
         }
-
 
     }
 }
