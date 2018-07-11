@@ -1,0 +1,46 @@
+2018-07-06 17:51:22,782 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-06 17:51:22,949 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 17:51:28,077 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-06 17:51:28,132 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 17:52:52,637 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 17:52:56,572 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 17:52:57,076 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 17:55:58,318 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 17:55:58,621 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 17:55:59,152 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 17:56:32,547 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 17:56:33,134 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 18:24:33,167 [1]ERROR Common.WebClinetHepler - GET异常->uri:http://192.168.1.225:19886/api/my/info,exception:
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.DownloadData(WebClient client, String uri, Int64& time, Byte[]& result) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 214
+2018-07-06 18:24:50,075 [1]ERROR Common.WebClinetHepler - GET异常->uri:http://192.168.1.225:19886/api/my/info,exception:
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.DownloadData(WebClient client, String uri, Int64& time, Byte[]& result) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 214
+2018-07-06 18:25:06,176 [1]ERROR Common.WebClinetHepler - GET异常->uri:http://192.168.1.225:19886/api/my/info,exception:
+System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadData(Uri address)
+   在 System.Net.WebClient.DownloadData(String address)
+   在 Common.WebClinetHepler.DownloadData(WebClient client, String uri, Int64& time, Byte[]& result) 位置 F:\接收\intedio_data_tools\Common\WebClinetHepler.cs:行号 214
+2018-07-06 18:32:27,445 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-06 18:32:27,558 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 18:32:28,503 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 18:32:29,133 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 18:32:29,547 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 18:32:30,172 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 18:32:30,977 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 18:32:31,510 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 18:32:55,577 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:18080/videos信息
+System.Exception: 获取成功
+2018-07-06 18:32:55,625 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 18:32:56,319 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-06 18:32:56,713 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture

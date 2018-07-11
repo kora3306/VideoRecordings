@@ -67,10 +67,16 @@ namespace VideoRecordings
         [DataMember(Name = "statistic")]
         public Completeness Statistic { get; set; }
 
-        public string Percent { get => (Convert.ToDouble(Statistic.Recorded) / Convert.ToDouble(Statistic.Total)).ToString(("0.00%"))
-                +$"({Statistic.Recorded}/{Statistic.Total})"; }
+        public string Percent
+        {
+            get => (Convert.ToDouble(Statistic.Recorded) / Convert.ToDouble(Statistic.Total)).ToString("0.0%")
++ $"({Statistic.Recorded}/{Statistic.Total})";
+        }
     }
 
+    /// <summary>
+    /// 完成数量
+    /// </summary>
     [DataContract]
     public class Completeness
     {
@@ -82,6 +88,19 @@ namespace VideoRecordings
 
         [DataMember(Name = "total")]
         public int Total { get; set; }
+    }
+    /// <summary>
+    /// 设备信息
+    /// </summary>
+    [DataContract]
+    public class EquipmentInfo
+    {
+        [DataMember(Name = "id")]
+        public int Id { get; set; }
+        [DataMember(Name = "name")]
+        public string Name { get; set; }
+        [DataMember(Name = "project_name")]
+        public string ProjectName { get; set; }
     }
 
     /// <summary>
@@ -114,7 +133,7 @@ namespace VideoRecordings
         public int Id { get; set; }
 
         [DataMember(Name = "name")]
-        public string Name { get; set;}
+        public string Name { get; set; }
 
         [DataMember(Name = "project_name")]
         public string ProjectName { get; set; }
@@ -179,10 +198,16 @@ namespace VideoRecordings
         [DataMember(Name = "project")]
         public Projects Project { get; set; }
 
-        public string Place { get => Project.Place; }
+        [DataMember(Name = "equipment_info")]
+        public EquipmentInfo Rquipment { get; set; }
+
+        public string c { get => Project.Place; }
 
         public string Replicator { get => Project.Replicator; }
 
+        public int EquipmentID { get => Rquipment.Id; }
+
+        public string EquipmentName { get => Rquipment.Name; }
     }
 
 
@@ -232,7 +257,7 @@ namespace VideoRecordings
         [DataMember(Name = "status_name")]
         public string Status { get; set; }
 
-        [DataMember(Name="bussiness")]
+        [DataMember(Name = "bussiness")]
         public string Bssiness { get; set; }
 
         [DataMember(Name = "lanes")]

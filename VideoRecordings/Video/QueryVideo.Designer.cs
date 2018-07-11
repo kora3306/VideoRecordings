@@ -37,6 +37,9 @@
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ADDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.INToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn_id = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -56,6 +59,7 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_count = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn_eq = new DevExpress.XtraGrid.Columns.GridColumn();
             this.imageListView1 = new Manina.Windows.Forms.ImageListView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DELToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -210,9 +214,6 @@
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip2;
             this.gridControl1.DataSource = this.bindingSource1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            // 
-            // 
-            // 
             this.gridControl1.EmbeddedNavigator.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.gridControl1.EmbeddedNavigator.Appearance.Options.UseFont = true;
             this.gridControl1.EmbeddedNavigator.TextStringFormat = "当前数量 {0} / {1}";
@@ -232,23 +233,46 @@
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
-            this.DToolStripMenuItem});
+            this.DToolStripMenuItem,
+            this.ADDToolStripMenuItem,
+            this.INToolStripMenuItem,
+            this.OUTToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(154, 48);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(161, 114);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.openToolStripMenuItem.Text = "展开/关闭分组";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click_1);
             // 
             // DToolStripMenuItem
             // 
             this.DToolStripMenuItem.Name = "DToolStripMenuItem";
-            this.DToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.DToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.DToolStripMenuItem.Text = " 删除视频记录";
             this.DToolStripMenuItem.Click += new System.EventHandler(this.DToolStripMenuItem_Click);
+            // 
+            // ADDToolStripMenuItem
+            // 
+            this.ADDToolStripMenuItem.Name = "ADDToolStripMenuItem";
+            this.ADDToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.ADDToolStripMenuItem.Text = "添加/删除设备";
+            this.ADDToolStripMenuItem.Click += new System.EventHandler(this.ADDToolStripMenuItem_Click);
+            // 
+            // INToolStripMenuItem
+            // 
+            this.INToolStripMenuItem.Name = "INToolStripMenuItem";
+            this.INToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.INToolStripMenuItem.Text = "视频导入到设备";
+            // 
+            // OUTToolStripMenuItem
+            // 
+            this.OUTToolStripMenuItem.Name = "OUTToolStripMenuItem";
+            this.OUTToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.OUTToolStripMenuItem.Text = "视频从设备删除";
+            this.OUTToolStripMenuItem.Click += new System.EventHandler(this.OUTToolStripMenuItem_Click);
             // 
             // gridView1
             // 
@@ -269,9 +293,13 @@
             this.gridColumn_create_time,
             this.gridColumn4,
             this.gridColumn5,
-            this.gridColumn_count});
+            this.gridColumn_count,
+            this.gridColumn_eq});
             this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.GroupCount = 1;
+            this.gridView1.GroupCount = 2;
+            this.gridView1.GroupFormat = "{0}: [#image]{1}{2}";
+            this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "", null, "(数量:{0})")});
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AllowSortAnimation = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsCustomization.AllowRowSizing = true;
@@ -283,7 +311,8 @@
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.RowHeight = 30;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn_project_name, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn_project_name, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn_eq, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridView1_CustomDrawCell);
             this.gridView1.CustomDrawGroupRow += new DevExpress.XtraGrid.Views.Base.RowObjectCustomDrawEventHandler(this.gridView1_CustomDrawGroupRow);
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
@@ -316,6 +345,7 @@
             // 
             this.gridColumn_project_name.Caption = "数据编号";
             this.gridColumn_project_name.FieldName = "ProjectName";
+            this.gridColumn_project_name.GroupFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.gridColumn_project_name.Name = "gridColumn_project_name";
             this.gridColumn_project_name.OptionsColumn.AllowEdit = false;
             this.gridColumn_project_name.Visible = true;
@@ -461,6 +491,12 @@
             this.gridColumn_count.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
             this.gridColumn_count.Width = 80;
+            // 
+            // gridColumn_eq
+            // 
+            this.gridColumn_eq.Caption = "设备信息";
+            this.gridColumn_eq.FieldName = "EquipmentName";
+            this.gridColumn_eq.Name = "gridColumn_eq";
             // 
             // imageListView1
             // 
@@ -635,7 +671,7 @@
             // 
             // comboBox_replicator
             // 
-            this.comboBox_replicator.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBox_replicator.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox_replicator.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboBox_replicator.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox_replicator.FormattingEnabled = true;
@@ -793,9 +829,6 @@
             this.timeEdit_start.EditValue = new System.DateTime(2018, 3, 26, 0, 0, 0, 0);
             this.timeEdit_start.Location = new System.Drawing.Point(3, 3);
             this.timeEdit_start.Name = "timeEdit_start";
-            // 
-            // 
-            // 
             this.timeEdit_start.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.timeEdit_start.Properties.Appearance.Options.UseFont = true;
             this.timeEdit_start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -819,9 +852,6 @@
             this.timeEdit_end.EditValue = new System.DateTime(2018, 3, 26, 0, 0, 0, 0);
             this.timeEdit_end.Location = new System.Drawing.Point(166, 3);
             this.timeEdit_end.Name = "timeEdit_end";
-            // 
-            // 
-            // 
             this.timeEdit_end.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.timeEdit_end.Properties.Appearance.Options.UseFont = true;
             this.timeEdit_end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1158,5 +1188,9 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn_eq;
+        private System.Windows.Forms.ToolStripMenuItem ADDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem INToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OUTToolStripMenuItem;
     }
 }

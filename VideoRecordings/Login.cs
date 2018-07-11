@@ -30,7 +30,7 @@ namespace VideoRecordings
 
         private void Login_Load(object sender, EventArgs e)
         {
-            if (Program.Urlpath == "http://192.168.1.198:18080")
+            if (Program.Version == "test")
             {
                 textBox1.Text = "xiekai";
                 textBox2.Text = "xk";
@@ -68,6 +68,7 @@ namespace VideoRecordings
             Program.LogName = obj["result"]["name"].ToString();
             Program.UpdataLongName();
             this.Close();
+           
         }
 
         /// <summary>

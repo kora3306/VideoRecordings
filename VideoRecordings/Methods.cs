@@ -91,9 +91,15 @@ namespace VideoRecordings
         {
             string url = Program.Urlpath + $"/videos?id={index}";
             JObject obj = WebClinetHepler.GetJObject(url);
-            Projects project = JsonHelper.DeserializeDataContractJson<Projects>(obj["result"][0]["project"].ToString());
-            VideoPlay videoplay = JsonHelper.DeserializeDataContractJson<VideoPlay>(obj["result"][0]["videos"][0].ToString());
-            videoplay.Project = project;
+            VideoPlay videoplay = new VideoPlay();
+            for (int i = 0; i < obj["result"].Count(); i++)
+            {
+                Projects project = JsonHelper.DeserializeDataContractJson<Projects>(obj["result"][0]["project"].ToString());              
+                EquipmentInfo info = JsonHelper.DeserializeDataContractJson<EquipmentInfo>(obj["result"][0]["equipments"][0]["equipment_info"].ToString());
+                videoplay = JsonHelper.DeserializeDataContractJson<VideoPlay>(obj["result"][0]["equipments"][0]["videos"][0].ToString());
+                videoplay.Project = project;
+                videoplay.Rquipment = info;
+            }          
             return videoplay;
         }
 
@@ -133,6 +139,26 @@ namespace VideoRecordings
             sw.Write(text);
             sw.Close();
             fs.Close();
+        }
+
+        /// <summary>
+        /// 转换路径中的/为\
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static string ConversionString(string path)
+        {
+            string[] n = path.Split('/');
+            if (n.Length > 1)
+            {
+                string Ret = string.Empty;
+                for (int i = 0; i < n.Length; i++)
+                {
+                    Ret += n[i] + "\\";
+                }
+                return Ret.Substring(0, Ret.Length - 1);
+            }
+            return path;
         }
 
     }

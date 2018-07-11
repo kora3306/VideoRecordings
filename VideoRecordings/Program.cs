@@ -29,13 +29,14 @@ namespace VideoRecordings
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            BonusSkins.Register();
+            //BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
             Directory.CreateDirectory("Log");
             CheckedFile();
             Checkconfiguration();
-            CheckUpdate();
+            if (Version != "test")
+                CheckUpdate();
             Login log = new Login();
             log.ShowDialog();
             if (!log.LogSucceed) return;

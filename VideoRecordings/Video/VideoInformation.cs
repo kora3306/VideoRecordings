@@ -17,6 +17,8 @@ using Newtonsoft.Json.Linq;
 using log4net;
 using System.Reflection;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.XtraEditors.Drawing;
+using DevExpress.Utils;
 
 namespace VideoRecordings
 {
@@ -30,9 +32,7 @@ namespace VideoRecordings
         public VideoInformation()
         {
             InitializeComponent();
-            GetInformationShow();
-            TestText();
-            ShowCompleteness();
+            GetInformationShow();      
             label2.Text = $"欢迎:{Program.UserName}";
             Methods.AddIsTest(this);
         }
@@ -54,7 +54,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
-            new QueryVideo(this,Videos).Show();
+            new QueryVideo(this, Videos).Show();
         }
 
         /// <summary>
@@ -149,39 +149,15 @@ namespace VideoRecordings
         /// </summary>
         public void GetInformationShow(VideoProject video = null, bool fouse = false)
         {
-            string getpath = Program.Urlpath + "/video/projects";
-            Videos = GetListVideo(getpath, "video_projects");
+            Videos = GetData.GetAllFolder();
             if (Videos == null || Videos.Count == 0)
             {
                 return;
             }
             bindingSource1.DataSource = Videos;
             FouseRow(video, fouse);
+            ShowCompleteness();
             gridView1.RefreshData();
-        }
-
-        /// <summary>
-        /// 获取所有文件夹信息,转化成类集合
-        /// </summary>
-        /// <param name="url"></param>
-        /// <param name="na"></param>
-        public List<VideoProject> GetListVideo(string url, string na)
-        {
-            List<VideoProject> project = new List<VideoProject>();
-            try
-            {
-                List<string> datajson = new List<string>();
-                JObject obj = WebClinetHepler.GetJObject(url);
-                if (obj == null) return null;
-                project = JsonHelper.DeserializeDataContractJson<List<VideoProject>>(obj[$"{na}"].ToString());
-                project = project.OrderBy(t => t.Name).ToList();
-                return project;
-            }
-            catch (Exception ex)
-            {
-                Program.log.Error("获取文件夹信息", ex);
-                throw;
-            }
         }
 
         private void ModifyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -232,14 +208,6 @@ namespace VideoRecordings
 
         }
 
-        private void TestText()
-        {
-            if (Program.IsTest)
-            {
-                Text += "(测试)";
-            }
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             new ManagementLabel().ShowDialog();
@@ -252,13 +220,79 @@ namespace VideoRecordings
 
         public void ShowCompleteness()
         {
-            int all = Videos.Sum(t=>t.Statistic.Total);
-            int comple = Videos.Sum(t=>t.Statistic.Recorded);
+            int all = Videos.Sum(t => t.Statistic.Total);
+            int comple = Videos.Sum(t => t.Statistic.Recorded);
             toolStripStatusLabel1.Text = "完成度:" + (Convert.ToDouble(comple) / Convert.ToDouble(all)).ToString(("0.00%"))
             + $"({comple}/{all})";
         }
 
-        public void RefshData()
+        public void RefshData(VideoProject project=null)
+        {
+            if (project == null)
+            {
+                GetInformationShow();
+                return;
+            }
+            List<VideoProject> videos= GetData.GetAllFolder(project.Name);
+            
+            
+        }
+
+        /// <summary>
+        /// 绘制进度条
+        /// </summary>
+        /// <param name="e"></param>矩形
+        public void DrawProgressBar(DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            string show = e.CellValue as string;
+            string s= show.Split('%').First();
+            decimal percent = Convert.ToDecimal(s);
+            int width = (int)(100 * Math.Abs(percent / 100) * e.Bounds.Width / 100);
+            Rectangle rect = new Rectangle(e.Bounds.X, e.Bounds.Y, width, e.Bounds.Height);
+            Brush b = Brushes.LightBlue;
+            if (percent < 100)
+            {
+                b = Brushes.LightCoral;
+            }
+            e.Graphics.FillRectangle(b, rect);
+            Font font = new Font("宋体",10);
+            e.Graphics.DrawString(show, font, new SolidBrush(Color.Black), new PointF(e.Bounds.X, e.Bounds.Y+e.Bounds.Height/4));
+        }
+
+        private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            if (e.Column.FieldName == "Percent")
+            {
+                DrawProgressBar(e);
+
+                e.Handled = true;
+
+                DrawEditor(e);
+            }
+        }
+
+        private void DrawEditor(DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            GridCellInfo cell = e.Cell as GridCellInfo;
+            Point offset = cell.CellValueRect.Location;
+            BaseEditPainter pb = cell.ViewInfo.Painter as BaseEditPainter;
+            AppearanceObject style = cell.ViewInfo.PaintAppearance;
+            if (!offset.IsEmpty)
+                cell.ViewInfo.Offset(offset.X, offset.Y);
+            try
+            {
+                pb.Draw(new ControlGraphicsInfoArgs(cell.ViewInfo, e.Cache, cell.Bounds));
+            }
+            finally
+            {
+                if (!offset.IsEmpty)
+                {
+                    cell.ViewInfo.Offset(-offset.X, -offset.Y);
+                }
+            }
+        }
+
+        private void RefToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GetInformationShow();
         }

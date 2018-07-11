@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoPlayers_test));
             this.axPlayer1 = new AxAPlayer3Lib.AxPlayer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelpro = new System.Windows.Forms.Panel();
             this.colorSlider2 = new MB.Controls.ColorSlider();
             this.panelbottom = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.colorSlidersound = new MB.Controls.ColorSlider();
             this.picsound = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,8 +45,8 @@
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbltitle = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.playpause = new System.Windows.Forms.ToolStripMenuItem();
             this.停止toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.快进 = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,16 +57,15 @@
             this.播放时在最前toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.截图ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.axPlayer1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelpro.SuspendLayout();
             this.panelbottom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picsound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_play_pause)).BeginInit();
             this.paneltop.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // axPlayer1
@@ -151,6 +150,16 @@
             this.panelbottom.Size = new System.Drawing.Size(926, 47);
             this.panelbottom.TabIndex = 17;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DXApplication1.Properties.Resources.voice;
+            this.pictureBox1.Location = new System.Drawing.Point(686, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 26);
+            this.pictureBox1.TabIndex = 73;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
             // colorSlidersound
             // 
             this.colorSlidersound.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -177,9 +186,9 @@
             this.picsound.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.picsound.ErrorImage = ((System.Drawing.Image)(resources.GetObject("picsound.ErrorImage")));
             this.picsound.Image = ((System.Drawing.Image)(resources.GetObject("picsound.Image")));
-            this.picsound.Location = new System.Drawing.Point(747, 9);
+            this.picsound.Location = new System.Drawing.Point(753, 13);
             this.picsound.Name = "picsound";
-            this.picsound.Size = new System.Drawing.Size(23, 26);
+            this.picsound.Size = new System.Drawing.Size(14, 18);
             this.picsound.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picsound.TabIndex = 71;
             this.picsound.TabStop = false;
@@ -378,16 +387,6 @@
             this.截图ToolStripMenuItem.Text = "截图";
             this.截图ToolStripMenuItem.Click += new System.EventHandler(this.截图ToolStripMenuItem_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DXApplication1.Properties.Resources.voice;
-            this.pictureBox1.Location = new System.Drawing.Point(686, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 26);
-            this.pictureBox1.TabIndex = 73;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
             // VideoPlayers_test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -403,12 +402,12 @@
             this.panelpro.ResumeLayout(false);
             this.panelbottom.ResumeLayout(false);
             this.panelbottom.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picsound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_play_pause)).EndInit();
             this.paneltop.ResumeLayout(false);
             this.paneltop.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

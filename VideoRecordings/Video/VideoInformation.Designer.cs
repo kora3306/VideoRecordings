@@ -36,6 +36,7 @@
             this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ModifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DELToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn_Id = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,19 +53,23 @@
             this.gridColumn_note = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_record_time = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_status = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn_percent=new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn_percent = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -94,22 +99,12 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1094, 618);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(171, 67);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
-            // 
             // gridControl1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.gridControl1, 5);
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl1.DataSource = this.bindingSource1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            // 
-            // 
-            // 
             this.gridControl1.EmbeddedNavigator.Appearance.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.gridControl1.EmbeddedNavigator.Appearance.Options.UseFont = true;
             this.gridControl1.EmbeddedNavigator.TextStringFormat = "当前数量 {0} / {1}";
@@ -117,6 +112,8 @@
             this.gridControl1.Location = new System.Drawing.Point(3, 83);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemProgressBar1});
             this.tableLayoutPanel1.SetRowSpan(this.gridControl1, 2);
             this.gridControl1.Size = new System.Drawing.Size(1088, 447);
             this.gridControl1.TabIndex = 1;
@@ -131,9 +128,10 @@
             this.scanning_ToolStripMenuItem,
             this.ToolStripMenuItem,
             this.ModifyToolStripMenuItem,
-            this.DELToolStripMenuItem});
+            this.DELToolStripMenuItem,
+            this.RefToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 114);
             // 
             // scanning_ToolStripMenuItem
             // 
@@ -163,6 +161,13 @@
             this.DELToolStripMenuItem.Text = "清除扫描的文件信息";
             this.DELToolStripMenuItem.Click += new System.EventHandler(this.DELToolStripMenuItem_Click);
             // 
+            // RefToolStripMenuItem
+            // 
+            this.RefToolStripMenuItem.Name = "RefToolStripMenuItem";
+            this.RefToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.RefToolStripMenuItem.Text = "刷新文件夹信息";
+            this.RefToolStripMenuItem.Click += new System.EventHandler(this.RefToolStripMenuItem_Click);
+            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -189,6 +194,7 @@
             this.gridView1.OptionsView.RowAutoHeight = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.RowHeight = 30;
+            this.gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridView1_CustomDrawCell);
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             this.gridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView1_MouseDown);
             // 
@@ -211,7 +217,7 @@
             this.gridColumn_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_name.Visible = true;
             this.gridColumn_name.VisibleIndex = 0;
-            this.gridColumn_name.Width = 60;
+            this.gridColumn_name.Width = 29;
             // 
             // gridColumn_place
             // 
@@ -222,7 +228,7 @@
             this.gridColumn_place.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_place.Visible = true;
             this.gridColumn_place.VisibleIndex = 1;
-            this.gridColumn_place.Width = 63;
+            this.gridColumn_place.Width = 61;
             // 
             // gridColumn_scenes
             // 
@@ -233,7 +239,7 @@
             this.gridColumn_scenes.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_scenes.Visible = true;
             this.gridColumn_scenes.VisibleIndex = 2;
-            this.gridColumn_scenes.Width = 42;
+            this.gridColumn_scenes.Width = 41;
             // 
             // gridColumn_start_date
             // 
@@ -243,7 +249,7 @@
             this.gridColumn_start_date.OptionsColumn.AllowEdit = false;
             this.gridColumn_start_date.Visible = true;
             this.gridColumn_start_date.VisibleIndex = 4;
-            this.gridColumn_start_date.Width = 62;
+            this.gridColumn_start_date.Width = 60;
             // 
             // gridColumn_end_date
             // 
@@ -253,7 +259,7 @@
             this.gridColumn_end_date.OptionsColumn.AllowEdit = false;
             this.gridColumn_end_date.Visible = true;
             this.gridColumn_end_date.VisibleIndex = 5;
-            this.gridColumn_end_date.Width = 62;
+            this.gridColumn_end_date.Width = 60;
             // 
             // gridColumn_uri
             // 
@@ -263,7 +269,7 @@
             this.gridColumn_uri.OptionsColumn.ReadOnly = true;
             this.gridColumn_uri.Visible = true;
             this.gridColumn_uri.VisibleIndex = 10;
-            this.gridColumn_uri.Width = 265;
+            this.gridColumn_uri.Width = 212;
             // 
             // gridColumn_size
             // 
@@ -273,7 +279,7 @@
             this.gridColumn_size.OptionsColumn.AllowEdit = false;
             this.gridColumn_size.Visible = true;
             this.gridColumn_size.VisibleIndex = 6;
-            this.gridColumn_size.Width = 35;
+            this.gridColumn_size.Width = 34;
             // 
             // gridColumn_video_count
             // 
@@ -283,7 +289,7 @@
             this.gridColumn_video_count.OptionsColumn.AllowEdit = false;
             this.gridColumn_video_count.Visible = true;
             this.gridColumn_video_count.VisibleIndex = 7;
-            this.gridColumn_video_count.Width = 35;
+            this.gridColumn_video_count.Width = 34;
             // 
             // gridColumn_replicator
             // 
@@ -293,7 +299,7 @@
             this.gridColumn_replicator.OptionsColumn.AllowEdit = false;
             this.gridColumn_replicator.Visible = true;
             this.gridColumn_replicator.VisibleIndex = 8;
-            this.gridColumn_replicator.Width = 62;
+            this.gridColumn_replicator.Width = 60;
             // 
             // gridColumn_recorder
             // 
@@ -303,7 +309,7 @@
             this.gridColumn_recorder.OptionsColumn.AllowEdit = false;
             this.gridColumn_recorder.Visible = true;
             this.gridColumn_recorder.VisibleIndex = 9;
-            this.gridColumn_recorder.Width = 62;
+            this.gridColumn_recorder.Width = 60;
             // 
             // gridColumn_note
             // 
@@ -313,7 +319,7 @@
             this.gridColumn_note.OptionsColumn.AllowEdit = false;
             this.gridColumn_note.Visible = true;
             this.gridColumn_note.VisibleIndex = 13;
-            this.gridColumn_note.Width = 166;
+            this.gridColumn_note.Width = 198;
             // 
             // gridColumn_record_time
             // 
@@ -323,7 +329,7 @@
             this.gridColumn_record_time.OptionsColumn.AllowEdit = false;
             this.gridColumn_record_time.Visible = true;
             this.gridColumn_record_time.VisibleIndex = 11;
-            this.gridColumn_record_time.Width = 80;
+            this.gridColumn_record_time.Width = 89;
             // 
             // gridColumn_status
             // 
@@ -333,29 +339,41 @@
             this.gridColumn_status.OptionsColumn.AllowEdit = false;
             this.gridColumn_status.Visible = true;
             this.gridColumn_status.VisibleIndex = 3;
-            this.gridColumn_status.Width = 50;
-            //
-            //gridColumn_percent
-            //
+            this.gridColumn_status.Width = 49;
+            // 
+            // gridColumn_percent
+            // 
             this.gridColumn_percent.Caption = "完成度";
+            this.gridColumn_percent.ColumnEdit = this.repositoryItemProgressBar1;
             this.gridColumn_percent.FieldName = "Percent";
             this.gridColumn_percent.Name = "gridColumn_percent";
             this.gridColumn_percent.OptionsColumn.AllowEdit = false;
             this.gridColumn_percent.Visible = true;
             this.gridColumn_percent.VisibleIndex = 12;
-            this.gridColumn_name.Width = 30;
+            this.gridColumn_percent.Width = 83;
+            // 
+            // repositoryItemProgressBar1
+            // 
+            this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
             // 
             // statusStrip1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.statusStrip1, 5);
             this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 533);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1094, 85);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(171, 80);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // label1
             // 
@@ -363,9 +381,9 @@
             this.label1.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label1, 5);
             this.label1.Font = new System.Drawing.Font("微软雅黑", 14F);
-            this.label1.Location = new System.Drawing.Point(485, 13);
+            this.label1.Location = new System.Drawing.Point(484, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 23);
+            this.label1.Size = new System.Drawing.Size(126, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "入库视频信息";
             // 
@@ -398,9 +416,9 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label2.Location = new System.Drawing.Point(986, 61);
+            this.label2.Location = new System.Drawing.Point(986, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 19);
+            this.label2.Size = new System.Drawing.Size(66, 21);
             this.label2.TabIndex = 6;
             this.label2.Text = "欢迎:XX";
             // 
@@ -415,10 +433,15 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // defaultLookAndFeel1
+            // 
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "The Bezier";
+            // 
             // VideoInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(1094, 618);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "VideoInformation";
@@ -430,6 +453,9 @@
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -468,5 +494,8 @@
         private System.Windows.Forms.ToolStripMenuItem DELToolStripMenuItem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemProgressBar repositoryItemProgressBar1;
+        private System.Windows.Forms.ToolStripMenuItem RefToolStripMenuItem;
+        private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
     }
 }

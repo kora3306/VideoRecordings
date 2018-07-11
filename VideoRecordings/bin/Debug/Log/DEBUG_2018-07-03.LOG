@@ -1,9 +1,0 @@
-[19:01:49.681][DEBUG][WebClinetHepler][1] GET->17ms,url:http://192.168.1.222:18820/api/Updater/verson
-[19:01:49.695][DEBUG][WebClinetHepler][1] GET->5ms,url:http://192.168.1.222:18820/api/Updater/2.0.0.0/filelist
-[19:01:49.715][DEBUG][WebClinetHepler][1] GET->5ms,url:http://192.168.1.222:18820/api/SeemmoData/verson
-2018-07-03 21:18:40,795 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->1024ms,code:0,uri:http://192.168.1.198:18080/video/projects
-2018-07-03 21:24:00,446 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->1035ms,code:0,uri:http://192.168.1.198:18080/video/projects
-2018-07-03 21:24:04,849 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->798ms,code:0,uri:http://192.168.1.198:18080/labels
-2018-07-03 21:24:12,223 [7]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->2034ms,code:0,uri:http://192.168.1.198:18080/videos?status=0&recorded=1&start_date=2010-01-01&end_date=2018-07-03&start_time=0:00:00&end_time=23:59:59
-2018-07-03 21:32:13,984 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->989ms,code:0,uri:http://192.168.1.198:18080/video/projects
-2018-07-03 21:33:18,372 [1]DEBUG Common.WebClinetHepler - 接口耗时过高:GET->867ms,code:0,uri:http://192.168.1.225:18080/video/projects

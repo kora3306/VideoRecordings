@@ -36,16 +36,24 @@ namespace VideoRecordings
         Dictionary<string, string> AllLabel = new Dictionary<string, string>();
         bool folding = false;
         bool isquery;
-        public VideoRecording(VideoPlay videopath, bool query ,InformationDisplay info = null, QueryVideo video = null)
+        public VideoRecording(VideoPlay videopath, bool query ,InformationDisplay info)
         {
             information = info;
+            videoplay = videopath;
+            isquery = query;
+            InitializeComponent();
+            videoPlayer1.MyEvent += new DXApplication1.VideoPlayers_test.MyDelegate(ImageAdd);
+            videoPlayer1.path = Program.ImageSavePath;       
+        }
+
+        public VideoRecording(VideoPlay videopath, bool query, QueryVideo video )
+        {
             videoplay = videopath;
             queryVideo = video;
             isquery = query;
             InitializeComponent();
             videoPlayer1.MyEvent += new DXApplication1.VideoPlayers_test.MyDelegate(ImageAdd);
-            //videoPlayer1.MyPlay+=
-            videoPlayer1.path = Program.ImageSavePath;       
+            videoPlayer1.path = Program.ImageSavePath;
         }
 
         private void VideoRecording_Load(object sender, EventArgs e)
@@ -119,7 +127,7 @@ namespace VideoRecordings
                     MessageBox.Show("没有指定播放器");
                     return;
                 }
-                process = Process.Start(Program.VideoPlay, Program.ReturnStringUrl(information.ConversionString(videoplay.Uri)));
+                process = Process.Start(Program.VideoPlay, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
                 return;
             }
             else
@@ -128,7 +136,7 @@ namespace VideoRecordings
                 {
                     Program.VideoPlay = openFileDialog1.FileName;
                     Methods.WritePath(Program.PlayerPath,openFileDialog1.FileName);
-                    process = Process.Start(Program.VideoPlay, Program.ReturnStringUrl(information.ConversionString(videoplay.Uri)));
+                    process = Process.Start(Program.VideoPlay, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
                     Program.log.Info("使用关联播放器播放", new Exception($"Program.VideoPlay"));
                 }
             }
@@ -153,7 +161,7 @@ namespace VideoRecordings
                 information.RefreshData(play);
                 information.RefreshNewImage(play);
                 information.Show();
-                if (play.Labels.Count()!=0&&play.ImageId.Count()!=0)
+                if (play.Labels.Count()!=0)
                 {
                     information.RefshHomePage();
                 }
@@ -162,7 +170,10 @@ namespace VideoRecordings
             {
                 queryVideo.RefreshData(play);
                 queryVideo.RefreshNewImage(play);
-                queryVideo.RefshHomePage();
+                if (play.Labels.Count() != 0)
+                {
+                    queryVideo.RefshHomePage();
+                }           
                 queryVideo.Show();
             }
             this.Close();
@@ -242,11 +253,13 @@ namespace VideoRecordings
             {
                 button1.Text = "使用外部播放器";
                 information.Hasbeen = false;
+                queryVideo.Hasbeen = false;
             }
             else
             {
                 button1.Text = "使用页面播放器";
                 information.Hasbeen = true;
+                queryVideo.Hasbeen = true;
             }
 
         }
@@ -308,7 +321,8 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void VideoRecording_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!information.Hasbeen)
+            bool start = information == null ? queryVideo.Hasbeen : information.Hasbeen;
+            if (!start)
             {
                 try
                 {
@@ -529,11 +543,12 @@ namespace VideoRecordings
         /// </summary>
         private void PlayVideo()
         {
-            if (information.Hasbeen)
+            bool start = information == null ? queryVideo.Hasbeen : information.Hasbeen;
+            if (start)
             {
                 try
                 {
-                    process = Process.Start(Program.VideoPlay, Program.ReturnStringUrl(information.ConversionString(videoplay.Uri)));
+                    process = Process.Start(Program.VideoPlay, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
                     return;
                 }
                 catch (Exception ex)
@@ -545,7 +560,7 @@ namespace VideoRecordings
             }
             else
             {
-                videoPlayer1.URL = Program.ReturnStringUrl(information.ConversionString(videoplay.Uri));
+                videoPlayer1.URL = Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri));
                 videoPlayer1.VideoPalying();
             }
         }
