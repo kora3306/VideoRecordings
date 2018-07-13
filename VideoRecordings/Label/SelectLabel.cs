@@ -13,31 +13,45 @@ namespace VideoRecordings
 {
     public partial class SelectLabel : DevExpress.XtraEditors.XtraForm
     {
-        QueryVideo queryVideo;
-        Dictionary<string, string> allscenes;
-        string labeltext;
         List<string> labels = new List<string>();
-        List<string> texts = new List<string>();
-        public SelectLabel(QueryVideo query, List<TreeNode> list, Dictionary<string, string> dic, Dictionary<string, string> labelall, string text)
+        bool IsShowLabels;
+        MyLabel MyLabel;
+
+        List<string> listOnit = new List<string>();
+        List<string> listNew = new List<string>();  //搜索集合
+
+        public SelectLabel(string text = null, bool isshow = false)
         {
             InitializeComponent();
-            queryVideo = query;
-            allscenes = dic;
-            labeltext = text;
-            treeView1.Nodes.AddRange(list.ToArray());
-            treeView1.ExpandAll();
-            labels = CheckBoxNodes().Select(t => t.Text).ToList();
-            LabelRefreshDate();
-            SetTreeNodes();
-            texts = labelall.Select(t => t.Value).ToList();
+            IsShowLabels = isshow;
+            MyLabel = new MyLabel();
+            if (!string.IsNullOrEmpty(text))
+                labels = text.Split(',').ToList();
         }
 
         private void SelectLabel_Load(object sender, EventArgs e)
-        {           
-            textBox2.AutoCompleteCustomSource.Clear();
-            textBox2.AutoCompleteCustomSource.AddRange(texts.ToArray());
-            textBox1.AutoCompleteCustomSource.Clear();
-            textBox1.AutoCompleteCustomSource.AddRange(texts.ToArray());
+        {
+            List<TreeNode> trees = MyLabel.treeNodes;
+            treeView1.Nodes.AddRange(trees.ToArray());
+            treeView1.ExpandAll();
+            if (treeView1.Nodes.Count != 0)
+                treeView1.SelectedNode = treeView1.Nodes[0];
+            SetTreeNodes();
+            listOnit = MyLabel.LabelAll.Select(t => t.Value).ToList();
+            comboBox1.Items.AddRange(listOnit.ToArray());
+        }
+
+        public delegate void MyDelegate(List<string> labels);
+        public event MyDelegate MyRefreshEvent;
+        public virtual void OnRefresh(List<string> labels)
+        {
+            MyRefreshEvent.Invoke(labels);
+        }
+
+        public event MyDelegate MySaveEvent;
+        public virtual void OnSave(List<string> labels)
+        {
+            MySaveEvent.Invoke(labels);
         }
 
         private void treeView2_DoubleClick(object sender, EventArgs e)
@@ -61,52 +75,31 @@ namespace VideoRecordings
             }
             treeView1.Refresh();
         }
-
-        private void RefeshText()
-        {
-            textBox2.AutoCompleteCustomSource.Clear();
-            textBox2.AutoCompleteCustomSource.AddRange(labels.ToArray());
-        }
-
+        /// <summary>
+        /// 标签勾选
+        /// </summary>
         private void SetTreeNodes()
         {
-            if (string.IsNullOrEmpty(labeltext))
+            foreach (var label in labels)
             {
-                treeView2.Nodes.Clear();
-                foreach (TreeNode item in treeView1.Nodes)
+                foreach (TreeNode tree in treeView1.Nodes)
                 {
-                    foreach (TreeNode it in item.Nodes)
+                    foreach (TreeNode node in tree.Nodes)
                     {
-                        it.Checked = false;
-                    }
-                }
-                return;
-            }
-            treeView2.Nodes.Clear();
-            labels = labeltext.Split(',').ToList();
-            foreach (TreeNode item in treeView1.Nodes)
-            {
-                if (item.Nodes.Count != 0)
-                {
-                    foreach (TreeNode it in item.Nodes)
-                    {
-                        foreach (string label in labels)
+                        if (label == node.Text)
                         {
-                            if (label == it.Text)
-                            {
-                                it.Checked = true;
-                            }
+                            node.Checked = true;
+                            continue;
                         }
                     }
                 }
             }
-            LabelRefreshDate();
         }
 
         private void treeView1_DoubleClick(object sender, EventArgs e)
         {
             TreeNode node = treeView1.SelectedNode;
-            if (!allscenes.Values.Contains(node.Text))
+            if (!MyLabel.LabelsNumber.Values.Contains(node.Text))
             {
                 if (!node.Checked)
                 {
@@ -125,9 +118,11 @@ namespace VideoRecordings
                 }
 
             }
-            RefeshText();
         }
 
+        /// <summary>
+        /// 已选择栏添加已有标签
+        /// </summary>
         private void LabelRefreshDate()
         {
             treeView2.Nodes.Clear();
@@ -136,7 +131,7 @@ namespace VideoRecordings
                 Text = t,
                 Name = t,
                 ForeColor = Color.Blue,
-                NodeFont = new Font("Arial", 12)
+                NodeFont = new Font("微软雅黑", 12)
             }).ToArray());
         }
 
@@ -152,7 +147,6 @@ namespace VideoRecordings
 
             labels = CheckBoxNodes().Select(t => t.Text).ToList();
             LabelRefreshDate();
-            RefeshText();
         }
 
         private List<TreeNode> CheckBoxNodes()
@@ -180,8 +174,15 @@ namespace VideoRecordings
             {
                 DialogResult = DialogResult.OK;
             }
-            queryVideo.StartScreening(labels);
+            if (!IsShowLabels)
+            {
+                OnSave(labels);
+                this.Close();
+                return;
+            }
+            OnRefresh(labels);
             this.Close();
+
         }
 
         private void SelectLabel_FormClosed(object sender, FormClosedEventArgs e)
@@ -198,7 +199,7 @@ namespace VideoRecordings
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string text = textBox1.Text.Trim();
+            string text = comboBox1.Text.Trim();
             if (string.IsNullOrEmpty(text) || treeView1.Nodes.Count == 0)
                 return;
             treeView1.Focus();
@@ -221,49 +222,49 @@ namespace VideoRecordings
             treeView1.Refresh();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            string text = textBox2.Text.Trim();
-            if (string.IsNullOrEmpty(text) || treeView1.Nodes.Count == 0)
-                return;
-            treeView2.Focus();
-            foreach (TreeNode tree in treeView2.Nodes)
-            {
-                if (tree.Text == text)
-                {
-                    treeView2.SelectedNode = tree;
-                    return;
-                }
-                foreach (TreeNode node in tree.Nodes)
-                {
-                    if (node.Text == text)
-                    {
-                        treeView2.SelectedNode = node;
-                        return;
-                    }
-                }
-            }
-            treeView2.Refresh();
-        }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             switch (keyData)
             {
                 case Keys.Enter:
-                    if (textBox1.Focused)
+                    if (comboBox1.Focused)
                     {
                         button2.PerformClick();
                         return true;
                     }
-                    if (textBox2.Focused)
-                    {
-                        button3.PerformClick();
-                        return true;
-                    }                   
                     return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void comboBox1_TextUpdate(object sender, EventArgs e)
+        {
+            List<string> first = listOnit.Where(t => t.Contains(comboBox1.Text)).ToList();
+            if (first.Count == 0)
+            {
+                return;
+            }
+            try
+            {
+                this.comboBox1.Items.Clear();
+                listNew.Clear();
+                foreach (var item in listOnit)
+                {
+                    if (item.Contains(comboBox1.Text))
+                    {
+                        listNew.Add(item);
+                    }
+                }
+                comboBox1.Items.AddRange(listNew.ToArray());
+                comboBox1.SelectionStart = comboBox1.Text.Length;
+                Cursor = Cursors.Default;
+                comboBox1.DroppedDown = true;
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
     }
 }

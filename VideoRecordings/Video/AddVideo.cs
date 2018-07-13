@@ -15,14 +15,18 @@ using Newtonsoft.Json.Linq;
 namespace VideoRecordings
 {
     public partial class AddVideo : DevExpress.XtraEditors.XtraForm
-    {
-        VideoInformation video;       
-        public AddVideo(VideoInformation videoInformation)
+    {     
+        public AddVideo()
         {
             InitializeComponent();
-            video = videoInformation;
         }
 
+        public delegate void MyDelegate(VideoProject video,bool focuse);
+        public event MyDelegate MyAddEvent;
+        public void OnAdd(VideoProject video, bool focuse)
+        {
+            MyAddEvent.Invoke(video,focuse);
+        }
         /// <summary>
         /// 将填入的信息转化成类,并加入文件夹集合
         /// </summary>
@@ -80,9 +84,8 @@ namespace VideoRecordings
             {
                 MessageBox.Show("上传成功");
             }
-            video.GetInformationShow(video_project,true);
+            OnAdd(video_project,true);
             this.Close();
-            Dispose();
             Program.log.Error("上传文件夹", new Exception($"{json}"));
         }
 

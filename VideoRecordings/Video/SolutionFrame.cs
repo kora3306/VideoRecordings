@@ -18,12 +18,10 @@ namespace VideoRecordings.Video
     public partial class SolutionFrame : Form
     {
         VideoPlay video;
-        InformationDisplay information;
-        public SolutionFrame(InformationDisplay info, VideoPlay videoPlay)
+        public SolutionFrame(VideoPlay videoPlay)
         {
             InitializeComponent();
             video = videoPlay;
-            information = info;
         }
 
         private void SolutionFrame_Load(object sender, EventArgs e)
@@ -32,6 +30,14 @@ namespace VideoRecordings.Video
             textBox_SP.Text = video.ProjectName;
             textBox_numb.Text = video.Id.ToString();
         }
+
+        public delegate void MyDeletgate(VideoPlay play);
+        public event MyDeletgate MyRefreshEvent;
+        public void OnRefresh(VideoPlay play)
+        {
+            MyRefreshEvent.Invoke(play);
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -44,11 +50,10 @@ namespace VideoRecordings.Video
                     if (win)
                     {
                         VideoPlay play = Methods.GetNewImages(video.Id);
-                        information.RefreshData(play);                    
+                        OnRefresh(play);                    
                     }
                 //});
                 this.Close();
-                information.Show();
             }
             catch (Exception)
             {

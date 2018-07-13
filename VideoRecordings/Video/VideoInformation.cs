@@ -22,7 +22,7 @@ using DevExpress.Utils;
 
 namespace VideoRecordings
 {
-    public partial class VideoInformation : DevExpress.XtraEditors.XtraForm
+    public partial class VideoInformation : Form
     {
         List<VideoProject> Videos = new List<VideoProject>();   //文件夹集合
         VideoProject focusedfolder;       //选中的文件夹
@@ -32,7 +32,7 @@ namespace VideoRecordings
         public VideoInformation()
         {
             InitializeComponent();
-            GetInformationShow();      
+            GetInformationShow();
             label2.Text = $"欢迎:{Program.UserName}";
             Methods.AddIsTest(this);
         }
@@ -44,7 +44,9 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            new AddVideo(this).Show();
+            AddVideo addVideo = new AddVideo();
+            addVideo.MyAddEvent += new AddVideo.MyDelegate(GetInformationShow);
+            addVideo.Show();
         }
 
         /// <summary>
@@ -54,7 +56,9 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
-            new QueryVideo(this, Videos).Show();
+            QueryVideo queryVideo = new QueryVideo(Videos);
+            queryVideo.MyEvent += new QueryVideo.MyDelegate(RefshData);
+            queryVideo.Show();
         }
 
         /// <summary>
@@ -68,7 +72,9 @@ namespace VideoRecordings
             focusedfolder = (VideoProject)gridView1.GetRow(gridView1.FocusedRowHandle);
             if (hInfo.InRowCell)
             {
-                new InformationDisplay(this, focusedfolder).Show();
+                InformationDisplay information = new InformationDisplay(focusedfolder);
+                information.MyEvent += new InformationDisplay.MyDelegate(RefshData);
+                information.Show();
             }
         }
 
@@ -79,18 +85,14 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string posturl = Program.Urlpath + "/scan/video/project/" + focusedfolder.Id.ToString();
-            string conditions = "project_name=" + focusedfolder.Name;
-            JObject obj = WebClinetHepler.Post_New(posturl);
-            if (obj == null)
+            bool scan = GetData.ScanFolder(focusedfolder);
+            if (!scan)
             {
                 MessageBox.Show("扫描文件失败");
                 Program.log.Error("扫描文件失败", new Exception("扫描文件失败"));
+                return;
             }
-            else
-            {
-                MessageBox.Show("扫描文件已完成");
-            }
+            MessageBox.Show("扫描文件已完成");
         }
 
         /// <summary>
@@ -100,7 +102,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void scanning_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new InformationDisplay(this, focusedfolder).Show();
+            new InformationDisplay(focusedfolder).Show();
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -160,11 +162,23 @@ namespace VideoRecordings
             gridView1.RefreshData();
         }
 
+        /// <summary>
+        /// 修改文件夹信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ModifyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new UpdateContent(this, focusedfolder).Show();
+            UpdateContent update = new UpdateContent(focusedfolder);
+            update.MyEvent += new UpdateContent.MyDelegate(GetInformationShow);
+            update.Show();
         }
 
+        /// <summary>
+        /// 定位项
+        /// </summary>
+        /// <param name="video"></param>
+        /// <param name="fouse"></param>
         public void FouseRow(VideoProject video, bool fouse)
         {
             if (!fouse) return;
@@ -208,6 +222,11 @@ namespace VideoRecordings
 
         }
 
+        /// <summary>
+        /// 标签配置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             new ManagementLabel().ShowDialog();
@@ -218,24 +237,26 @@ namespace VideoRecordings
             hInfo = gridView1.CalcHitInfo(e.Y, e.Y);
         }
 
+        /// <summary>
+        /// 设置完成度
+        /// </summary>
         public void ShowCompleteness()
         {
             int all = Videos.Sum(t => t.Statistic.Total);
             int comple = Videos.Sum(t => t.Statistic.Recorded);
-            toolStripStatusLabel1.Text = "完成度:" + (Convert.ToDouble(comple) / Convert.ToDouble(all)).ToString(("0.00%"))
-            + $"({comple}/{all})";
+            toolStripStatusLabel1.Text = "总完成度:" + (Convert.ToDouble(comple) / Convert.ToDouble(all)).ToString(("0.00%"))
+            + $"({comple}/{all})" + "         ";
         }
 
-        public void RefshData(VideoProject project=null)
+        public void RefshData()
         {
-            if (project == null)
-            {
-                GetInformationShow();
-                return;
-            }
-            List<VideoProject> videos= GetData.GetAllFolder(project.Name);
-            
-            
+            GetInformationShow();
+            //if (project == null)
+            //{
+            //    GetInformationShow();
+            //    return;
+            //}
+            //List<VideoProject> videos = GetData.GetAllFolder(project.Name);
         }
 
         /// <summary>
@@ -245,8 +266,16 @@ namespace VideoRecordings
         public void DrawProgressBar(DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
             string show = e.CellValue as string;
-            string s= show.Split('%').First();
-            decimal percent = Convert.ToDecimal(s);
+            string s = show.Split('%').First();
+            decimal percent;
+            try
+            {
+                percent = Convert.ToDecimal(s);
+            }
+            catch (Exception)
+            {
+                percent = 0;
+            }
             int width = (int)(100 * Math.Abs(percent / 100) * e.Bounds.Width / 100);
             Rectangle rect = new Rectangle(e.Bounds.X, e.Bounds.Y, width, e.Bounds.Height);
             Brush b = Brushes.LightBlue;
@@ -255,8 +284,8 @@ namespace VideoRecordings
                 b = Brushes.LightCoral;
             }
             e.Graphics.FillRectangle(b, rect);
-            Font font = new Font("宋体",10);
-            e.Graphics.DrawString(show, font, new SolidBrush(Color.Black), new PointF(e.Bounds.X, e.Bounds.Y+e.Bounds.Height/4));
+            Font font = new Font("宋体", 10);
+            e.Graphics.DrawString(show, font, new SolidBrush(Color.Black), new PointF(e.Bounds.X, e.Bounds.Y + e.Bounds.Height / 4));
         }
 
         private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)

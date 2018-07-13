@@ -25,35 +25,43 @@ namespace VideoRecordings
 
         List<string> labels = new List<string>(); //标签
         VideoPlay videoplay;      //传入的文件信息
-        InformationDisplay information;   //文件窗口
         Process process = new Process();   //启动外部程序线程
         List<string> paths = new List<string>();  //截图路径
         Point po = new Point();         //窗口定位点
         int i = 1;            //Tag
-        QueryVideo queryVideo;          //查询窗口
         List<string> imageurl = new List<string>();        //已有图片读取
         Dictionary<string, string> LabelsNumber = new Dictionary<string, string>();   // 标签对照
         Dictionary<string, string> AllLabel = new Dictionary<string, string>();
         bool folding = false;
-        bool isquery;
-        public VideoRecording(VideoPlay videopath, bool query ,InformationDisplay info)
-        {
-            information = info;
-            videoplay = videopath;
-            isquery = query;
-            InitializeComponent();
-            videoPlayer1.MyEvent += new DXApplication1.VideoPlayers_test.MyDelegate(ImageAdd);
-            videoPlayer1.path = Program.ImageSavePath;       
-        }
-
-        public VideoRecording(VideoPlay videopath, bool query, QueryVideo video )
+        bool isuse;
+        public VideoRecording(VideoPlay videopath, bool use)
         {
             videoplay = videopath;
-            queryVideo = video;
-            isquery = query;
+            isuse = use;
             InitializeComponent();
             videoPlayer1.MyEvent += new DXApplication1.VideoPlayers_test.MyDelegate(ImageAdd);
             videoPlayer1.path = Program.ImageSavePath;
+        }
+
+
+        public delegate void MyDelegate(VideoPlay play);
+        public event MyDelegate MyEvent;
+        public virtual void OnSave(VideoPlay play)
+        {
+            MyEvent?.Invoke(play);
+        }
+
+        public event MyRecordDelegate SetMyRecordEvent;
+        public virtual void OnUse()
+        {
+            SetMyRecordEvent.Invoke();
+        }
+
+        public delegate void MyRecordDelegate();
+        public event MyRecordDelegate MyRecordEvent;
+        public virtual void OnRefresh()
+        {
+            MyRecordEvent.Invoke();
         }
 
         private void VideoRecording_Load(object sender, EventArgs e)
@@ -78,6 +86,7 @@ namespace VideoRecordings
             {
                 label_treeView.Nodes[0].Expand();
             }
+            button1.Text = isuse ? "使用页面播放器":"使用外部播放器";
         }
 
         /// <summary>
@@ -135,7 +144,7 @@ namespace VideoRecordings
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     Program.VideoPlay = openFileDialog1.FileName;
-                    Methods.WritePath(Program.PlayerPath,openFileDialog1.FileName);
+                    Methods.WritePath(Program.PlayerPath, openFileDialog1.FileName);
                     process = Process.Start(Program.VideoPlay, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
                     Program.log.Info("使用关联播放器播放", new Exception($"Program.VideoPlay"));
                 }
@@ -156,25 +165,10 @@ namespace VideoRecordings
             DeleteFolder(Program.ImageSavePath);
             videoplay.Labels = labels;
             VideoPlay play = Methods.GetNewImages(videoplay.Id);
-            if (!isquery)
+            OnSave(play);
+            if (play.Labels.Count() != 0)
             {
-                information.RefreshData(play);
-                information.RefreshNewImage(play);
-                information.Show();
-                if (play.Labels.Count()!=0)
-                {
-                    information.RefshHomePage();
-                }
-            }
-            else
-            {
-                queryVideo.RefreshData(play);
-                queryVideo.RefreshNewImage(play);
-                if (play.Labels.Count() != 0)
-                {
-                    queryVideo.RefshHomePage();
-                }           
-                queryVideo.Show();
+                OnRefresh();
             }
             this.Close();
         }
@@ -249,21 +243,18 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            if (information.Hasbeen)
+            if (isuse)
             {
                 button1.Text = "使用外部播放器";
-                information.Hasbeen = false;
-                queryVideo.Hasbeen = false;
+                OnUse();
             }
             else
             {
                 button1.Text = "使用页面播放器";
-                information.Hasbeen = true;
-                queryVideo.Hasbeen = true;
+                OnUse();
             }
-
         }
-      //
+        //
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             switch (keyData)
@@ -321,8 +312,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void VideoRecording_FormClosing(object sender, FormClosingEventArgs e)
         {
-            bool start = information == null ? queryVideo.Hasbeen : information.Hasbeen;
-            if (!start)
+            if (isuse)
             {
                 try
                 {
@@ -426,7 +416,7 @@ namespace VideoRecordings
                 List<int> postlabel = labels.Select(t => StringToInt(t)).ToList();
                 json = (new JavaScriptSerializer()).Serialize(postlabel);
             }
-            string posturl = Program.Urlpath + $"/video/{videoplay.Id}/labels";          
+            string posturl = Program.Urlpath + $"/video/{videoplay.Id}/labels";
             JObject obj = WebClinetHepler.Post_New(posturl, json);
             if (obj == null)
             {
@@ -516,7 +506,7 @@ namespace VideoRecordings
                 TreeNode sonItem = new TreeNode();
                 sonItem.Text = sonItem.Name = item;
                 sonItem.ForeColor = Color.Blue;
-                sonItem.NodeFont = new Font("Arial", 9);
+                sonItem.NodeFont = new Font("微软雅黑", 12);
                 treeView1.Nodes.Add(sonItem);
                 labels.Add(item);
             }
@@ -534,7 +524,7 @@ namespace VideoRecordings
                 Text = t,
                 Name = t,
                 ForeColor = Color.Blue,
-                NodeFont = new Font("Arial", 12)
+                NodeFont = new Font("微软雅黑", 12)
             }).ToArray());
         }
 
@@ -543,8 +533,7 @@ namespace VideoRecordings
         /// </summary>
         private void PlayVideo()
         {
-            bool start = information == null ? queryVideo.Hasbeen : information.Hasbeen;
-            if (start)
+            if (isuse)
             {
                 try
                 {
@@ -746,12 +735,12 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (labels.Count==0)
+            if (labels.Count == 0)
             {
                 return;
             }
-            Program.labels =Methods.CopyToList(labels);          
-            Program.log.Info($"复制{string.Join(",",labels)}");
+            Program.labels = Methods.CopyToList(labels);
+            Program.log.Info($"复制{string.Join(",", labels)}");
         }
         /// <summary>
         /// 粘贴
@@ -760,7 +749,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Program.labels.Count==0)
+            if (Program.labels.Count == 0)
             {
                 return;
             }
@@ -771,9 +760,9 @@ namespace VideoRecordings
                     if (labels.Contains(item)) continue;
                     labels.Add(item);
                     SetLabelText();
-                }              
+                }
             }
-            Program.log.Info($"粘贴{string.Join(",",Program.labels)}到{videoplay.Id.ToString()}");
+            Program.log.Info($"粘贴{string.Join(",", Program.labels)}到{videoplay.Id.ToString()}");
         }
 
         private void openimageToolStripMenuItem_Click(object sender, EventArgs e)

@@ -184,6 +184,7 @@ namespace VideoRecordings
                 case "md5":
                 case "md6":
                 case "md7":
+                case "md8":
                     return Url3 + url;
                 default:
                     break;

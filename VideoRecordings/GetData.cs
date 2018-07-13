@@ -2,9 +2,11 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace VideoRecordings
 {
@@ -106,6 +108,73 @@ namespace VideoRecordings
             string json = JsonObject.Serialize(postids);
             JObject obj = WebClinetHepler.Post_New(url, json);
             return obj != null;
+        }
+
+        /// <summary>
+        /// 扫描文件夹
+        /// </summary>
+        /// <param name="focusedfolder"></param>
+        /// <returns></returns>
+        public static bool ScanFolder(VideoProject focusedfolder)
+        {
+            string posturl = Program.Urlpath + "/scan/video/project/" + focusedfolder.Id.ToString();
+            string conditions = "project_name=" + focusedfolder.Name;
+            JObject obj = WebClinetHepler.Post_New(posturl);
+            return obj == null;          
+        }
+
+        public static bool BatchAddLabels(List<int> ids, List<int> label)
+        {
+            string url = Program.Urlpath + "/bulk/add/video/labels";
+            var str = new
+            {
+                videos = ids,
+                labels = label
+            };
+            string json = JsonObject.Serialize(str);
+            JObject obj = WebClinetHepler.Post_New(url, json);
+            return obj != null;
+        }
+
+        /// <summary>
+        /// 所有标签信息
+        /// </summary>
+        /// <param name="LabelsNumber"></param>
+        /// <param name="LabelAll"></param>
+        /// <returns></returns>
+        public static List<TreeNode> GetLabels(out Dictionary<string, string> LabelsNumber, out Dictionary<string, string> LabelAll)
+        {
+            LabelsNumber = new Dictionary<string, string>();
+            LabelAll = new Dictionary<string, string>();
+            string url = Program.Urlpath + "/labels";
+            JObject obj = WebClinetHepler.GetJObject(url);
+            if (obj == null || obj["result"] == null || obj["result"].Count() == 0)
+            {
+                return null;
+            }
+            List<TreeNode> items = new List<TreeNode>();
+            for (int i = 0; i < obj["result"].Count(); i++)
+            {
+                TreeNode tree = new TreeNode
+                {
+                    Text = obj["result"][i]["name"].ToString(),
+                    ForeColor = Color.Green
+                };
+                LabelsNumber.Add(obj["result"][i]["id"].ToString(), obj["result"][i]["name"].ToString());
+                for (int j = 0; j < obj["result"][i]["children"].Count(); j++)
+                {
+                    TreeNode node = new TreeNode
+                    {
+                        Text = obj["result"][i]["children"][j]["name"].ToString(),
+                        Tag = obj["result"][i]["children"][j]["is_fre"].ToString(),
+                        ForeColor = Color.Blue
+                    };
+                    LabelAll.Add(obj["result"][i]["children"][j]["id"].ToString(), obj["result"][i]["children"][j]["name"].ToString());
+                    tree.Nodes.Add(node);
+                }
+                items.Add(tree);
+            }
+            return items;
         }
     }
 }

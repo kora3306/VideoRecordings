@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CSkin">
+      <HintPath>C:\Users\test\Downloads\CSkin 16.1.14.2\CSkin 4.0\CSkin.dll</HintPath>
+    </Reference>
     <Reference Include="Dal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="DevExpress.Data.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -62,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataClass.cs" />
     <Compile Include="GetData.cs" />
     <Compile Include="Images\AddImage.cs">
       <SubType>Form</SubType>
@@ -220,7 +224,6 @@
     <EmbeddedResource Include="Label\AddLabel.resx">
       <DependentUpon>AddLabel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Video\AddVideo.resx">
       <DependentUpon>AddVideo.cs</DependentUpon>
     </EmbeddedResource>

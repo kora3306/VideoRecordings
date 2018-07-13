@@ -16,13 +16,11 @@ namespace VideoRecordings
 {
     public partial class UpdateContent : DevExpress.XtraEditors.XtraForm
     {
-        VideoInformation information;
         VideoProject videoProject;
         string oldinformation;
-        public UpdateContent(VideoInformation video, VideoProject project)
+        public UpdateContent(VideoProject project)
         {
             InitializeComponent();
-            information = video;
             videoProject = project;
            oldinformation=(new JavaScriptSerializer()).Serialize(project);
         }
@@ -48,6 +46,14 @@ namespace VideoRecordings
             textBox_note.Text = string.IsNullOrEmpty(videoProject.Note) ? string.Empty : videoProject.Note;
         }
 
+        public delegate void MyDelegate(VideoProject video = null, bool fouse = false);
+        public event MyDelegate MyEvent;
+        public virtual void OnSave(VideoProject video = null, bool fouse = false)
+        {
+            MyEvent?.Invoke(video,fouse);
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             string url = Program.Urlpath + "/video/project/" + videoProject.Id;
@@ -62,8 +68,7 @@ namespace VideoRecordings
                 MessageBox.Show("修改失败");
                 return;
             }
-            information.GetInformationShow();
-            information.Show();
+            OnSave();
             Program.log.Error($"修改视频信息,原信息{oldinformation},修改后{json}");
             this.Close();
         }

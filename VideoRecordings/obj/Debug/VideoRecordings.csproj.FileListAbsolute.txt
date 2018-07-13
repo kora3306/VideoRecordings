@@ -156,5 +156,6 @@ F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe.manifest
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.csproj.CopyComplete
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.pdb
-F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe.licenses
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.Equipment.resources
+F:\源码\VideoRecordings\VideoRecordings\bin\Debug\CSkin.dll
+F:\源码\VideoRecordings\VideoRecordings\bin\Debug\CSkin.xml

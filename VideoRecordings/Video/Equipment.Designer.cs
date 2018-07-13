@@ -98,7 +98,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 34);
             this.button2.TabIndex = 5;
-            this.button2.Text = "确认";
+            this.button2.Text = "完成";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 

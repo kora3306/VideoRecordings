@@ -14,6 +14,7 @@ namespace VideoRecordings
 {
     public class Methods
     {
+
         /// <summary>
         /// 路径定位文件夹
         /// </summary>

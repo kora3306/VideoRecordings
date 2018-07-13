@@ -18,19 +18,9 @@ namespace VideoRecordings.Video
         List<string> listOnit = new List<string>();
         List<string> listNew = new List<string>();  //搜索集合
 
-        InformationDisplay information;
-        QueryVideo video;
-        public Equipment(InformationDisplay info, string projectname)
+        public Equipment(string projectname)
         {
             InitializeComponent();
-            information = info;
-            project = projectname;
-        }
-
-        public Equipment(QueryVideo queryVideo, string projectname)
-        {
-            InitializeComponent();
-            video = queryVideo;
             project = projectname;
         }
 
@@ -40,6 +30,19 @@ namespace VideoRecordings.Video
             radioButton2.Checked = true;
             SetAllEquipmengt();
             AddComItems();
+        }
+
+        public delegate void MyDelegate();
+        public event MyDelegate MySaveEvent;
+        public virtual void OnSave()
+        {
+            MySaveEvent?.Invoke();
+        }
+
+        public event MyDelegate MyRefreshEvent;
+        public virtual void OnRefresh()
+        {
+            MyRefreshEvent.Invoke();
         }
 
         private void AddComItems()
@@ -154,15 +157,13 @@ namespace VideoRecordings.Video
             {
                 Update(name);             
             }
-            information?.PostVideos();
-            video?.RefreshImage();
+            OnRefresh();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             EquipmentModification();
-            information?.AddItems();
-            video?.AddItems();
+            OnSave();
             SetAllEquipmengt();
             textBox1.Text = string.Empty;
             AddComItems();
@@ -171,8 +172,7 @@ namespace VideoRecordings.Video
         private void button2_Click(object sender, EventArgs e)
         {
             EquipmentModification();
-            information?.AddItems();
-            video?.AddItems();
+            OnSave();
             this.Close();
         }
 
