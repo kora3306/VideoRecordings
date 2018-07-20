@@ -49,7 +49,7 @@ namespace VideoRecordings
                 showimages.Add(item);
                 i++;
             }
-            new ShowImage(showimages, index).ShowDialog();
+            new ShowImage(showimages, index).Show();
         }
 
         public static void AddIsTest(Form form)

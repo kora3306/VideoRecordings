@@ -22,7 +22,7 @@ namespace VideoRecordings
             treeNodes = GetData.GetLabels(out LabelsNumber, out LabelAll);
         }
 
-        public  List<int> GetIds(List<string> labels)
+        public List<int> GetIds(List<string> labels)
         {
             List<int> ids = new List<int>();
             foreach (var item in labels)
@@ -31,6 +31,25 @@ namespace VideoRecordings
                 ids.Add(id);
             }
             return ids;
+        }
+    }
+
+    public class MyEquipment
+    {
+        public List<EquipmentInfo> Equipments { get; set; }
+
+        public Dictionary<int, string> AllEquipmengt { get; set; }
+
+        public MyEquipment()
+        {
+            Equipments = GetData.GetAlEquipment();
+            AllEquipmengt = Equipments.ToDictionary(t => t.Id, t => t.Name);
+        }
+
+        public MyEquipment(string  prjectname)
+        {        
+            Equipments = GetData.GetEquipment(prjectname);
+            AllEquipmengt = Equipments.ToDictionary(t => t.Id, t => t.Name);
         }
     }
 }

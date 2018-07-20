@@ -133,6 +133,7 @@ namespace VideoRecordings
             this.MinimizeBox = false;
             this.Name = "ShowImage";
             this.Text = "ShowImage";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.ShowImage_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

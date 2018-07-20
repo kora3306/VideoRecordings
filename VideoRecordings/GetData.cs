@@ -1,4 +1,5 @@
 ﻿using Common;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -50,7 +51,15 @@ namespace VideoRecordings
         {
             string url = Program.Urlpath + $"/video/equipments?project_name={project_name}";
             JObject obj = WebClinetHepler.GetJObject(url);
-            List<EquipmentInfo> equipments = JsonHelper.DeserializeDataContractJson<List<EquipmentInfo>>(obj["result"].ToString());
+            List<EquipmentInfo> equipments = JsonConvert.DeserializeObject<List<EquipmentInfo>>(obj["result"].ToString());
+            return equipments;
+        }
+
+        public static List<EquipmentInfo> GetAlEquipment()
+        {
+            string url = Program.Urlpath + $"/video/equipments";
+            JObject obj = WebClinetHepler.GetJObject(url);
+            List<EquipmentInfo> equipments = JsonConvert.DeserializeObject<List<EquipmentInfo>>(obj["result"].ToString());
             return equipments;
         }
 

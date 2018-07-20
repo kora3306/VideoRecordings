@@ -201,7 +201,7 @@ namespace VideoRecordings
         [DataMember(Name = "equipment_info")]
         public EquipmentInfo Rquipment { get; set; }
 
-        public string c { get => Project.Place; }
+        public string Place { get => Project.Place; }
 
         public string Replicator { get => Project.Replicator; }
 

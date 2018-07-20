@@ -39,9 +39,8 @@ namespace VideoRecordings
         Dictionary<string, int> queryvidoe = new Dictionary<string, int>();
         List<TreeNode> Nodes = new List<TreeNode>();
         List<string> replicators = new List<string>();
-        private List<EquipmentInfo> Equipments = new List<EquipmentInfo>();
-        Dictionary<int, string> AllEquipmengt = new Dictionary<int, string>();
         MyLabel MyLabel;
+        MyEquipment equipment;
         public delegate void MyDelegate();
         public event MyDelegate MyEvent;
         public virtual void OnSave()
@@ -68,7 +67,7 @@ namespace VideoRecordings
             comboBox_replicator.SelectedIndex = -1;
             dateTimePicker1.Value = Convert.ToDateTime("2010-1-1");
             dateTimePicker2.Value = DateTime.Now;
-            List<string> text =MyLabel.LabelAll.Select(t => t.Value).ToList();
+            List<string> text = MyLabel.LabelAll.Select(t => t.Value).ToList();
             textBox_label.AutoCompleteCustomSource.Clear();
             textBox_label.AutoCompleteCustomSource.AddRange(text.ToArray());
             textBox1.AutoCompleteCustomSource.Clear();
@@ -400,7 +399,6 @@ namespace VideoRecordings
             transmissionvideo = (VideoPlay)gridView1.GetRow(rowIndex);
             GetIntToString();
             DeleteFolder(Program.ImageSavePath);
-            AddItems();
         }
 
         /// <summary>
@@ -471,7 +469,12 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void gridView1_Click(object sender, EventArgs e)
         {
-            transmissionvideo = (VideoPlay)gridView1.GetRow(gridView1.FocusedRowHandle);
+            int i = gridView1.FocusedRowHandle;
+            int index = gridView1.GetDataRowHandleByGroupRowHandle(i);
+            transmissionvideo = (VideoPlay)gridView1.GetRow(index);
+            GetIntToString();
+            DeleteFolder(Program.ImageSavePath);
+            AddItems();
         }
 
         /// <summary>
@@ -492,7 +495,7 @@ namespace VideoRecordings
         /// </summary>
         private void OpenVideoPaly()
         {
-            VideoRecording recording=new VideoRecording(transmissionvideo,Hasbeen);
+            VideoRecording recording = new VideoRecording(transmissionvideo, Hasbeen);
             recording.MyEvent += new VideoRecording.MyDelegate(RefreshAllData);
             recording.SetMyRecordEvent += new VideoRecording.MyRecordDelegate(SetTheUse);
             if (transmissionvideo.Uri == null) return;
@@ -693,12 +696,11 @@ namespace VideoRecordings
             return relist;
         }
 
-      
         private void button2_Click(object sender, EventArgs e)
         {
             if (MyLabel.LabelsNumber.Count == 0) return;
             button1.Focus();
-            SelectLabel select = new SelectLabel(textBox_label.Text,true);
+            SelectLabel select = new SelectLabel(textBox_label.Text, true);
             select.MyRefreshEvent += new SelectLabel.MyDelegate(StartScreening);
             select.MySaveEvent += new SelectLabel.MyDelegate(AddTheLabels);
             select.ShowDialog();
@@ -726,7 +728,7 @@ namespace VideoRecordings
             {
                 if (MyLabel.LabelAll.Values.Contains(item))
                 {
-                    string keys =MyLabel.LabelAll.Where(q => q.Value == item).Select(q => q.Key).First();
+                    string keys = MyLabel.LabelAll.Where(q => q.Value == item).Select(q => q.Key).First();
                     labeljson += keys + ",";
                 }
                 else
@@ -942,7 +944,7 @@ namespace VideoRecordings
             Equipment equipment = new Equipment(transmissionvideo.ProjectName);
             equipment.MySaveEvent += new Equipment.MyDelegate(AddItems);
             equipment.MyRefreshEvent += new Equipment.MyDelegate(RefreshImage);
-            equipment.ShowDialog();
+            equipment.Show();
         }
 
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -956,7 +958,7 @@ namespace VideoRecordings
                 VideoPlay video = (VideoPlay)gridView1.GetRow(it);
                 videos.Add(video);
             }
-            int id = AllEquipmengt.FirstOrDefault(t => t.Value == item.Text).Key;
+            int id = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == item.Text).Key;
             List<int> ids = videos.Select(t => t.Id).ToList();
             if (!GetData.AddVideoInEquipment(id, ids))
             {
@@ -973,10 +975,10 @@ namespace VideoRecordings
         /// </summary>
         public void AddItems()
         {
-            Equipments = GetData.GetEquipment(transmissionvideo.ProjectName);
-            AllEquipmengt = Equipments.ToDictionary(t => t.Id, t => t.Name);
+            if (transmissionvideo == null) return;
+            equipment = new MyEquipment(transmissionvideo.ProjectName);
             INToolStripMenuItem.DropDownItems.Clear();
-            foreach (var item in Equipments)
+            foreach (var item in equipment.Equipments)
             {
                 ToolStripMenuItem it = new ToolStripMenuItem() { Text = item.Name };
                 it.Click += ToolStripMenuItem_Click;
@@ -1011,7 +1013,7 @@ namespace VideoRecordings
             }
             foreach (var it in VideoDic.Keys)
             {
-                int id = AllEquipmengt.FirstOrDefault(t => t.Value == it).Key;
+                int id = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == it).Key;
                 List<int> ids = VideoDic[it].Select(t => t.Id).ToList();
                 if (!GetData.DelteVideosFromEquipment(id, ids))
                 {
@@ -1039,8 +1041,8 @@ namespace VideoRecordings
                 VideoPlay video = (VideoPlay)gridView1.GetRow(it);
                 videos.Add(video);
             }
-            List<int> ids1 = videos.Select(t=>t.Id).ToList();
-            if (!GetData.BatchAddLabels(ids1,ids))
+            List<int> ids1 = videos.Select(t => t.Id).ToList();
+            if (!GetData.BatchAddLabels(ids1, ids))
             {
                 MessageBox.Show("添加标签失败");
                 return;
@@ -1057,6 +1059,24 @@ namespace VideoRecordings
             select.MyRefreshEvent += new SelectLabel.MyDelegate(StartScreening);
             select.MySaveEvent += new SelectLabel.MyDelegate(AddTheLabels);
             select.ShowDialog();
+        }
+
+        private void textBox_label_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                button1.PerformClick();
+            }
+        }
+
+        public List<int> GetGroupIds(VideoPlay video)
+        {
+            return videoplays.Where(t => t.EquipmentName == video.EquipmentName).Select(w => w.Id).ToList();
+        }
+
+        private void gridView1_MouseDown(object sender, MouseEventArgs e)
+        {
+            hInfo = gridView1.CalcHitInfo(e.Y, e.Y);
         }
     }
 }

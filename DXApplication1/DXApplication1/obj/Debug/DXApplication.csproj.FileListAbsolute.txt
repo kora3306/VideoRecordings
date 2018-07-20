@@ -78,7 +78,6 @@ F:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\DevExpress.Pri
 F:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\log4net.xml
 F:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\AForge.Video.DirectShow.xml
 F:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\ImageListView.pdb
-F:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\ImageListView.dll.config
 F:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\MySql.Data.xml
 F:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\System.Data.SQLite.xml
 F:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\System.Data.SQLite.dll.config

@@ -13,8 +13,7 @@ namespace VideoRecordings.Video
     public partial class Equipment : Form
     {
         string project;
-        Dictionary<int, string> AllEquipmengt = new Dictionary<int, string>();
-        List<EquipmentInfo> Equipments = new List<EquipmentInfo>();
+        MyEquipment equipment;
         List<string> listOnit = new List<string>();
         List<string> listNew = new List<string>();  //搜索集合
 
@@ -28,6 +27,7 @@ namespace VideoRecordings.Video
         {
             textBox2.Visible = false;
             radioButton2.Checked = true;
+            equipment = new MyEquipment();
             SetAllEquipmengt();
             AddComItems();
         }
@@ -48,7 +48,7 @@ namespace VideoRecordings.Video
         private void AddComItems()
         {
             comboBox1.Items.Clear();
-            listOnit = AllEquipmengt.Select(t => t.Value).ToList();
+            listOnit =equipment.AllEquipmengt.Select(t => t.Value).ToList();
             comboBox1.Items.AddRange(listOnit.ToArray());
         }
 
@@ -113,7 +113,7 @@ namespace VideoRecordings.Video
                 return;
             }
             if (string.IsNullOrEmpty(textBox2.Text.Trim())) return;
-            int id = AllEquipmengt.FirstOrDefault(t => t.Value == name).Key;
+            int id = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == name).Key;
             if (!GetData.UpdateEquipmengt(id, textBox2.Text.Trim()))
             {
                 MessageBox.Show("修改设备名称失败");
@@ -131,7 +131,7 @@ namespace VideoRecordings.Video
                 MessageBox.Show("不存在当前标签");
                 return;
             }
-            int id = AllEquipmengt.FirstOrDefault(t => t.Value == name).Key;
+            int id =equipment.AllEquipmengt.FirstOrDefault(t => t.Value == name).Key;
             if (!GetData.DeleteEquipmengt(id))
             {
                 MessageBox.Show("删除设备失败");
@@ -188,8 +188,7 @@ namespace VideoRecordings.Video
 
         private void SetAllEquipmengt()
         {
-            Equipments = GetData.GetEquipment(project);
-            AllEquipmengt = Equipments.ToDictionary(t => t.Id, t => t.Name);
+            equipment = new MyEquipment();
         }
     }
 }

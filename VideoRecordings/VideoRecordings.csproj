@@ -203,6 +203,12 @@
     <Compile Include="Video\WaitFormEx.designer.cs">
       <DependentUpon>WaitFormEx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Video\Write.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Video\Write.Designer.cs">
+      <DependentUpon>Write.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Images\AddImage.resx">
       <DependentUpon>AddImage.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +230,7 @@
     <EmbeddedResource Include="Label\AddLabel.resx">
       <DependentUpon>AddLabel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Video\AddVideo.resx">
       <DependentUpon>AddVideo.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,6 +286,9 @@
     <EmbeddedResource Include="Video\WaitFormEx.resx">
       <DependentUpon>WaitFormEx.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Video\Write.resx">
+      <DependentUpon>Write.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -313,8 +323,8 @@
       <Project>{16f51870-4fce-4868-bcac-2c2620c1a4fe}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\接收\intedio_data_tools\ImageListView\ImageListView.csproj">
-      <Project>{0c295fb8-c6c6-4a40-9f19-05a43f353a04}</Project>
+    <ProjectReference Include="..\..\intedio_data_tools\ImageListView\ImageListView.csproj">
+      <Project>{0C295FB8-C6C6-4A40-9F19-05A43F353A04}</Project>
       <Name>ImageListView</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\intedio_data_tools\MyControl\MyControl.csproj">

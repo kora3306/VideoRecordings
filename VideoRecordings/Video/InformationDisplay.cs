@@ -32,8 +32,6 @@ namespace VideoRecordings
         public List<VideoPlay> videoplays = new List<VideoPlay>();  //所有文件
         public List<string> imageurl = new List<string>();   //图片url
         private List<Completeness> comple = new List<Completeness>();
-        private List<EquipmentInfo> Equipments = new List<EquipmentInfo>();
-        Dictionary<int, string> AllEquipmengt = new Dictionary<int, string>();
         bool unfold = true;
         GridHitInfo hInfo = new GridHitInfo();
         VideoProject project;      //传入的文件夹
@@ -42,7 +40,7 @@ namespace VideoRecordings
         MyLabel MyLabel;
         int total = 0;
         int recorded = 0;
-
+        MyEquipment equipment;
         public delegate void MyDelegate();
         public event MyDelegate MyEvent;
         public virtual void OnSave()
@@ -183,19 +181,6 @@ namespace VideoRecordings
             RefreshImage();
             GetIntToString();
             DeleteFolder(Program.ImageSavePath);
-        }
-
-        /// <summary>
-        /// 返回主信息页面
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void InformationDisplay_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //if (!Program.IsQuery)
-            //{
-            //    information.Show();
-            //}
         }
 
         /// <summary>
@@ -399,8 +384,8 @@ namespace VideoRecordings
                                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                 if (MsgBoxResult != DialogResult.Yes)
                     return;
-                    new VideoRecording(transmissionvideo, Hasbeen).Show();
-                    Program.log.Error($"打开{Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))}", new Exception("没有找到视频"));
+                new VideoRecording(transmissionvideo, Hasbeen).Show();
+                Program.log.Error($"打开{Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))}", new Exception("没有找到视频"));
             }
         }
 
@@ -411,7 +396,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
-          
+
             if (e.RowHandle < 0 || e.RowHandle > videoplays.Count() - 1)
             {
                 return;
@@ -473,9 +458,9 @@ namespace VideoRecordings
                 MessageBox.Show("删除失败");
                 Program.log.Error($"删除{transmissionvideo.Id}失败", new Exception($"{url}"));
             }
-            videoplays.Remove(transmissionvideo);           
+            videoplays.Remove(transmissionvideo);
             bindingSource1.DataSource = videoplays;
-            transmissionvideo=(VideoPlay)gridView1.GetRow(gridView1.FocusedRowHandle);
+            transmissionvideo = (VideoPlay)gridView1.GetRow(gridView1.FocusedRowHandle);
             gridView1.ExpandAllGroups();
             unfold = true;
             gridView1.RefreshData();
@@ -634,10 +619,10 @@ namespace VideoRecordings
         {
             try
             {
-               Equipment equipment= new Equipment(project.Name);
+                Equipment equipment = new Equipment(project.Name);
                 equipment.MySaveEvent += new Equipment.MyDelegate(AddItems);
                 equipment.MyRefreshEvent += new Equipment.MyDelegate(PostVideos);
-                equipment.ShowDialog();
+                equipment.Show();
             }
             catch (Exception)
             {
@@ -677,10 +662,9 @@ namespace VideoRecordings
         /// </summary>
         public void AddItems()
         {
-            Equipments = GetData.GetEquipment(project.Name);
-            AllEquipmengt = Equipments.ToDictionary(t => t.Id, t => t.Name);
+            equipment = new MyEquipment(project.Name);
             videotoToolStripMenuItem.DropDownItems.Clear();
-            foreach (var item in Equipments)
+            foreach (var item in equipment.Equipments)
             {
                 ToolStripMenuItem it = new ToolStripMenuItem() { Text = item.Name };
                 it.Click += ToolStripMenuItem_Click;
@@ -699,7 +683,7 @@ namespace VideoRecordings
                 VideoPlay video = (VideoPlay)gridView1.GetRow(it);
                 videos.Add(video);
             }
-            int id = AllEquipmengt.FirstOrDefault(t => t.Value == item.Text).Key;
+            int id = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == item.Text).Key;
             List<int> ids = videos.Select(t => t.Id).ToList();
             if (!GetData.AddVideoInEquipment(id, ids))
             {
@@ -745,7 +729,7 @@ namespace VideoRecordings
             }
             foreach (var it in VideoDic.Keys)
             {
-                int id = AllEquipmengt.FirstOrDefault(t => t.Value == it).Key;
+                int id = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == it).Key;
                 List<int> ids = VideoDic[it].Select(t => t.Id).ToList();
                 if (!GetData.DelteVideosFromEquipment(id, ids))
                 {
@@ -784,5 +768,22 @@ namespace VideoRecordings
             MessageBox.Show("添加标签成功");
             PostVideos();
         }
+
+        private void ADEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void gridView1_Click(object sender, EventArgs e)
+        {
+            int i = gridView1.FocusedRowHandle;
+            //object obj = gridView1.GetGroupRowValue(i);
+            int index = gridView1.GetDataRowHandleByGroupRowHandle(i);
+            transmissionvideo = (VideoPlay)gridView1.GetRow(index);
+            RefreshImage();
+            GetIntToString();
+            DeleteFolder(Program.ImageSavePath);         
+        }
+
     }
 }

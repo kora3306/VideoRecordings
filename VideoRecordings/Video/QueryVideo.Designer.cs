@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            Manina.Windows.Forms.PersistentCache persistentCache2 = new Manina.Windows.Forms.PersistentCache();
+            Manina.Windows.Forms.PersistentCache persistentCache1 = new Manina.Windows.Forms.PersistentCache();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ADDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.INToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddlabelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource1 = new System.Windows.Forms.BindingSource();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_project_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_uri = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
+            this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.gridColumn_status = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_recorded = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_deframed = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_frame_path = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemMemoEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.gridColumn_start = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_end = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -62,8 +62,9 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_count = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_eq = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
             this.imageListView1 = new Manina.Windows.Forms.ImageListView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.DELToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label_fid = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -110,13 +111,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button_ref = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
-            this.repositoryItemMemoEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -127,8 +128,6 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit2)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -251,46 +250,46 @@
             this.OUTToolStripMenuItem,
             this.AddlabelsToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(161, 136);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 158);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "展开/关闭分组";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click_1);
             // 
             // DToolStripMenuItem
             // 
             this.DToolStripMenuItem.Name = "DToolStripMenuItem";
-            this.DToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.DToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.DToolStripMenuItem.Text = " 删除视频记录";
             this.DToolStripMenuItem.Click += new System.EventHandler(this.DToolStripMenuItem_Click);
             // 
             // ADDToolStripMenuItem
             // 
             this.ADDToolStripMenuItem.Name = "ADDToolStripMenuItem";
-            this.ADDToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.ADDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ADDToolStripMenuItem.Text = "添加/删除设备";
             this.ADDToolStripMenuItem.Click += new System.EventHandler(this.ADDToolStripMenuItem_Click);
             // 
             // INToolStripMenuItem
             // 
             this.INToolStripMenuItem.Name = "INToolStripMenuItem";
-            this.INToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.INToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.INToolStripMenuItem.Text = "视频导入到设备";
             // 
             // OUTToolStripMenuItem
             // 
             this.OUTToolStripMenuItem.Name = "OUTToolStripMenuItem";
-            this.OUTToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.OUTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.OUTToolStripMenuItem.Text = "视频从设备删除";
             this.OUTToolStripMenuItem.Click += new System.EventHandler(this.OUTToolStripMenuItem_Click);
             // 
             // AddlabelsToolStripMenuItem
             // 
             this.AddlabelsToolStripMenuItem.Name = "AddlabelsToolStripMenuItem";
-            this.AddlabelsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.AddlabelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.AddlabelsToolStripMenuItem.Text = "批量添加标签";
             this.AddlabelsToolStripMenuItem.Click += new System.EventHandler(this.AddlabelsToolStripMenuItem_Click);
             // 
@@ -328,6 +327,10 @@
             this.gridView1.OptionsMenu.EnableColumnMenu = false;
             this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView1.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsSelection.ShowCheckBoxSelectorInGroupRow = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsSelection.ShowCheckBoxSelectorInPrintExport = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsView.AllowHtmlDrawHeaders = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.RowHeight = 30;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
@@ -337,6 +340,7 @@
             this.gridView1.CustomDrawGroupRow += new DevExpress.XtraGrid.Views.Base.RowObjectCustomDrawEventHandler(this.gridView1_CustomDrawGroupRow);
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             this.gridView1.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gridView1_CustomColumnDisplayText);
+            this.gridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView1_MouseDown);
             this.gridView1.Click += new System.EventHandler(this.gridView1_Click);
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
@@ -390,12 +394,9 @@
             this.gridColumn_uri.VisibleIndex = 12;
             this.gridColumn_uri.Width = 263;
             // 
-            // repositoryItemFontEdit1
+            // repositoryItemMemoEdit1
             // 
-            this.repositoryItemFontEdit1.AutoHeight = false;
-            this.repositoryItemFontEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemFontEdit1.Name = "repositoryItemFontEdit1";
+            this.repositoryItemMemoEdit1.Name = "repositoryItemMemoEdit1";
             // 
             // gridColumn_status
             // 
@@ -457,6 +458,10 @@
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 6;
             this.gridColumn1.Width = 111;
+            // 
+            // repositoryItemMemoEdit2
+            // 
+            this.repositoryItemMemoEdit2.Name = "repositoryItemMemoEdit2";
             // 
             // gridColumn_start
             // 
@@ -562,14 +567,21 @@
             this.gridColumn_eq.FieldName = "EquipmentName";
             this.gridColumn_eq.Name = "gridColumn_eq";
             // 
+            // repositoryItemFontEdit1
+            // 
+            this.repositoryItemFontEdit1.AutoHeight = false;
+            this.repositoryItemFontEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemFontEdit1.Name = "repositoryItemFontEdit1";
+            // 
             // imageListView1
             // 
             this.imageListView1.ColumnHeaderFont = new System.Drawing.Font("微软雅黑", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.SetColumnSpan(this.imageListView1, 9);
             this.imageListView1.ContextMenuStrip = this.contextMenuStrip1;
-            persistentCache2.DirectoryName = "";
-            persistentCache2.Size = ((long)(0));
-            this.imageListView1.DiskCache = persistentCache2;
+            persistentCache1.DirectoryName = "";
+            persistentCache1.Size = ((long)(0));
+            this.imageListView1.DiskCache = persistentCache1;
             this.imageListView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imageListView1.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.imageListView1.ImeMode = System.Windows.Forms.ImeMode.On;
@@ -710,6 +722,7 @@
             this.textBox_label.Name = "textBox_label";
             this.textBox_label.Size = new System.Drawing.Size(426, 27);
             this.textBox_label.TabIndex = 20;
+            this.textBox_label.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_label_KeyDown);
             // 
             // comboBox_proname
             // 
@@ -1140,14 +1153,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // repositoryItemMemoEdit1
-            // 
-            this.repositoryItemMemoEdit1.Name = "repositoryItemMemoEdit1";
-            // 
-            // repositoryItemMemoEdit2
-            // 
-            this.repositoryItemMemoEdit2.Name = "repositoryItemMemoEdit2";
-            // 
             // QueryVideo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1166,6 +1171,8 @@
             this.contextMenuStrip2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -1181,8 +1188,6 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit2)).EndInit();
             this.ResumeLayout(false);
 
         }

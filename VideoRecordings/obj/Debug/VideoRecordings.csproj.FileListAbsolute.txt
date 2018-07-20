@@ -33,7 +33,6 @@ F:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.Images.v18.1.dll
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\Common.pdb
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\Common.dll.config
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ImageListView.pdb
-F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ImageListView.dll.config
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\MyControl.pdb
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\DXApplication1.pdb
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\log4net.xml
@@ -159,3 +158,5 @@ F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.pdb
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.Equipment.resources
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\CSkin.dll
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\CSkin.xml
+F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.Write.resources
+F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe.licenses

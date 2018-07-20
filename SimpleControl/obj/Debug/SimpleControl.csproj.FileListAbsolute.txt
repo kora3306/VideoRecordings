@@ -37,10 +37,8 @@ F:\源码\VideoRecordings\SimpleControl\bin\Debug\DevExpress.XtraEditors.v18.1.x
 F:\源码\VideoRecordings\SimpleControl\bin\Debug\DevExpress.XtraGrid.v18.1.xml
 F:\源码\VideoRecordings\SimpleControl\bin\Debug\Newtonsoft.Json.xml
 F:\源码\VideoRecordings\SimpleControl\bin\Debug\Dal.pdb
-F:\源码\VideoRecordings\SimpleControl\bin\Debug\Dal.dll.config
 F:\源码\VideoRecordings\SimpleControl\bin\Debug\log4net.xml
 F:\源码\VideoRecordings\SimpleControl\bin\Debug\AForge.Video.DirectShow.xml
-F:\源码\VideoRecordings\SimpleControl\bin\Debug\MySql.Data.xml
 F:\源码\VideoRecordings\SimpleControl\bin\Debug\System.Data.SQLite.xml
 F:\源码\VideoRecordings\SimpleControl\bin\Debug\System.Data.SQLite.dll.config
 F:\源码\VideoRecordings\SimpleControl\bin\Debug\DevExpress.Printing.v18.1.Core.xml
@@ -126,3 +124,7 @@ F:\源码\VideoRecordings\SimpleControl\obj\Debug\SimpleControl.csproj.CoreCompi
 F:\源码\VideoRecordings\SimpleControl\obj\Debug\SimpleControl.csproj.CopyComplete
 F:\源码\VideoRecordings\SimpleControl\obj\Debug\SimpleControl.dll
 F:\源码\VideoRecordings\SimpleControl\obj\Debug\SimpleControl.pdb
+F:\源码\VideoRecordings\SimpleControl\bin\Debug\Dapper.dll
+F:\源码\VideoRecordings\SimpleControl\bin\Debug\SeemmoData.Settings.dll
+F:\源码\VideoRecordings\SimpleControl\bin\Debug\Google.Protobuf.dll
+F:\源码\VideoRecordings\SimpleControl\bin\Debug\SeemmoData.Settings.pdb

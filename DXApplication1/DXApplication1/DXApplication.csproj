@@ -133,13 +133,13 @@
     <None Include="Resources\voice.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\接收\intedio_data_tools\Common\Common.csproj">
-      <Project>{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo.png" />
+    <ProjectReference Include="..\..\..\..\接收\intedio_data_tools\Common\Common.csproj">
+      <Project>{16f51870-4fce-4868-bcac-2c2620c1a4fe}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
