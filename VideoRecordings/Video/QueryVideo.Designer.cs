@@ -28,19 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Manina.Windows.Forms.PersistentCache persistentCache1 = new Manina.Windows.Forms.PersistentCache();
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ADToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DELEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ADDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.INToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddlabelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_name = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -64,7 +67,7 @@
             this.gridColumn_eq = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
             this.imageListView1 = new Manina.Windows.Forms.ImageListView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DELToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label_fid = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -244,52 +247,76 @@
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
-            this.DToolStripMenuItem,
+            this.ADToolStripMenuItem,
+            this.UPToolStripMenuItem,
+            this.DELEToolStripMenuItem,
             this.ADDToolStripMenuItem,
             this.INToolStripMenuItem,
             this.OUTToolStripMenuItem,
+            this.DToolStripMenuItem,
             this.AddlabelsToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 158);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 224);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.openToolStripMenuItem.Text = "展开/关闭分组";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click_1);
             // 
-            // DToolStripMenuItem
+            // ADToolStripMenuItem
             // 
-            this.DToolStripMenuItem.Name = "DToolStripMenuItem";
-            this.DToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.DToolStripMenuItem.Text = " 删除视频记录";
-            this.DToolStripMenuItem.Click += new System.EventHandler(this.DToolStripMenuItem_Click);
+            this.ADToolStripMenuItem.Name = "ADToolStripMenuItem";
+            this.ADToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.ADToolStripMenuItem.Text = "添加通道";
+            this.ADToolStripMenuItem.Click += new System.EventHandler(this.ADToolStripMenuItem_Click);
+            // 
+            // UPToolStripMenuItem
+            // 
+            this.UPToolStripMenuItem.Name = "UPToolStripMenuItem";
+            this.UPToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.UPToolStripMenuItem.Text = "修改通道名";
+            this.UPToolStripMenuItem.Click += new System.EventHandler(this.UPToolStripMenuItem_Click);
+            // 
+            // DELEToolStripMenuItem
+            // 
+            this.DELEToolStripMenuItem.Name = "DELEToolStripMenuItem";
+            this.DELEToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.DELEToolStripMenuItem.Text = "删除通道";
+            this.DELEToolStripMenuItem.Click += new System.EventHandler(this.DELEToolStripMenuItem_Click);
             // 
             // ADDToolStripMenuItem
             // 
             this.ADDToolStripMenuItem.Name = "ADDToolStripMenuItem";
-            this.ADDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ADDToolStripMenuItem.Text = "添加/删除设备";
+            this.ADDToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.ADDToolStripMenuItem.Text = "通道管理";
             this.ADDToolStripMenuItem.Click += new System.EventHandler(this.ADDToolStripMenuItem_Click);
             // 
             // INToolStripMenuItem
             // 
             this.INToolStripMenuItem.Name = "INToolStripMenuItem";
             this.INToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.INToolStripMenuItem.Text = "视频导入到设备";
+            this.INToolStripMenuItem.Text = "视频导入通道";
             // 
             // OUTToolStripMenuItem
             // 
             this.OUTToolStripMenuItem.Name = "OUTToolStripMenuItem";
             this.OUTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.OUTToolStripMenuItem.Text = "视频从设备删除";
+            this.OUTToolStripMenuItem.Text = "视频导出通道";
             this.OUTToolStripMenuItem.Click += new System.EventHandler(this.OUTToolStripMenuItem_Click);
+            // 
+            // DToolStripMenuItem
+            // 
+            this.DToolStripMenuItem.Name = "DToolStripMenuItem";
+            this.DToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.DToolStripMenuItem.Text = "删除视频记录";
+            this.DToolStripMenuItem.Click += new System.EventHandler(this.DToolStripMenuItem_Click);
             // 
             // AddlabelsToolStripMenuItem
             // 
             this.AddlabelsToolStripMenuItem.Name = "AddlabelsToolStripMenuItem";
-            this.AddlabelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AddlabelsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.AddlabelsToolStripMenuItem.Text = "批量添加标签";
             this.AddlabelsToolStripMenuItem.Click += new System.EventHandler(this.AddlabelsToolStripMenuItem_Click);
             // 
@@ -563,7 +590,7 @@
             // 
             this.gridColumn_eq.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn_eq.AppearanceCell.Options.UseFont = true;
-            this.gridColumn_eq.Caption = "设备信息";
+            this.gridColumn_eq.Caption = "通道信息";
             this.gridColumn_eq.FieldName = "EquipmentName";
             this.gridColumn_eq.Name = "gridColumn_eq";
             // 
@@ -579,9 +606,6 @@
             this.imageListView1.ColumnHeaderFont = new System.Drawing.Font("微软雅黑", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.SetColumnSpan(this.imageListView1, 9);
             this.imageListView1.ContextMenuStrip = this.contextMenuStrip1;
-            persistentCache1.DirectoryName = "";
-            persistentCache1.Size = ((long)(0));
-            this.imageListView1.DiskCache = persistentCache1;
             this.imageListView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imageListView1.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.imageListView1.ImeMode = System.Windows.Forms.ImeMode.On;
@@ -1276,5 +1300,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemFontEdit repositoryItemFontEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit2;
+        private System.Windows.Forms.ToolStripMenuItem ADToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem UPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DELEToolStripMenuItem;
     }
 }

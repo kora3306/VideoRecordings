@@ -958,7 +958,7 @@ namespace VideoRecordings
                 VideoPlay video = (VideoPlay)gridView1.GetRow(it);
                 videos.Add(video);
             }
-            int id = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == item.Text).Key;
+            int id = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == item.Text.Split(':').Last()).Key;
             List<int> ids = videos.Select(t => t.Id).ToList();
             if (!GetData.AddVideoInEquipment(id, ids))
             {
@@ -978,9 +978,9 @@ namespace VideoRecordings
             if (transmissionvideo == null) return;
             equipment = new MyEquipment(transmissionvideo.ProjectName);
             INToolStripMenuItem.DropDownItems.Clear();
-            foreach (var item in equipment.Equipments)
+            foreach (var item in equipment.Equipments.OrderByDescending(t => t.Id))
             {
-                ToolStripMenuItem it = new ToolStripMenuItem() { Text = item.Name };
+                ToolStripMenuItem it = new ToolStripMenuItem() { Text = item.Id + ":" + item.Name };
                 it.Click += ToolStripMenuItem_Click;
                 INToolStripMenuItem.DropDownItems.Add(it);
             }
@@ -1077,6 +1077,42 @@ namespace VideoRecordings
         private void gridView1_MouseDown(object sender, MouseEventArgs e)
         {
             hInfo = gridView1.CalcHitInfo(e.Y, e.Y);
+        }
+
+        private void ADToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int index = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == transmissionvideo.EquipmentName.Split(':').Last()).Key;
+            AddEquipment write = new AddEquipment(transmissionvideo.ProjectName, index);
+            write.MySaveEvent += new AddEquipment.MyDelegate(AddItems);
+            write.Show();
+        }
+
+        private void UPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int index = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == transmissionvideo.EquipmentName.Split(':').Last()).Key;
+            Write write = new Write(transmissionvideo.ProjectName, index);
+            write.MySaveEvent += new Write.MyDelegate(AddItems);
+            write.MyRefreshEvent += new Write.MyDelegate(RefreshImage);
+            write.Show();
+        }
+
+        private void DELEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gridView1.BeginUpdate();
+            gridView1.BeginDataUpdate();
+            var index = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == transmissionvideo.EquipmentName.Split(':').Last());
+            if (MessageBox.Show($"是否删除[{index.Value}]？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
+                return;
+            if (!GetData.DeleteEquipmengt(index.Key))
+            {
+                MessageBox.Show("删除失败");
+                return;
+            }
+            MessageBox.Show("删除成功");
+            RefreshImage();
+            gridView1.EndDataUpdate();//结束数据的编辑
+            gridView1.EndUpdate();   //结束视图的编辑
+            AddItems();
         }
     }
 }

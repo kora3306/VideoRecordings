@@ -27,18 +27,18 @@ namespace VideoRecordings.Video
         {
             textBox2.Visible = false;
             radioButton2.Checked = true;
-            equipment = new MyEquipment();
+            equipment = new MyEquipment(project);
             SetAllEquipmengt();
             AddComItems();
         }
 
-        public delegate void MyDelegate();
         public event MyDelegate MySaveEvent;
         public virtual void OnSave()
         {
             MySaveEvent?.Invoke();
         }
 
+        public delegate void MyDelegate();
         public event MyDelegate MyRefreshEvent;
         public virtual void OnRefresh()
         {
@@ -48,7 +48,7 @@ namespace VideoRecordings.Video
         private void AddComItems()
         {
             comboBox1.Items.Clear();
-            listOnit =equipment.AllEquipmengt.Select(t => t.Value).ToList();
+            listOnit =equipment.AllEquipmengt.Select(t =>t.Key+":"+ t.Value).ToList();
             comboBox1.Items.AddRange(listOnit.ToArray());
         }
 
@@ -88,19 +88,12 @@ namespace VideoRecordings.Video
 
         private void Add(string name)
         {
-            if (string.IsNullOrEmpty(name))
-                return;
-            if (listOnit.Contains(name))
-            {
-                MessageBox.Show("已经存在当前标签");
-                return;
-            }
             if (!GetData.AddEquipment(project, name))
             {
                 MessageBox.Show("新建设备失败");
                 return;
             }
-            MessageBox.Show("上传设备成功");
+            MessageBox.Show("新建设备成功");
         }
 
         private void Update(string name)
@@ -112,8 +105,9 @@ namespace VideoRecordings.Video
                 MessageBox.Show("不存在当前标签");
                 return;
             }
+            string equipment0 = name.Split(':').Last();
             if (string.IsNullOrEmpty(textBox2.Text.Trim())) return;
-            int id = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == name).Key;
+            int id = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == equipment0).Key;
             if (!GetData.UpdateEquipmengt(id, textBox2.Text.Trim()))
             {
                 MessageBox.Show("修改设备名称失败");
@@ -131,7 +125,8 @@ namespace VideoRecordings.Video
                 MessageBox.Show("不存在当前标签");
                 return;
             }
-            int id =equipment.AllEquipmengt.FirstOrDefault(t => t.Value == name).Key;
+            string equipment0 = name.Split(':').Last();
+            int id =equipment.AllEquipmengt.FirstOrDefault(t => t.Value == equipment0).Key;
             if (!GetData.DeleteEquipmengt(id))
             {
                 MessageBox.Show("删除设备失败");
@@ -188,7 +183,7 @@ namespace VideoRecordings.Video
 
         private void SetAllEquipmengt()
         {
-            equipment = new MyEquipment();
+            equipment = new MyEquipment(project);
         }
     }
 }

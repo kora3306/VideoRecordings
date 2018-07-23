@@ -43,11 +43,12 @@ namespace VideoRecordings
         public MyEquipment()
         {
             Equipments = GetData.GetAlEquipment();
+  
             AllEquipmengt = Equipments.ToDictionary(t => t.Id, t => t.Name);
         }
 
-        public MyEquipment(string  prjectname)
-        {        
+        public MyEquipment(string prjectname)
+        {
             Equipments = GetData.GetEquipment(prjectname);
             AllEquipmengt = Equipments.ToDictionary(t => t.Id, t => t.Name);
         }

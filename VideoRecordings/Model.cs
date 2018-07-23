@@ -207,7 +207,7 @@ namespace VideoRecordings
 
         public int EquipmentID { get => Rquipment.Id; }
 
-        public string EquipmentName { get => Rquipment.Name; }
+        public string EquipmentName { get => Rquipment.Id+":"+ Rquipment.Name; }
     }
 
 

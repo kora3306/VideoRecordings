@@ -28,22 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            Manina.Windows.Forms.PersistentCache persistentCache1 = new Manina.Windows.Forms.PersistentCache();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.label_treeView = new System.Windows.Forms.TreeView();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip();
             this.清空已有标签ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.imageListView1 = new Manina.Windows.Forms.ImageListView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.DelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ReToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openimageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.videoPlayer1 = new DXApplication1.VideoPlayers_test();
             this.save_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,11 +55,10 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.other_button = new System.Windows.Forms.Button();
-            this.DelcontextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.DelcontextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.DeletePToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.videoPlayer1 = new DXApplication1.VideoPlayers_test();
             this.tableLayoutPanel1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -79,7 +77,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.16387F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.99514F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.58603F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 282F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 290F));
             this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label_treeView, 7, 1);
             this.tableLayoutPanel1.Controls.Add(this.treeView1, 6, 1);
@@ -126,10 +124,10 @@
             // 
             this.label_treeView.ContextMenuStrip = this.contextMenuStrip2;
             this.label_treeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_treeView.Location = new System.Drawing.Point(1043, 72);
+            this.label_treeView.Location = new System.Drawing.Point(1035, 72);
             this.label_treeView.Name = "label_treeView";
             this.tableLayoutPanel1.SetRowSpan(this.label_treeView, 3);
-            this.label_treeView.Size = new System.Drawing.Size(280, 630);
+            this.label_treeView.Size = new System.Drawing.Size(288, 630);
             this.label_treeView.TabIndex = 16;
             this.label_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.label_treeView_AfterSelect);
             this.label_treeView.DoubleClick += new System.EventHandler(this.label_treeView_DoubleClick);
@@ -177,10 +175,10 @@
             this.treeView1.ContextMenuStrip = this.contextMenuStrip2;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Font = new System.Drawing.Font("微软雅黑", 13F);
-            this.treeView1.Location = new System.Drawing.Point(787, 72);
+            this.treeView1.Location = new System.Drawing.Point(781, 72);
             this.treeView1.Name = "treeView1";
             this.tableLayoutPanel1.SetRowSpan(this.treeView1, 2);
-            this.treeView1.Size = new System.Drawing.Size(250, 195);
+            this.treeView1.Size = new System.Drawing.Size(248, 195);
             this.treeView1.TabIndex = 18;
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
@@ -188,14 +186,11 @@
             // 
             this.imageListView1.ColumnHeaderFont = new System.Drawing.Font("微软雅黑", 8.25F);
             this.imageListView1.ContextMenuStrip = this.contextMenuStrip1;
-            persistentCache1.DirectoryName = "";
-            persistentCache1.Size = ((long)(0));
-            this.imageListView1.DiskCache = persistentCache1;
             this.imageListView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imageListView1.GroupHeaderFont = new System.Drawing.Font("微软雅黑", 8.25F, System.Drawing.FontStyle.Bold);
-            this.imageListView1.Location = new System.Drawing.Point(787, 273);
+            this.imageListView1.Location = new System.Drawing.Point(781, 273);
             this.imageListView1.Name = "imageListView1";
-            this.imageListView1.Size = new System.Drawing.Size(250, 429);
+            this.imageListView1.Size = new System.Drawing.Size(248, 429);
             this.imageListView1.TabIndex = 21;
             this.imageListView1.UseWIC = Manina.Windows.Forms.UseWIC.ThumbnailsOnly;
             this.imageListView1.DoubleClick += new System.EventHandler(this.imageListView1_DoubleClick);
@@ -230,11 +225,23 @@
             this.openimageToolStripMenuItem.Text = "放大选中图片";
             this.openimageToolStripMenuItem.Click += new System.EventHandler(this.openimageToolStripMenuItem_Click);
             // 
+            // videoPlayer1
+            // 
+            this.videoPlayer1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tableLayoutPanel1.SetColumnSpan(this.videoPlayer1, 6);
+            this.videoPlayer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoPlayer1.Location = new System.Drawing.Point(5, 101);
+            this.videoPlayer1.Margin = new System.Windows.Forms.Padding(5);
+            this.videoPlayer1.Name = "videoPlayer1";
+            this.tableLayoutPanel1.SetRowSpan(this.videoPlayer1, 2);
+            this.videoPlayer1.Size = new System.Drawing.Size(768, 599);
+            this.videoPlayer1.TabIndex = 22;
+            // 
             // save_button
             // 
             this.save_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.save_button.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.save_button.Location = new System.Drawing.Point(1138, 708);
+            this.save_button.Location = new System.Drawing.Point(1134, 708);
             this.save_button.Name = "save_button";
             this.save_button.Size = new System.Drawing.Size(89, 30);
             this.save_button.TabIndex = 14;
@@ -248,7 +255,7 @@
             this.label3.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label3, 2);
             this.label3.Font = new System.Drawing.Font("微软雅黑", 14F);
-            this.label3.Location = new System.Drawing.Point(1027, 22);
+            this.label3.Location = new System.Drawing.Point(1024, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 25);
             this.label3.TabIndex = 5;
@@ -260,7 +267,7 @@
             this.label2.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label2, 5);
             this.label2.Font = new System.Drawing.Font("微软雅黑", 16F);
-            this.label2.Location = new System.Drawing.Point(417, 19);
+            this.label2.Location = new System.Drawing.Point(413, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 30);
             this.label2.TabIndex = 2;
@@ -282,7 +289,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label4.Location = new System.Drawing.Point(223, 72);
+            this.label4.Location = new System.Drawing.Point(220, 72);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 21);
             this.label4.TabIndex = 25;
@@ -292,29 +299,29 @@
             // 
             this.timeEdit_start.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.timeEdit_start.EditValue = new System.DateTime(2018, 3, 26, 0, 0, 0, 0);
-            this.timeEdit_start.Location = new System.Drawing.Point(132, 73);
+            this.timeEdit_start.Location = new System.Drawing.Point(131, 73);
             this.timeEdit_start.Name = "timeEdit_start";
             this.timeEdit_start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit_start.Size = new System.Drawing.Size(77, 20);
+            this.timeEdit_start.Size = new System.Drawing.Size(76, 20);
             this.timeEdit_start.TabIndex = 26;
             // 
             // timeEdit_end
             // 
             this.timeEdit_end.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.timeEdit_end.EditValue = new System.DateTime(2018, 3, 26, 0, 0, 0, 0);
-            this.timeEdit_end.Location = new System.Drawing.Point(363, 73);
+            this.timeEdit_end.Location = new System.Drawing.Point(360, 73);
             this.timeEdit_end.Name = "timeEdit_end";
             this.timeEdit_end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit_end.Size = new System.Drawing.Size(104, 20);
+            this.timeEdit_end.Size = new System.Drawing.Size(103, 20);
             this.timeEdit_end.TabIndex = 27;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(476, 72);
+            this.label5.Location = new System.Drawing.Point(471, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 21);
             this.label5.TabIndex = 28;
@@ -322,7 +329,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(610, 72);
+            this.dateTimePicker1.Location = new System.Drawing.Point(605, 72);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(142, 29);
             this.dateTimePicker1.TabIndex = 29;
@@ -332,7 +339,7 @@
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Black;
             this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(859, 714);
+            this.linkLabel1.Location = new System.Drawing.Point(852, 714);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(106, 21);
             this.linkLabel1.TabIndex = 23;
@@ -345,7 +352,7 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.button1.Location = new System.Drawing.Point(644, 712);
+            this.button1.Location = new System.Drawing.Point(639, 712);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 26);
             this.button1.TabIndex = 19;
@@ -359,7 +366,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.other_button, 3);
             this.other_button.ContextMenuStrip = this.DelcontextMenuStrip1;
             this.other_button.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.other_button.Location = new System.Drawing.Point(351, 708);
+            this.other_button.Location = new System.Drawing.Point(347, 708);
             this.other_button.Name = "other_button";
             this.other_button.Size = new System.Drawing.Size(117, 34);
             this.other_button.TabIndex = 15;
@@ -385,7 +392,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(37, 24);
+            this.label6.Location = new System.Drawing.Point(36, 24);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 21);
             this.label6.TabIndex = 30;
@@ -394,18 +401,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // videoPlayer1
-            // 
-            this.videoPlayer1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tableLayoutPanel1.SetColumnSpan(this.videoPlayer1, 6);
-            this.videoPlayer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoPlayer1.Location = new System.Drawing.Point(5, 101);
-            this.videoPlayer1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.videoPlayer1.Name = "videoPlayer1";
-            this.tableLayoutPanel1.SetRowSpan(this.videoPlayer1, 2);
-            this.videoPlayer1.Size = new System.Drawing.Size(774, 599);
-            this.videoPlayer1.TabIndex = 22;
             // 
             // VideoRecording
             // 

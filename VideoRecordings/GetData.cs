@@ -129,7 +129,7 @@ namespace VideoRecordings
             string posturl = Program.Urlpath + "/scan/video/project/" + focusedfolder.Id.ToString();
             string conditions = "project_name=" + focusedfolder.Name;
             JObject obj = WebClinetHepler.Post_New(posturl);
-            return obj == null;          
+            return obj != null;          
         }
 
         public static bool BatchAddLabels(List<int> ids, List<int> label)

@@ -159,4 +159,4 @@ F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.Equipm
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\CSkin.dll
 F:\源码\VideoRecordings\VideoRecordings\bin\Debug\CSkin.xml
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.Write.resources
-F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe.licenses
+F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.AddEquipment.resources

@@ -350,7 +350,7 @@ namespace VideoRecordings
         {
             videoplays.Clear();
             JObject obj = WebClinetHepler.GetJObject(url, na);
-            if (obj == null) return;
+            if (obj["result"].ToString() == "[]") return;
             for (int i = 0; i < obj["result"][0]["equipments"].Count(); i++)
             {
                 EquipmentInfo equipment = JsonHelper.DeserializeDataContractJson<EquipmentInfo>(obj["result"][0]["equipments"][i]["equipment_info"].ToString());
@@ -664,11 +664,11 @@ namespace VideoRecordings
         {
             equipment = new MyEquipment(project.Name);
             videotoToolStripMenuItem.DropDownItems.Clear();
-            foreach (var item in equipment.Equipments)
+            foreach (var item in equipment.Equipments.OrderByDescending(t=>t.Id))
             {
-                ToolStripMenuItem it = new ToolStripMenuItem() { Text = item.Name };
+                ToolStripMenuItem it = new ToolStripMenuItem() { Text =item.Id+":"+ item.Name };
                 it.Click += ToolStripMenuItem_Click;
-                videotoToolStripMenuItem.DropDownItems.Add(it);
+                videotoToolStripMenuItem.DropDownItems.Add(it);         
             }
         }
 
@@ -683,7 +683,7 @@ namespace VideoRecordings
                 VideoPlay video = (VideoPlay)gridView1.GetRow(it);
                 videos.Add(video);
             }
-            int id = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == item.Text).Key;
+            int id = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == item.Text.Split(':').Last()).Key;
             List<int> ids = videos.Select(t => t.Id).ToList();
             if (!GetData.AddVideoInEquipment(id, ids))
             {
@@ -771,7 +771,10 @@ namespace VideoRecordings
 
         private void ADEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            int index = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == transmissionvideo.EquipmentName.Split(':').Last()).Key;
+            AddEquipment write = new AddEquipment(transmissionvideo.ProjectName,index);
+            write.MySaveEvent += new AddEquipment.MyDelegate(AddItems);
+            write.Show();
         }
 
         private void gridView1_Click(object sender, EventArgs e)
@@ -785,5 +788,29 @@ namespace VideoRecordings
             DeleteFolder(Program.ImageSavePath);         
         }
 
+        private void UPEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int index = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == transmissionvideo.EquipmentName.Split(':').Last()).Key;
+            Write write = new Write(transmissionvideo.ProjectName, index);
+            write.MySaveEvent += new Write.MyDelegate(AddItems);
+            write.MyRefreshEvent += new Write.MyDelegate(PostVideos);
+            write.Show();
+        }
+
+        private void 删除设备ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var index = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == transmissionvideo.EquipmentName.Split(':').Last());
+            if (MessageBox.Show($"是否删除{index.Value}？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
+                return;
+            if (GetData.DeleteEquipmengt(index.Key))
+            {
+                MessageBox.Show("删除成功");
+                PostVideos();
+                AddItems();
+                return;
+            }
+            MessageBox.Show("删除失败");
+         
+        }
     }
 }
