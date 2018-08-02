@@ -664,11 +664,11 @@ namespace VideoRecordings
         {
             equipment = new MyEquipment(project.Name);
             videotoToolStripMenuItem.DropDownItems.Clear();
-            foreach (var item in equipment.Equipments.OrderByDescending(t=>t.Id))
+            foreach (var item in equipment.Equipments.OrderByDescending(t => t.Id))
             {
-                ToolStripMenuItem it = new ToolStripMenuItem() { Text =item.Id+":"+ item.Name };
+                ToolStripMenuItem it = new ToolStripMenuItem() { Text = item.Id + ":" + item.Name };
                 it.Click += ToolStripMenuItem_Click;
-                videotoToolStripMenuItem.DropDownItems.Add(it);         
+                videotoToolStripMenuItem.DropDownItems.Add(it);
             }
         }
 
@@ -772,7 +772,7 @@ namespace VideoRecordings
         private void ADEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int index = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == transmissionvideo.EquipmentName.Split(':').Last()).Key;
-            AddEquipment write = new AddEquipment(transmissionvideo.ProjectName,index);
+            AddEquipment write = new AddEquipment(transmissionvideo.ProjectName, index);
             write.MySaveEvent += new AddEquipment.MyDelegate(AddItems);
             write.Show();
         }
@@ -785,7 +785,7 @@ namespace VideoRecordings
             transmissionvideo = (VideoPlay)gridView1.GetRow(index);
             RefreshImage();
             GetIntToString();
-            DeleteFolder(Program.ImageSavePath);         
+            DeleteFolder(Program.ImageSavePath);
         }
 
         private void UPEToolStripMenuItem_Click(object sender, EventArgs e)
@@ -810,7 +810,7 @@ namespace VideoRecordings
                 return;
             }
             MessageBox.Show("删除失败");
-         
+
         }
     }
 }

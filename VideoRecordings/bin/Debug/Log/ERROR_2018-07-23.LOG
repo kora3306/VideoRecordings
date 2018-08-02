@@ -831,3 +831,35 @@ System.Exception: 获取成功
 2018-07-23 17:56:22,503 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
 System.Exception: 获取成功
 2018-07-23 17:56:23,293 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:36:44,395 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-07-23 18:36:45,502 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:09,894 [1]ERROR VideoRecordings.Program - 获取http://192.168.1.198:16080/videos信息
+System.Exception: 获取成功
+2018-07-23 18:37:17,902 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:17,949 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:19,804 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:19,847 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:26,307 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:26,358 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:28,146 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:28,230 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:28,985 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:29,016 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:30,207 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:31,331 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:31,359 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:31,897 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:31,950 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:34,431 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:34,487 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:35,425 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:35,510 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:36,554 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:36,591 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:37,276 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:37,303 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:37,907 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:37,957 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:38,942 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture
+2018-07-23 18:37:38,991 [1]ERROR VideoRecordings.Program - 清空F:\源码\VideoRecordings\VideoRecordings\bin\Debug\ScreenCapture

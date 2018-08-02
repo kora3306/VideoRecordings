@@ -236,6 +236,7 @@
     <EmbeddedResource Include="Label\AddLabel.resx">
       <DependentUpon>AddLabel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Video\AddEquipment.resx">
       <DependentUpon>AddEquipment.cs</DependentUpon>
     </EmbeddedResource>
