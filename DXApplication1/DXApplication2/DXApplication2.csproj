@@ -39,12 +39,12 @@
     <Reference Include="ColorSlider">
       <HintPath>C:\360安全浏览器下载\新建文件夹\VideoPlayer\bin\Debug\ColorSlider.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.BonusSkins.v17.2" />
-    <Reference Include="DevExpress.Data.v17.2" />
-    <Reference Include="DevExpress.Utils.v17.2" />
-    <Reference Include="DevExpress.Sparkline.v17.2.Core" />
-    <Reference Include="DevExpress.XtraEditors.v17.2" />
-    <Reference Include="DevExpress.Printing.v17.2.Core" />
+    <Reference Include="DevExpress.BonusSkins.v18.1" />
+    <Reference Include="DevExpress.Data.v18.1" />
+    <Reference Include="DevExpress.Utils.v18.1" />
+    <Reference Include="DevExpress.Sparkline.v18.1.Core" />
+    <Reference Include="DevExpress.XtraEditors.v18.1" />
+    <Reference Include="DevExpress.Printing.v18.1.Core" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

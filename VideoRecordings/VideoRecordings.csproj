@@ -38,11 +38,11 @@
       <HintPath>C:\Users\test\Downloads\CSkin 16.1.14.2\CSkin 4.0\CSkin.dll</HintPath>
     </Reference>
     <Reference Include="Dal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Reference Include="DevExpress.Data.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
@@ -127,6 +127,12 @@
     <Compile Include="Images\ImageInformation.Designer.cs">
       <DependentUpon>ImageInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Video\BatchSolution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Video\BatchSolution.Designer.cs">
+      <DependentUpon>BatchSolution.cs</DependentUpon>
+    </Compile>
     <Compile Include="Video\Equipment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,12 @@
     </Compile>
     <Compile Include="Methods.cs" />
     <Compile Include="Model.cs" />
+    <Compile Include="Video\MessageShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Video\MessageShow.Designer.cs">
+      <DependentUpon>MessageShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Video\QueryVideo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,7 +248,6 @@
     <EmbeddedResource Include="Label\AddLabel.resx">
       <DependentUpon>AddLabel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Video\AddEquipment.resx">
       <DependentUpon>AddEquipment.cs</DependentUpon>
     </EmbeddedResource>
@@ -245,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FileManagement .resx">
       <DependentUpon>FileManagement .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Video\BatchSolution.resx">
+      <DependentUpon>BatchSolution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Video\Equipment.resx">
       <DependentUpon>Equipment.cs</DependentUpon>
@@ -257,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Label\ManagementLabel.resx">
       <DependentUpon>ManagementLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Video\MessageShow.resx">
+      <DependentUpon>MessageShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Video\QueryVideo.resx">
       <DependentUpon>QueryVideo.cs</DependentUpon>

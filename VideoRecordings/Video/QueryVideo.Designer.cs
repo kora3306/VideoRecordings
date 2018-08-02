@@ -35,6 +35,7 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.batchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ADToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DELEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +44,7 @@
             this.OUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddlabelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteSolutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn_id = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -247,6 +249,7 @@
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
+            this.batchToolStripMenuItem,
             this.ADToolStripMenuItem,
             this.UPToolStripMenuItem,
             this.DELEToolStripMenuItem,
@@ -254,9 +257,10 @@
             this.INToolStripMenuItem,
             this.OUTToolStripMenuItem,
             this.DToolStripMenuItem,
-            this.AddlabelsToolStripMenuItem});
+            this.AddlabelsToolStripMenuItem,
+            this.DeleteSolutionToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(154, 202);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(154, 246);
             // 
             // openToolStripMenuItem
             // 
@@ -264,6 +268,13 @@
             this.openToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.openToolStripMenuItem.Text = "展开/关闭分组";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click_1);
+            // 
+            // batchToolStripMenuItem
+            // 
+            this.batchToolStripMenuItem.Name = "batchToolStripMenuItem";
+            this.batchToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.batchToolStripMenuItem.Text = "批量解帧";
+            this.batchToolStripMenuItem.Click += new System.EventHandler(this.batchToolStripMenuItem_Click);
             // 
             // ADToolStripMenuItem
             // 
@@ -319,6 +330,13 @@
             this.AddlabelsToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.AddlabelsToolStripMenuItem.Text = "批量添加标签";
             this.AddlabelsToolStripMenuItem.Click += new System.EventHandler(this.AddlabelsToolStripMenuItem_Click);
+            // 
+            // DeleteSolutionToolStripMenuItem
+            // 
+            this.DeleteSolutionToolStripMenuItem.Name = "DeleteSolutionToolStripMenuItem";
+            this.DeleteSolutionToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.DeleteSolutionToolStripMenuItem.Text = "清除解帧信息";
+            this.DeleteSolutionToolStripMenuItem.Click += new System.EventHandler(this.DeleteSolutionToolStripMenuItem_Click);
             // 
             // gridView1
             // 
@@ -1303,5 +1321,7 @@
         private System.Windows.Forms.ToolStripMenuItem ADToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DELEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem batchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DeleteSolutionToolStripMenuItem;
     }
 }

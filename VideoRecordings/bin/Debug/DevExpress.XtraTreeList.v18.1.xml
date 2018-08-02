@@ -172,6 +172,30 @@ Otherwise, the default mode is <b>Fast</b>.
 
 
         </member>
+        <member name="T:DevExpress.XtraTreeList.VirtualTreeSetCellValueEventHandler">
+
+            <summary>
+                <para>Represents a method that will handle the <see cref="E:DevExpress.XtraTreeList.TreeList.VirtualTreeSetCellValue"/> event.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraTreeList.VirtualTreeSetCellValueEventHandler.Invoke(System.Object,DevExpress.XtraTreeList.VirtualTreeSetCellValueInfo)">
+            <summary>
+                <para>Represents the method for handling events which take a <see cref="T:DevExpress.XtraTreeList.VirtualTreeSetCellValueInfo"/> object as a parameter.
+</para>
+            </summary>
+            <param name="sender">
+		The event source. This identifies the Tree List control which fires the event.
+
+            </param>
+            <param name="e">
+		A <see cref="T:DevExpress.XtraTreeList.VirtualTreeSetCellValueInfo"/> object that contains data for the event.
+
+            </param>
+
+
+        </member>
         <member name="T:DevExpress.XtraTreeList.ShowFilterPanelMode">
 
             <summary>
@@ -730,355 +754,6 @@ Otherwise, the default mode is <b>Fast</b>.
 </para>
             </summary>
             <value>The node (from another TreeList control) being dragged.
-</value>
-
-
-        </member>
-        <member name="T:DevExpress.XtraTreeList.CustomRowFilterEventArgs">
-
-            <summary>
-                <para>Provides data for the <see cref="E:DevExpress.XtraTreeList.TreeList.CustomRowFilter"/> event.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraTreeList.CustomRowFilterEventArgs.#ctor(DevExpress.XtraTreeList.Nodes.TreeListNode,System.Boolean)">
-            <summary>
-                <para>Initializes a new instance of the CustomRowFilterEventArgs class.
-</para>
-            </summary>
-            <param name="node">
-		The processed <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/>. This value is assigned to the <b>Node</b> property.
-
-            </param>
-            <param name="isFit">
-		<b>true</b>, if the <i>node</i> fits the applied filter; otherwise, <b>false</b>. This value is assigned to the <b>IsFitDefaultFilter</b> property.
-
-            </param>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.CustomRowFilterEventArgs.Item(DevExpress.XtraTreeList.Columns.TreeListColumn)">
-            <summary>
-                <para>Gets a value of a specific column in the processed <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/>.
-</para>
-            </summary>
-            <param name="column">
-		A <see cref="T:DevExpress.XtraTreeList.Columns.TreeListColumn"/> object that identifies a column.
-
-            </param>
-            <value>The value of a specific column.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.CustomRowFilterEventArgs.Row">
-            <summary>
-                <para>Gets an object representing a data row in the underlying data source that corresponds to the processed <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/>.
-</para>
-            </summary>
-            <value>An object representing a data row in the underlying data source that corresponds to the processed <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/>.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.CustomRowFilterEventArgs.Visible">
-            <summary>
-                <para>Gets whether the processed <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> is visible.
-</para>
-            </summary>
-            <value><b>true</b>, if  the processed <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> is visible; otherwise, <b>false</b>.
-</value>
-
-
-        </member>
-        <member name="T:DevExpress.XtraTreeList.TreeListAppearanceCollection">
-
-            <summary>
-                <para>Provides the appearance settings used to paint the Tree List.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraTreeList.TreeListAppearanceCollection.#ctor(DevExpress.Utils.IAppearanceOwner)">
-            <summary>
-                <para>Initializes a new instance of the <see cref="T:DevExpress.XtraTreeList.TreeListAppearanceCollection"/> class with the specified owner.
-</para>
-            </summary>
-            <param name="treeList">
-		An object which implements the <b>IAppearanceOwner</b> interface (the <see cref="T:DevExpress.XtraTreeList.TreeList"/> or descendant) that will own the created collection.
-
-            </param>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.BandPanel">
-            <summary>
-                <para>Gets the appearance settings used to paint band headers.
-</para>
-            </summary>
-            <value>An object that specifies the appearance settings used to paint band headers.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.Caption">
-            <summary>
-                <para>Gets the appearance settings used to paint the caption.
-</para>
-            </summary>
-            <value>An <see cref="AppearanceObject"/> object that provides the appearance settings used to paint the Tree List's caption.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.CustomizationFormHint">
-            <summary>
-                <para>Gets or sets the appearance of the hint text displayed within an empty Customization Form.
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.Utils.AppearanceObject"/> object that contains corresponding style settings.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.Empty">
-            <summary>
-                <para>Gets the appearance settings used to paint the Tree List's empty space.
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the Tree List's empty space.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.EvenRow">
-            <summary>
-                <para>Gets the appearance settings used to paint even nodes.
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint even nodes.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.FilterPanel">
-            <summary>
-                <para>Gets the appearance settings used to paint the Filter Panel.
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that contains appearance settings used to paint the filter panel.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.FixedLine">
-            <summary>
-                <para>Gets the appearance settings used to paint the fixed lines.
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the fixed lines.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.FocusedCell">
-            <summary>
-                <para>Gets the appearance settings used to paint the currently focused cell.
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the currently focused cell.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.FocusedRow">
-            <summary>
-                <para>Gets the appearance settings used to paint the currently focused node.
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object which provides the appearance settings used to paint the currently focused node.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.FooterPanel">
-            <summary>
-                <para>Gets the appearance settings used to paint the summary footer.
-
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the summary footer.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.GroupButton">
-            <summary>
-                <para>Gets the appearance settings used to paint node expand buttons.
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint node expand buttons.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.GroupFooter">
-            <summary>
-                <para>Gets the appearance settings used to paint the group footer.
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the group footer.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.HeaderPanel">
-            <summary>
-                <para>Gets the appearance settings used to paint the column header and node indicator panels.
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the column header and node indicator panels.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.HeaderPanelBackground">
-            <summary>
-                <para>Gets the appearance settings used to paint the column header panel's background.
-</para>
-            </summary>
-            <value>An object that specifies the appearance settings used to paint the column header panel's background.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.HideSelectionRow">
-            <summary>
-                <para>Gets the appearance settings used to paint the selected node(s) when the Tree List isn't focused. 
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the selected node(s) when the Tree List isn't focused.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.HorzLine">
-            <summary>
-                <para>Gets the appearance settings used to paint the horizontal lines.
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the horizontal lines.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.OddRow">
-            <summary>
-                <para>Gets the appearance settings used to paint odd nodes.
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint odd nodes.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.Preview">
-            <summary>
-                <para>Gets the appearance settings used to paint preview sections.
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint preview sections.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.Row">
-            <summary>
-                <para>Gets the appearance settings used to paint data cells within Tree List nodes.
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint data cells within Tree List nodes.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.SelectedRow">
-            <summary>
-                <para>Gets the appearance settings used to paint the selected nodes.
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the selected nodes.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.Separator">
-            <summary>
-                <para>Gets the appearance settings specifying column and band separator background color.
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint column and band separators.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.TreeLine">
-            <summary>
-                <para>Gets the appearance settings used to paint the tree lines.
-</para>
-            </summary>
-            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the tree lines.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.VertLine">
-            <summary>
-                <para>Gets the appearance settings used to paint the vertical lines.
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the vertical lines.
-</value>
-
-
-        </member>
-        <member name="T:DevExpress.XtraTreeList.ValidateNodeEventArgs">
-
-            <summary>
-                <para>Provides data for the <see cref="E:DevExpress.XtraTreeList.TreeList.ValidateNode"/> event.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraTreeList.ValidateNodeEventArgs.#ctor(DevExpress.XtraTreeList.Nodes.TreeListNode)">
-            <summary>
-                <para>Creates a new <see cref="T:DevExpress.XtraTreeList.ValidateNodeEventArgs"/> object.
-</para>
-            </summary>
-            <param name="node">
-		A <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> object representing the node. This value is assigned to the <see cref="P:DevExpress.XtraTreeList.NodeEventArgs.Node"/> property.
-
-            </param>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.ValidateNodeEventArgs.ErrorText">
-            <summary>
-                <para>Gets or sets the error description.
-</para>
-            </summary>
-            <value>A string representing the error description.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.ValidateNodeEventArgs.Valid">
-            <summary>
-                <para>Gets or sets whether the node's validation succeeds.
-</para>
-            </summary>
-            <value><b>true</b> to accept node cell values; otherwise, <b>false</b>.
 </value>
 
 
@@ -2906,6 +2581,40 @@ Otherwise, the default mode is <b>Fast</b>.
 
 
         </member>
+        <member name="T:DevExpress.XtraTreeList.FocusedNodeChangedEventArgs">
+
+            <summary>
+                <para>Provides data for the <see cref="E:DevExpress.XtraTreeList.TreeList.FocusedNodeChanged"/> event.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraTreeList.FocusedNodeChangedEventArgs.#ctor(DevExpress.XtraTreeList.Nodes.TreeListNode,DevExpress.XtraTreeList.Nodes.TreeListNode)">
+            <summary>
+                <para>Initializes a new <see cref="T:DevExpress.XtraTreeList.FocusedNodeChangedEventArgs"/> class instance.
+</para>
+            </summary>
+            <param name="old">
+		The previous focused Tree List node.
+
+            </param>
+            <param name="node">
+		The current focused Tree List node.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.FocusedNodeChangedEventArgs.OldNode">
+            <summary>
+                <para>Gets the previously focused Tree List node.
+</para>
+            </summary>
+            <value>The previously focused Tree List node.
+</value>
+
+
+        </member>
         <member name="T:DevExpress.XtraTreeList.OptionsLayoutTreeList">
 
             <summary>
@@ -2974,6 +2683,132 @@ Otherwise, the default mode is <b>Fast</b>.
 </para>
             </summary>
             <value><b>true</b> if the control's appearance settings are included in the layout when it's saved to storage and these settings are restored when the layout is restored from storage; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraTreeList.CustomRowFilterEventArgs">
+
+            <summary>
+                <para>Provides data for the <see cref="E:DevExpress.XtraTreeList.TreeList.CustomRowFilter"/> event.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraTreeList.CustomRowFilterEventArgs.#ctor(DevExpress.XtraTreeList.Nodes.TreeListNode,System.Boolean)">
+            <summary>
+                <para>Initializes a new instance of the CustomRowFilterEventArgs class.
+</para>
+            </summary>
+            <param name="node">
+		The processed <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/>. This value is assigned to the <b>Node</b> property.
+
+            </param>
+            <param name="isFit">
+		<b>true</b>, if the <i>node</i> fits the applied filter; otherwise, <b>false</b>. This value is assigned to the <b>IsFitDefaultFilter</b> property.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.CustomRowFilterEventArgs.Item(DevExpress.XtraTreeList.Columns.TreeListColumn)">
+            <summary>
+                <para>Gets a value of a specific column in the processed <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/>.
+</para>
+            </summary>
+            <param name="column">
+		A <see cref="T:DevExpress.XtraTreeList.Columns.TreeListColumn"/> object that identifies a column.
+
+            </param>
+            <value>The value of a specific column.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.CustomRowFilterEventArgs.Row">
+            <summary>
+                <para>Gets an object representing a data row in the underlying data source that corresponds to the processed <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/>.
+</para>
+            </summary>
+            <value>An object representing a data row in the underlying data source that corresponds to the processed <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.CustomRowFilterEventArgs.Visible">
+            <summary>
+                <para>Gets whether the processed <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> is visible.
+</para>
+            </summary>
+            <value><b>true</b>, if  the processed <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> is visible; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraTreeList.BeforeDragNodeEventArgs">
+
+            <summary>
+                <para>Provides data for the <see cref="E:DevExpress.XtraTreeList.TreeList.BeforeDragNode"/> event.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraTreeList.BeforeDragNodeEventArgs.#ctor(DevExpress.XtraTreeList.Nodes.TreeListNode)">
+            <summary>
+                <para>Initializes a new <see cref="T:DevExpress.XtraTreeList.BeforeDragNodeEventArgs"/> class instance.
+</para>
+            </summary>
+            <param name="node">
+		A Tree List node.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraTreeList.BeforeDragNodeEventArgs.#ctor(System.Collections.Generic.IList`1,DevExpress.XtraTreeList.Nodes.TreeListNode)">
+            <summary>
+                <para>Initializes a new instance of the BeforeDragNodeEventArgs class with the specified settings.
+</para>
+            </summary>
+            <param name="nodes">
+		A list of nodes that are about to be dragged.
+
+
+            </param>
+            <param name="node">
+		The node that is focused when a drag-and-drop operation starts.
+
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.BeforeDragNodeEventArgs.CanDrag">
+            <summary>
+                <para>Gets or sets a value indicating whether a Tree List node can be dragged.
+</para>
+            </summary>
+            <value><b>true</b> if a Tree List node can be dragged; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.BeforeDragNodeEventArgs.Nodes">
+            <summary>
+                <para>Gets the list of nodes that are about to be dragged.
+</para>
+            </summary>
+            <value>The list of nodes that are about to be dragged.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.BeforeDragNodeEventArgs.PreviewImage">
+            <summary>
+                <para>Gets or sets the image displayed near the mouse cursor during a drag-and-drop operation.
+</para>
+            </summary>
+            <value>An <see cref="Image"/> object specifying the image displayed near the mouse cursor during a drag-and-drop operation.
 </value>
 
 
@@ -3223,30 +3058,6 @@ Otherwise, the default mode is <b>Fast</b>.
 
 
         </member>
-        <member name="T:DevExpress.XtraTreeList.VirtualTreeSetCellValueEventHandler">
-
-            <summary>
-                <para>Represents a method that will handle the <see cref="E:DevExpress.XtraTreeList.TreeList.VirtualTreeSetCellValue"/> event.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraTreeList.VirtualTreeSetCellValueEventHandler.Invoke(System.Object,DevExpress.XtraTreeList.VirtualTreeSetCellValueInfo)">
-            <summary>
-                <para>Represents the method for handling events which take a <see cref="T:DevExpress.XtraTreeList.VirtualTreeSetCellValueInfo"/> object as a parameter.
-</para>
-            </summary>
-            <param name="sender">
-		The event source. This identifies the Tree List control which fires the event.
-
-            </param>
-            <param name="e">
-		A <see cref="T:DevExpress.XtraTreeList.VirtualTreeSetCellValueInfo"/> object that contains data for the event.
-
-            </param>
-
-
-        </member>
         <member name="T:DevExpress.XtraTreeList.VirtualTreeGetChildNodesEventHandler">
 
             <summary>
@@ -3266,6 +3077,30 @@ Otherwise, the default mode is <b>Fast</b>.
             </param>
             <param name="e">
 		A <see cref="T:DevExpress.XtraTreeList.VirtualTreeGetChildNodesInfo"/> object that contains data for the event.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.XtraTreeList.VirtualTreeGetCellValueEventHandler">
+
+            <summary>
+                <para>Represents a method that will handle the <see cref="E:DevExpress.XtraTreeList.TreeList.VirtualTreeGetCellValue"/> event.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraTreeList.VirtualTreeGetCellValueEventHandler.Invoke(System.Object,DevExpress.XtraTreeList.VirtualTreeGetCellValueInfo)">
+            <summary>
+                <para>Represents the method for handling events which take a <see cref="T:DevExpress.XtraTreeList.VirtualTreeGetCellValueInfo"/> object as a parameter.
+</para>
+            </summary>
+            <param name="sender">
+		The event source. This identifies the Tree List control which fires the event.
+
+            </param>
+            <param name="e">
+		A <see cref="T:DevExpress.XtraTreeList.VirtualTreeGetCellValueInfo"/> object that contains data for the event.
 
             </param>
 
@@ -3830,186 +3665,6 @@ This constant is used to initialize the <see cref="P:DevExpress.XtraEditors.Repo
             </summary>
             <value>A <see cref="T:DevExpress.XtraTreeList.TreeList"/> associated with the current <see cref="T:DevExpress.XtraEditors.TreeListLookUpEdit"/> control.
 </value>
-
-
-        </member>
-        <member name="T:DevExpress.XtraTreeList.Columns.AutoFilterCondition">
-
-            <summary>
-                <para>Enumerates the comparison operator types for the filter conditions created for specific columns via the Automatic Filtering Row.
-</para>
-            </summary>
-
-        </member>
-        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.BeginsWith">
-            <summary>
-                <para>Selects records that start with the entered string. Equal to the <see cref="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Like"/> clause with the <i>"%"</i> wildcard after the searched string.
-
-<para>
-For example, the <i>[Name] BeginsWith 'A'</i> and <i>[Name] Like 'A%'</i> filtering expressions are equal.
-</para>
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains">
-            <summary>
-                <para>The <b>Contains</b> operator selects records whose values in the corresponding column contain the entered string. 
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Default">
-            <summary>
-                <para><para>
-For columns being filtered by their display text (see <see cref="P:DevExpress.XtraTreeList.Columns.TreeListColumn.FilterMode"/>), the <b>Default</b> option acts identically to the <b>Like</b> option.
-</para>
-
-<para>
-The <b>Default</b> option acts like the <b>Equals</b> option for the columns that have any of the following in-place editors or any of their descendants: <see cref="T:DevExpress.XtraEditors.CheckEdit"/>, <see cref="T:DevExpress.XtraEditors.DateEdit"/>, <see cref="T:DevExpress.XtraEditors.LookUpEditBase"/> or <see cref="T:DevExpress.XtraEditors.ImageComboBoxEdit"/>.
-</para>
-
-<para>
-For other columns, the <b>Default</b> option acts identically to the <b>Like</b> option. 
-</para>
-
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.DoesNotContain">
-            <summary>
-                <para>Selects records that do not equal the entered string. This clause acts as an opposite to the <see cref="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Equals"/> clause.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.DoesNotEqual">
-            <summary>
-                <para>Selects records that do not equal the entered string. This clause acts as an opposite to the <see cref="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Equals"/> clause.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.EndsWith">
-            <summary>
-                <para>Selects records that end with the entered string. Equal to the <see cref="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Like"/> clause with the <i>"%"</i> wildcard before the searched string.
-
-<para>
-For example, the <i>[Name] EndsWith 'A'</i> and <i>[Name] Like '%A'</i> filtering expressions are equal.
-</para>
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Equals">
-            <summary>
-                <para>The <b>Equals</b> comparison operator selects records whose values in the corresponding column match the entered value.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Greater">
-            <summary>
-                <para>Selects records that are greater than the entered value.
-
-<para>
-For text records, "greater" values are those that would lie below the entered value in an alphabetically sorted list. For example, in a list with Latin characters, all letters from <i>"N"</i> to <i>"Z"</i> are greater than the letter <i>"M"</i>.
-</para>
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.GreaterOrEqual">
-            <summary>
-                <para>Selects records that are greater than the entered value or equal to it.
-
-<para>
-For text records, "greater" values are those that would lie below the entered value in an alphabetically sorted list. For example, in a list with Latin characters, all letters from <i>"M"</i> to <i>"Z"</i> are greater or equal to the letter <i>"M"</i>.
-</para>
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Less">
-            <summary>
-                <para>Selects records that are less than the entered value.
-
-<para>
-For text records, "less" values are those that would lie above the entered value in an alphabetically sorted list. For example, in a list with Latin characters, all letters from <i>"A"</i> to <i>"L"</i> are less than the letter <i>"M"</i>.
-</para>
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.LessOrEqual">
-            <summary>
-                <para>Selects records that are less than the entered value or equal to it.
-
-<para>
-For text records, "less" values are those that would lie above the entered value in an alphabetically sorted list. For example, in a list with Latin characters, all letters from <i>"A"</i> to <i>"L"</i> are less than the letter <i>"M"</i>.
-</para>
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Like">
-            <summary>
-                <para><para>
-The <b>Like</b> comparison operator selects records whose values in the corresponding column start with the entered string.
-</para>
-
-For the columns that use <see cref="T:DevExpress.XtraEditors.CheckEdit"/>, <see cref="T:DevExpress.XtraEditors.DateEdit"/>, <see cref="T:DevExpress.XtraEditors.LookUpEditBase"/> or <see cref="T:DevExpress.XtraEditors.ImageComboBoxEdit"/> in-place editors, the <b>Equals</b> operator is always used, unless these columns are filtered by display text (see <see cref="P:DevExpress.XtraTreeList.Columns.TreeListColumn.FilterMode"/>).
-
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.NotLike">
-            <summary>
-                <para>Selects records that do not match the entered string. Acts as an opposite to the <see cref="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Like"/> clause.
-
-<para>
-For example, from a list with month names the <i>[Name] Like 'J%y'</i> filter expression will return the <i>"January"</i> and <i>"July"</i> records. The <i>[Name] Not Like 'J%y'</i> expression will return the names of remaining ten months.
-</para>
-</para>
-            </summary>
-
-
-        </member>
-        <member name="T:DevExpress.XtraTreeList.VirtualTreeGetCellValueEventHandler">
-
-            <summary>
-                <para>Represents a method that will handle the <see cref="E:DevExpress.XtraTreeList.TreeList.VirtualTreeGetCellValue"/> event.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraTreeList.VirtualTreeGetCellValueEventHandler.Invoke(System.Object,DevExpress.XtraTreeList.VirtualTreeGetCellValueInfo)">
-            <summary>
-                <para>Represents the method for handling events which take a <see cref="T:DevExpress.XtraTreeList.VirtualTreeGetCellValueInfo"/> object as a parameter.
-</para>
-            </summary>
-            <param name="sender">
-		The event source. This identifies the Tree List control which fires the event.
-
-            </param>
-            <param name="e">
-		A <see cref="T:DevExpress.XtraTreeList.VirtualTreeGetCellValueInfo"/> object that contains data for the event.
-
-            </param>
 
 
         </member>
@@ -4916,9 +4571,11 @@ For example, from a list with month names the <i>[Name] Like 'J%y'</i> filter ex
         </member>
         <member name="P:DevExpress.XtraTreeList.TreeListOptionsPrint.PrintFirstLine">
             <summary>
-                <para> </para>
+                <para>Gets or sets whether to print the nearest (leftmost) vertical gridlines in the column that displays the node expand buttons.
+</para>
             </summary>
-            <value> </value>
+            <value><b>true</b>, to print the nearest vertical gridlines; otherwise, <b>false</b>.
+</value>
 
 
         </member>
@@ -5156,7 +4813,7 @@ For example, from a list with month names the <i>[Name] Like 'J%y'</i> filter ex
                 <para>Gets or sets whether to expand/collapse nodes using animation effects.
 </para>
             </summary>
-            <value><b>True</b> to use animation effects; otherwise, <b>False</b>; <b>Default</b> uses the <see cref="P:DevExpress.XtraEditors.WindowsFormsSettings.AnimationMode"/> static (Shared in VB) setting.
+            <value><b>True</b>, to use animation effects; otherwise, <b>False</b>; <b>Default</b> uses the <see cref="P:DevExpress.XtraEditors.WindowsFormsSettings.AnimationMode"/> static (Shared in VB) setting.
 </value>
 
 
@@ -5298,7 +4955,7 @@ For example, from a list with month names the <i>[Name] Like 'J%y'</i> filter ex
         </member>
         <member name="P:DevExpress.XtraTreeList.TreeListOptionsBehavior.AutoSelectAllInEditor">
             <summary>
-                <para>Gets or sets whether activating a cell editor using the mouse or ENTER or F2 keys selects the entire editor's content.
+                <para>Gets or sets whether activating a cell editor using the or ENTER or F2 keys selects the entire editor's content.
 </para>
             </summary>
             <value><b>true</b> to select the entire cell's content when editing starts; otherwise, <b>false</b>.
@@ -5537,6 +5194,257 @@ For example, from a list with month names the <i>[Name] Like 'J%y'</i> filter ex
 
 
         </member>
+        <member name="T:DevExpress.XtraTreeList.TreeListAppearanceCollection">
+
+            <summary>
+                <para>Provides the appearance settings used to paint the Tree List.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraTreeList.TreeListAppearanceCollection.#ctor(DevExpress.Utils.IAppearanceOwner)">
+            <summary>
+                <para>Initializes a new instance of the <see cref="T:DevExpress.XtraTreeList.TreeListAppearanceCollection"/> class with the specified owner.
+</para>
+            </summary>
+            <param name="treeList">
+		An object which implements the <b>IAppearanceOwner</b> interface (the <see cref="T:DevExpress.XtraTreeList.TreeList"/> or descendant) that will own the created collection.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.BandPanel">
+            <summary>
+                <para>Gets the appearance settings used to paint band headers.
+</para>
+            </summary>
+            <value>An object that specifies the appearance settings used to paint band headers.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.Caption">
+            <summary>
+                <para>Gets the appearance settings used to paint the caption.
+</para>
+            </summary>
+            <value>An <see cref="AppearanceObject"/> object that provides the appearance settings used to paint the Tree List's caption.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.CustomizationFormHint">
+            <summary>
+                <para>Gets or sets the appearance of the hint text displayed within an empty Customization Form.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Utils.AppearanceObject"/> object that contains corresponding style settings.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.Empty">
+            <summary>
+                <para>Gets the appearance settings used to paint the Tree List's empty space.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the Tree List's empty space.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.EvenRow">
+            <summary>
+                <para>Gets the appearance settings used to paint even nodes.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint even nodes.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.FilterPanel">
+            <summary>
+                <para>Gets the appearance settings used to paint the Filter Panel.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that contains appearance settings used to paint the filter panel.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.FixedLine">
+            <summary>
+                <para>Gets the appearance settings used to paint the fixed lines.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the fixed lines.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.FocusedCell">
+            <summary>
+                <para>Gets the appearance settings used to paint the currently focused cell.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the currently focused cell.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.FocusedRow">
+            <summary>
+                <para>Gets the appearance settings used to paint the currently focused node.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object which provides the appearance settings used to paint the currently focused node.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.FooterPanel">
+            <summary>
+                <para>Gets the appearance settings used to paint the summary footer.
+
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the summary footer.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.GroupButton">
+            <summary>
+                <para>Gets the appearance settings used to paint node expand buttons.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint node expand buttons.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.GroupFooter">
+            <summary>
+                <para>Gets the appearance settings used to paint the group footer.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the group footer.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.HeaderPanel">
+            <summary>
+                <para>Gets the appearance settings used to paint the column header and node indicator panels.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the column header and node indicator panels.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.HeaderPanelBackground">
+            <summary>
+                <para>Gets the appearance settings used to paint the column header panel's background.
+</para>
+            </summary>
+            <value>An object that specifies the appearance settings used to paint the column header panel's background.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.HideSelectionRow">
+            <summary>
+                <para>Gets the appearance settings used to paint the selected node(s) when the Tree List isn't focused. 
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the selected node(s) when the Tree List isn't focused.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.HorzLine">
+            <summary>
+                <para>Gets the appearance settings used to paint the horizontal lines.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the horizontal lines.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.OddRow">
+            <summary>
+                <para>Gets the appearance settings used to paint odd nodes.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint odd nodes.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.Preview">
+            <summary>
+                <para>Gets the appearance settings used to paint preview sections.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint preview sections.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.Row">
+            <summary>
+                <para>Gets the appearance settings used to paint data cells within Tree List nodes.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint data cells within Tree List nodes.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.SelectedRow">
+            <summary>
+                <para>Gets the appearance settings used to paint the selected nodes.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the selected nodes.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.Separator">
+            <summary>
+                <para>Gets the appearance settings specifying column and band separator background color.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint column and band separators.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.TreeLine">
+            <summary>
+                <para>Gets the appearance settings used to paint the tree lines.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the tree lines.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.TreeListAppearanceCollection.VertLine">
+            <summary>
+                <para>Gets the appearance settings used to paint the vertical lines.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Utils.AppearanceObject"/> object that provides the appearance settings used to paint the vertical lines.
+</value>
+
+
+        </member>
         <member name="T:DevExpress.XtraTreeList.CustomDrawFooterEventArgs">
 
             <summary>
@@ -5672,6 +5580,162 @@ For example, from a list with month names the <i>[Name] Like 'J%y'</i> filter ex
             </summary>
             <value>An object containing custom information associated with the Tree List node.
 </value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraTreeList.Columns.AutoFilterCondition">
+
+            <summary>
+                <para>Enumerates the comparison operator types for the filter conditions created for specific columns via the Automatic Filtering Row.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.BeginsWith">
+            <summary>
+                <para>Selects records that start with the entered string. Equal to the <see cref="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Like"/> clause with the <i>"%"</i> wildcard after the searched string.
+
+<para>
+For example, the <i>[Name] BeginsWith 'A'</i> and <i>[Name] Like 'A%'</i> filtering expressions are equal.
+</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains">
+            <summary>
+                <para>The <b>Contains</b> operator selects records whose values in the corresponding column contain the entered string. 
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Default">
+            <summary>
+                <para><para>
+For columns being filtered by their display text (see <see cref="P:DevExpress.XtraTreeList.Columns.TreeListColumn.FilterMode"/>), the <b>Default</b> option acts identically to the <b>Like</b> option.
+</para>
+
+<para>
+The <b>Default</b> option acts like the <b>Equals</b> option for the columns that have any of the following in-place editors or any of their descendants: <see cref="T:DevExpress.XtraEditors.CheckEdit"/>, <see cref="T:DevExpress.XtraEditors.DateEdit"/>, <see cref="T:DevExpress.XtraEditors.LookUpEditBase"/> or <see cref="T:DevExpress.XtraEditors.ImageComboBoxEdit"/>.
+</para>
+
+<para>
+For other columns, the <b>Default</b> option acts identically to the <b>Like</b> option. 
+</para>
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.DoesNotContain">
+            <summary>
+                <para>Selects records that do not equal the entered string. This clause acts as an opposite to the <see cref="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Equals"/> clause.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.DoesNotEqual">
+            <summary>
+                <para>Selects records that do not equal the entered string. This clause acts as an opposite to the <see cref="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Equals"/> clause.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.EndsWith">
+            <summary>
+                <para>Selects records that end with the entered string. Equal to the <see cref="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Like"/> clause with the <i>"%"</i> wildcard before the searched string.
+
+<para>
+For example, the <i>[Name] EndsWith 'A'</i> and <i>[Name] Like '%A'</i> filtering expressions are equal.
+</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Equals">
+            <summary>
+                <para>The <b>Equals</b> comparison operator selects records whose values in the corresponding column match the entered value.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Greater">
+            <summary>
+                <para>Selects records that are greater than the entered value.
+
+<para>
+For text records, "greater" values are those that would lie below the entered value in an alphabetically sorted list. For example, in a list with Latin characters, all letters from <i>"N"</i> to <i>"Z"</i> are greater than the letter <i>"M"</i>.
+</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.GreaterOrEqual">
+            <summary>
+                <para>Selects records that are greater than the entered value or equal to it.
+
+<para>
+For text records, "greater" values are those that would lie below the entered value in an alphabetically sorted list. For example, in a list with Latin characters, all letters from <i>"M"</i> to <i>"Z"</i> are greater or equal to the letter <i>"M"</i>.
+</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Less">
+            <summary>
+                <para>Selects records that are less than the entered value.
+
+<para>
+For text records, "less" values are those that would lie above the entered value in an alphabetically sorted list. For example, in a list with Latin characters, all letters from <i>"A"</i> to <i>"L"</i> are less than the letter <i>"M"</i>.
+</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.LessOrEqual">
+            <summary>
+                <para>Selects records that are less than the entered value or equal to it.
+
+<para>
+For text records, "less" values are those that would lie above the entered value in an alphabetically sorted list. For example, in a list with Latin characters, all letters from <i>"A"</i> to <i>"L"</i> are less than the letter <i>"M"</i>.
+</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Like">
+            <summary>
+                <para><para>
+The <b>Like</b> comparison operator selects records whose values in the corresponding column start with the entered string.
+</para>
+
+For the columns that use <see cref="T:DevExpress.XtraEditors.CheckEdit"/>, <see cref="T:DevExpress.XtraEditors.DateEdit"/>, <see cref="T:DevExpress.XtraEditors.LookUpEditBase"/> or <see cref="T:DevExpress.XtraEditors.ImageComboBoxEdit"/> in-place editors, the <b>Equals</b> operator is always used, unless these columns are filtered by display text (see <see cref="P:DevExpress.XtraTreeList.Columns.TreeListColumn.FilterMode"/>).
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.NotLike">
+            <summary>
+                <para>Selects records that do not match the entered string. Acts as an opposite to the <see cref="F:DevExpress.XtraTreeList.Columns.AutoFilterCondition.Like"/> clause.
+
+<para>
+For example, from a list with month names the <i>[Name] Like 'J%y'</i> filter expression will return the <i>"January"</i> and <i>"July"</i> records. The <i>[Name] Not Like 'J%y'</i> expression will return the names of remaining ten months.
+</para>
+</para>
+            </summary>
 
 
         </member>
@@ -6590,6 +6654,46 @@ If the <b>WindowsFormsSettings.ColumnFilterPopupMode</b> property is also set to
 		A <see cref="T:DevExpress.XtraTreeList.ValidateNodeEventArgs"/> object that contains event data.
 
             </param>
+
+
+        </member>
+        <member name="T:DevExpress.XtraTreeList.ValidateNodeEventArgs">
+
+            <summary>
+                <para>Provides data for the <see cref="E:DevExpress.XtraTreeList.TreeList.ValidateNode"/> event.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraTreeList.ValidateNodeEventArgs.#ctor(DevExpress.XtraTreeList.Nodes.TreeListNode)">
+            <summary>
+                <para>Creates a new <see cref="T:DevExpress.XtraTreeList.ValidateNodeEventArgs"/> object.
+</para>
+            </summary>
+            <param name="node">
+		A <see cref="T:DevExpress.XtraTreeList.Nodes.TreeListNode"/> object representing the node. This value is assigned to the <see cref="P:DevExpress.XtraTreeList.NodeEventArgs.Node"/> property.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.ValidateNodeEventArgs.ErrorText">
+            <summary>
+                <para>Gets or sets the error description.
+</para>
+            </summary>
+            <value>A string representing the error description.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraTreeList.ValidateNodeEventArgs.Valid">
+            <summary>
+                <para>Gets or sets whether the node's validation succeeds.
+</para>
+            </summary>
+            <value><b>true</b> to accept node cell values; otherwise, <b>false</b>.
+</value>
 
 
         </member>
@@ -11912,9 +12016,10 @@ the tree structure due to adding, deleting and modifying nodes, until the <see c
         <member name="P:DevExpress.XtraTreeList.TreeList.BestFitVisibleOnly">
             <summary>
                 <para>Gets or sets a value specifying which nodes take part in calculations when applying best fit to columns.
+This property is obsolete. Use the <see cref="P:DevExpress.XtraTreeList.TreeListOptionsView.BestFitNodes"/> property instead.
 </para>
             </summary>
-            <value><b>true</b> to implement best fit taking into account only nodes not hidden within collapsed groups; otherwise <b>false</b>.
+            <value><b>true</b> to take into account only nodes not hidden within collapsed groups; otherwise <b>false</b>.
 </value>
 
 
@@ -11999,7 +12104,8 @@ the tree structure due to adding, deleting and modifying nodes, until the <see c
         </member>
         <member name="M:DevExpress.XtraTreeList.TreeList.CanIndentNodes(System.Collections.Generic.IEnumerable`1)">
             <summary>
-                <para> </para>
+                <para>For internal use.
+</para>
             </summary>
             <param name="nodes">
 		 
@@ -12010,7 +12116,8 @@ the tree structure due to adding, deleting and modifying nodes, until the <see c
         </member>
         <member name="M:DevExpress.XtraTreeList.TreeList.CanOutdentNodes(System.Collections.Generic.IEnumerable`1)">
             <summary>
-                <para> </para>
+                <para>For internal use.
+</para>
             </summary>
             <param name="nodes">
 		 
@@ -12156,6 +12263,13 @@ the tree structure due to adding, deleting and modifying nodes, until the <see c
             <summary>
                 <para>Removes all nodes from the XtraTreeList.
 </para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraTreeList.TreeList.ClearSelection">
+            <summary>
+                <para> </para>
             </summary>
 
 
@@ -12689,7 +12803,7 @@ the tree structure due to adding, deleting and modifying nodes, until the <see c
         </member>
         <member name="E:DevExpress.XtraTreeList.TreeList.CustomUnboundColumnData">
             <summary>
-                <para>Enables data to be provided to, and modified data to be saved from <b>visible</b> unbound columns.
+                <para>Allows you to provide data to unbound columns, and save their modified records to an external source.
 </para>
             </summary>
 
@@ -14460,7 +14574,8 @@ In versions 17.1 and newer, we suggest that you use the advanced in-code filteri
         </member>
         <member name="M:DevExpress.XtraTreeList.TreeList.IndentNodes(System.Collections.Generic.IEnumerable`1,System.Boolean)">
             <summary>
-                <para> </para>
+                <para>For internal use.
+</para>
             </summary>
             <param name="nodes">
 		 
@@ -15236,7 +15351,7 @@ In versions 17.1 and newer, we suggest that you use the advanced in-code filteri
         </member>
         <member name="P:DevExpress.XtraTreeList.TreeList.OptionsPrint">
             <summary>
-                <para>Provides access to the Tree List's options that affect how the control is printed and exported
+                <para>Provides access to the Tree List's options that affect how the control is printed and exported.
 </para>
             </summary>
             <value>A <see cref="T:DevExpress.XtraTreeList.TreeListOptionsPrint"/> object which contains the print and export options.
@@ -15266,7 +15381,8 @@ In versions 17.1 and newer, we suggest that you use the advanced in-code filteri
         </member>
         <member name="M:DevExpress.XtraTreeList.TreeList.OutdentNodes(System.Collections.Generic.IEnumerable`1,System.Boolean)">
             <summary>
-                <para> </para>
+                <para>For internal use.
+</para>
             </summary>
             <param name="nodes">
 		 
@@ -15289,7 +15405,8 @@ In versions 17.1 and newer, we suggest that you use the advanced in-code filteri
         </member>
         <member name="E:DevExpress.XtraTreeList.TreeList.PaintEx">
             <summary>
-                <para> </para>
+                <para>A DirectX-compatible method that replaces the standard <a href="https://msdn.microsoft.com/en-us/library/system.windows.forms.control.paint(v=vs.110).aspx">Control.Paint</a> method.
+</para>
             </summary>
 
 
@@ -16618,9 +16735,11 @@ Or, a <see cref="P:DevExpress.Utils.OptionsLayoutBase.FullLayout"/> object, to s
         </member>
         <member name="P:DevExpress.XtraTreeList.TreeList.UseDirectXPaint">
             <summary>
-                <para> </para>
+                <para>Gets or sets whether the DirectX Hardware Acceleration is enabled for the TreeList control.
+</para>
             </summary>
-            <value> </value>
+            <value>The <b>DefaultBoolean.Default</b> value is equivalent to <b>DefaultBoolean.True</b>.
+</value>
 
 
         </member>
@@ -17061,40 +17180,6 @@ When handling the <see cref="E:DevExpress.XtraTreeList.TreeList.GetSelectImage"/
 
 
         </member>
-        <member name="T:DevExpress.XtraTreeList.FocusedNodeChangedEventArgs">
-
-            <summary>
-                <para>Provides data for the <see cref="E:DevExpress.XtraTreeList.TreeList.FocusedNodeChanged"/> event.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraTreeList.FocusedNodeChangedEventArgs.#ctor(DevExpress.XtraTreeList.Nodes.TreeListNode,DevExpress.XtraTreeList.Nodes.TreeListNode)">
-            <summary>
-                <para>Initializes a new <see cref="T:DevExpress.XtraTreeList.FocusedNodeChangedEventArgs"/> class instance.
-</para>
-            </summary>
-            <param name="old">
-		The previous focused Tree List node.
-
-            </param>
-            <param name="node">
-		The current focused Tree List node.
-
-            </param>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.FocusedNodeChangedEventArgs.OldNode">
-            <summary>
-                <para>Gets the previously focused Tree List node.
-</para>
-            </summary>
-            <value>The previously focused Tree List node.
-</value>
-
-
-        </member>
         <member name="T:DevExpress.XtraTreeList.CompareNodeValuesEventHandler">
 
             <summary>
@@ -17363,74 +17448,6 @@ When handling the <see cref="E:DevExpress.XtraTreeList.TreeList.GetSelectImage"/
 		A <see cref="T:DevExpress.XtraTreeList.BeforeDragNodeEventArgs"/> class instance containing event data.
 
             </param>
-
-
-        </member>
-        <member name="T:DevExpress.XtraTreeList.BeforeDragNodeEventArgs">
-
-            <summary>
-                <para>Provides data for the <see cref="E:DevExpress.XtraTreeList.TreeList.BeforeDragNode"/> event.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraTreeList.BeforeDragNodeEventArgs.#ctor(DevExpress.XtraTreeList.Nodes.TreeListNode)">
-            <summary>
-                <para>Initializes a new <see cref="T:DevExpress.XtraTreeList.BeforeDragNodeEventArgs"/> class instance.
-</para>
-            </summary>
-            <param name="node">
-		A Tree List node.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraTreeList.BeforeDragNodeEventArgs.#ctor(System.Collections.Generic.IList`1,DevExpress.XtraTreeList.Nodes.TreeListNode)">
-            <summary>
-                <para>Initializes a new instance of the BeforeDragNodeEventArgs class with the specified settings.
-</para>
-            </summary>
-            <param name="nodes">
-		A list of nodes that are about to be dragged.
-
-
-            </param>
-            <param name="node">
-		The node that is focused when a drag-and-drop operation starts.
-
-
-            </param>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.BeforeDragNodeEventArgs.CanDrag">
-            <summary>
-                <para>Gets or sets a value indicating whether a Tree List node can be dragged.
-</para>
-            </summary>
-            <value><b>true</b> if a Tree List node can be dragged; otherwise, <b>false</b>.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.BeforeDragNodeEventArgs.Nodes">
-            <summary>
-                <para>Gets the list of nodes that are about to be dragged.
-</para>
-            </summary>
-            <value>The list of nodes that are about to be dragged.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraTreeList.BeforeDragNodeEventArgs.PreviewImage">
-            <summary>
-                <para>Gets or sets the image displayed near the mouse cursor during a drag-and-drop operation.
-</para>
-            </summary>
-            <value>An <see cref="Image"/> object specifying the image displayed near the mouse cursor during a drag-and-drop operation.
-</value>
 
 
         </member>

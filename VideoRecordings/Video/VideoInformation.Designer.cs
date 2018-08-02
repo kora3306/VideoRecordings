@@ -63,6 +63,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
+            this.reffolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -129,11 +130,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.scanning_ToolStripMenuItem,
             this.ToolStripMenuItem,
+            this.reffolderToolStripMenuItem,
             this.ModifyToolStripMenuItem,
             this.DELToolStripMenuItem,
             this.RefToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 158);
             // 
             // scanning_ToolStripMenuItem
             // 
@@ -530,6 +532,13 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "The Bezier";
             // 
+            // reffolderToolStripMenuItem
+            // 
+            this.reffolderToolStripMenuItem.Name = "reffolderToolStripMenuItem";
+            this.reffolderToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.reffolderToolStripMenuItem.Text = "重新扫描文件夹";
+            this.reffolderToolStripMenuItem.Click += new System.EventHandler(this.reffolderToolStripMenuItem_Click);
+            // 
             // VideoInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -591,5 +600,6 @@
         private System.Windows.Forms.ToolStripMenuItem RefToolStripMenuItem;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripMenuItem reffolderToolStripMenuItem;
     }
 }

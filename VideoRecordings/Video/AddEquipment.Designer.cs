@@ -68,7 +68,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(5, 6);
+            this.label1.Location = new System.Drawing.Point(5, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 21);
             this.label1.TabIndex = 0;
@@ -77,9 +77,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(572, 3);
+            this.button1.Location = new System.Drawing.Point(584, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 28);
+            this.button1.Size = new System.Drawing.Size(87, 28);
             this.button1.TabIndex = 2;
             this.button1.Text = "确认";
             this.button1.UseVisualStyleBackColor = true;

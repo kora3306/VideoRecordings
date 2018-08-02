@@ -32,48 +32,6 @@
 
 
         </member>
-        <member name="T:DevExpress.XtraPrinting.Preview.DefaultPrintDialogRunner">
-
-            <summary>
-                <para>Specifies a <b>Print</b> dialog to select a printer, specify the print options (number of copies, page range, and paper source) and print the document.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraPrinting.Preview.DefaultPrintDialogRunner.#ctor">
-            <summary>
-                <para>Initializes a new instance of the DefaultPrintDialogRunner class with default settings.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="M:DevExpress.XtraPrinting.Preview.DefaultPrintDialogRunner.Run(System.Drawing.Printing.PrintDocument,DevExpress.LookAndFeel.UserLookAndFeel,System.Windows.Forms.IWin32Window,DevExpress.XtraPrinting.Preview.PrintDialogAllowFlags)">
-            <summary>
-                <para>Invokes a customized <b>Print</b> dialog.
-</para>
-            </summary>
-            <param name="document">
-		A <see cref="T:System.Drawing.Printing.PrintDocument"/>.
-
-            </param>
-            <param name="lookAndFeel">
-		A <see cref="T:DevExpress.LookAndFeel.UserLookAndFeel"/>.
-
-            </param>
-            <param name="owner">
-		An object implementing the <see cref="T:System.Windows.Forms.IWin32Window"/> interface that is the dialog owner.
-
-            </param>
-            <param name="flags">
-		A <see cref="T:DevExpress.XtraPrinting.Preview.PrintDialogAllowFlags"/> enumeration value that enables editing of specific settings in the invoked dialog.
-
-            </param>
-            <returns>A <see cref="T:System.Windows.Forms.DialogResult"/> enumeration value that specifies identifiers to indicate the return value of a dialog box.
-</returns>
-
-
-        </member>
         <member name="T:DevExpress.XtraPrinting.Preview.RibbonImageCollection">
 
             <summary>
@@ -888,6 +846,223 @@
             </param>
             <param name="paperKind">
 		A <see cref="T:System.Drawing.Printing.PaperKind"/> enumeration value, specifying the paper kind. The corresponding paper size is selected from the list of available paper sizes and assigned to the <see cref="P:DevExpress.XtraPrinting.Preview.PageSetupEditorForm.PaperSize"/> property. If no matching paper size is found, it is selected based on the specified <i>pageSize</i> value.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.XtraReports.UI.XtraReportPreviewExtensions">
+
+            <summary>
+                <para>Provides extension methods that enable you to show a report in a WinForms Print Preview.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.AssignPrintTool(DevExpress.XtraReports.IReport,DevExpress.XtraReports.UI.ReportPrintTool)">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+            <param name="report">
+		 
+
+            </param>
+            <param name="printTool">
+		 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ClosePreview(DevExpress.XtraReports.IReport)">
+            <summary>
+                <para>Closes the standard Print Preview form in which the report document is shown.
+</para>
+            </summary>
+            <param name="report">
+		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.CloseRibbonPreview(DevExpress.XtraReports.IReport)">
+            <summary>
+                <para>Closes the ribbon-based Print Preview form in which the report document is shown.
+</para>
+            </summary>
+            <param name="report">
+		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.Print(DevExpress.XtraReports.IReport)">
+            <summary>
+                <para>Prints the report document. 
+</para>
+            </summary>
+            <param name="report">
+		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.Print(DevExpress.XtraReports.IReport,System.String)">
+            <summary>
+                <para>Prints the report document on the specified printer. 
+</para>
+            </summary>
+            <param name="report">
+		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
+
+            </param>
+            <param name="printerName">
+		A <see cref="T:System.String"/> object that specifies the name of the printer on which the current document should be printed. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.PrintDialog(DevExpress.XtraReports.IReport)">
+            <summary>
+                <para>Runs the <b>Print</b> dialog to select a printer, specify the print options and print the document. 
+
+</para>
+            </summary>
+            <param name="report">
+		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
+
+            </param>
+            <returns>A <see cref="T:System.Windows.Forms.DialogResult"/> enumeration value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowPageSetupDialog(DevExpress.XtraReports.IReport)">
+            <summary>
+                <para>Displays the <b>Page Setup</b> dialog that allows users to customize page settings.
+</para>
+            </summary>
+            <param name="report">
+		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
+
+            </param>
+            <returns>A <see cref="T:System.Windows.Forms.DialogResult"/> enumeration value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowPreview(DevExpress.XtraReports.IReport)">
+            <summary>
+                <para>Opens the report document in the standard Print Preview form. 
+</para>
+            </summary>
+            <param name="report">
+		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowPreview(DevExpress.XtraReports.IReport,DevExpress.LookAndFeel.UserLookAndFeel)">
+            <summary>
+                <para>Opens the report document in the standard Print Preview form with the specified look and feel settings. 
+</para>
+            </summary>
+            <param name="report">
+		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
+
+            </param>
+            <param name="lookAndFeel">
+		A <see cref="T:DevExpress.LookAndFeel.UserLookAndFeel"/> object which specifies the look and feel settings applied to Print Preview.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowPreviewDialog(DevExpress.XtraReports.IReport)">
+            <summary>
+                <para>Opens the report document in the standard Print Preview form modally. 
+</para>
+            </summary>
+            <param name="report">
+		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowPreviewDialog(DevExpress.XtraReports.IReport,DevExpress.LookAndFeel.UserLookAndFeel)">
+            <summary>
+                <para>Opens the report document in the standard Print Preview form modally with the specified look and feel settings. 
+</para>
+            </summary>
+            <param name="report">
+		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
+
+            </param>
+            <param name="lookAndFeel">
+		A <see cref="T:DevExpress.LookAndFeel.UserLookAndFeel"/> object which specifies the look and feel settings applied to Print Preview.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowRibbonPreview(DevExpress.XtraReports.IReport)">
+            <summary>
+                <para>Opens the report document in the ribbon-based Print Preview form. 
+</para>
+            </summary>
+            <param name="report">
+		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowRibbonPreview(DevExpress.XtraReports.IReport,DevExpress.LookAndFeel.UserLookAndFeel)">
+            <summary>
+                <para>Opens the report document in the ribbon-based Print Preview form with the specified look and feel settings. 
+</para>
+            </summary>
+            <param name="report">
+		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
+
+            </param>
+            <param name="lookAndFeel">
+		A <see cref="T:DevExpress.LookAndFeel.UserLookAndFeel"/> object which specifies the look and feel settings applied to Print Preview.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowRibbonPreviewDialog(DevExpress.XtraReports.IReport)">
+            <summary>
+                <para>Opens the report document in the ribbon-based Print Preview form modally. 
+</para>
+            </summary>
+            <param name="report">
+		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowRibbonPreviewDialog(DevExpress.XtraReports.IReport,DevExpress.LookAndFeel.UserLookAndFeel)">
+            <summary>
+                <para>Opens the report document in the ribbon-based Print Preview form modally with the specified look and feel settings. 
+</para>
+            </summary>
+            <param name="report">
+		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
+
+            </param>
+            <param name="lookAndFeel">
+		A <see cref="T:DevExpress.LookAndFeel.UserLookAndFeel"/> object which specifies the look and feel settings applied to Print Preview.
 
             </param>
 
@@ -2580,6 +2755,48 @@
 
 
         </member>
+        <member name="T:DevExpress.XtraPrinting.Preview.DefaultPrintDialogRunner">
+
+            <summary>
+                <para>Specifies a <b>Print</b> dialog to select a printer, specify the print options (number of copies, page range, and paper source) and print the document.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraPrinting.Preview.DefaultPrintDialogRunner.#ctor">
+            <summary>
+                <para>Initializes a new instance of the DefaultPrintDialogRunner class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPrinting.Preview.DefaultPrintDialogRunner.Run(System.Drawing.Printing.PrintDocument,DevExpress.LookAndFeel.UserLookAndFeel,System.Windows.Forms.IWin32Window,DevExpress.XtraPrinting.Preview.PrintDialogAllowFlags)">
+            <summary>
+                <para>Invokes a customized <b>Print</b> dialog.
+</para>
+            </summary>
+            <param name="document">
+		A <see cref="T:System.Drawing.Printing.PrintDocument"/>.
+
+            </param>
+            <param name="lookAndFeel">
+		A <see cref="T:DevExpress.LookAndFeel.UserLookAndFeel"/>.
+
+            </param>
+            <param name="owner">
+		An object implementing the <see cref="T:System.Windows.Forms.IWin32Window"/> interface that is the dialog owner.
+
+            </param>
+            <param name="flags">
+		A <see cref="T:DevExpress.XtraPrinting.Preview.PrintDialogAllowFlags"/> enumeration value that enables editing of specific settings in the invoked dialog.
+
+            </param>
+            <returns>A <see cref="T:System.Windows.Forms.DialogResult"/> enumeration value that specifies identifiers to indicate the return value of a dialog box.
+</returns>
+
+
+        </member>
         <member name="T:DevExpress.XtraPrinting.Preview.PrintPreviewFormExBase">
 
             <summary>
@@ -2952,223 +3169,6 @@
             <value>A <see cref="T:DevExpress.XtraPrinting.Preview.PrintBarManager"/> object.
 
 </value>
-
-
-        </member>
-        <member name="T:DevExpress.XtraReports.UI.XtraReportPreviewExtensions">
-
-            <summary>
-                <para>Provides extension methods that enable you to show a report in a WinForms Print Preview.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.AssignPrintTool(DevExpress.XtraReports.IReport,DevExpress.XtraReports.UI.ReportPrintTool)">
-            <summary>
-                <para>For internal use.
-</para>
-            </summary>
-            <param name="report">
-		 
-
-            </param>
-            <param name="printTool">
-		 
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ClosePreview(DevExpress.XtraReports.IReport)">
-            <summary>
-                <para>Closes the standard Print Preview form in which the report document is shown.
-</para>
-            </summary>
-            <param name="report">
-		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.CloseRibbonPreview(DevExpress.XtraReports.IReport)">
-            <summary>
-                <para>Closes the ribbon-based Print Preview form in which the report document is shown.
-</para>
-            </summary>
-            <param name="report">
-		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.Print(DevExpress.XtraReports.IReport)">
-            <summary>
-                <para>Prints the report document. 
-</para>
-            </summary>
-            <param name="report">
-		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.Print(DevExpress.XtraReports.IReport,System.String)">
-            <summary>
-                <para>Prints the report document on the specified printer. 
-</para>
-            </summary>
-            <param name="report">
-		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
-
-            </param>
-            <param name="printerName">
-		A <see cref="T:System.String"/> object that specifies the name of the printer on which the current document should be printed. 
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.PrintDialog(DevExpress.XtraReports.IReport)">
-            <summary>
-                <para>Runs the <b>Print</b> dialog to select a printer, specify the print options and print the document. 
-
-</para>
-            </summary>
-            <param name="report">
-		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
-
-            </param>
-            <returns>A <see cref="T:System.Windows.Forms.DialogResult"/> enumeration value.
-</returns>
-
-
-        </member>
-        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowPageSetupDialog(DevExpress.XtraReports.IReport)">
-            <summary>
-                <para>Displays the <b>Page Setup</b> dialog that allows users to customize page settings.
-</para>
-            </summary>
-            <param name="report">
-		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
-
-            </param>
-            <returns>A <see cref="T:System.Windows.Forms.DialogResult"/> enumeration value.
-</returns>
-
-
-        </member>
-        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowPreview(DevExpress.XtraReports.IReport)">
-            <summary>
-                <para>Opens the report document in the standard Print Preview form. 
-</para>
-            </summary>
-            <param name="report">
-		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowPreview(DevExpress.XtraReports.IReport,DevExpress.LookAndFeel.UserLookAndFeel)">
-            <summary>
-                <para>Opens the report document in the standard Print Preview form with the specified look and feel settings. 
-</para>
-            </summary>
-            <param name="report">
-		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
-
-            </param>
-            <param name="lookAndFeel">
-		A <see cref="T:DevExpress.LookAndFeel.UserLookAndFeel"/> object which specifies the look and feel settings applied to Print Preview.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowPreviewDialog(DevExpress.XtraReports.IReport)">
-            <summary>
-                <para>Opens the report document in the standard Print Preview form modally. 
-</para>
-            </summary>
-            <param name="report">
-		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowPreviewDialog(DevExpress.XtraReports.IReport,DevExpress.LookAndFeel.UserLookAndFeel)">
-            <summary>
-                <para>Opens the report document in the standard Print Preview form modally with the specified look and feel settings. 
-</para>
-            </summary>
-            <param name="report">
-		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
-
-            </param>
-            <param name="lookAndFeel">
-		A <see cref="T:DevExpress.LookAndFeel.UserLookAndFeel"/> object which specifies the look and feel settings applied to Print Preview.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowRibbonPreview(DevExpress.XtraReports.IReport)">
-            <summary>
-                <para>Opens the report document in the ribbon-based Print Preview form. 
-</para>
-            </summary>
-            <param name="report">
-		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowRibbonPreview(DevExpress.XtraReports.IReport,DevExpress.LookAndFeel.UserLookAndFeel)">
-            <summary>
-                <para>Opens the report document in the ribbon-based Print Preview form with the specified look and feel settings. 
-</para>
-            </summary>
-            <param name="report">
-		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
-
-            </param>
-            <param name="lookAndFeel">
-		A <see cref="T:DevExpress.LookAndFeel.UserLookAndFeel"/> object which specifies the look and feel settings applied to Print Preview.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowRibbonPreviewDialog(DevExpress.XtraReports.IReport)">
-            <summary>
-                <para>Opens the report document in the ribbon-based Print Preview form modally. 
-</para>
-            </summary>
-            <param name="report">
-		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraReports.UI.XtraReportPreviewExtensions.ShowRibbonPreviewDialog(DevExpress.XtraReports.IReport,DevExpress.LookAndFeel.UserLookAndFeel)">
-            <summary>
-                <para>Opens the report document in the ribbon-based Print Preview form modally with the specified look and feel settings. 
-</para>
-            </summary>
-            <param name="report">
-		An object implementing the <see cref="T:DevExpress.XtraReports.IReport"/> interface.
-
-            </param>
-            <param name="lookAndFeel">
-		A <see cref="T:DevExpress.LookAndFeel.UserLookAndFeel"/> object which specifies the look and feel settings applied to Print Preview.
-
-            </param>
 
 
         </member>
@@ -3853,9 +3853,11 @@
         </member>
         <member name="P:DevExpress.XtraPrinting.Control.PrintControl.DockingViewStyle">
             <summary>
-                <para> </para>
+                <para>Specifies the View style for dock panels. 
+</para>
             </summary>
-            <value> </value>
+            <value>An enumeration value that specifies the View style.
+</value>
 
 
         </member>
@@ -3886,6 +3888,14 @@
             </summary>
             <value><b>true</b>, if the Document Map is visible; otherwise, <b>false</b>.
 </value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPrinting.Control.PrintControl.EditingFieldsHighlighted">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
 
 
         </member>
@@ -3979,6 +3989,17 @@
             </param>
             <returns>A <see cref="T:System.Drawing.Rectangle"/> structure, specifying the brick's location and size. 
 </returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPrinting.Control.PrintControl.GetDockPanelByCommand(DevExpress.XtraPrinting.PrintingSystemCommand)">
+            <summary>
+                <para> </para>
+            </summary>
+            <param name="command">
+		 
+            </param>
+            <returns> </returns>
 
 
         </member>

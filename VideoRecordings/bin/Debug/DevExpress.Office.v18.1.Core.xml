@@ -4,6 +4,102 @@
         <name>DevExpress.Office.v18.1.Core</name>
     </assembly>
     <members>
+        <member name="T:DevExpress.Office.Utils.OfficeImageFormat">
+
+            <summary>
+                <para>Lists supported image formats.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Bmp">
+            <summary>
+                <para>Specifies the bitmap (BMP) image format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Emf">
+            <summary>
+                <para>Specifies the enhanced metafile (EMF) image format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Exif">
+            <summary>
+                <para>Specifies the Exchangeable Image File (Exif) format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Gif">
+            <summary>
+                <para>Specifies the Graphics Interchange Format (GIF) image format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Icon">
+            <summary>
+                <para>Specifies the Windows icon image format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Jpeg">
+            <summary>
+                <para>Specifies the Joint Photographic Experts Group (JPEG) image format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.MemoryBmp">
+            <summary>
+                <para>Specifies a memory bitmap image format. 
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.None">
+            <summary>
+                <para>Unspecified format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Png">
+            <summary>
+                <para>Specifies the W3C Portable Network Graphics (PNG) image format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Tiff">
+            <summary>
+                <para>Specifies the Tagged Image File Format (TIFF) image format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Wmf">
+            <summary>
+                <para>Specifies the Windows metafile (WMF) image format.
+</para>
+            </summary>
+
+
+        </member>
         <member name="T:DevExpress.Office.Options.DataSourceTypes">
 
             <summary>
@@ -52,6 +148,140 @@
 
 
         </member>
+        <member name="T:DevExpress.Office.HyperlinkUriHelper">
+
+            <summary>
+                <para>Helper class to manage hyperlinks. 
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Office.HyperlinkUriHelper.ConvertFromHyperlinkUri(System.String)">
+            <summary>
+                <para>Creates a hyperlink from a hyperlink URI. 
+</para>
+            </summary>
+            <param name="uri">
+		A string value that is target URI.
+
+            </param>
+            <returns>The resulting hyperlink.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.HyperlinkUriHelper.ConvertRelativePathToAbsolute(System.String,System.String)">
+            <summary>
+                <para>Converts the hyperlink's relative path to absolute. 
+</para>
+            </summary>
+            <param name="uri">
+		 
+            </param>
+            <param name="baseUri">
+		 
+            </param>
+            <returns>A string value that is an absolute URI path. 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.HyperlinkUriHelper.ConvertToHyperlinkUri(System.String)">
+            <summary>
+                <para>Creates a hyperlink to a hyperlink URI. 
+</para>
+            </summary>
+            <param name="uri">
+		A target hyperlink. 
+
+            </param>
+            <returns>The resulting URI. 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.HyperlinkUriHelper.ConvertToUrl(System.String)">
+            <summary>
+                <para>Converts URI to URL. 
+</para>
+            </summary>
+            <param name="uri">
+		 
+            </param>
+            <returns> </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.HyperlinkUriHelper.EnsureUriIsValid(System.String)">
+            <summary>
+                <para>Check whether the hyperlink URI is valid. 
+</para>
+            </summary>
+            <param name="uri">
+		A hyperlink Uri that needs to be checked. 
+
+            </param>
+            <returns>A string value that is the valid Uri. 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.HyperlinkUriHelper.EscapeHyperlinkFieldParameterString(System.String)">
+            <summary>
+                <para>Replaces the <b>"\\"</b> escape character to normal backslashes.  
+</para>
+            </summary>
+            <param name="value">
+		a string value that needs to be corrected. 
+
+            </param>
+            <returns>The corrected string. 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.HyperlinkUriHelper.IsLocalPath(System.String)">
+            <summary>
+                <para>Check whether the hyperlink's path is local. 
+</para>
+            </summary>
+            <param name="uri">
+		A target hyperlink's URI.
+
+            </param>
+            <returns><b>true</b>, if the path is local; otherwise, <b>false</b>.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.HyperlinkUriHelper.IsRelativePath(System.String)">
+            <summary>
+                <para>Checks whether the hyperlink's path is relative. 
+</para>
+            </summary>
+            <param name="uri">
+		A target hyperlink's URI.
+
+            </param>
+            <returns><b>true</b>, if the path is relative; otherwise, <b>false</b>.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.HyperlinkUriHelper.PrepareHyperlinkTooltipQuotes(System.String)">
+            <summary>
+                <para>Corrects hyperlink tooltips that contain double quotes. 
+</para>
+            </summary>
+            <param name="value">
+		The tooltip that needs to be corrected. 
+
+            </param>
+            <returns>The correct hyperlink tooltip. 
+</returns>
+
+
+        </member>
         <member name="T:DevExpress.Office.Drawing.TileFlipType">
 
             <summary>
@@ -93,6 +323,25 @@
 
 </para>
             </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Office.AzureCompatibility">
+
+            <summary>
+                <para>Hidden. Use the <see cref="T:DevExpress.Utils.AzureCompatibility"/> class instead.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Office.AzureCompatibility.Enable">
+            <summary>
+                <para>Use the <see cref="P:DevExpress.Utils.AzureCompatibility.Enable"/> property instead. 
+</para>
+            </summary>
+            <value><b>true</b> if the document export is Azure-compatible; otherwise <b>false</b>.
+</value>
 
 
         </member>
@@ -226,6 +475,58 @@
 
 
         </member>
+        <member name="T:DevExpress.Office.Services.IUriProvider">
+
+            <summary>
+                <para>Defines the provider of the locations for external objects in a document export.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Office.Services.IUriProvider.CreateCssUri(System.String,System.String,System.String)">
+            <summary>
+                <para>Creates URI for CSS data.
+</para>
+            </summary>
+            <param name="rootUri">
+		A string that specifies the root URI.
+
+            </param>
+            <param name="styleText">
+		A string containing CSS definitions for which the URI is created.
+
+            </param>
+            <param name="relativeUri">
+		A string that specifies the relative part of the URI (path relative to the root).
+
+            </param>
+            <returns>A string that is the URI of CSS data.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Services.IUriProvider.CreateImageUri(System.String,DevExpress.Office.Utils.OfficeImage,System.String)">
+            <summary>
+                <para>Creates an image URI.
+</para>
+            </summary>
+            <param name="rootUri">
+		A string that specifies the root URI.
+
+            </param>
+            <param name="image">
+		An <see cref="T:DevExpress.Office.Utils.OfficeImage"/> object for which the URI is created.
+
+            </param>
+            <param name="relativeUri">
+		A string that specifies the relative part of the URI (path relative to the root).
+
+            </param>
+            <returns>A string that is the image URI.
+</returns>
+
+
+        </member>
         <member name="T:DevExpress.Office.Services.IUriProviderService">
 
             <summary>
@@ -348,58 +649,6 @@
                 <para>Specifies points as measurement units. 
 </para>
             </summary>
-
-
-        </member>
-        <member name="T:DevExpress.Office.Services.IUriProvider">
-
-            <summary>
-                <para>Defines the provider of the locations for external objects in a document export.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.Office.Services.IUriProvider.CreateCssUri(System.String,System.String,System.String)">
-            <summary>
-                <para>Creates URI for CSS data.
-</para>
-            </summary>
-            <param name="rootUri">
-		A string that specifies the root URI.
-
-            </param>
-            <param name="styleText">
-		A string containing CSS definitions for which the URI is created.
-
-            </param>
-            <param name="relativeUri">
-		A string that specifies the relative part of the URI (path relative to the root).
-
-            </param>
-            <returns>A string that is the URI of CSS data.
-</returns>
-
-
-        </member>
-        <member name="M:DevExpress.Office.Services.IUriProvider.CreateImageUri(System.String,DevExpress.Office.Utils.OfficeImage,System.String)">
-            <summary>
-                <para>Creates an image URI.
-</para>
-            </summary>
-            <param name="rootUri">
-		A string that specifies the root URI.
-
-            </param>
-            <param name="image">
-		An <see cref="T:DevExpress.Office.Utils.OfficeImage"/> object for which the URI is created.
-
-            </param>
-            <param name="relativeUri">
-		A string that specifies the relative part of the URI (path relative to the root).
-
-            </param>
-            <returns>A string that is the image URI.
-</returns>
 
 
         </member>
@@ -1064,102 +1313,6 @@
         <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Undefined">
             <summary>
                 <para>The pixel format is undefined.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="T:DevExpress.Office.Utils.OfficeImageFormat">
-
-            <summary>
-                <para>Lists supported image formats.
-</para>
-            </summary>
-
-        </member>
-        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Bmp">
-            <summary>
-                <para>Specifies the bitmap (BMP) image format.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Emf">
-            <summary>
-                <para>Specifies the enhanced metafile (EMF) image format.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Exif">
-            <summary>
-                <para>Specifies the Exchangeable Image File (Exif) format.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Gif">
-            <summary>
-                <para>Specifies the Graphics Interchange Format (GIF) image format.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Icon">
-            <summary>
-                <para>Specifies the Windows icon image format.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Jpeg">
-            <summary>
-                <para>Specifies the Joint Photographic Experts Group (JPEG) image format.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.MemoryBmp">
-            <summary>
-                <para>Specifies a memory bitmap image format. 
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.None">
-            <summary>
-                <para>Unspecified format.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Png">
-            <summary>
-                <para>Specifies the W3C Portable Network Graphics (PNG) image format.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Tiff">
-            <summary>
-                <para>Specifies the Tagged Image File Format (TIFF) image format.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Wmf">
-            <summary>
-                <para>Specifies the Windows metafile (WMF) image format.
 </para>
             </summary>
 
@@ -3051,25 +3204,6 @@
             </param>
             <returns>A <see cref="T:System.Single"/> value.
 </returns>
-
-
-        </member>
-        <member name="T:DevExpress.Office.AzureCompatibility">
-
-            <summary>
-                <para>Hidden. Use the <see cref="T:DevExpress.Utils.AzureCompatibility"/> class instead.
-
-</para>
-            </summary>
-
-        </member>
-        <member name="P:DevExpress.Office.AzureCompatibility.Enable">
-            <summary>
-                <para>Use the <see cref="P:DevExpress.Utils.AzureCompatibility.Enable"/> property instead. 
-</para>
-            </summary>
-            <value><b>true</b> if the document export is Azure-compatible; otherwise <b>false</b>.
-</value>
 
 
         </member>

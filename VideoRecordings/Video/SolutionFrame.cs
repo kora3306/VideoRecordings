@@ -43,16 +43,14 @@ namespace VideoRecordings.Video
         {
             try
             {
-                int interval = int.Parse(textBox_interval.Text);
-                //WaitFormEx.Run(() =>
-                //{
-                    bool win = SolutionOfTheFrame(video.Uri, video.Id, interval);
-                    if (win)
-                    {
-                        VideoPlay play = Methods.GetNewImages(video.Id);
-                        OnRefresh(play);                    
-                    }
-                //});
+                if(!int.TryParse(textBox_interval.Text.Trim(),out int interval))
+                    return;
+                bool win = SolutionOfTheFrame(video.Uri, video.Id, interval);
+                if (win)
+                {
+                    VideoPlay play = Methods.GetNewImages(video.Id);
+                    OnRefresh(play);
+                }
                 this.Close();
             }
             catch (Exception)
@@ -65,12 +63,12 @@ namespace VideoRecordings.Video
 
         private bool SolutionOfTheFrame(string uri, int id, int step)
         {
-            string url = $"http://192.168.1.224:8081/deframe";
-            Dictionary<string, object> serialize = new Dictionary<string, object>();
-            serialize.Add("video_uri", uri);
-            serialize.Add("video_id", id);
-            serialize.Add("step", step);
-            string json = JsonConvert.SerializeObject(serialize);
+            //string url = $"http://192.168.1.224:8081/deframe";
+            string url = Program.Urlpath + $"/deframe";
+            List<Solution> jsonDic= new List<Solution>();
+            Solution solution= new Solution(uri,id,step);
+            jsonDic.Add(solution);
+            string json = JsonConvert.SerializeObject(jsonDic);
             JObject obj = WebClinetHepler.Post_New(url, json);
             if (obj == null)
             {

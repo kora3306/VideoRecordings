@@ -325,6 +325,17 @@ namespace VideoRecordings
         {
             GetInformationShow();
         }
+
+        private void reffolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (GetData.RefreshFolder(focusedfolder.Id))
+            {
+                MessageBox.Show("重新扫描成功");
+                return; 
+            }
+            MessageBox.Show("重新扫描失败");
+            GetInformationShow();
+        }
     }
 
 }

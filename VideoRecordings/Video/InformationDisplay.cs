@@ -40,6 +40,7 @@ namespace VideoRecordings
         MyLabel MyLabel;
         int total = 0;
         int recorded = 0;
+        int index = 0;
         MyEquipment equipment;
         public delegate void MyDelegate();
         public event MyDelegate MyEvent;
@@ -465,7 +466,7 @@ namespace VideoRecordings
             unfold = true;
             gridView1.RefreshData();
             OnSave();
-            Program.log.Error($"删除{transmissionvideo.Id}", new Exception($"{url}"));
+            //Program.log.Error($"删除{transmissionvideo.Id}", new Exception($"{url}"));
         }
 
         /// <summary>
@@ -502,9 +503,16 @@ namespace VideoRecordings
 
         private void 清除解帧信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (GetSelectRow() == null) return;
             if (MessageBox.Show("是否删除解帧文件夹？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
-                return;
-            MessageBox.Show("已经删除");
+                return;           
+            List<int> ids = GetSelectRow().Select(t => t.Id).ToList();
+            if (!GetData.DeleteSolution(ids))
+            {
+                MessageBox.Show("清除解帧信息失败");
+            }
+            bindingSource1.DataSource = null;
+            PostVideos();
         }
 
         private void ExeclToolStripMenuItem_Click(object sender, EventArgs e)
@@ -675,14 +683,8 @@ namespace VideoRecordings
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!(sender is ToolStripMenuItem item)) return;
-            int[] rownumber = this.gridView1.GetSelectedRows();
-            if (rownumber.Count() == 0) return;
-            List<VideoPlay> videos = new List<VideoPlay>();
-            foreach (var it in rownumber)
-            {
-                VideoPlay video = (VideoPlay)gridView1.GetRow(it);
-                videos.Add(video);
-            }
+            List<VideoPlay> videos = GetSelectRow();
+            if (videos == null) return;
             int id = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == item.Text.Split(':').Last()).Key;
             List<int> ids = videos.Select(t => t.Id).ToList();
             if (!GetData.AddVideoInEquipment(id, ids))
@@ -710,14 +712,8 @@ namespace VideoRecordings
         private void OUTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!(sender is ToolStripMenuItem item)) return;
-            int[] rownumber = this.gridView1.GetSelectedRows();
-            if (rownumber.Count() == 0) return;
-            List<VideoPlay> videos = new List<VideoPlay>();
-            foreach (var it in rownumber)
-            {
-                VideoPlay video = (VideoPlay)gridView1.GetRow(it);
-                videos.Add(video);
-            }
+            List<VideoPlay> videos = GetSelectRow();
+            if(videos==null) return;
             Dictionary<string, List<VideoPlay>> VideoDic = new Dictionary<string, List<VideoPlay>>();
             foreach (VideoPlay video in videos)
             {
@@ -751,14 +747,8 @@ namespace VideoRecordings
         public void AddTheLabels(List<string> labels)
         {
             List<int> ids = MyLabel.GetIds(labels);
-            int[] rownumber = this.gridView1.GetSelectedRows();
-            if (rownumber.Count() == 0) return;
-            List<VideoPlay> videos = new List<VideoPlay>();
-            foreach (var it in rownumber)
-            {
-                VideoPlay video = (VideoPlay)gridView1.GetRow(it);
-                videos.Add(video);
-            }
+            List<VideoPlay> videos = GetSelectRow();
+            if (videos == null) return;
             List<int> ids1 = videos.Select(t => t.Id).ToList();
             if (!GetData.BatchAddLabels(ids1, ids))
             {
@@ -811,6 +801,41 @@ namespace VideoRecordings
             }
             MessageBox.Show("删除失败");
 
+        }
+
+        private void gridView1_CustomDrawGroupRow(object sender, DevExpress.XtraGrid.Views.Base.RowObjectCustomDrawEventArgs e)
+        {
+            GridGroupRowInfo GridGroupRowInfo = e.Info as GridGroupRowInfo;
+            GridGroupRowInfo.GroupText = $"({(-e.RowHandle).ToString()})通道信息：" + GridGroupRowInfo.EditValue.ToString();
+        }
+
+        private List<VideoPlay> GetSelectRow()
+        {
+            int[] rownumber = gridView1.GetSelectedRows();
+            if (rownumber.Count() == 0) return null;
+            List<VideoPlay> videos = new List<VideoPlay>();
+            foreach (var it in rownumber)
+            {
+                if (it < 0) continue;
+                VideoPlay video = (VideoPlay)gridView1.GetRow(it);
+                videos.Add(video);
+            }
+            return videos;
+        }
+
+        private void batchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<VideoPlay> videos = GetSelectRow();
+            if (videos == null) return;
+            BatchSolution batch= new BatchSolution(videos);
+            batch.MyRefreshEvent+= new BatchSolution.MyDeletgate(PostVideos);
+            batch.ShowDialog();
+        }
+
+        private void refToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bindingSource1.DataSource = null;
+            PostVideos();
         }
     }
 }

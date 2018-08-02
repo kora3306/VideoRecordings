@@ -101,6 +101,7 @@ namespace VideoRecordings
         {
             isFirst = true;
             iscollpase = false;
+            imageurl.Clear();
             gridView1.OptionsBehavior.AutoExpandAllGroups = false;
             RefreshImage();
         }
@@ -214,7 +215,6 @@ namespace VideoRecordings
                 bindingSource1.DataSource = videoplays;
                 return;
             }
-            bindingSource1.DataSource = null;
             bindingSource1.DataSource = videoplays;
             if (isFirst)
             {
@@ -999,6 +999,7 @@ namespace VideoRecordings
             List<VideoPlay> videos = new List<VideoPlay>();
             foreach (var it in rownumber)
             {
+                if (it < 0) continue;
                 VideoPlay video = (VideoPlay)gridView1.GetRow(it);
                 videos.Add(video);
             }
@@ -1038,6 +1039,7 @@ namespace VideoRecordings
             List<VideoPlay> videos = new List<VideoPlay>();
             foreach (var it in rownumber)
             {
+                if (it < 0) continue;
                 VideoPlay video = (VideoPlay)gridView1.GetRow(it);
                 videos.Add(video);
             }
@@ -1113,6 +1115,44 @@ namespace VideoRecordings
             gridView1.EndDataUpdate();//结束数据的编辑
             gridView1.EndUpdate();   //结束视图的编辑
             AddItems();
+        }
+
+        private void batchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int[] rownumber = gridView1.GetSelectedRows();
+            if (rownumber.Count() == 0) return;
+            List<VideoPlay> videos = new List<VideoPlay>();
+            foreach (var it in rownumber)
+            {
+                if (it < 0) continue;
+                VideoPlay video = (VideoPlay)gridView1.GetRow(it);
+                videos.Add(video);
+            }
+            BatchSolution batch = new BatchSolution(videos);
+            batch.MyRefreshEvent += new BatchSolution.MyDeletgate(RefreshImage);
+            batch.Show();
+        }
+
+        private void DeleteSolutionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int[] rownumber = gridView1.GetSelectedRows();
+            if (rownumber.Count() == 0) return;
+            List<VideoPlay> videos = new List<VideoPlay>();
+            if (MessageBox.Show("是否删除解帧文件夹？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
+                return;
+            foreach (var it in rownumber)
+            {
+                if(it<0) continue;
+                VideoPlay video = (VideoPlay)gridView1.GetRow(it);
+                videos.Add(video);
+            }
+            List<int> ids = videos.Select(t => t.Id).ToList();
+            if (!GetData.DeleteSolution(ids))
+            {
+                MessageBox.Show("清除解帧信息失败");
+                return;
+            }
+            RefreshImage();
         }
     }
 }

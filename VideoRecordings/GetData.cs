@@ -5,9 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VideoRecordings.Video;
 
 namespace VideoRecordings
 {
@@ -184,6 +186,35 @@ namespace VideoRecordings
                 items.Add(tree);
             }
             return items;
+        }
+
+        public static bool DeleteSolution(List<int> ids)
+        {
+            string url = Program.Urlpath + $"/deframe";
+            string json = JsonConvert.SerializeObject(ids);
+            JObject obj = WebClinetHepler.Delete_New(url, json);
+            if (obj!=null)
+            {
+                BackDeleteSolution back = JsonConvert.DeserializeObject<BackDeleteSolution>(obj.ToString());
+                int wincount = ids.Count - back.Deframing.Count - back.NotDeframe.Count - back.NotFound.Count;
+                MessageShow messageShow = new MessageShow("成功清除视频解帧信息:", wincount, "队列中未完成解帧：", back.Deframing.Count
+                    , "没有解帧信息：", back.NotDeframe.Count, "没有找到的视频：", back.NotFound.Count);
+                messageShow.ShowDialog();
+                //MessageBox.Show($"成功清除视频解帧信息:{wincount}个\r\n    " +
+                //                $"队列中未完成解帧：{back.Deframing.Count}个\r\n    " +
+                //                $"没有解帧信息：{back.NotDeframe.Count}个\r\n     " +
+                //                $"没有找到文件：{back.NotFound.Count}个");
+                return true;
+            }
+            return false;
+        }
+
+        public static bool RefreshFolder(int id)
+        {
+            string url = Program.Urlpath + $"/rescan/video/project/{id}";
+            JObject obj = WebClinetHepler.Post_New(url);
+            if (obj?["message"].ToString() == "not scaned") return false;
+            return obj != null;
         }
     }
 }
