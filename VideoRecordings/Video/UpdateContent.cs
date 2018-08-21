@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using System.Web.Script.Serialization;
 using Common;
 using Newtonsoft.Json.Linq;
+using VideoRecordings.Models;
 
 namespace VideoRecordings
 {

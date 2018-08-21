@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Common;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using VideoRecordings.Models;
 
 namespace VideoRecordings.Video
 {

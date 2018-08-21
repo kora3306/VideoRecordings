@@ -19,6 +19,9 @@ using System.Reflection;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraEditors.Drawing;
 using DevExpress.Utils;
+using VideoRecordings.GetDatas;
+using VideoRecordings.Models;
+using VideoRecordings.Video;
 
 namespace VideoRecordings
 {
@@ -33,7 +36,7 @@ namespace VideoRecordings
         {
             InitializeComponent();
             GetInformationShow();
-            label2.Text = $"欢迎:{Program.UserName}";
+            Uer_ToolStripMenuItem.Text = $"欢迎:{Program.UserName}";
             Methods.AddIsTest(this);
         }
 
@@ -42,7 +45,7 @@ namespace VideoRecordings
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        private void AddVideo_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddVideo addVideo = new AddVideo();
             addVideo.MyAddEvent += new AddVideo.MyDelegate(GetInformationShow);
@@ -54,7 +57,7 @@ namespace VideoRecordings
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button3_Click(object sender, EventArgs e)
+        private void ContrastVideo_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             QueryVideo queryVideo = new QueryVideo(Videos);
             queryVideo.MyEvent += new QueryVideo.MyDelegate(RefshData);
@@ -85,7 +88,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool scan = GetData.ScanFolder(focusedfolder);
+            bool scan = VideoData.ScanFolder(focusedfolder);
             if (!scan)
             {
                 MessageBox.Show("扫描文件失败");
@@ -151,7 +154,7 @@ namespace VideoRecordings
         /// </summary>
         public void GetInformationShow(VideoProject video = null, bool fouse = false)
         {
-            Videos = GetData.GetAllFolder();
+            Videos = VideoData.GetAllFolder();
             if (Videos == null || Videos.Count == 0)
             {
                 return;
@@ -227,7 +230,7 @@ namespace VideoRecordings
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
+        private void Labels_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new ManagementLabel().ShowDialog();
         }
@@ -328,13 +331,57 @@ namespace VideoRecordings
 
         private void reffolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (GetData.RefreshFolder(focusedfolder.Id))
+            if (VideoData.RefreshFolder(focusedfolder.Id))
             {
                 MessageBox.Show("重新扫描成功");
                 return; 
             }
             MessageBox.Show("重新扫描失败");
             GetInformationShow();
+        }
+
+        private void Groups_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChannelGrouping.Grouping grouping = new ChannelGrouping.Grouping();
+            grouping.Show();
+        }
+
+        private void repetitionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool scan = VideoData.ScanFolder(focusedfolder);
+            if (!scan) return;
+            List<int> ids = VideoData.GetAllVideoPlay(focusedfolder.Name).Select(t=>t.Id).ToList();
+            bool iswin = VideoData.VideoRepetition(Program.LogName, focusedfolder.Name+focusedfolder.Place, focusedfolder.Id,ids);
+            if (!iswin)
+            {
+                MessageBox.Show("添加失败");
+                return;
+            }
+            MessageBox.Show("添加成功");
+        }
+
+        private void VideosInfo_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RepetitionVideo repetition = new RepetitionVideo();
+            repetition.Show();
+        }
+
+        private void gridView1_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.FieldName == "DupChecked")
+            {
+                switch (e.DisplayText)
+                {
+                    case "0":
+                        e.DisplayText = "未查重";
+                        break;
+                    case "1":
+                        e.DisplayText = "已查重";
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 

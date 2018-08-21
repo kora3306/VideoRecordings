@@ -122,7 +122,7 @@
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(183, 53);
+            this.comboBox1.Location = new System.Drawing.Point(183, 55);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(353, 27);
             this.comboBox1.TabIndex = 6;
@@ -136,9 +136,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(76, 33);
             this.button2.TabIndex = 4;
-            this.button2.Text = "取消";
+            this.button2.Text = "继续";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // AddLabel
             // 

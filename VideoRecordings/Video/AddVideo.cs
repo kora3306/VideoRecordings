@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using System.Web.Script.Serialization;
 using Common;
 using Newtonsoft.Json.Linq;
+using VideoRecordings.Models;
 
 namespace VideoRecordings
 {
@@ -75,7 +76,7 @@ namespace VideoRecordings
 
             string json = JsonHelper.SerializeDataContractJson(video_project);
             JObject returnobj = WebClinetHepler.Post_New(posturl, json);
-            if (returnobj == null)
+            if (int.Parse(returnobj["code"].ToString()) != 0)
             {
                 MessageBox.Show("上传失败");
                 return;

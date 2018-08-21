@@ -11,39 +11,41 @@ using DevExpress.XtraEditors;
 using System.Web.Script.Serialization;
 using Newtonsoft.Json.Linq;
 using Common;
+using VideoRecordings.GetDatas;
 
 namespace VideoRecordings
 {
     public partial class UpdateLabel : DevExpress.XtraEditors.XtraForm
     {
-        ManagementLabel management;
-        string index;
-        public UpdateLabel(ManagementLabel label,string text)
+        int index;
+        public UpdateLabel(int id)
         {
             InitializeComponent();
-            management = label;
-            index = text;
+            index = id;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text==string.Empty||textBox1.Text.Trim()==string.Empty)
+            if (string.IsNullOrEmpty(textBox1.Text.Trim()))
             {
                 MessageBox.Show("修改不能为空");
                 return;
             }
-            string url = Program.Urlpath + "/label/" + index;
-            Dictionary<string, string> update = new Dictionary<string, string>();
-            update.Add("name", textBox1.Text.Trim());
-            string json= (new JavaScriptSerializer()).Serialize(update);
-            JObject obj = WebClinetHepler.Patch_New(url,json);
-            if (obj==null)
+            if (!LabelData.UpdateLabelName(index,textBox1.Text.Trim()))
             {
                 MessageBox.Show("修改失败");
             }
-            management.GetLabels();
-            management.RefreshTreeView();
+            OnRefresh();
             this.Close();
+        }
+
+        public delegate void MyEvent();
+
+        public event MyEvent MyRefreshEvent;
+
+        public void OnRefresh()
+        {
+            MyRefreshEvent?.Invoke();
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

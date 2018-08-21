@@ -28,82 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.treeView2 = new System.Windows.Forms.TreeView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.All_treeList = new DevExpress.XtraTreeList.TreeList();
+            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.OPenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selects_treeList = new DevExpress.XtraTreeList.TreeList();
+            this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.All_treeList)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selects_treeList)).BeginInit();
             this.SuspendLayout();
-            // 
-            // treeView1
-            // 
-            this.treeView1.CheckBoxes = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.treeView1, 2);
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.treeView1.Location = new System.Drawing.Point(3, 69);
-            this.treeView1.Name = "treeView1";
-            this.tableLayoutPanel1.SetRowSpan(this.treeView1, 2);
-            this.treeView1.Size = new System.Drawing.Size(235, 494);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterCheck);
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
-            this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.62284F));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.37716F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 205F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel1.Controls.Add(this.treeView1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.treeView2, 3, 2);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.All_treeList, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.selects_treeList, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(541, 605);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(675, 711);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // treeView2
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.treeView2, 2);
-            this.treeView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView2.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.treeView2.Location = new System.Drawing.Point(292, 69);
-            this.treeView2.Name = "treeView2";
-            this.tableLayoutPanel1.SetRowSpan(this.treeView2, 2);
-            this.treeView2.Size = new System.Drawing.Size(246, 494);
-            this.treeView2.TabIndex = 1;
-            this.treeView2.DoubleClick += new System.EventHandler(this.treeView2_DoubleClick);
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label1, 2);
             this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(83, 6);
+            this.label1.Location = new System.Drawing.Point(121, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 21);
             this.label1.TabIndex = 3;
@@ -113,9 +86,8 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label2, 2);
             this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(370, 6);
+            this.label2.Location = new System.Drawing.Point(471, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 21);
             this.label2.TabIndex = 4;
@@ -125,7 +97,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(248, 184);
+            this.label3.Location = new System.Drawing.Point(320, 186);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 14);
             this.label3.TabIndex = 5;
@@ -135,7 +107,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(248, 434);
+            this.label4.Location = new System.Drawing.Point(320, 506);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 14);
             this.label4.TabIndex = 6;
@@ -145,7 +117,7 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.button1.Location = new System.Drawing.Point(349, 571);
+            this.button1.Location = new System.Drawing.Point(473, 678);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 28);
             this.button1.TabIndex = 2;
@@ -153,55 +125,103 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // All_treeList
             // 
-            this.button2.Font = new System.Drawing.Font("Tahoma", 7F);
-            this.button2.Location = new System.Drawing.Point(244, 36);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(42, 27);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "GO";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.All_treeList.Appearance.FocusedCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.All_treeList.Appearance.FocusedCell.Options.UseFont = true;
+            this.All_treeList.Appearance.Row.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.All_treeList.Appearance.Row.Options.UseFont = true;
+            this.All_treeList.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListColumn1});
+            this.All_treeList.ContextMenuStrip = this.contextMenuStrip1;
+            this.All_treeList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.All_treeList.Location = new System.Drawing.Point(3, 36);
+            this.All_treeList.Name = "All_treeList";
+            this.All_treeList.OptionsBehavior.Editable = false;
+            this.All_treeList.OptionsBehavior.ReadOnly = true;
+            this.tableLayoutPanel1.SetRowSpan(this.All_treeList, 2);
+            this.All_treeList.Size = new System.Drawing.Size(311, 634);
+            this.All_treeList.TabIndex = 7;
+            this.All_treeList.Click += new System.EventHandler(this.All_treeList_Click);
             // 
-            // comboBox1
+            // treeListColumn1
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.comboBox1, 2);
-            this.comboBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 36);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(235, 28);
-            this.comboBox1.TabIndex = 10;
-            this.comboBox1.TextUpdate += new System.EventHandler(this.comboBox1_TextUpdate);
+            this.treeListColumn1.Caption = "标签名称";
+            this.treeListColumn1.FieldName = "标签名称";
+            this.treeListColumn1.Name = "treeListColumn1";
+            this.treeListColumn1.Visible = true;
+            this.treeListColumn1.VisibleIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OPenToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(154, 26);
+            // 
+            // OPenToolStripMenuItem
+            // 
+            this.OPenToolStripMenuItem.Name = "OPenToolStripMenuItem";
+            this.OPenToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.OPenToolStripMenuItem.Text = "展开/关闭节点";
+            this.OPenToolStripMenuItem.Click += new System.EventHandler(this.OPenToolStripMenuItem_Click);
+            // 
+            // selects_treeList
+            // 
+            this.selects_treeList.Appearance.FocusedCell.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.selects_treeList.Appearance.FocusedCell.Options.UseFont = true;
+            this.selects_treeList.Appearance.Row.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selects_treeList.Appearance.Row.Options.UseFont = true;
+            this.selects_treeList.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListColumn2});
+            this.selects_treeList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.selects_treeList.Location = new System.Drawing.Point(360, 36);
+            this.selects_treeList.Name = "selects_treeList";
+            this.selects_treeList.OptionsBehavior.Editable = false;
+            this.selects_treeList.OptionsBehavior.ReadOnly = true;
+            this.tableLayoutPanel1.SetRowSpan(this.selects_treeList, 2);
+            this.selects_treeList.Size = new System.Drawing.Size(312, 634);
+            this.selects_treeList.TabIndex = 8;
+            this.selects_treeList.DoubleClick += new System.EventHandler(this.selects_treeList_DoubleClick);
+            // 
+            // treeListColumn2
+            // 
+            this.treeListColumn2.Caption = "已选标签";
+            this.treeListColumn2.FieldName = "已选标签";
+            this.treeListColumn2.Name = "treeListColumn2";
+            this.treeListColumn2.Visible = true;
+            this.treeListColumn2.VisibleIndex = 0;
             // 
             // SelectLabel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 605);
+            this.ClientSize = new System.Drawing.Size(675, 711);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "SelectLabel";
             this.Text = "选择标签";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SelectLabel_FormClosed);
             this.Load += new System.EventHandler(this.SelectLabel_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.All_treeList)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.selects_treeList)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TreeView treeView2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private DevExpress.XtraTreeList.TreeList All_treeList;
+        private DevExpress.XtraTreeList.TreeList selects_treeList;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem OPenToolStripMenuItem;
     }
 }

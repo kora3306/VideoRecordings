@@ -135,12 +135,6 @@
   <ItemGroup>
     <None Include="Resources\logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\接收\intedio_data_tools\Common\Common.csproj">
-      <Project>{16f51870-4fce-4868-bcac-2c2620c1a4fe}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

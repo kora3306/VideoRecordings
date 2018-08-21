@@ -175,7 +175,6 @@ E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.AddLabel.res
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.AddEquipment.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.AddVideo.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.FileManagement.resources
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.Equipment.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.InformationDisplay.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Login.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.ManagementLabel.resources
@@ -189,7 +188,6 @@ E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.VideoInforma
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.VideoRecording.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Properties.Resources.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\SeemmoData.Controls.WaitFormEx.resources
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.Write.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.csproj.GenerateResource.cache
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.pdb
@@ -221,7 +219,6 @@ E:\源码\VideoRecordings\VideoRecordings\bin\Debug\AForge.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.Office.v18.1.Core.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.Images.v18.1.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\Common.pdb
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\Common.dll.config
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\ImageListView.pdb
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\MyControl.pdb
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DXApplication1.pdb
@@ -233,19 +230,13 @@ E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraEditors.v18.1
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraGrid.v18.1.xml
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\log4net.xml
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\Newtonsoft.Json.xml
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\AForge.Video.DirectShow.xml
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\MySql.Data.xml
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\System.Data.SQLite.xml
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\System.Data.SQLite.dll.config
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraBars.v18.1.xml
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.Pdf.v18.1.Core.xml
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.Sparkline.v18.1.Core.xml
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraLayout.v18.1.xml
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraPrinting.v18.1.xml
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\AForge.Video.xml
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.RichEdit.v18.1.Core.xml
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraTreeList.v18.1.xml
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\AForge.xml
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.Office.v18.1.Core.xml
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\de\DevExpress.Data.v18.1.resources.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\es\DevExpress.Data.v18.1.resources.dll
@@ -311,3 +302,13 @@ E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraEditors.v18.1
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraGrid.v18.1.dll
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.BatchSolution.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.MessageShow.resources
+E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe.config
+E:\源码\VideoRecordings\VideoRecordings\bin\Debug\System.ValueTuple.dll
+E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.ChannelGrouping.Grouping.resources
+E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.ChannelGrouping.AddGroup.resources
+E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.ChannelGrouping.UpdateGroup.resources
+E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Equipment.SelectEquipment.resources
+E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.UpdateEquipment.resources
+E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.RepetitionVideo.resources
+E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.ShowRepetition.resources
+E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe.licenses

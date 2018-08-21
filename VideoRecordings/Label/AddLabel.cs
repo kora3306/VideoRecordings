@@ -11,22 +11,30 @@ using DevExpress.XtraEditors;
 using System.Web.Script.Serialization;
 using Common;
 using Newtonsoft.Json.Linq;
+using VideoRecordings.GetDatas;
+using VideoRecordings.Models;
 
 namespace VideoRecordings
 {
     public partial class AddLabel : DevExpress.XtraEditors.XtraForm
     {
-        ManagementLabel Management;
-        Dictionary<string, string> labels;
-        public AddLabel(ManagementLabel recording, Dictionary<string, string> labelNumber)
+        List<TypeLabel> AllLabels;
+
+        public AddLabel()
         {
-            Management = recording;
-            labels = labelNumber;
-            InitializeComponent();
-            comboBox1.DataSource = GetDicToList(labels);
-            comboBox1.Text = "请选择要添加标签的种类";
+            InitializeComponent();          
+            SetComboBox();
+            
         }
 
+        public delegate void MyEvent();
+
+        public event MyEvent MyRefreshEvent;
+
+        public void OnRefresh()
+        {
+            MyRefreshEvent?.Invoke();
+        }
         /// <summary>
         /// 将填入的标签加入选择的标签集合
         /// </summary>
@@ -35,40 +43,37 @@ namespace VideoRecordings
         private void button1_Click(object sender, EventArgs e)
         {
             AddLabels();
-            Management.GetLabels();
-            Management.RefreshTreeView();
-            textBox1.Text = string.Empty;
-            comboBox1.DataSource = GetDicToList(Management.GetLabelNumber());
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
+            SetComboBox();
+            OnRefresh();
             this.Close();
         }
 
-        private List<string> GetDicToList(Dictionary<string, string> dic)
+        private void Button2_Click(object sender, EventArgs e)
         {
-            List<string> label = new List<string>();
-            label = dic.Select(t => $"{t.Key}:{t.Value}").ToList();
+            AddLabels();
+            SetComboBox();
+        }
+
+        private void SetComboBox()
+        {
+            AllLabels = LabelData.GetAllLabel();
+            List<string> label = AllLabels.OrderBy(t=>t.Id).Select(t=>t.Id+":"+t.Name).ToList();
             label.Insert(0, "0:新建标签种类");
-            label.OrderBy(t => int.Parse(t.Split(':').First()));
-            return label;
+            comboBox1.DataSource = label;
+            comboBox1.Text = "请选择要添加标签的种类";
         }
 
         private void AddLabels()
         {
-            string url = Program.Urlpath + "/labels";
-            string json = PostJson(int.Parse(comboBox1.Text.Split(':').First()));
-            if (json==string.Empty)
-            {
-                return;
-            }
-            JObject obj = WebClinetHepler.Post_New(url,json);
-            if (obj==null)
+            List<string> labels = GetLabels();
+            if (labels.Count == 0||comboBox1.Text=="请选择要添加标签的种类")
+                return ;
+            if (!LabelData.AddLabels(int.Parse(comboBox1.Text.Split(':').First()),labels))
             {
                 MessageBox.Show("添加失败");
+                return;
             }
-            Program.log.Error($"添加标签,种类{comboBox1.Text.Split(':').Last()}", new Exception($"{json}"));
+            Program.log.Error($"添加标签,种类{comboBox1.Text.Split(':').Last()}", new Exception($"{string.Join(",",labels)}"));
         }
 
         private List<string> GetLabels()
@@ -84,23 +89,6 @@ namespace VideoRecordings
                 }
             }
             return labels;
-        }
-
-        private string PostJson(int index)
-        {
-            if (GetLabels().Count==0)
-            {
-                return string.Empty;
-            }
-            List< Dictionary<string, object>> postlabel = new List<Dictionary<string, object>>();
-            foreach (var item in GetLabels())
-            {
-                Dictionary<string, object> diclabel = new Dictionary<string, object>();
-                diclabel.Add("parent_id", index);
-                diclabel.Add("name", item);
-                postlabel.Add(diclabel);
-            }
-            return (new JavaScriptSerializer()).Serialize(postlabel);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

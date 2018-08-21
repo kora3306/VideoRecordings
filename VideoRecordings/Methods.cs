@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VideoRecordings.Models;
 
 namespace VideoRecordings
 {
@@ -104,12 +105,12 @@ namespace VideoRecordings
             return videoplay;
         }
 
-        public static List<string> CopyToList(List<string> list)
+        public static List<TypeLabel> CopyToList(List<TypeLabel> list)
         {
-            List<string> copys = new List<string>();
+            List<TypeLabel> copys = new List<TypeLabel>();
             foreach (var item in list)
             {
-                string copy = string.Copy(item);
+                TypeLabel copy = (TypeLabel)item.Clone();
                 copys.Add(copy);
             }
             return copys;
@@ -162,5 +163,28 @@ namespace VideoRecordings
             return path;
         }
 
+
+        //public TypeLabel GetNodeToTypeLabel(TreeNode tree)
+        //{
+        //    TypeLabel type = new TypeLabel(){Name=tree.Text,Id=int.Parse(tree.Tag.ToString())};
+        //    List<VideoLabel> videos = new List<VideoLabel>();
+        //    foreach (TreeNode node in tree.Nodes)
+        //    {
+        //        videos.Add(GetNodeToVideoLabel(node));
+        //    }
+
+        //    type.Labels = videos;
+        //    return type;
+        //}
+
+        public static VideoLabel GetNodeToVideoLabel(TreeNode node)
+        {
+            return new VideoLabel() {Id = int.Parse(node.Tag.ToString()), Name = node.Text};
+        }
+
+        public static TypeLabel GetNodeToTypeLabel(TreeNode node)
+        {
+            return new TypeLabel() { Id = int.Parse(node.Tag.ToString()), Name = node.Text };
+        }
     }
 }

@@ -17,21 +17,21 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.Drawing.Imaging;
 using Newtonsoft.Json.Linq;
+using VideoRecordings.GetDatas;
+using VideoRecordings.Models;
 
 namespace VideoRecordings
 {
     public partial class VideoRecording : DevExpress.XtraEditors.XtraForm
     {
 
-        List<string> labels = new List<string>(); //标签
+        List<TypeLabel> Selectlabels = new List<TypeLabel>(); //标签
         VideoPlay videoplay;      //传入的文件信息
         Process process = new Process();   //启动外部程序线程
         List<string> paths = new List<string>();  //截图路径
         Point po = new Point();         //窗口定位点
         int i = 1;            //Tag
         List<string> imageurl = new List<string>();        //已有图片读取
-        Dictionary<string, string> LabelsNumber = new Dictionary<string, string>();   // 标签对照
-        Dictionary<string, string> AllLabel = new Dictionary<string, string>();
         bool folding = false;
         bool isuse;
         public VideoRecording(VideoPlay videopath, bool use)
@@ -61,15 +61,16 @@ namespace VideoRecordings
         public event MyRecordDelegate MyRecordEvent;
         public virtual void OnRefresh()
         {
-            MyRecordEvent.Invoke();
+            MyRecordEvent?.Invoke();
         }
 
         private void VideoRecording_Load(object sender, EventArgs e)
         {
+            Selectlabels = Methods.CopyToList(videoplay.Labels);
             PlayVideo();
             GetLabels();
             SetPoint();
-            AlreadyLabels();
+            SetLabelText();
             GetIntToString();
             linkLabel1.LinkBehavior = LinkBehavior.HoverUnderline;    //鼠标悬停显示下划线
             linkLabel1.LinkBehavior = LinkBehavior.NeverUnderline;   //不显示下划线
@@ -86,7 +87,7 @@ namespace VideoRecordings
             {
                 label_treeView.Nodes[0].Expand();
             }
-            button1.Text = isuse ? "使用页面播放器":"使用外部播放器";
+            button1.Text = isuse ? "使用页面播放器" : "使用外部播放器";
         }
 
         /// <summary>
@@ -163,7 +164,6 @@ namespace VideoRecordings
             SaveImage();
             SaveTime();
             DeleteFolder(Program.ImageSavePath);
-            videoplay.Labels = labels;
             VideoPlay play = Methods.GetNewImages(videoplay.Id);
             OnSave(play);
             if (play.Labels.Count() != 0)
@@ -180,13 +180,30 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void label_treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            TreeNode tree = label_treeView.SelectedNode;
-            if (LabelsNumber.Values.Contains(tree.Text) || labels.Contains(tree.Text))
+            if (label_treeView.SelectedNode.Level != 0)
             {
-                return;
+                TreeNode parentnode = label_treeView.SelectedNode.Parent;
+                if (Selectlabels.Count(t => t.Name == parentnode.Text) > 0)
+                {
+                    foreach (TypeLabel tree in Selectlabels)
+                    {
+                        if (tree.Name == parentnode.Text)
+                        {
+                            if (tree.Labels.Count(t => t.Name == label_treeView.SelectedNode.Text) > 0)
+                                return;
+                            tree.Labels.Add(Methods.GetNodeToVideoLabel(label_treeView.SelectedNode));
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    TypeLabel typeLabel = Methods.GetNodeToTypeLabel(parentnode);
+                    typeLabel.Labels.Add(Methods.GetNodeToVideoLabel(label_treeView.SelectedNode));
+                    Selectlabels.Add(typeLabel);
+                }
+                SetLabelText();
             }
-            labels.Add(tree.Text);
-            SetLabelText();
         }
 
         /// <summary>
@@ -222,7 +239,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void 清空已有标签ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            labels.Clear();
+            Selectlabels.Clear();
             SetLabelText();
         }
 
@@ -344,12 +361,30 @@ namespace VideoRecordings
         {
             TreeNode tree = treeView1.SelectedNode;
             if (tree == null) return;
-            if (!labels.Contains(tree.Text))
+            if (tree.Level == 0)
             {
+                if (MessageBox.Show("删除父标签将删除所有子标签,是否删除?", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
+                    return;
+                TypeLabel type = Selectlabels.FirstOrDefault(t => t.Name == tree.Text);
+                treeView1.Nodes.Remove(tree);               
+                Selectlabels.Remove(type);
                 return;
             }
-            labels.Remove(tree.Text);
-            treeView1.Nodes.Remove(tree);
+            else
+            {
+                TypeLabel type = Selectlabels.FirstOrDefault(t => t.Name == tree.Parent.Text);
+                VideoLabel label = type.Labels.FirstOrDefault(t => t.Name == tree.Text);
+                type.Labels.Remove(label);
+                if (tree.Parent.Nodes.Count==1)
+                {
+                    Selectlabels.Remove(type);
+                    treeView1.Nodes.Remove(tree.Parent);
+                    return;
+                }
+
+                treeView1.Nodes.Remove(tree);
+            }
+           
         }
 
         /// <summary>
@@ -406,22 +441,14 @@ namespace VideoRecordings
         /// </summary>
         public void SaveLabel()
         {
-            string json = string.Empty;
-            if (labels == null || labels.Count == 0)
+            List<VideoLabel> ids = new List<VideoLabel>();
+            foreach (TypeLabel tree in Selectlabels)
             {
-                json = "[]";
+               ids.AddRange(tree.Labels);
             }
-            else
-            {
-                List<int> postlabel = labels.Select(t => StringToInt(t)).ToList();
-                json = (new JavaScriptSerializer()).Serialize(postlabel);
-            }
-            string posturl = Program.Urlpath + $"/video/{videoplay.Id}/labels";
-            JObject obj = WebClinetHepler.Post_New(posturl, json);
-            if (obj == null)
+            if (!LabelData.AddLabelToVideo(videoplay.Id,ids.Select(t=>t.Id).ToList()))
             {
                 MessageBox.Show("添加标签失败");
-                Program.log.Error($"上传标签失败{posturl}", new Exception($"{json}"));
                 return;
             }
         }
@@ -460,72 +487,62 @@ namespace VideoRecordings
         public void GetLabels()
         {
             label_treeView.Nodes.Clear();
-            LabelsNumber.Clear();
-            string url = Program.Urlpath + "/labels";
-            JObject obj = WebClinetHepler.GetJObject(url);
-            if (obj["result"] == null || obj["result"].Count() == 0)
-            {
-                return;
-            }
+            List<TypeLabel> typeLabels = LabelData.GetAllLabel();
             List<TreeNode> items = new List<TreeNode>();
-            TreeNode used = new TreeNode { Text = "常用" };
-            for (int i = 0; i < obj["result"].Count(); i++)
+            foreach (TypeLabel labels in typeLabels)
             {
-                TreeNode tree = new TreeNode { Text = obj["result"][i]["name"].ToString(), ForeColor = Color.Green };
-                LabelsNumber.Add(obj["result"][i]["id"].ToString(), obj["result"][i]["name"].ToString());
-                for (int j = 0; j < obj["result"][i]["children"].Count(); j++)
+                TreeNode tree = new TreeNode() { Text=Name= labels.Name, Tag = labels.Id,ForeColor=Color.Red};
+                foreach (VideoLabel label in labels.Labels)
                 {
-                    TreeNode node = new TreeNode { Text = obj["result"][i]["children"][j]["name"].ToString(), Tag = obj["result"][i]["children"][j]["is_fre"].ToString(), ForeColor = Color.Red };
+                    TreeNode node = new TreeNode() { Text=Name = label.Name, Tag = label.Id ,ForeColor=Color.Blue};
                     tree.Nodes.Add(node);
-                    AllLabel.Add(obj["result"][i]["children"][j]["id"].ToString(), obj["result"][i]["children"][j]["name"].ToString());
-                    if (node.Tag.ToString() == "1")
-                    {
-                        used.Nodes.Add(new TreeNode { Text = obj["result"][i]["children"][j]["name"].ToString(), ForeColor = Color.Red });
-                    }
                 }
+
                 items.Add(tree);
             }
             items.OrderBy(t => t.Text);
-            items.Insert(0, used);
-
             label_treeView.Nodes.AddRange(items.ToArray());
         }
 
-        private int StringToInt(string text)
-        {
-            return int.Parse(AllLabel.Where(t => t.Value == text).First().Key);
-        }
-
-        /// <summary>
-        /// 将已有标签加入标签栏
-        /// </summary>
-        private void AlreadyLabels()
-        {
-            foreach (var item in videoplay.Labels)
-            {
-                TreeNode sonItem = new TreeNode();
-                sonItem.Text = sonItem.Name = item;
-                sonItem.ForeColor = Color.Blue;
-                sonItem.NodeFont = new Font("微软雅黑", 12);
-                treeView1.Nodes.Add(sonItem);
-                labels.Add(item);
-            }
-
-        }
+        ///// <summary>
+        ///// 将已有标签加入标签栏
+        ///// </summary>
+        //private void AlreadyLabels()
+        //{
+        //    foreach (var item in videoplay.Labels)
+        //    {
+        //        TreeNode tree = new TreeNode() {Text = Name = item.Name, Tag = item.Id};
+        //        foreach (var it in item.Labels)
+        //        {
+        //            TreeNode node = new TreeNode() {Text = Name = it.Name, Tag = it.Id};
+        //            tree.Nodes.Add(node);
+        //        }
+        //    }          
+        //}
 
         /// <summary>
         /// 将已经选择的标签加入标签栏
         /// </summary>
         private void SetLabelText()
         {
+            treeView1.BeginUpdate();
             treeView1.Nodes.Clear();
-            treeView1.Nodes.AddRange(labels.Select(t => new TreeNode
+            List<TreeNode> items = new List<TreeNode>();
+            foreach (TypeLabel item in Selectlabels)
             {
-                Text = t,
-                Name = t,
-                ForeColor = Color.Blue,
-                NodeFont = new Font("微软雅黑", 12)
-            }).ToArray());
+                TreeNode tree = new TreeNode() { Text = Name = item.Name, Tag = item.Id, ForeColor = Color.Red };
+                foreach (VideoLabel it in item.Labels)
+                {
+                    TreeNode node = new TreeNode() { Text = Name = it.Name, Tag = it.Id, ForeColor = Color.Blue };
+                    tree.Nodes.Add(node);
+                }
+
+                items.Add(tree);
+            }
+            items.OrderBy(t => t.Text);
+            treeView1.Nodes.AddRange(items.ToArray());
+            treeView1.EndUpdate();
+            treeView1.ExpandAll();
         }
 
         /// <summary>
@@ -735,12 +752,11 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (labels.Count == 0)
+            if (Selectlabels.Count == 0)
             {
                 return;
             }
-            Program.labels = Methods.CopyToList(labels);
-            Program.log.Info($"复制{string.Join(",", labels)}");
+            Program.labels = Methods.CopyToList(Selectlabels);
         }
         /// <summary>
         /// 粘贴
@@ -753,15 +769,29 @@ namespace VideoRecordings
             {
                 return;
             }
-            foreach (var item in Program.labels)
+            foreach (TypeLabel item in Program.labels)
             {
-                if (AllLabel.Values.Contains(item))
+                if (!Selectlabels.Contains(item))
                 {
-                    if (labels.Contains(item)) continue;
-                    labels.Add(item);
-                    SetLabelText();
+                    Selectlabels.Add(item);
+                    continue;
                 }
+                foreach (TypeLabel tree in Selectlabels)
+                {
+                    if (tree==item)
+                    {
+                        foreach (VideoLabel label in item.Labels)
+                        {
+                            if (!tree.Labels.Contains(label))
+                            {
+                                tree.Labels.Add(label);
+                            }
+                        }
+                    }
+   
+                }                           
             }
+            SetLabelText();
             Program.log.Info($"粘贴{string.Join(",", Program.labels)}到{videoplay.Id.ToString()}");
         }
 

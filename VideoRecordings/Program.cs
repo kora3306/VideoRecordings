@@ -16,6 +16,7 @@ using Manina.Windows.Forms;
 using System.Threading;
 using System.Net;
 using System.Web.Script.Serialization;
+using VideoRecordings.Models;
 
 namespace VideoRecordings
 {
@@ -52,7 +53,7 @@ namespace VideoRecordings
         /// </summary>
         public static string Urlpath = "http://192.168.1.198:16080";
         //public const string Urlpath = "http://192.168.1.225:18080";
-        public static List<string> labels = new List<string>();
+        public static List<TypeLabel> labels = new List<TypeLabel>();
 
         public static PersistentCache Persistent = new PersistentCache(@".\cache", 100000000000);
 
@@ -185,6 +186,7 @@ namespace VideoRecordings
                 case "md6":
                 case "md7":
                 case "md8":
+                case "md9":
                     return Url3 + url;
                 default:
                     break;

@@ -39,7 +39,6 @@
             this.ADToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DELEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ADDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.INToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -253,14 +252,13 @@
             this.ADToolStripMenuItem,
             this.UPToolStripMenuItem,
             this.DELEToolStripMenuItem,
-            this.ADDToolStripMenuItem,
             this.INToolStripMenuItem,
             this.OUTToolStripMenuItem,
             this.DToolStripMenuItem,
             this.AddlabelsToolStripMenuItem,
             this.DeleteSolutionToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(154, 246);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(154, 224);
             // 
             // openToolStripMenuItem
             // 
@@ -297,18 +295,12 @@
             this.DELEToolStripMenuItem.Text = "删除通道";
             this.DELEToolStripMenuItem.Click += new System.EventHandler(this.DELEToolStripMenuItem_Click);
             // 
-            // ADDToolStripMenuItem
-            // 
-            this.ADDToolStripMenuItem.Name = "ADDToolStripMenuItem";
-            this.ADDToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.ADDToolStripMenuItem.Text = "通道管理";
-            this.ADDToolStripMenuItem.Click += new System.EventHandler(this.ADDToolStripMenuItem_Click);
-            // 
             // INToolStripMenuItem
             // 
             this.INToolStripMenuItem.Name = "INToolStripMenuItem";
             this.INToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.INToolStripMenuItem.Text = "视频导入通道";
+            this.INToolStripMenuItem.Click += new System.EventHandler(this.INToolStripMenuItem_Click);
             // 
             // OUTToolStripMenuItem
             // 
@@ -1311,7 +1303,6 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_eq;
-        private System.Windows.Forms.ToolStripMenuItem ADDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem INToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OUTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AddlabelsToolStripMenuItem;

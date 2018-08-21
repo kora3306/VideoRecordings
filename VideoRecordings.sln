@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoRecordings", "VideoRecordings\VideoRecordings.csproj", "{3B552FA2-D724-48FD-B6C5-092E36560734}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\..\接收\intedio_data_tools\Common\Common.csproj", "{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DXApplication", "DXApplication1\DXApplication1\DXApplication.csproj", "{A396A433-6389-4FFF-B4BB-2D1016363DC2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyControl", "..\intedio_data_tools\MyControl\MyControl.csproj", "{433BE916-116D-41F4-A309-88A18920B21D}"
@@ -14,6 +12,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleControl", "SimpleControl\SimpleControl.csproj", "{146769BD-6362-4669-953B-76AB9FEE1A72}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageListView", "..\intedio_data_tools\ImageListView\ImageListView.csproj", "{0C295FB8-C6C6-4A40-9F19-05A43F353A04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\intedio_data_tools\Common\Common.csproj", "{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{3D3BAC2B-D334-41FC-8F63-373FACD8761B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,12 +30,6 @@ Global
 		{3B552FA2-D724-48FD-B6C5-092E36560734}.Release_optimize|Any CPU.Build.0 = Release|Any CPU
 		{3B552FA2-D724-48FD-B6C5-092E36560734}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B552FA2-D724-48FD-B6C5-092E36560734}.Release|Any CPU.Build.0 = Release|Any CPU
-		{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}.Debug|Any CPU.ActiveCfg = Release|Any CPU
-		{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}.Debug|Any CPU.Build.0 = Release|Any CPU
-		{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}.Release_optimize|Any CPU.ActiveCfg = Release_optimize|Any CPU
-		{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}.Release_optimize|Any CPU.Build.0 = Release_optimize|Any CPU
-		{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A396A433-6389-4FFF-B4BB-2D1016363DC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A396A433-6389-4FFF-B4BB-2D1016363DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A396A433-6389-4FFF-B4BB-2D1016363DC2}.Release_optimize|Any CPU.ActiveCfg = Release|Any CPU
@@ -58,6 +54,18 @@ Global
 		{0C295FB8-C6C6-4A40-9F19-05A43F353A04}.Release_optimize|Any CPU.Build.0 = Release|Any CPU
 		{0C295FB8-C6C6-4A40-9F19-05A43F353A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C295FB8-C6C6-4A40-9F19-05A43F353A04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}.Release_optimize|Any CPU.ActiveCfg = Release|Any CPU
+		{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}.Release_optimize|Any CPU.Build.0 = Release|Any CPU
+		{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D3BAC2B-D334-41FC-8F63-373FACD8761B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D3BAC2B-D334-41FC-8F63-373FACD8761B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D3BAC2B-D334-41FC-8F63-373FACD8761B}.Release_optimize|Any CPU.ActiveCfg = Release|Any CPU
+		{3D3BAC2B-D334-41FC-8F63-373FACD8761B}.Release_optimize|Any CPU.Build.0 = Release|Any CPU
+		{3D3BAC2B-D334-41FC-8F63-373FACD8761B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D3BAC2B-D334-41FC-8F63-373FACD8761B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

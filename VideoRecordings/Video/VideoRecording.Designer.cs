@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.label_treeView = new System.Windows.Forms.TreeView();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.清空已有标签ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.imageListView1 = new Manina.Windows.Forms.ImageListView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ReToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openimageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +56,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.other_button = new System.Windows.Forms.Button();
-            this.DelcontextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
+            this.DelcontextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeletePToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -70,14 +71,14 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 8;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.44355F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.957259F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.24448F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.60968F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.16387F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.99514F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.58603F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 290F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.13259F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.75841F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.88851F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.34455F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.83491F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.57044F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.47059F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 315F));
             this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label_treeView, 7, 1);
             this.tableLayoutPanel1.Controls.Add(this.treeView1, 6, 1);
@@ -104,7 +105,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 435F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1326, 775);
@@ -124,10 +125,10 @@
             // 
             this.label_treeView.ContextMenuStrip = this.contextMenuStrip2;
             this.label_treeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_treeView.Location = new System.Drawing.Point(1035, 72);
+            this.label_treeView.Location = new System.Drawing.Point(1010, 72);
             this.label_treeView.Name = "label_treeView";
             this.tableLayoutPanel1.SetRowSpan(this.label_treeView, 3);
-            this.label_treeView.Size = new System.Drawing.Size(288, 630);
+            this.label_treeView.Size = new System.Drawing.Size(313, 630);
             this.label_treeView.TabIndex = 16;
             this.label_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.label_treeView_AfterSelect);
             this.label_treeView.DoubleClick += new System.EventHandler(this.label_treeView_DoubleClick);
@@ -175,10 +176,10 @@
             this.treeView1.ContextMenuStrip = this.contextMenuStrip2;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Font = new System.Drawing.Font("微软雅黑", 13F);
-            this.treeView1.Location = new System.Drawing.Point(781, 72);
+            this.treeView1.Location = new System.Drawing.Point(743, 72);
             this.treeView1.Name = "treeView1";
             this.tableLayoutPanel1.SetRowSpan(this.treeView1, 2);
-            this.treeView1.Size = new System.Drawing.Size(248, 195);
+            this.treeView1.Size = new System.Drawing.Size(261, 330);
             this.treeView1.TabIndex = 18;
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
@@ -188,9 +189,9 @@
             this.imageListView1.ContextMenuStrip = this.contextMenuStrip1;
             this.imageListView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imageListView1.GroupHeaderFont = new System.Drawing.Font("微软雅黑", 8.25F, System.Drawing.FontStyle.Bold);
-            this.imageListView1.Location = new System.Drawing.Point(781, 273);
+            this.imageListView1.Location = new System.Drawing.Point(743, 408);
             this.imageListView1.Name = "imageListView1";
-            this.imageListView1.Size = new System.Drawing.Size(248, 429);
+            this.imageListView1.Size = new System.Drawing.Size(261, 294);
             this.imageListView1.TabIndex = 21;
             this.imageListView1.UseWIC = Manina.Windows.Forms.UseWIC.ThumbnailsOnly;
             this.imageListView1.DoubleClick += new System.EventHandler(this.imageListView1_DoubleClick);
@@ -234,14 +235,14 @@
             this.videoPlayer1.Margin = new System.Windows.Forms.Padding(5);
             this.videoPlayer1.Name = "videoPlayer1";
             this.tableLayoutPanel1.SetRowSpan(this.videoPlayer1, 2);
-            this.videoPlayer1.Size = new System.Drawing.Size(768, 599);
+            this.videoPlayer1.Size = new System.Drawing.Size(730, 599);
             this.videoPlayer1.TabIndex = 22;
             // 
             // save_button
             // 
             this.save_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.save_button.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.save_button.Location = new System.Drawing.Point(1134, 708);
+            this.save_button.Location = new System.Drawing.Point(1122, 708);
             this.save_button.Name = "save_button";
             this.save_button.Size = new System.Drawing.Size(89, 30);
             this.save_button.TabIndex = 14;
@@ -255,7 +256,7 @@
             this.label3.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label3, 2);
             this.label3.Font = new System.Drawing.Font("微软雅黑", 14F);
-            this.label3.Location = new System.Drawing.Point(1024, 22);
+            this.label3.Location = new System.Drawing.Point(1005, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 25);
             this.label3.TabIndex = 5;
@@ -267,7 +268,7 @@
             this.label2.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label2, 5);
             this.label2.Font = new System.Drawing.Font("微软雅黑", 16F);
-            this.label2.Location = new System.Drawing.Point(413, 19);
+            this.label2.Location = new System.Drawing.Point(391, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 30);
             this.label2.TabIndex = 2;
@@ -278,7 +279,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label1.Location = new System.Drawing.Point(11, 69);
+            this.label1.Location = new System.Drawing.Point(8, 69);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 27);
             this.label1.TabIndex = 24;
@@ -289,7 +290,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label4.Location = new System.Drawing.Point(220, 72);
+            this.label4.Location = new System.Drawing.Point(207, 72);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 21);
             this.label4.TabIndex = 25;
@@ -299,37 +300,37 @@
             // 
             this.timeEdit_start.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.timeEdit_start.EditValue = new System.DateTime(2018, 3, 26, 0, 0, 0, 0);
-            this.timeEdit_start.Location = new System.Drawing.Point(131, 73);
+            this.timeEdit_start.Location = new System.Drawing.Point(125, 73);
             this.timeEdit_start.Name = "timeEdit_start";
             this.timeEdit_start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit_start.Size = new System.Drawing.Size(76, 20);
+            this.timeEdit_start.Size = new System.Drawing.Size(72, 20);
             this.timeEdit_start.TabIndex = 26;
             // 
             // timeEdit_end
             // 
             this.timeEdit_end.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.timeEdit_end.EditValue = new System.DateTime(2018, 3, 26, 0, 0, 0, 0);
-            this.timeEdit_end.Location = new System.Drawing.Point(360, 73);
+            this.timeEdit_end.Location = new System.Drawing.Point(343, 73);
             this.timeEdit_end.Name = "timeEdit_end";
             this.timeEdit_end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit_end.Size = new System.Drawing.Size(103, 20);
+            this.timeEdit_end.Size = new System.Drawing.Size(98, 20);
             this.timeEdit_end.TabIndex = 27;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(471, 72);
+            this.label5.Location = new System.Drawing.Point(455, 69);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 21);
+            this.label5.Size = new System.Drawing.Size(106, 27);
             this.label5.TabIndex = 28;
             this.label5.Text = "视频录制日期(T)";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(605, 72);
+            this.dateTimePicker1.Location = new System.Drawing.Point(576, 72);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(142, 29);
             this.dateTimePicker1.TabIndex = 29;
@@ -339,7 +340,7 @@
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Black;
             this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(852, 714);
+            this.linkLabel1.Location = new System.Drawing.Point(820, 714);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(106, 21);
             this.linkLabel1.TabIndex = 23;
@@ -352,7 +353,7 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.button1.Location = new System.Drawing.Point(639, 712);
+            this.button1.Location = new System.Drawing.Point(605, 712);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 26);
             this.button1.TabIndex = 19;
@@ -366,7 +367,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.other_button, 3);
             this.other_button.ContextMenuStrip = this.DelcontextMenuStrip1;
             this.other_button.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.other_button.Location = new System.Drawing.Point(347, 708);
+            this.other_button.Location = new System.Drawing.Point(328, 708);
             this.other_button.Name = "other_button";
             this.other_button.Size = new System.Drawing.Size(117, 34);
             this.other_button.TabIndex = 15;
@@ -392,7 +393,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(36, 24);
+            this.label6.Location = new System.Drawing.Point(33, 24);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 21);
             this.label6.TabIndex = 30;
@@ -411,6 +412,7 @@
             this.InactiveGlowColor = System.Drawing.Color.Transparent;
             this.Name = "VideoRecording";
             this.Text = "视频播放";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VideoRecording_FormClosing);
             this.Load += new System.EventHandler(this.VideoRecording_Load);
             this.Move += new System.EventHandler(this.VideoRecording_Move);

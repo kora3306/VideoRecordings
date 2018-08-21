@@ -23,6 +23,9 @@ using Newtonsoft.Json.Converters;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.Utils.Paint;
 using System.Reflection;
+using VideoRecordings.Equipment;
+using VideoRecordings.GetDatas;
+using VideoRecordings.Models;
 
 namespace VideoRecordings
 {
@@ -32,16 +35,18 @@ namespace VideoRecordings
         public List<VideoPlay> videoplays = new List<VideoPlay>();  //所有文件
         public List<string> imageurl = new List<string>();   //图片url
         private List<Completeness> comple = new List<Completeness>();
+        private Dictionary<int, EquipmentInfo> mydic;
         bool unfold = true;
         GridHitInfo hInfo = new GridHitInfo();
         VideoProject project;      //传入的文件夹
         bool isFirst = true;      //初次定位文件夹为0
         public bool Hasbeen = false;   //是否一致使用外部播放器
-        MyLabel MyLabel;
+        MyLabels MyLabel;
         int total = 0;
         int recorded = 0;
         int index = 0;
-        MyEquipment equipment;
+        private AddEquipment addEquipment;
+        private SelectEquipment selectEquipment;
         public delegate void MyDelegate();
         public event MyDelegate MyEvent;
         public virtual void OnSave()
@@ -51,11 +56,10 @@ namespace VideoRecordings
 
         public InformationDisplay(VideoProject focusedfolder)
         {
-            MyLabel = new MyLabel();
+            MyLabel = new MyLabels();
             project = focusedfolder;
             InitializeComponent();
             PostVideos();
-            AddItems();
             if (project != null)
             {
                 toolStripStatusLabel1.Text = $"当前视频文件夹编号 :{project.Name}    地点:{project.Place}";
@@ -69,11 +73,25 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void InformationDisplay_Load(object sender, EventArgs e)
         {
+            addEquipment = new AddEquipment();
+            selectEquipment = new SelectEquipment();
+            addEquipment.MySaveEvent += new AddEquipment.MyDelegate(RefEquipment);
+            selectEquipment.MySaveEvent += new SelectEquipment.MyEvent(PostVideos);
+            selectEquipment.MyRefreshEvent += new SelectEquipment.MyEvent(GridViewClear);
             imageListView1.DiskCache = Program.Persistent;
             label2.Text = $"欢迎:{Program.UserName}";
             Methods.AddIsTest(this);
         }
 
+        public void RefEquipment()
+        {
+            selectEquipment.RefreshData();
+        }
+
+        public void GridViewClear()
+        {
+            bindingSource1.DataSource = null;
+        }
         /// <summary>
         /// 打开文件按钮
         /// </summary>
@@ -137,6 +155,12 @@ namespace VideoRecordings
                 case Keys.F2:
                     Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
                     return true;
+                case Keys.Space:
+                    if (gridView1.FocusedRowHandle < 0) return true;
+                    transmissionvideo = (VideoPlay)gridView1.GetRow(gridView1.FocusedRowHandle);
+                    if (hInfo.InRowCell)
+                        OpenVideoPaly();
+                    return true;
                 default:
                     break;
             }
@@ -172,7 +196,7 @@ namespace VideoRecordings
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
+       {
             int rowIndex = gridView1.FocusedRowHandle;
             if (rowIndex < 0)
             {
@@ -256,16 +280,13 @@ namespace VideoRecordings
             {
                 return;
             }
-            string posturl = Program.Urlpath + "/scan/video/project/" + project.Id.ToString();
-            string geturl = Program.Urlpath + "/videos";
-            string conditions = "project_name=" + project.Name;
-            JObject obj = WebClinetHepler.Post_New(posturl);
-            if (obj == null)
+            mydic = EquipmentData.GetAlEquipment().Equipments.ToDictionary(t => t.Id);         
+            if (!VideoData.ScanFolder(project))
             {
                 MessageBox.Show("扫描文件失败");
-                Program.log.Error($"扫描{posturl}", new Exception("扫描失败"));
+                Program.log.Error($"扫描{project.Name}", new Exception("扫描失败"));
             }
-            GettListVideo(geturl, conditions);
+            GettListVideo();
             if (isFirst)
             {
                 transmissionvideo = videoplays.Count == 0 ? null : videoplays.First();
@@ -277,9 +298,9 @@ namespace VideoRecordings
             RefreshImage();
             //GetIntToString();
             bindingSource1.DataSource = videoplays;
-            gridView1.ExpandAllGroups();
-            unfold = true;
-            gridView1.RefreshData();
+            gridView1.FindFilterText = string.Empty;
+            gridView1.CollapseAllGroups();
+            GroupIndex();
         }
 
         private void SetText()
@@ -308,6 +329,8 @@ namespace VideoRecordings
                 }
             }
             bindingSource1.DataSource = videoplays;
+            gridView1.MoveNext();
+            videoplays.Count.ToString();
         }
 
         private void RefreshAllData(VideoPlay play)
@@ -347,11 +370,11 @@ namespace VideoRecordings
         /// </summary>
         /// <param name="url"></param>
         /// <param name="na"></param>
-        public void GettListVideo(string url, string na)
+        public void GettListVideo()
         {
             videoplays.Clear();
-            JObject obj = WebClinetHepler.GetJObject(url, na);
-            if (obj["result"].ToString() == "[]") return;
+            JObject obj = VideoData.GetAllVideoInfo(project.Name);
+            if (obj == null || obj["result"].ToString() == "[]") return;
             for (int i = 0; i < obj["result"][0]["equipments"].Count(); i++)
             {
                 EquipmentInfo equipment = JsonHelper.DeserializeDataContractJson<EquipmentInfo>(obj["result"][0]["equipments"][i]["equipment_info"].ToString());
@@ -361,7 +384,7 @@ namespace VideoRecordings
                 Completeness com = JsonHelper.DeserializeDataContractJson<Completeness>(obj["result"][0]["equipments"][i]["statistic"].ToString());
                 comple.Add(com);
             }
-            Program.log.Error($"获取{url}信息", new Exception("获取成功"));
+            Program.log.Error($"获取{project.Name}信息", new Exception("获取成功"));
         }
 
         /// <summary>
@@ -452,12 +475,10 @@ namespace VideoRecordings
         {
             if (MessageBox.Show($"是否删除编号{transmissionvideo.Id}的视频？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
                 return;
-            string url = Program.Urlpath + "/video/" + transmissionvideo.Id;
-            JObject obj = WebClinetHepler.Delete_New(url);
-            if (obj == null)
+            if (VideoData.DeleteVideo(transmissionvideo.Id) == null)
             {
                 MessageBox.Show("删除失败");
-                Program.log.Error($"删除{transmissionvideo.Id}失败", new Exception($"{url}"));
+                Program.log.Error($"删除{transmissionvideo.Id}失败", new Exception($"{transmissionvideo.Id}"));
             }
             videoplays.Remove(transmissionvideo);
             bindingSource1.DataSource = videoplays;
@@ -479,16 +500,31 @@ namespace VideoRecordings
             Methods.ShowImage(imageListView1);
         }
 
+        /// <summary>
+        /// 定位文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenfolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
         }
 
+        /// <summary>
+        /// 判断点击是否数据行
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridView1_MouseDown(object sender, MouseEventArgs e)
         {
             hInfo = gridView1.CalcHitInfo(e.Y, e.Y);
         }
 
+        /// <summary>
+        /// 解帧按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (transmissionvideo.Deframed != "未解帧")
@@ -501,13 +537,22 @@ namespace VideoRecordings
             solu.ShowDialog();
         }
 
-        private void 清除解帧信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 清除解帧信息按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteSolution_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (GetSelectRow() == null) return;
+            if (GetSelectRow() == null)
+            {
+                MessageBox.Show("没有勾选需要删除的解帧视频");
+                return;
+            }
             if (MessageBox.Show("是否删除解帧文件夹？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
-                return;           
+                return;
             List<int> ids = GetSelectRow().Select(t => t.Id).ToList();
-            if (!GetData.DeleteSolution(ids))
+            if (!SolutionData.DeleteSolution(ids))
             {
                 MessageBox.Show("清除解帧信息失败");
             }
@@ -515,11 +560,21 @@ namespace VideoRecordings
             PostVideos();
         }
 
+        /// <summary>
+        /// 导出Excel按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ExeclToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataGridToExcel1(gridControl1);
         }
 
+        /// <summary>
+        /// 导出Json数据按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void JsonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             WriteJson(GetCheckList());
@@ -619,27 +674,6 @@ namespace VideoRecordings
         }
 
         /// <summary>
-        /// 添加设备
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ADToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Equipment equipment = new Equipment(project.Name);
-                equipment.MySaveEvent += new Equipment.MyDelegate(AddItems);
-                equipment.MyRefreshEvent += new Equipment.MyDelegate(PostVideos);
-                equipment.Show();
-            }
-            catch (Exception)
-            {
-                return;
-            }
-
-        }
-
-        /// <summary>
         /// 返回完成数量
         /// </summary>
         /// <param name="comple"></param>
@@ -666,37 +700,10 @@ namespace VideoRecordings
         }
 
         /// <summary>
-        /// 添加设备按钮
+        /// 打开关闭数据行
         /// </summary>
-        public void AddItems()
-        {
-            equipment = new MyEquipment(project.Name);
-            videotoToolStripMenuItem.DropDownItems.Clear();
-            foreach (var item in equipment.Equipments.OrderByDescending(t => t.Id))
-            {
-                ToolStripMenuItem it = new ToolStripMenuItem() { Text = item.Id + ":" + item.Name };
-                it.Click += ToolStripMenuItem_Click;
-                videotoToolStripMenuItem.DropDownItems.Add(it);
-            }
-        }
-
-        private void ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!(sender is ToolStripMenuItem item)) return;
-            List<VideoPlay> videos = GetSelectRow();
-            if (videos == null) return;
-            int id = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == item.Text.Split(':').Last()).Key;
-            List<int> ids = videos.Select(t => t.Id).ToList();
-            if (!GetData.AddVideoInEquipment(id, ids))
-            {
-                MessageBox.Show("添加视频到设备失败");
-                return;
-            }
-            MessageBox.Show("添加视频到设备成功");
-            bindingSource1.DataSource = null;
-            PostVideos();
-        }
-
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (unfold)
@@ -713,21 +720,20 @@ namespace VideoRecordings
         {
             if (!(sender is ToolStripMenuItem item)) return;
             List<VideoPlay> videos = GetSelectRow();
-            if(videos==null) return;
-            Dictionary<string, List<VideoPlay>> VideoDic = new Dictionary<string, List<VideoPlay>>();
+            if (videos == null) return;
+            Dictionary<int, List<VideoPlay>> VideoDic = new Dictionary<int, List<VideoPlay>>();
             foreach (VideoPlay video in videos)
             {
-                if (!VideoDic.Keys.Contains(video.EquipmentName))
+                if (!VideoDic.Keys.Contains(video.EquipmentID))
                 {
-                    VideoDic.Add(video.EquipmentName, new List<VideoPlay>());
+                    VideoDic.Add(video.EquipmentID, new List<VideoPlay>());
                 }
-                VideoDic[video.EquipmentName].Add(video);
+                VideoDic[video.EquipmentID].Add(video);
             }
             foreach (var it in VideoDic.Keys)
             {
-                int id = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == it).Key;
                 List<int> ids = VideoDic[it].Select(t => t.Id).ToList();
-                if (!GetData.DelteVideosFromEquipment(id, ids))
+                if (!EquipmentData.DelteVideosFromEquipment(it, ids))
                 {
                     MessageBox.Show($"{string.Join(",", ids)}从设备删除视频失败");
                 }
@@ -737,20 +743,25 @@ namespace VideoRecordings
             PostVideos();
         }
 
+        /// <summary>
+        /// 选择标签
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddlabelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SelectLabel select = new SelectLabel();
-            select.MySaveEvent += new SelectLabel.MyDelegate(AddTheLabels);
+            select.MyRefreshEvent += new SelectLabel.MyDelegate(AddTheLabels);
             select.ShowDialog();
         }
 
         public void AddTheLabels(List<string> labels)
         {
-            List<int> ids = MyLabel.GetIds(labels);
+            List<int> ids = MyLabel.GetSelectIds(labels);
             List<VideoPlay> videos = GetSelectRow();
             if (videos == null) return;
             List<int> ids1 = videos.Select(t => t.Id).ToList();
-            if (!GetData.BatchAddLabels(ids1, ids))
+            if (!LabelData.BatchAddLabels(ids1, ids))
             {
                 MessageBox.Show("添加标签失败");
                 return;
@@ -759,18 +770,19 @@ namespace VideoRecordings
             PostVideos();
         }
 
+        /// <summary>
+        /// 添加通道
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ADEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int index = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == transmissionvideo.EquipmentName.Split(':').Last()).Key;
-            AddEquipment write = new AddEquipment(transmissionvideo.ProjectName, index);
-            write.MySaveEvent += new AddEquipment.MyDelegate(AddItems);
-            write.Show();
+            addEquipment.Show();
         }
 
         private void gridView1_Click(object sender, EventArgs e)
         {
             int i = gridView1.FocusedRowHandle;
-            //object obj = gridView1.GetGroupRowValue(i);
             int index = gridView1.GetDataRowHandleByGroupRowHandle(i);
             transmissionvideo = (VideoPlay)gridView1.GetRow(index);
             RefreshImage();
@@ -778,35 +790,55 @@ namespace VideoRecordings
             DeleteFolder(Program.ImageSavePath);
         }
 
+        /// <summary>
+        /// 更改通道名
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UPEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int index = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == transmissionvideo.EquipmentName.Split(':').Last()).Key;
-            Write write = new Write(transmissionvideo.ProjectName, index);
-            write.MySaveEvent += new Write.MyDelegate(AddItems);
-            write.MyRefreshEvent += new Write.MyDelegate(PostVideos);
+            if (transmissionvideo?.Rquipment == null) return;
+            UpdateEquipment write = new UpdateEquipment(transmissionvideo.Rquipment);
+            write.MyRefreshEvent += new UpdateEquipment.MyDelegate(PostVideos);
+            write.MySaveEvent += new UpdateEquipment.MyDelegate(RefEquipment);
             write.Show();
         }
 
+        /// <summary>
+        /// 删除通道
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void 删除设备ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var index = equipment.AllEquipmengt.FirstOrDefault(t => t.Value == transmissionvideo.EquipmentName.Split(':').Last());
-            if (MessageBox.Show($"是否删除{index.Value}？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
+            if (transmissionvideo?.Rquipment == null) return;
+            if (MessageBox.Show($"是否删除{transmissionvideo.EquipmentName}通道？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
                 return;
-            if (GetData.DeleteEquipmengt(index.Key))
+            if (EquipmentData.DeleteEquipmengt(transmissionvideo.EquipmentID))
             {
                 MessageBox.Show("删除成功");
+                GridViewClear();
                 PostVideos();
-                AddItems();
+                RefEquipment();
                 return;
             }
             MessageBox.Show("删除失败");
-
         }
 
+        /// <summary>
+        /// 标题栏改变
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridView1_CustomDrawGroupRow(object sender, DevExpress.XtraGrid.Views.Base.RowObjectCustomDrawEventArgs e)
         {
             GridGroupRowInfo GridGroupRowInfo = e.Info as GridGroupRowInfo;
-            GridGroupRowInfo.GroupText = $"({(-e.RowHandle).ToString()})通道信息：" + GridGroupRowInfo.EditValue.ToString();
+            int id = int.Parse(GridGroupRowInfo.EditValue.ToString());
+            int count = videoplays.Count(t => t.EquipmentID == id);
+            if (id==0)
+                GridGroupRowInfo.GroupText = $"({(-e.RowHandle).ToString()})通道信息：" + GridGroupRowInfo.EditValue + ":无通道信息"+ $"({count})";
+            else
+                GridGroupRowInfo.GroupText = $"({(-e.RowHandle).ToString()})通道信息：" + GridGroupRowInfo.EditValue + ":" + mydic[id].Name + $"({count})";     
         }
 
         private List<VideoPlay> GetSelectRow()
@@ -823,19 +855,68 @@ namespace VideoRecordings
             return videos;
         }
 
+        /// <summary>
+        /// 批量添加标签
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void batchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             List<VideoPlay> videos = GetSelectRow();
             if (videos == null) return;
-            BatchSolution batch= new BatchSolution(videos);
-            batch.MyRefreshEvent+= new BatchSolution.MyDeletgate(PostVideos);
+            BatchSolution batch = new BatchSolution(videos);
+            batch.MyRefreshEvent += new BatchSolution.MyDeletgate(RefEquipment);
             batch.ShowDialog();
         }
 
+        /// <summary>
+        /// 刷新数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void refToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bindingSource1.DataSource = null;
             PostVideos();
+        }
+
+        /// <summary>
+        /// 视频加入通道
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void videotoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<int> ids = GetCheckList().Select(t => t.Id).ToList();
+            if (ids.Count == 0) return;
+            selectEquipment.PostIds = ids;
+            selectEquipment.Show();
+        }
+
+        /// <summary>
+        /// 关联,关闭对应的窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void InformationDisplay_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            addEquipment.Close();
+            selectEquipment.Close();
+        }
+
+        public void GroupIndex()
+        {
+            for (int i = -1; gridView1.IsGroupRow(i); i--)
+            {
+                int row = gridView1.GetDataRowHandleByGroupRowHandle(i);
+
+                VideoPlay dr = (VideoPlay)gridView1.GetRow(row);
+                if (dr == null) return;
+                if (dr.EquipmentID==0)
+                {
+                    gridView1.SetRowExpanded(i, true);
+                }
+            }
         }
     }
 }
