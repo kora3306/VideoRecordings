@@ -396,6 +396,7 @@ namespace VideoRecordings
             recording.MyEvent += new VideoRecording.MyDelegate(RefreshAllData);
             recording.MyRecordEvent += new VideoRecording.MyRecordDelegate(RefshHomePage);
             recording.SetMyRecordEvent += new VideoRecording.MyRecordDelegate(SetTheUse);
+            recording.WindowState = FormWindowState.Maximized;
             if (transmissionvideo == null || transmissionvideo.Uri == null) return;
             if (File.Exists(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))))
             {
@@ -408,7 +409,7 @@ namespace VideoRecordings
                                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                 if (MsgBoxResult != DialogResult.Yes)
                     return;
-                new VideoRecording(transmissionvideo, Hasbeen).Show();
+                recording.Show();
                 Program.log.Error($"打开{Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))}", new Exception("没有找到视频"));
             }
         }
@@ -783,6 +784,7 @@ namespace VideoRecordings
         private void gridView1_Click(object sender, EventArgs e)
         {
             int i = gridView1.FocusedRowHandle;
+            if (i < 0) return;
             int index = gridView1.GetDataRowHandleByGroupRowHandle(i);
             transmissionvideo = (VideoPlay)gridView1.GetRow(index);
             RefreshImage();

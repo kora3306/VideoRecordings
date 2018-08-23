@@ -84,11 +84,11 @@ namespace VideoRecordings
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(418, 647);
+            this.label2.Location = new System.Drawing.Point(399, 647);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 19);
+            this.label2.Size = new System.Drawing.Size(89, 19);
             this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.label2.Text = "无图片信息";
             // 
             // pictureBox1
             // 

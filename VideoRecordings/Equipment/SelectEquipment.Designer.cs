@@ -34,7 +34,10 @@
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ADDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.imageListView1 = new Manina.Windows.Forms.ImageListView();
             this.button_ref = new System.Windows.Forms.Button();
             this.button_OK = new System.Windows.Forms.Button();
             this.comboBox_uid = new System.Windows.Forms.ComboBox();
@@ -45,11 +48,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.imageListView1 = new Manina.Windows.Forms.ImageListView();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -111,20 +114,28 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.RefToolStripMenuItem});
+            this.RefToolStripMenuItem,
+            this.ADDToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
             // 
             // RefToolStripMenuItem
             // 
             this.RefToolStripMenuItem.Name = "RefToolStripMenuItem";
-            this.RefToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.RefToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.RefToolStripMenuItem.Text = "刷新";
             this.RefToolStripMenuItem.Click += new System.EventHandler(this.RefToolStripMenuItem_Click);
             // 
+            // ADDToolStripMenuItem
+            // 
+            this.ADDToolStripMenuItem.Name = "ADDToolStripMenuItem";
+            this.ADDToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.ADDToolStripMenuItem.Text = "新建通道";
+            this.ADDToolStripMenuItem.Click += new System.EventHandler(this.ADDToolStripMenuItem_Click);
+            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.imageListView1);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel2);
             this.groupBox1.Controls.Add(this.button_ref);
             this.groupBox1.Controls.Add(this.button_OK);
             this.groupBox1.Controls.Add(this.comboBox_uid);
@@ -142,6 +153,33 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "筛选条件";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.imageListView1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 402);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(318, 230);
+            this.tableLayoutPanel2.TabIndex = 11;
+            // 
+            // imageListView1
+            // 
+            this.imageListView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.imageListView1.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.imageListView1.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.imageListView1.Location = new System.Drawing.Point(3, 3);
+            this.imageListView1.Name = "imageListView1";
+            this.imageListView1.Size = new System.Drawing.Size(312, 224);
+            this.imageListView1.TabIndex = 10;
+            this.imageListView1.UseWIC = Manina.Windows.Forms.UseWIC.ThumbnailsOnly;
+            this.imageListView1.DoubleClick += new System.EventHandler(this.imageListView1_DoubleClick);
             // 
             // button_ref
             // 
@@ -259,19 +297,6 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "地址:";
             // 
-            // imageListView1
-            // 
-            this.imageListView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.imageListView1.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.imageListView1.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.imageListView1.Location = new System.Drawing.Point(11, 389);
-            this.imageListView1.Name = "imageListView1";
-            this.imageListView1.Size = new System.Drawing.Size(307, 237);
-            this.imageListView1.TabIndex = 10;
-            this.imageListView1.UseWIC = Manina.Windows.Forms.UseWIC.ThumbnailsOnly;
-            // 
             // SelectEquipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -287,6 +312,7 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -310,5 +336,7 @@
         private System.Windows.Forms.ToolStripMenuItem RefToolStripMenuItem;
         private System.Windows.Forms.Button button_ref;
         private Manina.Windows.Forms.ImageListView imageListView1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.ToolStripMenuItem ADDToolStripMenuItem;
     }
 }

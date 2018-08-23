@@ -65,20 +65,29 @@ namespace VideoRecordings
         private void ImageFromWebTest()
         {
             Image img;
-            if (items[index].FileName.StartsWith("http"))
+            try
             {
-                string url = Program.Urlpath + "/video/snapshot/" + items[index].Text;
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                using (WebResponse response = request.GetResponse())
+               
+                if (items[index].FileName.StartsWith("http"))
                 {
-                    img = Image.FromStream(response.GetResponseStream());
+                    string url = Program.Urlpath + "/video/snapshot/" + items[index].Text;
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                    using (WebResponse response = request.GetResponse())
+                    {
+                        img = Image.FromStream(response.GetResponseStream());
+                    }
+                }
+                else
+                {
+                    Image bmg = Image.FromFile(items[index].FileName);
+                    img = new System.Drawing.Bitmap(bmg);
+                    bmg.Dispose();
                 }
             }
-            else
+            catch (Exception)
             {
-                Image bmg = Image.FromFile(items[index].FileName);
-                img = new System.Drawing.Bitmap(bmg);
-                bmg.Dispose();
+                return;
+                throw;
             }
             pictureBox1.Image = img;
             label2.Text = items[index].Text;

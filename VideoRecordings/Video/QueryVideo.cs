@@ -54,10 +54,10 @@ namespace VideoRecordings
             MyEvent?.Invoke();
         }
 
-        public QueryVideo(List<VideoProject> inform)
+        public QueryVideo()
         {
             InitializeComponent();
-            Videos = inform;
+            Videos = VideoData.GetAllFolder(); ;
             timeEdit_start.Time = DateTime.MinValue;
             timeEdit_end.Time = DateTime.MaxValue;
         }

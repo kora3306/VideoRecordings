@@ -23,9 +23,12 @@ namespace VideoRecordings.Video
 
         private bool isclear = false;
 
-        public AddEquipment()
+        public AddEquipment(string city=null,string street=null,string site=null)
         {
             InitializeComponent();
+            if (!string.IsNullOrEmpty(city)) textBox1.Text = city;
+            if (!string.IsNullOrEmpty(street)) textBox2.Text = street;
+            if (!string.IsNullOrEmpty(site)) textBox3.Text = site;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,6 +37,7 @@ namespace VideoRecordings.Video
                ||string.IsNullOrEmpty(textBox3.Text.Trim())||string.IsNullOrEmpty(textBox4.Text.Trim()))
             {
                 MessageBox.Show("请输入通道完整信息");
+                return;
             }
             if (!EquipmentData.AddEquipment(textBox1.Text.Trim(), textBox2.Text.Trim(), textBox3.Text.Trim()
             , textBox4.Text.Trim()))

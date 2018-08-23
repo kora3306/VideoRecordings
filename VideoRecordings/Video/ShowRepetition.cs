@@ -115,7 +115,7 @@ namespace VideoRecordings.Video
                                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                 if (MsgBoxResult != DialogResult.Yes)
                     return;
-                new VideoRecording(play, false).Show();
+                recording.Show();
                 Program.log.Error($"打开{Program.ReturnStringUrl(Methods.ConversionString(play.Uri))}", new Exception("没有找到视频"));
             }
         }
@@ -131,6 +131,12 @@ namespace VideoRecordings.Video
             if (MessageBox.Show($"是否删除编号{re.ID}的视频？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
                 return;
             if (!VideoData.DeleteVideo(re.ID))
+            {
+                MessageBox.Show("删除失败");
+                Program.log.Error($"删除{re.ID}失败", new Exception($"{re.ID}"));
+                return;
+            }
+            if (!VideoData.DeleteRepetitionVideo(re.ID))
             {
                 MessageBox.Show("删除失败");
                 Program.log.Error($"删除{re.ID}失败", new Exception($"{re.ID}"));

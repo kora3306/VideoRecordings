@@ -33,6 +33,7 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Show20ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.show50ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +45,7 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.gridColumn_user_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -84,12 +86,13 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.refreshToolStripMenuItem,
+            this.deleteToolStripMenuItem,
             this.Show20ToolStripMenuItem,
             this.show50ToolStripMenuItem,
             this.showallToolStripMenuItem,
             this.outToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(151, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(151, 136);
             // 
             // refreshToolStripMenuItem
             // 
@@ -97,6 +100,13 @@
             this.refreshToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.refreshToolStripMenuItem.Text = "刷新";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.deleteToolStripMenuItem.Text = "删除记录";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // Show20ToolStripMenuItem
             // 
@@ -137,7 +147,8 @@
             this.gridColumn_id,
             this.gridColumn2,
             this.gridColumn3,
-            this.gridColumn4});
+            this.gridColumn4,
+            this.gridColumn_user_name});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -179,7 +190,7 @@
             this.gridColumn4.FieldName = "ModifyTime";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.VisibleIndex = 4;
             this.gridColumn4.Width = 204;
             // 
             // statusStrip1
@@ -190,6 +201,14 @@
             this.statusStrip1.Size = new System.Drawing.Size(1057, 30);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // gridColumn_user_name
+            // 
+            this.gridColumn_user_name.Caption = "添加用户";
+            this.gridColumn_user_name.FieldName = "UserName";
+            this.gridColumn_user_name.Name = "gridColumn_user_name";
+            this.gridColumn_user_name.Visible = true;
+            this.gridColumn_user_name.VisibleIndex = 3;
             // 
             // RepetitionVideo
             // 
@@ -226,5 +245,7 @@
         private System.Windows.Forms.ToolStripMenuItem showallToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem outToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn_user_name;
     }
 }

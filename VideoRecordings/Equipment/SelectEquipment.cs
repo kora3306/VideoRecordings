@@ -12,6 +12,7 @@ using DevExpress.XtraTreeList.Nodes;
 using VideoRecordings.Models;
 using VideoRecordings.GetDatas;
 using Manina.Windows.Forms;
+using VideoRecordings.Video;
 
 namespace VideoRecordings.Equipment
 {
@@ -269,6 +270,18 @@ namespace VideoRecordings.Equipment
             if (treeList1.FocusedNode == null) return;
             int image_id = EquipmentData.GetImageId(int.Parse(treeList1.FocusedNode.Tag.ToString()));
             SetTheListView(image_id);
+        }
+
+        private void ADDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddEquipment equipment = new AddEquipment(comboBox_city.Text,comboBox_street.Text,comboBox_site.Text);
+            equipment.MySaveEvent += new AddEquipment.MyDelegate(RefreshData);
+            equipment.Show();
+        }
+
+        private void imageListView1_DoubleClick(object sender, EventArgs e)
+        {
+            Methods.ShowImage(imageListView1);
         }
     }
 }

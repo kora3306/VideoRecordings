@@ -43,6 +43,7 @@
             this.addeqToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DelEqiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.imageListView1 = new Manina.Windows.Forms.ImageListView();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox_uid = new System.Windows.Forms.ComboBox();
@@ -65,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             this.contextMenuStrip_group.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeList2)).BeginInit();
             this.SuspendLayout();
@@ -99,8 +101,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer1.Size = new System.Drawing.Size(1134, 654);
-            this.splitContainer1.SplitterDistance = 635;
+            this.splitContainer1.Size = new System.Drawing.Size(1175, 716);
+            this.splitContainer1.SplitterDistance = 657;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -124,7 +126,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(635, 654);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(657, 716);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // treeList1
@@ -153,7 +155,7 @@
             this.treeList1.OptionsView.ShowRowFooterSummary = true;
             this.treeList1.RowHeight = 30;
             this.tableLayoutPanel3.SetRowSpan(this.treeList1, 9);
-            this.treeList1.Size = new System.Drawing.Size(330, 648);
+            this.treeList1.Size = new System.Drawing.Size(352, 710);
             this.treeList1.TabIndex = 7;
             this.treeList1.AfterFocusNode += new DevExpress.XtraTreeList.NodeEventHandler(this.treeList1_AfterFocusNode);
             // 
@@ -234,7 +236,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.imageListView1);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel4);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.comboBox_uid);
             this.groupBox1.Controls.Add(this.label5);
@@ -248,21 +250,35 @@
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.tableLayoutPanel3.SetRowSpan(this.groupBox1, 9);
-            this.groupBox1.Size = new System.Drawing.Size(293, 648);
+            this.groupBox1.Size = new System.Drawing.Size(293, 710);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "筛选条件";
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.imageListView1, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 438);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(287, 269);
+            this.tableLayoutPanel4.TabIndex = 11;
+            // 
             // imageListView1
             // 
-            this.imageListView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.imageListView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.imageListView1.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.imageListView1.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.imageListView1.Location = new System.Drawing.Point(0, 406);
+            this.imageListView1.Location = new System.Drawing.Point(3, 3);
             this.imageListView1.Name = "imageListView1";
-            this.imageListView1.Size = new System.Drawing.Size(287, 236);
+            this.imageListView1.Size = new System.Drawing.Size(281, 263);
             this.imageListView1.TabIndex = 10;
             this.imageListView1.UseWIC = Manina.Windows.Forms.UseWIC.ThumbnailsOnly;
+            this.imageListView1.DoubleClick += new System.EventHandler(this.imageListView1_DoubleClick);
             // 
             // button1
             // 
@@ -377,7 +393,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 524F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(495, 654);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(514, 716);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // treeList2
@@ -400,7 +416,7 @@
             this.treeList2.OptionsMenu.EnableFooterMenu = false;
             this.treeList2.OptionsView.ShowCheckBoxes = true;
             this.treeList2.RowHeight = 30;
-            this.treeList2.Size = new System.Drawing.Size(489, 648);
+            this.treeList2.Size = new System.Drawing.Size(508, 710);
             this.treeList2.TabIndex = 3;
             this.treeList2.AfterFocusNode += new DevExpress.XtraTreeList.NodeEventHandler(this.treeList2_AfterFocusNode);
             // 
@@ -432,6 +448,7 @@
             this.contextMenuStrip_group.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treeList2)).EndInit();
             this.ResumeLayout(false);
@@ -467,5 +484,6 @@
         private System.Windows.Forms.ToolStripMenuItem DelEqiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OPToolStripMenuItem;
         private Manina.Windows.Forms.ImageListView imageListView1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
     }
 }

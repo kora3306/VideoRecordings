@@ -19,6 +19,7 @@ namespace VideoRecordings.ChannelGrouping
         {
             InitializeComponent();
             Tree = node;
+            defaultTextBox2.Text = node.GetValue(0).ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -50,31 +49,17 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.73218F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.26782F));
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.treeList1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.treeList1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.27778F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.72222F));
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(926, 678);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label1, 2);
-            this.label1.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label1.Location = new System.Drawing.Point(420, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "标签管理";
             // 
             // treeList1
             // 
@@ -88,13 +73,13 @@
             this.treeList1.ContextMenuStrip = this.contextMenuStrip1;
             this.treeList1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeList1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.treeList1.Location = new System.Drawing.Point(3, 69);
+            this.treeList1.Location = new System.Drawing.Point(3, 3);
             this.treeList1.Name = "treeList1";
             this.treeList1.OptionsBehavior.Editable = false;
             this.treeList1.OptionsBehavior.ReadOnly = true;
             this.treeList1.OptionsFind.AlwaysVisible = true;
             this.treeList1.OptionsView.ShowSummaryFooter = true;
-            this.treeList1.Size = new System.Drawing.Size(920, 570);
+            this.treeList1.Size = new System.Drawing.Size(920, 637);
             this.treeList1.TabIndex = 4;
             // 
             // treeListColumn1
@@ -114,40 +99,40 @@
             this.UpLabelToolStripMenuItem,
             this.DelLabelToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(154, 114);
             // 
             // OPenToolStripMenuItem
             // 
             this.OPenToolStripMenuItem.Name = "OPenToolStripMenuItem";
-            this.OPenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.OPenToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.OPenToolStripMenuItem.Text = "打开/关闭节点";
             this.OPenToolStripMenuItem.Click += new System.EventHandler(this.OPenToolStripMenuItem_Click);
             // 
             // RefreshToolStripMenuItem
             // 
             this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
-            this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.RefreshToolStripMenuItem.Text = "刷新";
             this.RefreshToolStripMenuItem.Click += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
             // 
             // AddLabelToolStripMenuItem
             // 
             this.AddLabelToolStripMenuItem.Name = "AddLabelToolStripMenuItem";
-            this.AddLabelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AddLabelToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.AddLabelToolStripMenuItem.Text = "新增标签";
             this.AddLabelToolStripMenuItem.Click += new System.EventHandler(this.AddLabelToolStripMenuItem_Click);
             // 
             // UpLabelToolStripMenuItem
             // 
             this.UpLabelToolStripMenuItem.Name = "UpLabelToolStripMenuItem";
-            this.UpLabelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.UpLabelToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.UpLabelToolStripMenuItem.Text = "修改标签名";
             this.UpLabelToolStripMenuItem.Click += new System.EventHandler(this.UpLabelToolStripMenuItem_Click);
             // 
             // DelLabelToolStripMenuItem
             // 
             this.DelLabelToolStripMenuItem.Name = "DelLabelToolStripMenuItem";
-            this.DelLabelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.DelLabelToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.DelLabelToolStripMenuItem.Text = "删除标签";
             this.DelLabelToolStripMenuItem.Click += new System.EventHandler(this.DelLabelToolStripMenuItem_Click);
             // 
@@ -155,9 +140,9 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.statusStrip1, 2);
             this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.statusStrip1.Location = new System.Drawing.Point(0, 642);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 643);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(926, 36);
+            this.statusStrip1.Size = new System.Drawing.Size(926, 35);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -182,7 +167,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem UpLabelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DelLabelToolStripMenuItem;

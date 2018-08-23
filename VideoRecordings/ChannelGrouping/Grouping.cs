@@ -432,5 +432,10 @@ namespace VideoRecordings.ChannelGrouping
                 ImageListViewItem item = new ImageListViewItem(imageUrl) { Text = imageUrl.Split('/').Last() };
             imageListView1.Items.Add(item);
         }
+
+        private void imageListView1_DoubleClick(object sender, EventArgs e)
+        {
+            Methods.ShowImage(imageListView1);
+        }
     }
 }

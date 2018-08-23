@@ -128,3 +128,8 @@ F:\源码\VideoRecordings\SimpleControl\bin\Debug\Dapper.dll
 F:\源码\VideoRecordings\SimpleControl\bin\Debug\SeemmoData.Settings.dll
 F:\源码\VideoRecordings\SimpleControl\bin\Debug\Google.Protobuf.dll
 F:\源码\VideoRecordings\SimpleControl\bin\Debug\SeemmoData.Settings.pdb
+E:\源码\VideoRecordings\SimpleControl\obj\Debug\SimpleControl.csprojAssemblyReference.cache
+E:\源码\VideoRecordings\SimpleControl\obj\Debug\SimpleControl.ChooseImage.resources
+E:\源码\VideoRecordings\SimpleControl\obj\Debug\SimpleControl.csproj.GenerateResource.cache
+E:\源码\VideoRecordings\SimpleControl\obj\Debug\SimpleControl.dll.licenses
+E:\源码\VideoRecordings\SimpleControl\obj\Debug\SimpleControl.csproj.CoreCompileInputs.cache

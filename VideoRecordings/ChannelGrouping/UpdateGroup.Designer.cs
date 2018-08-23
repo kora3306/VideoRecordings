@@ -42,7 +42,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.55888F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.44112F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.defaultTextBox1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.button1, 2, 1);
@@ -75,15 +75,15 @@
             this.defaultTextBox1.DefaultText = "";
             this.defaultTextBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.defaultTextBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.defaultTextBox1.Location = new System.Drawing.Point(106, 38);
+            this.defaultTextBox1.Location = new System.Drawing.Point(105, 38);
             this.defaultTextBox1.Name = "defaultTextBox1";
-            this.defaultTextBox1.Size = new System.Drawing.Size(392, 29);
+            this.defaultTextBox1.Size = new System.Drawing.Size(391, 29);
             this.defaultTextBox1.TabIndex = 1;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(504, 38);
+            this.button1.Location = new System.Drawing.Point(502, 38);
             this.button1.MaximumSize = new System.Drawing.Size(78, 27);
             this.button1.MinimumSize = new System.Drawing.Size(78, 27);
             this.button1.Name = "button1";
@@ -111,9 +111,9 @@
             this.defaultTextBox2.DefaultText = "";
             this.defaultTextBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.defaultTextBox2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.defaultTextBox2.Location = new System.Drawing.Point(106, 3);
+            this.defaultTextBox2.Location = new System.Drawing.Point(105, 3);
             this.defaultTextBox2.Name = "defaultTextBox2";
-            this.defaultTextBox2.Size = new System.Drawing.Size(392, 29);
+            this.defaultTextBox2.Size = new System.Drawing.Size(391, 29);
             this.defaultTextBox2.TabIndex = 1;
             // 
             // UpdateGroup

@@ -111,6 +111,19 @@ namespace VideoRecordings.Video
             }
 
         }
-     
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Repetitions re = (Repetitions)gridView1.GetRow(gridView1.FocusedRowHandle);
+            if (MessageBox.Show($"是否删除编号{re.ID}的记录？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
+                return;
+            if (!VideoData.DeleteRepetition(re.ID))
+            {
+                MessageBox.Show("删除记录失败");
+                return;
+            }
+            MessageBox.Show("删除成功");
+            SetINfo(log);
+        }
     }
 }

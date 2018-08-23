@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using VideoRecordings.GetDatas;
@@ -9,7 +11,7 @@ using VideoRecordings.GetDatas;
 namespace VideoRecordings.Models
 {
 
-    [DataContract]
+    [DataContract,Serializable]
     public class TypeLabel: ICloneable
     {
         [DataMember(Name = "id")] public int Id { get; set; }
@@ -18,21 +20,28 @@ namespace VideoRecordings.Models
 
         public  object Clone()
         {
-            TypeLabel typelabel = new TypeLabel(){Id=Id,Name=Name};
-            List<VideoLabel> labels = new List<VideoLabel>();
+            TypeLabel typelabel = new TypeLabel() { Id=Id,Name=Name};
             foreach (VideoLabel item in Labels)
             {
                 VideoLabel label = (VideoLabel)item.Clone();
-                labels.Add(label);
+                typelabel.Labels.Add(label);
             }
-
-            typelabel.Labels = labels;
             return typelabel;
         }
 
+        public TypeLabel DeepClone()
+        {
+            using (Stream objectStream = new MemoryStream())
+            {
+                IFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(objectStream, this);
+                objectStream.Seek(0, SeekOrigin.Begin);
+                return formatter.Deserialize(objectStream) as TypeLabel;
+            }
+        }
     }
 
-    [DataContract]
+    [DataContract,Serializable]
     public class VideoLabel : ICloneable
     {
         [DataMember(Name = "id")] public int Id { get; set; }
@@ -40,11 +49,7 @@ namespace VideoRecordings.Models
 
         public object Clone()
         {
-            VideoLabel label = new VideoLabel
-            {
-                Id = Id,
-                Name = Name,
-            };
+            VideoLabel label = (VideoLabel)this.MemberwiseClone();
             return label;
         }
 

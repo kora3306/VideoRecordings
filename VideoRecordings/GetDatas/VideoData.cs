@@ -124,7 +124,7 @@ namespace VideoRecordings.GetDatas
         /// <returns></returns>
         public static bool VideoRepetition(string name,string info,int id,List<int> ids)
         {
-            string url = "http://192.168.1.238:8080/add";
+            string url = Program.Urlpath + $"/video/check";
             Repetition repetition = new Repetition(name, info,id, ids);
             JObject obj = WebClinetHepler.Post_New(url,JsonConvert.SerializeObject(repetition));
             return obj != null;
@@ -132,7 +132,7 @@ namespace VideoRecordings.GetDatas
 
         public static List<Repetitions> GetRepetitions(string name, string number=null)
         {
-            string url = "http://192.168.1.238:8080/query_user_status?user_name="+$"{name}";
+            string url = Program.Urlpath + $"/video/check/user/status?user_name={name}";
             if (number != null) url += $"&pull_number={number}";
             JObject obj = WebClinetHepler.GetJObject(url);
             if (obj == null) return new List<Repetitions>();
@@ -142,10 +142,36 @@ namespace VideoRecordings.GetDatas
 
         public static List<ReturnRepetition> GetOutResult(int id)
         {
-            string url = "http://192.168.1.238:8080/query_result_info?id=" + $"{id}";
+            string url = Program.Urlpath + $"/video/check/result?id={id}";
             JObject obj = WebClinetHepler.GetJObject(url);
             if (obj == null) return null;
             return JsonConvert.DeserializeObject<List<ReturnRepetition>>(obj["data"]["result"].ToString());
+        }
+
+        public static bool DeleteRepetition(int id)
+        {
+            string url = Program.Urlpath + $"/video/check/result";
+            string json= JsonConvert.SerializeObject(new Dictionary<string, int>() { { "id", id } });
+            JObject obj = WebClinetHepler.Delete_New(url,json);
+            return obj != null;
+        }
+
+        public static bool DeleteRepetitionVideo(List<int> ids)
+        {
+            string url = Program.Urlpath + $"/video/check";
+            string json = JsonConvert.SerializeObject(new Dictionary<string, List<int>>() { {"video_ids",ids } });
+            JObject obj = WebClinetHepler.Delete_New(url,json);
+            return obj != null;
+        }
+
+        public static bool DeleteRepetitionVideo(int id)
+        {
+            List<int> ids = new List<int>();
+            ids.Add(id);
+            string url = Program.Urlpath + $"/video/check";
+            string json = JsonConvert.SerializeObject(new Dictionary<string, List<int>>() { { "video_ids", ids } });
+            JObject obj = WebClinetHepler.Delete_New(url, json);
+            return obj != null;
         }
     }
 

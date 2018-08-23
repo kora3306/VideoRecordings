@@ -22,6 +22,9 @@ namespace VideoRecordings.Models
         [DataMember(Name = "batch_info")]
         public string Info { get; set; }
 
+        [DataMember(Name ="user_name")]
+        public string UserName { get; set; }
+
         public string ModifyTime
         {
             get
@@ -54,7 +57,6 @@ namespace VideoRecordings.Models
                 if (pattern != "")
                 {
                     dt = DateTime.ParseExact(gmt, pattern, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.AdjustToUniversal);
-                    dt = dt.ToLocalTime();
                 }
                 else
                 {

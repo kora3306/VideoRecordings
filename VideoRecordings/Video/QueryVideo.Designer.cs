@@ -333,6 +333,8 @@
             // gridView1
             // 
             this.gridView1.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.Row.Options.UseFont = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn_id,
             this.gridColumn_name,
@@ -383,7 +385,7 @@
             // 
             // gridColumn_id
             // 
-            this.gridColumn_id.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn_id.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn_id.AppearanceCell.Options.UseFont = true;
             this.gridColumn_id.Caption = "视频编号";
             this.gridColumn_id.FieldName = "Id";
@@ -396,7 +398,7 @@
             // 
             // gridColumn_name
             // 
-            this.gridColumn_name.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn_name.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn_name.AppearanceCell.Options.UseFont = true;
             this.gridColumn_name.Caption = "视频名";
             this.gridColumn_name.FieldName = "Name";
@@ -407,7 +409,7 @@
             // 
             // gridColumn_project_name
             // 
-            this.gridColumn_project_name.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn_project_name.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn_project_name.AppearanceCell.Options.UseFont = true;
             this.gridColumn_project_name.Caption = "数据编号";
             this.gridColumn_project_name.FieldName = "ProjectName";
@@ -420,7 +422,7 @@
             // 
             // gridColumn_uri
             // 
-            this.gridColumn_uri.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn_uri.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn_uri.AppearanceCell.Options.UseFont = true;
             this.gridColumn_uri.Caption = "视频相对路径";
             this.gridColumn_uri.ColumnEdit = this.repositoryItemMemoEdit1;
@@ -437,7 +439,7 @@
             // 
             // gridColumn_status
             // 
-            this.gridColumn_status.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn_status.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn_status.AppearanceCell.Options.UseFont = true;
             this.gridColumn_status.Caption = "视频状态";
             this.gridColumn_status.FieldName = "Status";
@@ -449,7 +451,7 @@
             // 
             // gridColumn_recorded
             // 
-            this.gridColumn_recorded.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn_recorded.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn_recorded.AppearanceCell.Options.UseFont = true;
             this.gridColumn_recorded.Caption = "是否记录";
             this.gridColumn_recorded.FieldName = "Recorded";
@@ -461,7 +463,7 @@
             // 
             // gridColumn_deframed
             // 
-            this.gridColumn_deframed.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn_deframed.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn_deframed.AppearanceCell.Options.UseFont = true;
             this.gridColumn_deframed.Caption = "是否解帧";
             this.gridColumn_deframed.FieldName = "Deframed";
@@ -473,7 +475,7 @@
             // 
             // gridColumn_frame_path
             // 
-            this.gridColumn_frame_path.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn_frame_path.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn_frame_path.AppearanceCell.Options.UseFont = true;
             this.gridColumn_frame_path.Caption = "解帧路径";
             this.gridColumn_frame_path.FieldName = "FramePath";
@@ -485,7 +487,7 @@
             // 
             // gridColumn1
             // 
-            this.gridColumn1.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn1.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn1.AppearanceCell.Options.UseFont = true;
             this.gridColumn1.Caption = "标签";
             this.gridColumn1.ColumnEdit = this.repositoryItemMemoEdit2;
@@ -502,7 +504,7 @@
             // 
             // gridColumn_start
             // 
-            this.gridColumn_start.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn_start.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn_start.AppearanceCell.Options.UseFont = true;
             this.gridColumn_start.Caption = "开始时间";
             this.gridColumn_start.FieldName = "StartTime";
@@ -514,7 +516,7 @@
             // 
             // gridColumn_end
             // 
-            this.gridColumn_end.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn_end.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn_end.AppearanceCell.Options.UseFont = true;
             this.gridColumn_end.Caption = "结束时间";
             this.gridColumn_end.FieldName = "EndTime";
@@ -526,7 +528,7 @@
             // 
             // gridColumn3
             // 
-            this.gridColumn3.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn3.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn3.AppearanceCell.Options.UseFont = true;
             this.gridColumn3.Caption = "视频录制时间";
             this.gridColumn3.FieldName = "RecordTime";
@@ -538,7 +540,7 @@
             // 
             // gridColumn2
             // 
-            this.gridColumn2.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn2.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn2.AppearanceCell.Options.UseFont = true;
             this.gridColumn2.Caption = "截图数量";
             this.gridColumn2.FieldName = "Images";
@@ -550,7 +552,7 @@
             // 
             // gridColumn_create_time
             // 
-            this.gridColumn_create_time.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn_create_time.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn_create_time.AppearanceCell.Options.UseFont = true;
             this.gridColumn_create_time.Caption = "创建时间";
             this.gridColumn_create_time.FieldName = "CreateTime";
@@ -562,7 +564,7 @@
             // 
             // gridColumn4
             // 
-            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn4.AppearanceCell.Options.UseFont = true;
             this.gridColumn4.Caption = "拷贝人员";
             this.gridColumn4.FieldName = "Replicator";
@@ -574,7 +576,7 @@
             // 
             // gridColumn5
             // 
-            this.gridColumn5.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn5.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn5.AppearanceCell.Options.UseFont = true;
             this.gridColumn5.Caption = "录制地点";
             this.gridColumn5.FieldName = "Place";
@@ -586,7 +588,7 @@
             // 
             // gridColumn_count
             // 
-            this.gridColumn_count.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn_count.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn_count.AppearanceCell.Options.UseFont = true;
             this.gridColumn_count.Caption = "分组数量";
             this.gridColumn_count.FieldName = "Count ";
@@ -598,7 +600,7 @@
             // 
             // gridColumn_eq
             // 
-            this.gridColumn_eq.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn_eq.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn_eq.AppearanceCell.Options.UseFont = true;
             this.gridColumn_eq.Caption = "通道信息";
             this.gridColumn_eq.FieldName = "EquipmentName";

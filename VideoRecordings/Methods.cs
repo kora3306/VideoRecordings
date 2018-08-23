@@ -1,11 +1,14 @@
 ﻿using Common;
 using Manina.Windows.Forms;
+using MyControl;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -96,21 +99,21 @@ namespace VideoRecordings
             VideoPlay videoplay = new VideoPlay();
             for (int i = 0; i < obj["result"].Count(); i++)
             {
-                Projects project = JsonHelper.DeserializeDataContractJson<Projects>(obj["result"][0]["project"].ToString());              
+                Projects project = JsonHelper.DeserializeDataContractJson<Projects>(obj["result"][0]["project"].ToString());
                 EquipmentInfo info = JsonHelper.DeserializeDataContractJson<EquipmentInfo>(obj["result"][0]["equipments"][0]["equipment_info"].ToString());
                 videoplay = JsonHelper.DeserializeDataContractJson<VideoPlay>(obj["result"][0]["equipments"][0]["videos"][0].ToString());
                 videoplay.Project = project;
                 videoplay.Rquipment = info;
-            }          
+            }
             return videoplay;
         }
 
         public static List<TypeLabel> CopyToList(List<TypeLabel> list)
         {
-            List<TypeLabel> copys = new List<TypeLabel>();
+            List<TypeLabel> copys = new List<TypeLabel>(list.Count);
             foreach (var item in list)
             {
-                TypeLabel copy = (TypeLabel)item.Clone();
+                TypeLabel copy = item.Clone() as TypeLabel;
                 copys.Add(copy);
             }
             return copys;
@@ -118,19 +121,19 @@ namespace VideoRecordings
 
         public static string ReadPath(string path)
         {
-            if(!File.Exists(path))
+            if (!File.Exists(path))
             {
                 return string.Empty;
             }
             FileStream fs = new FileStream(path, FileMode.Open);
             StreamReader sr = new StreamReader(fs, Encoding.Default);
-            string read= sr.ReadToEnd();
+            string read = sr.ReadToEnd();
             sr.Close();
             fs.Close();
             return read;
         }
 
-        public static void WritePath(string path,string text)
+        public static void WritePath(string path, string text)
         {
             if (!File.Exists(path))
             {
@@ -179,12 +182,46 @@ namespace VideoRecordings
 
         public static VideoLabel GetNodeToVideoLabel(TreeNode node)
         {
-            return new VideoLabel() {Id = int.Parse(node.Tag.ToString()), Name = node.Text};
+            return new VideoLabel() { Id = int.Parse(node.Tag.ToString()), Name = node.Text };
         }
 
         public static TypeLabel GetNodeToTypeLabel(TreeNode node)
         {
             return new TypeLabel() { Id = int.Parse(node.Tag.ToString()), Name = node.Text };
         }
+
+
+
+        /// <summary>
+        /// 反射获取窗体
+        /// </summary>
+        /// <param name="form"></param>
+        /// <param name="sender"></param>
+        public void GenerateForm(string form, object sender)
+        {
+            Form fm = (Form)Assembly.GetExecutingAssembly().CreateInstance(form);
+            fm.FormBorderStyle = FormBorderStyle.None;
+            fm.BringToFront();
+            fm.TopLevel = false;
+            fm.Parent = (Panel)sender;
+            fm.ControlBox = false;
+            fm.Dock = DockStyle.Fill;
+            fm.Show();
+        }
+
+
+        /// <summary>
+        /// 判断获取加载的窗体
+        /// </summary>
+        /// <param name="index"></param>
+        public void SetForm(string formClass, string name, TabControlEx tabControlExHfrz)
+        {
+            TabPage tabPageMapping = new TabPage(name) { Name = name };
+            tabControlExHfrz.TabPages.Add(tabPageMapping);
+            GenerateForm(formClass, tabPageMapping);
+        }
+
+
     }
+
 }

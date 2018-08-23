@@ -311,4 +311,3 @@ E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Equipment.Se
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.UpdateEquipment.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.RepetitionVideo.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.ShowRepetition.resources
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe.licenses

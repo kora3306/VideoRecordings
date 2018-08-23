@@ -40,29 +40,6 @@ namespace VideoRecordings
             Methods.AddIsTest(this);
         }
 
-        /// <summary>
-        /// 增加文件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddVideo_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddVideo addVideo = new AddVideo();
-            addVideo.MyAddEvent += new AddVideo.MyDelegate(GetInformationShow);
-            addVideo.Show();
-        }
-
-        /// <summary>
-        /// 搜索
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ContrastVideo_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            QueryVideo queryVideo = new QueryVideo(Videos);
-            queryVideo.MyEvent += new QueryVideo.MyDelegate(RefshData);
-            queryVideo.Show();
-        }
 
         /// <summary>
         /// 双击打开文件夹
@@ -225,15 +202,6 @@ namespace VideoRecordings
 
         }
 
-        /// <summary>
-        /// 标签配置
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Labels_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new ManagementLabel().ShowDialog();
-        }
 
         private void gridView1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -340,11 +308,6 @@ namespace VideoRecordings
             GetInformationShow();
         }
 
-        private void Groups_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ChannelGrouping.Grouping grouping = new ChannelGrouping.Grouping();
-            grouping.Show();
-        }
 
         private void repetitionToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -358,12 +321,6 @@ namespace VideoRecordings
                 return;
             }
             MessageBox.Show("添加成功");
-        }
-
-        private void VideosInfo_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RepetitionVideo repetition = new RepetitionVideo();
-            repetition.Show();
         }
 
         private void gridView1_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
@@ -382,6 +339,13 @@ namespace VideoRecordings
                         break;
                 }
             }
+        }
+
+        private void AddVideoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddVideo addVideo = new AddVideo();
+            addVideo.MyAddEvent += new AddVideo.MyDelegate(GetInformationShow);
+            addVideo.Show();
         }
     }
 
