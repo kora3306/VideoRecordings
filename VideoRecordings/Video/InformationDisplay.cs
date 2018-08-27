@@ -314,29 +314,26 @@ namespace VideoRecordings
         /// <param name="play"></param>
         public void RefreshData(VideoPlay play)
         {
-            foreach (var item in videoplays)
+            foreach (VideoPlay item in videoplays)
             {
+                int i = 0;
                 if (item.Name == play.Name)
                 {
-                    item.Labels = play.Labels;
-                    item.ImageId = play.ImageId;
-                    item.StartTime = play.StartTime;
-                    item.EndTime = play.EndTime;
-                    item.RecordTime = play.RecordTime;
-                    item.Deframed = play.Deframed;
-                    item.FramePath = play.FramePath;
+                    videoplays[i] = play;
                     break;
                 }
+                i++;
             }
             bindingSource1.DataSource = videoplays;
             gridView1.MoveNext();
             videoplays.Count.ToString();
         }
 
-        private void RefreshAllData(VideoPlay play)
+        private void RefreshAllData(VideoPlay Rplay)
         {
+            VideoPlay play = Methods.GetNewImages(Rplay.Id);
             RefreshData(play);
-            RefreshNewImage(play);
+            RefreshNewImage(play);         
         }
 
         public void RefreshNewImage(VideoPlay video)
@@ -394,7 +391,6 @@ namespace VideoRecordings
         {
             VideoRecording recording = new VideoRecording(transmissionvideo, Hasbeen);
             recording.MyEvent += new VideoRecording.MyDelegate(RefreshAllData);
-            recording.MyRecordEvent += new VideoRecording.MyRecordDelegate(RefshHomePage);
             recording.SetMyRecordEvent += new VideoRecording.MyRecordDelegate(SetTheUse);
             recording.WindowState = FormWindowState.Maximized;
             if (transmissionvideo == null || transmissionvideo.Uri == null) return;

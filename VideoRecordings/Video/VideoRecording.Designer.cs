@@ -248,7 +248,7 @@
             this.save_button.TabIndex = 14;
             this.save_button.Text = "保存";
             this.save_button.UseVisualStyleBackColor = true;
-            this.save_button.Click += new System.EventHandler(this.save_button_Click);
+            this.save_button.Click += new System.EventHandler(this.save_button_ClickAsync);
             // 
             // label3
             // 

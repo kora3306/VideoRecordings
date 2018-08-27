@@ -570,8 +570,9 @@ namespace VideoRecordings
             bindingSource1.DataSource = videoplays;
         }
 
-        public void RefreshAllData(VideoPlay play)
+        public void RefreshAllData(VideoPlay Rplay)
         {
+            VideoPlay play = Methods.GetNewImages(Rplay.Id);
             RefreshData(play);
             RefreshNewImage(play);
         }

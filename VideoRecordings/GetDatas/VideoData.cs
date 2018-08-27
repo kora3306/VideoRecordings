@@ -122,15 +122,15 @@ namespace VideoRecordings.GetDatas
         /// <param name="info"></param>
         /// <param name="ids"></param>
         /// <returns></returns>
-        public static bool VideoRepetition(string name,string info,int id,List<int> ids)
+        public static bool VideoRepetition(string name, string info, int id, List<int> ids)
         {
             string url = Program.Urlpath + $"/video/check";
-            Repetition repetition = new Repetition(name, info,id, ids);
-            JObject obj = WebClinetHepler.Post_New(url,JsonConvert.SerializeObject(repetition));
+            Repetition repetition = new Repetition(name, info, id, ids);
+            JObject obj = WebClinetHepler.Post_New(url, JsonConvert.SerializeObject(repetition));
             return obj != null;
         }
 
-        public static List<Repetitions> GetRepetitions(string name, string number=null)
+        public static List<Repetitions> GetRepetitions(string name, string number = null)
         {
             string url = Program.Urlpath + $"/video/check/user/status?user_name={name}";
             if (number != null) url += $"&pull_number={number}";
@@ -151,16 +151,16 @@ namespace VideoRecordings.GetDatas
         public static bool DeleteRepetition(int id)
         {
             string url = Program.Urlpath + $"/video/check/result";
-            string json= JsonConvert.SerializeObject(new Dictionary<string, int>() { { "id", id } });
-            JObject obj = WebClinetHepler.Delete_New(url,json);
+            string json = JsonConvert.SerializeObject(new Dictionary<string, int>() { { "id", id } });
+            JObject obj = WebClinetHepler.Delete_New(url, json);
             return obj != null;
         }
 
         public static bool DeleteRepetitionVideo(List<int> ids)
         {
             string url = Program.Urlpath + $"/video/check";
-            string json = JsonConvert.SerializeObject(new Dictionary<string, List<int>>() { {"video_ids",ids } });
-            JObject obj = WebClinetHepler.Delete_New(url,json);
+            string json = JsonConvert.SerializeObject(new Dictionary<string, List<int>>() { { "video_ids", ids } });
+            JObject obj = WebClinetHepler.Delete_New(url, json);
             return obj != null;
         }
 
@@ -173,6 +173,22 @@ namespace VideoRecordings.GetDatas
             JObject obj = WebClinetHepler.Delete_New(url, json);
             return obj != null;
         }
+
+
+        public static bool SaveTime(int id, string json)
+        {
+            string url = Program.Urlpath + $"/video/{id}";
+            JObject obj = WebClinetHepler.Patch_New(url, json);
+            return obj != null;
+        }
+
+        public static bool SaveImage(int id, string json)
+        {
+            string url = Program.Urlpath + $"/video/{id}/snapshots";
+            JObject obj = WebClinetHepler.Post_New(url, json);
+            return obj != null;
+        }
+
     }
 
 }

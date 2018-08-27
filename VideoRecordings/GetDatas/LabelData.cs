@@ -43,7 +43,7 @@ namespace VideoRecordings.GetDatas
             return AllLabel;
         }
 
-        public static bool UpdateLabelName(int id,string name)
+        public static bool UpdateLabelName(int id, string name)
         {
             string url = Program.Urlpath + $"/label/{id}";
             var up = new
@@ -72,11 +72,17 @@ namespace VideoRecordings.GetDatas
                 diclabel.Add("name", item);
                 dics.Add(diclabel);
             }
-            JObject obj = WebClinetHepler.Post_New(url, JsonConvert.SerializeObject(dics));                   
-            return obj!=null;
+            JObject obj = WebClinetHepler.Post_New(url, JsonConvert.SerializeObject(dics));
+            return obj != null;
         }
 
-        public static bool AddLabelToVideo(int id ,List<int> labels)
+        /// <summary>
+        /// 视频打标签
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="labels"></param>
+        /// <returns></returns>
+        public static bool AddLabelToVideo(int id, List<int> labels)
         {
             string posturl = Program.Urlpath + $"/video/{id}/labels";
             JObject obj = WebClinetHepler.Post_New(posturl, JsonConvert.SerializeObject(labels));

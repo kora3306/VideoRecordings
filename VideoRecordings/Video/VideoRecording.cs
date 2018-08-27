@@ -20,6 +20,7 @@ using Newtonsoft.Json.Linq;
 using VideoRecordings.GetDatas;
 using VideoRecordings.Models;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace VideoRecordings
 {
@@ -158,21 +159,19 @@ namespace VideoRecordings
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void save_button_Click(object sender, EventArgs e)
+        private void save_button_ClickAsync(object sender, EventArgs e)
         {
             ImageAdd();
-            SaveLabel();
-            SaveImage();
-            SaveTime();
+            var islabel= SaveLabelAsync();
+            var isimage = SaveImageAsync();
+            var istime = SaveTimeAsync();
+            if (!(islabel.Result && isimage.Result && istime.Result))
+                return;
             DeleteFolder(Program.ImageSavePath);
-            VideoPlay play = Methods.GetNewImages(videoplay.Id);
-            OnSave(play);
-            if (play.Labels.Count() != 0)
-            {
-                OnRefresh();
-            }
+            OnSave(videoplay);
             this.Close();
         }
+
 
         /// <summary>
         /// 选择标签加入已有标签栏
@@ -439,46 +438,44 @@ namespace VideoRecordings
         /// <summary>
         /// Post保存标签
         /// </summary>
-        public void SaveLabel()
+        public async Task<bool> SaveLabelAsync()
         {
-            List<VideoLabel> ids = new List<VideoLabel>();
-            foreach (TypeLabel tree in Selectlabels)
+            return await Task.Run(() =>
             {
-                ids.AddRange(tree.Labels);
-            }
-            if (!LabelData.AddLabelToVideo(videoplay.Id, ids.Select(t => t.Id).ToList()))
-            {
-                MessageBox.Show("添加标签失败");
-                return;
-            }
+                List<VideoLabel> ids = new List<VideoLabel>();
+                foreach (TypeLabel tree in Selectlabels)
+                {
+                    ids.AddRange(tree.Labels);
+                }
+                bool win = LabelData.AddLabelToVideo(videoplay.Id, ids.Select(t => t.Id).ToList());
+                if (!win)
+                {
+                    MessageBox.Show("上传标签失败");
+                }
+                return win;
+            });
         }
 
         /// <summary>
         /// post保存图片
         /// </summary>
-        public void SaveImage()
+        public async Task<bool> SaveImageAsync()
         {
-            if (paths.Count == 0) return;
-            string posturl = Program.Urlpath + $"/video/{videoplay.Id}/snapshots";
-            List<string> saveimage = new List<string>();
-            foreach (var item in paths)
+            return await Task.Run(() =>
             {
-                saveimage.Add(GetPictureData(item));
-            }
-            foreach (var item in saveimage)
-            {
-                List<string> post = new List<string>();
-                post.Add(item);
-                string json = new JavaScriptSerializer().Serialize(post);
-                //string json = $"[{item}]";
-                JObject obj = WebClinetHepler.Post_New(posturl, json);
-                if (obj == null)
+                List<string> saveimage = new List<string>();
+                foreach (var item in paths)
                 {
-                    MessageBox.Show("添加图片失败");
-                    return;
+                    saveimage.Add(GetPictureData(item));
                 }
-
-            }
+                string json = new JavaScriptSerializer().Serialize(saveimage);
+                bool win = VideoData.SaveImage(videoplay.Id, json);
+                if (!win)
+                {
+                    MessageBox.Show("上传图片失败");
+                }
+                return win;
+            });
         }
 
         /// <summary>
@@ -680,23 +677,24 @@ namespace VideoRecordings
         /// <summary>
         /// 保存时间
         /// </summary>
-        private void SaveTime()
+        private async Task<bool> SaveTimeAsync()
         {
-            Dictionary<string, string> patchjson = new Dictionary<string, string>();
-            string start = timeEdit_start.Text;
-            string end = timeEdit_end.Text;
-            string url = Program.Urlpath + "/video/" + videoplay.Id;
-            patchjson.Add("start_time", start);
-            patchjson.Add("end_time", end);
-            patchjson.Add("record_time", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
-            string json = (new JavaScriptSerializer()).Serialize(patchjson);
-            JObject obj = WebClinetHepler.Patch_New(url, json);
-            if (obj == null)
+            return await Task.Run(() =>
             {
-                MessageBox.Show("起止时间上传失败");
-                Program.log.Error($"上传起止时间出错{url}", new Exception($"{json}"));
-                return;
-            }
+                Dictionary<string, string> patchjson = new Dictionary<string, string>();
+                string start = timeEdit_start.Text;
+                string end = timeEdit_end.Text;
+                patchjson.Add("start_time", start);
+                patchjson.Add("end_time", end);
+                patchjson.Add("record_time", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+                string json = (new JavaScriptSerializer()).Serialize(patchjson);
+                bool win = VideoData.SaveTime(videoplay.Id, json);
+                if (!win)
+                {
+                    MessageBox.Show("上传时间失败");
+                }
+                return win;
+            });
         }
 
         /// <summary>
@@ -756,7 +754,7 @@ namespace VideoRecordings
             {
                 return;
             }
-            Program.labels =Methods.CopyToList(Selectlabels);
+            Program.labels = Methods.CopyToList(Selectlabels);
         }
         /// <summary>
         /// 粘贴

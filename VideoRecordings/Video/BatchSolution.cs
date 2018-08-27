@@ -20,10 +20,12 @@ namespace VideoRecordings.Video
 
         public delegate void MyDeletgate();
         public event MyDeletgate MyRefreshEvent;
+
         public void OnRefresh()
         {
             MyRefreshEvent.Invoke();
         }
+
         public BatchSolution(List<VideoPlay> videoPlays)
         {
             InitializeComponent();
