@@ -139,6 +139,7 @@
             this.All_treeList.Name = "All_treeList";
             this.All_treeList.OptionsBehavior.Editable = false;
             this.All_treeList.OptionsBehavior.ReadOnly = true;
+            this.All_treeList.OptionsFind.AlwaysVisible = true;
             this.tableLayoutPanel1.SetRowSpan(this.All_treeList, 2);
             this.All_treeList.Size = new System.Drawing.Size(311, 634);
             this.All_treeList.TabIndex = 7;

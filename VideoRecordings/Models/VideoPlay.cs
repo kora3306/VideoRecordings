@@ -49,14 +49,16 @@ namespace VideoRecordings.Models
         public string CreateTime { get; set; }
 
         [DataMember(Name = "labels")]
-        public List<TypeLabel> Labels;
+        public AllTypeLabel Labels { get; set; }
 
         public string Label
         {
             get
             {
+                if (Labels.StaticLabel==null&&Labels.DynamicLabel==null)
+                    return string.Empty;
                 List<VideoLabel> labels = new List<VideoLabel>();
-                foreach (TypeLabel item in Labels)
+                foreach (TypeLabel item in Labels.StaticLabel.Union(Labels.DynamicLabel))
                 {
                     labels.AddRange(item.Labels);
                 }

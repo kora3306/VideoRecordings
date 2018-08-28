@@ -26,6 +26,7 @@ using VideoRecordings.Equipment;
 using VideoRecordings.GetDatas;
 using VideoRecordings.Models;
 using VideoRecordings.Video;
+using VideoRecordings.Label;
 
 namespace VideoRecordings
 {
@@ -40,6 +41,8 @@ namespace VideoRecordings
         List<VideoProject> Videos = new List<VideoProject>();
         GridHitInfo hInfo = new GridHitInfo();
         Dictionary<string, int> queryvidoe = new Dictionary<string, int>();
+        private List<EquipmentInfo> equipments = new List<EquipmentInfo>();
+        private Dictionary<int, EquipmentInfo> mydic = new Dictionary<int, EquipmentInfo>();
         List<string> replicators = new List<string>();
 
         private MyLabels MyLabels;
@@ -124,6 +127,7 @@ namespace VideoRecordings
             imageurl.Clear();
             gridView1.OptionsBehavior.AutoExpandAllGroups = false;
             RefreshImage();
+            mydic = equipments.ToDictionary(t=>t.Id);
         }
 
         /// <summary>
@@ -293,16 +297,19 @@ namespace VideoRecordings
         private List<VideoPlay> GerQueryVideos(JObject obj)
         {
             queryvidoe.Clear();
+            equipments.Clear();
             List<VideoPlay> palys = new List<VideoPlay>();
             for (int i = 0; i < obj["result"].Count(); i++)
             {
-                Projects project = JsonHelper.DeserializeDataContractJson<Projects>(obj["result"][i]["project"].ToString());
+                Projects project = JsonConvert.DeserializeObject<Projects>(obj["result"][i]["project"].ToString());
                 for (int j = 0; j < obj["result"][i]["equipments"].Count(); j++)
                 {
-                    EquipmentInfo equipment = JsonHelper.DeserializeDataContractJson<EquipmentInfo>(obj["result"][i]["equipments"][j]["equipment_info"].ToString());
-                    Completeness comple = JsonHelper.DeserializeDataContractJson<Completeness>(obj["result"][i]["equipments"][j]["statistic"].ToString());
-                    List<VideoPlay> videos = JsonHelper.DeserializeDataContractJson<List<VideoPlay>>(obj["result"][i]["equipments"][j]["videos"].ToString());
+                    EquipmentInfo equipment = JsonConvert.DeserializeObject<EquipmentInfo>(obj["result"][i]["equipments"][j]["equipment_info"].ToString());
+                    Completeness comple = JsonConvert.DeserializeObject<Completeness>(obj["result"][i]["equipments"][j]["statistic"].ToString());
+                    List<VideoPlay> videos = JsonConvert.DeserializeObject<List<VideoPlay>>(obj["result"][i]["equipments"][j]["videos"].ToString());
                     videos.ForEach(t => { t.Project = project; t.Rquipment = equipment; });
+                    if (equipments.Count(t=>t.Id==equipment.Id)==0)
+                        equipments.Add(equipment);
                     palys.AddRange(videos);
                     if (queryvidoe.Keys.Contains(project.ProjectId))
                     {
@@ -374,6 +381,9 @@ namespace VideoRecordings
                     return true;
                 case Keys.F2:
                     Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri)));
+                    return true;
+                case Keys.Q:
+                    ShowStaticLabels();
                     return true;
                 default:
                     break;
@@ -555,19 +565,16 @@ namespace VideoRecordings
         /// <param name="play"></param>
         public void RefreshData(VideoPlay play)
         {
-            foreach (var item in videoplays)
-            {
-                if (item.Name == play.Name)
-                {
-                    item.Labels = play.Labels;
-                    item.ImageId = play.ImageId;
-                    item.StartTime = play.StartTime;
-                    item.EndTime = play.EndTime;
-                    item.RecordTime = play.RecordTime;
-                    break;
-                }
-            }
+            VideoPlay video = videoplays.FirstOrDefault(t => t.Id == play.Id);
+            video.Labels = play.Labels;
+            video.ImageId = play.ImageId;
+            video.StartTime = play.StartTime;
+            video.EndTime = play.EndTime;
+            video.CreateTime = play.CreateTime;
+            video.Recorded = play.Recorded;
             bindingSource1.DataSource = videoplays;
+            bindingSource1.DataSource = videoplays;
+            gridView1.RefreshData();
         }
 
         public void RefreshAllData(VideoPlay Rplay)
@@ -622,15 +629,15 @@ namespace VideoRecordings
             }
             VideoPlay video = (VideoPlay)gridView1.GetRow(e.RowHandle);
             if (video == null) return;
-            if (video.ImageId.Count != 0 && video.Labels.Count != 0)
+            if (video.ImageId.Count != 0 && !string.IsNullOrEmpty(video.Label))
             {
                 e.Appearance.BackColor = Color.LightGreen;
             }
-            else if (video.ImageId.Count != 0 && video.Labels.Count == 0)
+            else if (video.ImageId.Count != 0 && !string.IsNullOrEmpty(video.Label))
             {
                 e.Appearance.BackColor = Color.Khaki;
             }
-            else if (video.ImageId.Count == 0 & video.Labels.Count != 0)
+            else if (video.ImageId.Count == 0 & !string.IsNullOrEmpty(video.Label))
             {
                 e.Appearance.BackColor = Color.LightPink;
             }
@@ -719,7 +726,7 @@ namespace VideoRecordings
         private void button2_Click(object sender, EventArgs e)
         {
             button1.Focus();
-            SelectLabel select = new SelectLabel(textBox_label.Text);
+            SelectLabel select = new SelectLabel(RefreshType.DynamicLabel,textBox_label.Text);
             select.MyRefreshEvent += new SelectLabel.MyDelegate(StartScreening);
             select.ShowDialog();
         }
@@ -817,6 +824,16 @@ namespace VideoRecordings
                 string project_name = gridview.GetRowCellValue(index, "ProjectName").ToString();
                 GridGroupRowInfo.GroupText = "数据编号:" + uri.Split('/').ToList()
                      .First(t => t.StartsWith("SP") || t.StartsWith("Sp")) + $" (数量:{queryvidoe[$"{project_name}"]})";
+            }
+            else
+            {
+                int id = int.Parse(GridGroupRowInfo.EditValue.ToString().Split(':').First());
+                int count = videoplays.Count(t => t.EquipmentID == id);
+                if (id == 0)
+                    GridGroupRowInfo.GroupText = $"通道信息：" + GridGroupRowInfo.EditValue + $"({count})";
+                else
+                    GridGroupRowInfo.GroupText = $"通道信息：" + GridGroupRowInfo.EditValue + $"({count})" +
+                        $"({mydic[id].LabelStr})";
             }
         }
 
@@ -1035,7 +1052,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void AddlabelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SelectLabel select = new SelectLabel();
+            SelectLabel select = new SelectLabel(RefreshType.DynamicLabel);
             select.MyRefreshEvent += new SelectLabel.MyDelegate(AddTheLabels);
             select.ShowDialog();
         }
@@ -1052,7 +1069,6 @@ namespace VideoRecordings
                 button1.PerformClick();
             }
         }
-
 
         public List<int> GetGroupIds(VideoPlay video)
         {
@@ -1176,6 +1192,44 @@ namespace VideoRecordings
             if (ids.Count == 0) return;
             selectEquipment.PostIds = ids;
             selectEquipment.Show();
+        }
+
+        private void ADStaticToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int index = gridView1.FocusedRowHandle;
+            int row = gridView1.GetDataRowHandleByGroupRowHandle(index);
+            VideoPlay dr = (VideoPlay)gridView1.GetRow(row);
+            int id = dr.EquipmentID;
+            if (id == 0) return;
+            SelectLabel select = new SelectLabel(RefreshType.StaticLabel, mydic[id].LabelStr);
+            select.MyRefreshEvent += new SelectLabel.MyDelegate(SetLabelsToEquipment);
+            select.ShowDialog();
+        }
+
+        public void SetLabelsToEquipment(List<string> labels)
+        {
+            int index = gridView1.FocusedRowHandle;
+            int row = gridView1.GetDataRowHandleByGroupRowHandle(index);
+            VideoPlay dr = (VideoPlay)gridView1.GetRow(row);
+            int id = dr.EquipmentID;
+            if (id == 0) return;
+            List<int> ids = new MyLabels().GetSelectIds(labels);
+            if (!LabelData.AddLabelToEquipment(id, ids))
+            {
+                MessageBox.Show("添加标签到通道失败");
+                return;
+            }
+            RefreshImage();
+        }
+
+        private void ShowStaticLabels()
+        {
+            int index = gridView1.FocusedRowHandle;
+            int row = gridView1.GetDataRowHandleByGroupRowHandle(index);
+            VideoPlay dr = (VideoPlay)gridView1.GetRow(row);
+            int id = dr.EquipmentID;
+            ShowStaticLabel show = new ShowStaticLabel(id);
+            show.Show();
         }
     }
 }

@@ -16,13 +16,15 @@ namespace VideoRecordings
 {
     public partial class SelectLabel : DevExpress.XtraEditors.XtraForm
     {
-        private List<TypeLabel> typeLabels = new List<TypeLabel>();
+        private MyLabels typeLabels = new MyLabels();
         List<string> labels = new List<string>();
         private bool IsExpand = true;
+        RefreshType Type;
 
-        public SelectLabel(string text = null)
+        public SelectLabel(RefreshType type=RefreshType.None,string text = null)
         {
             InitializeComponent();
+            Type = type;
             if (!string.IsNullOrEmpty(text))
                 labels = text.Split(',').ToList();
         }
@@ -46,11 +48,24 @@ namespace VideoRecordings
 
         private void SetShowGroups()
         {
-            typeLabels = LabelData.GetAllLabel();
+            typeLabels = new MyLabels();
             if (typeLabels == null) return;
+            List<TypeLabel> labels = new List<TypeLabel>();
+            switch (Type)
+            {
+                case RefreshType.None:
+                    labels = typeLabels.DynamicLabel.Union(typeLabels.StaticLabel).ToList();
+                    break;
+                case RefreshType.DynamicLabel:
+                    labels = typeLabels.DynamicLabel;
+                    break;
+                case RefreshType.StaticLabel:
+                    labels = typeLabels.StaticLabel;
+                    break;
+            }
             All_treeList.BeginUpdate();
             All_treeList.Nodes.Clear();
-            foreach (TypeLabel item in typeLabels.OrderByDescending(t => t.Name))
+            foreach (TypeLabel item in labels.OrderByDescending(t => t.Name))
             {
                 TreeListNode ParentNode = All_treeList.AppendNode(null, null);
                 ParentNode.SetValue(All_treeList.Columns[0], item.Name);

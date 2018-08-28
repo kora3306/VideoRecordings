@@ -11,16 +11,18 @@ using VideoRecordings.GetDatas;
 namespace VideoRecordings.Models
 {
 
-    [DataContract,Serializable]
-    public class TypeLabel: ICloneable
+    [DataContract, Serializable]
+    public class TypeLabel : ICloneable
     {
         [DataMember(Name = "id")] public int Id { get; set; }
         [DataMember(Name = "name")] public string Name { get; set; }
         [DataMember(Name = "children")] public List<VideoLabel> Labels { get; set; } = new List<VideoLabel>();
+        [DataMember(Name = "type")] public int Type { get; set; }
 
-        public  object Clone()
+
+        public object Clone()
         {
-            TypeLabel typelabel = new TypeLabel() { Id=Id,Name=Name};
+            TypeLabel typelabel = new TypeLabel() { Id = Id, Name = Name };
             foreach (VideoLabel item in Labels)
             {
                 VideoLabel label = (VideoLabel)item.Clone();
@@ -41,7 +43,7 @@ namespace VideoRecordings.Models
         }
     }
 
-    [DataContract,Serializable]
+    [DataContract, Serializable]
     public class VideoLabel : ICloneable
     {
         [DataMember(Name = "id")] public int Id { get; set; }
@@ -55,6 +57,19 @@ namespace VideoRecordings.Models
 
     }
 
+    [DataContract]
+    public class AllTypeLabel
+    {
+        [DataMember(Name = "dynamic")]
+        public List<TypeLabel> DynamicLabel { get; set; }
+
+        [DataMember(Name = "static")]
+        public List<TypeLabel> StaticLabel { get; set; }
+    }
+        
+
+        
+
     public class MyLabels
     {
         public MyLabels()
@@ -62,20 +77,30 @@ namespace VideoRecordings.Models
             AllLabels = LabelData.GetAllLabel();
         }
 
-        public List<TypeLabel> AllLabels { get; set; }
+        public MyLabels(int id)
+        {
+            AllLabels = LabelData.GetAllLabel(id);
+        }
+
+        public AllTypeLabel AllLabels { get; set; }
+
+        public List<TypeLabel> DynamicLabel { get => AllLabels.DynamicLabel; }
+
+        public List<TypeLabel> StaticLabel { get => AllLabels.StaticLabel; }
 
         public Dictionary<int, string> AllLabelsToDic
         {
             get
             {
                 List<VideoLabel> videoLabels = new List<VideoLabel>();
-                foreach (TypeLabel it in AllLabels)
+                foreach (TypeLabel it in DynamicLabel.Union(StaticLabel))
                 {
                     videoLabels.AddRange(it.Labels);
                 }
                 return videoLabels.ToDictionary(t => t.Id, s => s.Name);
             }
         }
+
 
         public  List<int> GetSelectIds(List<string> label)
         {

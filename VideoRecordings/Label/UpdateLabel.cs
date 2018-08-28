@@ -18,10 +18,12 @@ namespace VideoRecordings
     public partial class UpdateLabel : DevExpress.XtraEditors.XtraForm
     {
         int index;
-        public UpdateLabel(int id)
+        RefreshType type;
+        public UpdateLabel(int id,RefreshType refresh)
         {
             InitializeComponent();
             index = id;
+            type = refresh;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -35,17 +37,17 @@ namespace VideoRecordings
             {
                 MessageBox.Show("修改失败");
             }
-            OnRefresh();
+            OnRefresh(type);
             this.Close();
         }
 
-        public delegate void MyEvent();
+        public delegate void MyEvent(RefreshType type);
 
         public event MyEvent MyRefreshEvent;
 
-        public void OnRefresh()
+        public void OnRefresh(RefreshType type)
         {
-            MyRefreshEvent?.Invoke();
+            MyRefreshEvent?.Invoke(type);
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

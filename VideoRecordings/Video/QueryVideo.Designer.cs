@@ -115,6 +115,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button_ref = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.ADStaticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
@@ -256,77 +257,78 @@
             this.OUTToolStripMenuItem,
             this.DToolStripMenuItem,
             this.AddlabelsToolStripMenuItem,
-            this.DeleteSolutionToolStripMenuItem});
+            this.DeleteSolutionToolStripMenuItem,
+            this.ADStaticToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(154, 224);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 268);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "展开/关闭分组";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click_1);
             // 
             // batchToolStripMenuItem
             // 
             this.batchToolStripMenuItem.Name = "batchToolStripMenuItem";
-            this.batchToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.batchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.batchToolStripMenuItem.Text = "批量解帧";
             this.batchToolStripMenuItem.Click += new System.EventHandler(this.batchToolStripMenuItem_Click);
             // 
             // ADToolStripMenuItem
             // 
             this.ADToolStripMenuItem.Name = "ADToolStripMenuItem";
-            this.ADToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.ADToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ADToolStripMenuItem.Text = "添加通道";
             this.ADToolStripMenuItem.Click += new System.EventHandler(this.ADToolStripMenuItem_Click);
             // 
             // UPToolStripMenuItem
             // 
             this.UPToolStripMenuItem.Name = "UPToolStripMenuItem";
-            this.UPToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.UPToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.UPToolStripMenuItem.Text = "修改通道名";
             this.UPToolStripMenuItem.Click += new System.EventHandler(this.UPToolStripMenuItem_Click);
             // 
             // DELEToolStripMenuItem
             // 
             this.DELEToolStripMenuItem.Name = "DELEToolStripMenuItem";
-            this.DELEToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.DELEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.DELEToolStripMenuItem.Text = "删除通道";
             this.DELEToolStripMenuItem.Click += new System.EventHandler(this.DELEToolStripMenuItem_Click);
             // 
             // INToolStripMenuItem
             // 
             this.INToolStripMenuItem.Name = "INToolStripMenuItem";
-            this.INToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.INToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.INToolStripMenuItem.Text = "视频导入通道";
             this.INToolStripMenuItem.Click += new System.EventHandler(this.INToolStripMenuItem_Click);
             // 
             // OUTToolStripMenuItem
             // 
             this.OUTToolStripMenuItem.Name = "OUTToolStripMenuItem";
-            this.OUTToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.OUTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.OUTToolStripMenuItem.Text = "视频导出通道";
             this.OUTToolStripMenuItem.Click += new System.EventHandler(this.OUTToolStripMenuItem_Click);
             // 
             // DToolStripMenuItem
             // 
             this.DToolStripMenuItem.Name = "DToolStripMenuItem";
-            this.DToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.DToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.DToolStripMenuItem.Text = "删除视频记录";
             this.DToolStripMenuItem.Click += new System.EventHandler(this.DToolStripMenuItem_Click);
             // 
             // AddlabelsToolStripMenuItem
             // 
             this.AddlabelsToolStripMenuItem.Name = "AddlabelsToolStripMenuItem";
-            this.AddlabelsToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.AddlabelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.AddlabelsToolStripMenuItem.Text = "批量添加标签";
             this.AddlabelsToolStripMenuItem.Click += new System.EventHandler(this.AddlabelsToolStripMenuItem_Click);
             // 
             // DeleteSolutionToolStripMenuItem
             // 
             this.DeleteSolutionToolStripMenuItem.Name = "DeleteSolutionToolStripMenuItem";
-            this.DeleteSolutionToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.DeleteSolutionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.DeleteSolutionToolStripMenuItem.Text = "清除解帧信息";
             this.DeleteSolutionToolStripMenuItem.Click += new System.EventHandler(this.DeleteSolutionToolStripMenuItem_Click);
             // 
@@ -1189,6 +1191,13 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // ADStaticToolStripMenuItem
+            // 
+            this.ADStaticToolStripMenuItem.Name = "ADStaticToolStripMenuItem";
+            this.ADStaticToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ADStaticToolStripMenuItem.Text = "通道添加静态标签";
+            this.ADStaticToolStripMenuItem.Click += new System.EventHandler(this.ADStaticToolStripMenuItem_Click);
+            // 
             // QueryVideo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1316,5 +1325,6 @@
         private System.Windows.Forms.ToolStripMenuItem DELEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem batchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DeleteSolutionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ADStaticToolStripMenuItem;
     }
 }

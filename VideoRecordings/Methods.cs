@@ -110,6 +110,7 @@ namespace VideoRecordings
 
         public static List<TypeLabel> CopyToList(List<TypeLabel> list)
         {
+            if (list == null || list.Count == 0) return new List<TypeLabel>();
             List<TypeLabel> copys = new List<TypeLabel>(list.Count);
             foreach (var item in list)
             {

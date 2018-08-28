@@ -51,6 +51,7 @@
             this.ExeclToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.JsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteSolution_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AdsLabelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenfolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -163,9 +164,10 @@
             this.ExeclToolStripMenuItem,
             this.JsonToolStripMenuItem,
             this.DeleteSolution_ToolStripMenuItem,
+            this.AdsLabelToolStripMenuItem,
             this.OpenfolderToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 334);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 356);
             // 
             // dispalyToolStripMenuItem
             // 
@@ -264,6 +266,13 @@
             this.DeleteSolution_ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.DeleteSolution_ToolStripMenuItem.Text = "清除解帧信息";
             this.DeleteSolution_ToolStripMenuItem.Click += new System.EventHandler(this.DeleteSolution_ToolStripMenuItem_Click);
+            // 
+            // AdsLabelToolStripMenuItem
+            // 
+            this.AdsLabelToolStripMenuItem.Name = "AdsLabelToolStripMenuItem";
+            this.AdsLabelToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.AdsLabelToolStripMenuItem.Text = "通道添加静态标签";
+            this.AdsLabelToolStripMenuItem.Click += new System.EventHandler(this.AdsLabelToolStripMenuItem_Click);
             // 
             // OpenfolderToolStripMenuItem
             // 
@@ -712,5 +721,6 @@
         private System.Windows.Forms.ToolStripMenuItem batchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refToolStripMenuItem;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private System.Windows.Forms.ToolStripMenuItem AdsLabelToolStripMenuItem;
     }
 }

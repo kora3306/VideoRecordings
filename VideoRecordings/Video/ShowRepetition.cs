@@ -17,6 +17,8 @@ namespace VideoRecordings.Video
 {
     public partial class ShowRepetition : Form
     {
+        List<ReturnRepetition> returns = new List<ReturnRepetition>();
+
         private Dictionary<int, string> nameDic = new Dictionary<int, string>()
         {
             { 0,"正常"},
@@ -34,7 +36,6 @@ namespace VideoRecordings.Video
 
         public void SetData(Repetitions repetitions)
         {
-            List<ReturnRepetition> returns = new List<ReturnRepetition>();
             returns = VideoData.GetOutResult(repetitions.ID);
             bindingSource1.DataSource = returns;
         }
@@ -65,7 +66,7 @@ namespace VideoRecordings.Video
         {
             GridGroupRowInfo GridGroupRowInfo = e.Info as GridGroupRowInfo;
             int id = int.Parse(GridGroupRowInfo.EditValue.ToString());
-            GridGroupRowInfo.GroupText = $"{nameDic[id]}";
+            GridGroupRowInfo.GroupText = $"{nameDic[id]}({returns.Count(t=>t.Code==id)})";
         }
 
         private void ExeclToolStripMenuItem_Click(object sender, EventArgs e)

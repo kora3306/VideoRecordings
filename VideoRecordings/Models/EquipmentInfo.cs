@@ -28,6 +28,21 @@ namespace VideoRecordings.Models
 
         [DataMember(Name = "uid")]
         public string Uid { get; set; }
+
+        [DataMember(Name = "labels")]
+        public List<string> Labels { get; set; }
+
+        public string LabelStr { get => string.Join(",", OrderLabel()); }
+
+        private List<string> OrderLabel()
+        {
+            string subject = Labels.FirstOrDefault(t => t == "车" || t == "人");
+            if (string.IsNullOrEmpty(subject)) return Labels;
+            Labels.Remove(subject);
+            Labels.Insert(0, subject);
+            return Labels;
+        }
+
     }
 
 }

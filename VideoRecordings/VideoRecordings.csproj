@@ -140,6 +140,12 @@
     <Compile Include="Label\AddLabel.Designer.cs">
       <DependentUpon>AddLabel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Label\ShowStaticLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Label\ShowStaticLabel.Designer.cs">
+      <DependentUpon>ShowStaticLabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\EquipmentInfo.cs" />
     <Compile Include="Models\GalleryGroup.cs" />
     <Compile Include="Models\Labels.cs" />
@@ -315,6 +321,10 @@
     <EmbeddedResource Include="Equipment\AddEquipment.resx">
       <DependentUpon>AddEquipment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Label\ShowStaticLabel.resx">
+      <DependentUpon>ShowStaticLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Video\AddVideo.resx">
       <DependentUpon>AddVideo.cs</DependentUpon>
     </EmbeddedResource>

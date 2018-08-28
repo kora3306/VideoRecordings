@@ -21,6 +21,7 @@ using VideoRecordings.GetDatas;
 using VideoRecordings.Models;
 using System.Reflection;
 using System.Threading.Tasks;
+using VideoRecordings.Label;
 
 namespace VideoRecordings
 {
@@ -34,6 +35,7 @@ namespace VideoRecordings
         Point po = new Point();         //窗口定位点
         int i = 1;            //Tag
         List<string> imageurl = new List<string>();        //已有图片读取
+        List<TypeLabel> staticlabel = new List<TypeLabel>();
         bool folding = false;
         bool isuse;
         public VideoRecording(VideoPlay videopath, bool use)
@@ -68,7 +70,8 @@ namespace VideoRecordings
 
         private void VideoRecording_Load(object sender, EventArgs e)
         {
-            Selectlabels = Methods.CopyToList(videoplay.Labels);
+            Selectlabels = Methods.CopyToList(videoplay.Labels.DynamicLabel);
+            staticlabel = Methods.CopyToList(videoplay.Labels.StaticLabel);
             PlayVideo();
             GetLabels();
             SetPoint();
@@ -162,11 +165,15 @@ namespace VideoRecordings
         private void save_button_ClickAsync(object sender, EventArgs e)
         {
             ImageAdd();
-            var islabel= SaveLabelAsync();
-            var isimage = SaveImageAsync();
-            var istime = SaveTimeAsync();
-            if (!(islabel.Result && isimage.Result && istime.Result))
+            var islabel = SaveLabel();
+            var isimage = SaveImage();
+            var istime = SaveTime();
+            if (!(islabel && isimage && istime))
+            {
+                MessageBox.Show("保存失败");
                 return;
+            }
+
             DeleteFolder(Program.ImageSavePath);
             OnSave(videoplay);
             this.Close();
@@ -286,7 +293,7 @@ namespace VideoRecordings
                 case Keys.D:
                     DelImage();
                     return true;
-                case Keys.Q:
+                case Keys.F:
                     ImageAdd();
                     return true;
                 case Keys.Control | Keys.C:
@@ -315,6 +322,9 @@ namespace VideoRecordings
                     return true;
                 case Keys.T:
                     dateTimePicker1.Focus();
+                    return true;
+                case Keys.Q:
+                    ShowStaticLabels();
                     return true;
                 default:
                     break;
@@ -438,44 +448,38 @@ namespace VideoRecordings
         /// <summary>
         /// Post保存标签
         /// </summary>
-        public async Task<bool> SaveLabelAsync()
+        public bool SaveLabel()
         {
-            return await Task.Run(() =>
+            List<VideoLabel> ids = new List<VideoLabel>();
+            foreach (TypeLabel tree in staticlabel.Union(Selectlabels))
             {
-                List<VideoLabel> ids = new List<VideoLabel>();
-                foreach (TypeLabel tree in Selectlabels)
-                {
-                    ids.AddRange(tree.Labels);
-                }
-                bool win = LabelData.AddLabelToVideo(videoplay.Id, ids.Select(t => t.Id).ToList());
-                if (!win)
-                {
-                    MessageBox.Show("上传标签失败");
-                }
-                return win;
-            });
+                ids.AddRange(tree.Labels);
+            }
+            bool win = LabelData.AddLabelToVideo(videoplay.Id, ids.Select(t => t.Id).ToList());
+            if (!win)
+            {
+                MessageBox.Show("上传标签失败");
+            }
+            return win;
         }
 
         /// <summary>
         /// post保存图片
         /// </summary>
-        public async Task<bool> SaveImageAsync()
+        public bool SaveImage()
         {
-            return await Task.Run(() =>
+            List<string> saveimage = new List<string>();
+            foreach (var item in paths)
             {
-                List<string> saveimage = new List<string>();
-                foreach (var item in paths)
-                {
-                    saveimage.Add(GetPictureData(item));
-                }
-                string json = new JavaScriptSerializer().Serialize(saveimage);
-                bool win = VideoData.SaveImage(videoplay.Id, json);
-                if (!win)
-                {
-                    MessageBox.Show("上传图片失败");
-                }
-                return win;
-            });
+                saveimage.Add(GetPictureData(item));
+            }
+            string json = new JavaScriptSerializer().Serialize(saveimage);
+            bool win = VideoData.SaveImage(videoplay.Id, json);
+            if (!win)
+            {
+                MessageBox.Show("上传图片失败");
+            }
+            return win;
         }
 
         /// <summary>
@@ -484,7 +488,7 @@ namespace VideoRecordings
         public void GetLabels()
         {
             label_treeView.Nodes.Clear();
-            List<TypeLabel> typeLabels = LabelData.GetAllLabel();
+            List<TypeLabel> typeLabels = new MyLabels(videoplay.Id).DynamicLabel;
             List<TreeNode> items = new List<TreeNode>();
             foreach (TypeLabel labels in typeLabels)
             {
@@ -677,24 +681,21 @@ namespace VideoRecordings
         /// <summary>
         /// 保存时间
         /// </summary>
-        private async Task<bool> SaveTimeAsync()
+        private bool SaveTime()
         {
-            return await Task.Run(() =>
+            Dictionary<string, string> patchjson = new Dictionary<string, string>();
+            string start = timeEdit_start.Text;
+            string end = timeEdit_end.Text;
+            patchjson.Add("start_time", start);
+            patchjson.Add("end_time", end);
+            patchjson.Add("record_time", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+            string json = (new JavaScriptSerializer()).Serialize(patchjson);
+            bool win = VideoData.SaveTime(videoplay.Id, json);
+            if (!win)
             {
-                Dictionary<string, string> patchjson = new Dictionary<string, string>();
-                string start = timeEdit_start.Text;
-                string end = timeEdit_end.Text;
-                patchjson.Add("start_time", start);
-                patchjson.Add("end_time", end);
-                patchjson.Add("record_time", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
-                string json = (new JavaScriptSerializer()).Serialize(patchjson);
-                bool win = VideoData.SaveTime(videoplay.Id, json);
-                if (!win)
-                {
-                    MessageBox.Show("上传时间失败");
-                }
-                return win;
-            });
+                MessageBox.Show("上传时间失败");
+            }
+            return win;
         }
 
         /// <summary>
@@ -798,5 +799,11 @@ namespace VideoRecordings
             Methods.ShowImage(imageListView1);
         }
 
+        private void ShowStaticLabels()
+        {
+            int id = videoplay.EquipmentID;
+            ShowStaticLabel show = new ShowStaticLabel(id);
+            show.Show();
+        }
     }
 }

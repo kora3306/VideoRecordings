@@ -35,11 +35,19 @@ namespace VideoRecordings.GetDatas
             return obj != null;
         }
 
-        public static List<TypeLabel> GetAllLabel()
+        public static AllTypeLabel GetAllLabel()
         {
             string url = Program.Urlpath + "/labels";
             JObject obj = WebClinetHepler.GetJObject(url);
-            List<TypeLabel> AllLabel = JsonConvert.DeserializeObject<List<TypeLabel>>(obj["result"].ToString());
+            AllTypeLabel AllLabel = JsonConvert.DeserializeObject<AllTypeLabel>(obj["result"].ToString());
+            return AllLabel;
+        }
+
+        public static AllTypeLabel GetAllLabel(int id)
+        {
+            string url = Program.Urlpath + $"/labels?video={id}";
+            JObject obj = WebClinetHepler.GetJObject(url);
+            AllTypeLabel AllLabel = JsonConvert.DeserializeObject<AllTypeLabel>(obj["result"].ToString());
             return AllLabel;
         }
 
@@ -61,7 +69,7 @@ namespace VideoRecordings.GetDatas
             return obj != null;
         }
 
-        public static bool AddLabels(int parent_id, List<string> names)
+        public static bool AddLabels(int parent_id, List<string> names,int type=-1)
         {
             string url = Program.Urlpath + "/labels";
             List<object> dics = new List<object>();
@@ -70,6 +78,8 @@ namespace VideoRecordings.GetDatas
                 Dictionary<string, object> diclabel = new Dictionary<string, object>();
                 diclabel.Add("parent_id", parent_id);
                 diclabel.Add("name", item);
+                if (type != -1)
+                    diclabel.Add("type",type);
                 dics.Add(diclabel);
             }
             JObject obj = WebClinetHepler.Post_New(url, JsonConvert.SerializeObject(dics));
@@ -84,9 +94,40 @@ namespace VideoRecordings.GetDatas
         /// <returns></returns>
         public static bool AddLabelToVideo(int id, List<int> labels)
         {
-            string posturl = Program.Urlpath + $"/video/{id}/labels";
-            JObject obj = WebClinetHepler.Post_New(posturl, JsonConvert.SerializeObject(labels));
+            string url = Program.Urlpath + $"/video/{id}/labels";
+            JObject obj = WebClinetHepler.Post_New(url, JsonConvert.SerializeObject(labels));
             return obj != null;
+        }
+
+        /// <summary>
+        /// 标签添加到通道
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="labels"></param>
+        /// <returns></returns>
+        public static bool AddLabelToEquipment(int id,List<int> labels)
+        {
+            string url= Program.Urlpath + $"/video/equipment/{id}/add/labels"; 
+            JObject obj= WebClinetHepler.Post_New(url, JsonConvert.SerializeObject(labels));
+            return obj!=null;
+        }
+
+        public static List<TypeLabel> GetLabelToEquipment(int id)
+        {
+            string url = Program.Urlpath + $"/video/equipment/{id}/labels";
+            JObject obj = WebClinetHepler.GetJObject(url);
+            return JsonConvert.DeserializeObject<List<TypeLabel>>(obj["result"].ToString());
+        }
+
+        public static string GetListVideoLabels(int id)
+        {
+            List<TypeLabel> typeLabels = GetLabelToEquipment(id);
+            List<VideoLabel> videos = new List<VideoLabel>();
+            foreach (TypeLabel item in typeLabels)
+            {
+                videos.AddRange(item.Labels);
+            }
+            return string.Join(",",videos);
         }
     }
 }

@@ -26,6 +26,7 @@ using System.Reflection;
 using VideoRecordings.Equipment;
 using VideoRecordings.GetDatas;
 using VideoRecordings.Models;
+using VideoRecordings.Label;
 
 namespace VideoRecordings
 {
@@ -35,7 +36,8 @@ namespace VideoRecordings
         public List<VideoPlay> videoplays = new List<VideoPlay>();  //所有文件
         public List<string> imageurl = new List<string>();   //图片url
         private List<Completeness> comple = new List<Completeness>();
-        private Dictionary<int, EquipmentInfo> mydic;
+        private Dictionary<int, EquipmentInfo> mydic=new Dictionary<int, EquipmentInfo>();
+        private List<EquipmentInfo> equipments = new List<EquipmentInfo>();
         bool unfold = true;
         GridHitInfo hInfo = new GridHitInfo();
         VideoProject project;      //传入的文件夹
@@ -59,6 +61,7 @@ namespace VideoRecordings
             MyLabel = new MyLabels();
             project = focusedfolder;
             InitializeComponent();
+            ScanFolder();
             PostVideos();
             if (project != null)
             {
@@ -160,6 +163,9 @@ namespace VideoRecordings
                     transmissionvideo = (VideoPlay)gridView1.GetRow(gridView1.FocusedRowHandle);
                     if (hInfo.InRowCell)
                         OpenVideoPaly();
+                    return true;
+                case Keys.Q:
+                    ShowStaticLabels();
                     return true;
                 default:
                     break;
@@ -275,32 +281,35 @@ namespace VideoRecordings
         /// 读取并加载信息
         /// </summary>
         public void PostVideos()
-        {
-            if (project == null)
-            {
-                return;
-            }
-            mydic = EquipmentData.GetAlEquipment().Equipments.ToDictionary(t => t.Id);         
-            if (!VideoData.ScanFolder(project))
-            {
-                MessageBox.Show("扫描文件失败");
-                Program.log.Error($"扫描{project.Name}", new Exception("扫描失败"));
-            }
+        {       
             GettListVideo();
             if (isFirst)
             {
                 transmissionvideo = videoplays.Count == 0 ? null : videoplays.First();
                 isFirst = false;
             }
+            mydic = equipments.ToDictionary(t => t.Id,s=>s);
             total = Sum(comple);
             recorded = Sum(comple, false);
             SetText();
             RefreshImage();
-            //GetIntToString();
             bindingSource1.DataSource = videoplays;
             gridView1.FindFilterText = string.Empty;
             gridView1.CollapseAllGroups();
             GroupIndex();
+        }
+
+        private void ScanFolder()
+        {
+            if (project == null)
+            {
+                return;
+            }
+            if (!VideoData.ScanFolder(project))
+            {
+                MessageBox.Show("扫描文件失败");
+                Program.log.Error($"扫描{project.Name}", new Exception("扫描失败"));
+            }
         }
 
         private void SetText()
@@ -314,19 +323,16 @@ namespace VideoRecordings
         /// <param name="play"></param>
         public void RefreshData(VideoPlay play)
         {
-            foreach (VideoPlay item in videoplays)
-            {
-                int i = 0;
-                if (item.Name == play.Name)
-                {
-                    videoplays[i] = play;
-                    break;
-                }
-                i++;
-            }
+            VideoPlay video = videoplays.FirstOrDefault(t => t.Id == play.Id);
+            video.Labels = play.Labels;
+            video.ImageId = play.ImageId;
+            video.StartTime = play.StartTime;
+            video.EndTime = play.EndTime;
+            video.CreateTime = play.CreateTime;
+            video.Recorded = play.Recorded;
             bindingSource1.DataSource = videoplays;
+            gridView1.RefreshData();
             gridView1.MoveNext();
-            videoplays.Count.ToString();
         }
 
         private void RefreshAllData(VideoPlay Rplay)
@@ -370,14 +376,16 @@ namespace VideoRecordings
         public void GettListVideo()
         {
             videoplays.Clear();
+            equipments.Clear();
             JObject obj = VideoData.GetAllVideoInfo(project.Name);
             if (obj == null || obj["result"].ToString() == "[]") return;
             for (int i = 0; i < obj["result"][0]["equipments"].Count(); i++)
             {
-                EquipmentInfo equipment = JsonHelper.DeserializeDataContractJson<EquipmentInfo>(obj["result"][0]["equipments"][i]["equipment_info"].ToString());
-                List<VideoPlay> videos = JsonHelper.DeserializeDataContractJson<List<VideoPlay>>(obj["result"][0]["equipments"][i]["videos"].ToString());
+                EquipmentInfo equipment = JsonConvert.DeserializeObject<EquipmentInfo>(obj["result"][0]["equipments"][i]["equipment_info"].ToString());
+                List<VideoPlay> videos = JsonConvert.DeserializeObject<List<VideoPlay>>(obj["result"][0]["equipments"][i]["videos"].ToString());
                 videos.ForEach(t => t.Rquipment = equipment);
                 videoplays.AddRange(videos);
+                equipments.Add(equipment);
                 Completeness com = JsonHelper.DeserializeDataContractJson<Completeness>(obj["result"][0]["equipments"][i]["statistic"].ToString());
                 comple.Add(com);
             }
@@ -423,15 +431,15 @@ namespace VideoRecordings
                 return;
             }
             VideoPlay video = (VideoPlay)gridView1.GetRow(e.RowHandle);
-            if (video.ImageId.Count != 0 && video.Labels.Count != 0)
+            if (video.ImageId.Count != 0 && !string.IsNullOrEmpty(video.Label))
             {
                 e.Appearance.BackColor = Color.LightGreen;
             }
-            else if (video.ImageId.Count != 0 && video.Labels.Count == 0)
+            else if (video.ImageId.Count != 0 && string.IsNullOrEmpty(video.Label))
             {
                 e.Appearance.BackColor = Color.Khaki;
             }
-            else if (video.ImageId.Count == 0 & video.Labels.Count != 0)
+            else if (video.ImageId.Count == 0 & !string.IsNullOrEmpty(video.Label))
             {
                 e.Appearance.BackColor = Color.LightPink;
             }
@@ -747,7 +755,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void AddlabelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SelectLabel select = new SelectLabel();
+            SelectLabel select = new SelectLabel(RefreshType.DynamicLabel);
             select.MyRefreshEvent += new SelectLabel.MyDelegate(AddTheLabels);
             select.ShowDialog();
         }
@@ -833,10 +841,11 @@ namespace VideoRecordings
             GridGroupRowInfo GridGroupRowInfo = e.Info as GridGroupRowInfo;
             int id = int.Parse(GridGroupRowInfo.EditValue.ToString());
             int count = videoplays.Count(t => t.EquipmentID == id);
-            if (id==0)
-                GridGroupRowInfo.GroupText = $"({(-e.RowHandle).ToString()})通道信息：" + GridGroupRowInfo.EditValue + ":无通道信息"+ $"({count})";
+            if (id == 0)
+                GridGroupRowInfo.GroupText = $"({(-e.RowHandle).ToString()})通道信息：" + GridGroupRowInfo.EditValue + ":无通道信息" + $"({count})";
             else
-                GridGroupRowInfo.GroupText = $"({(-e.RowHandle).ToString()})通道信息：" + GridGroupRowInfo.EditValue + ":" + mydic[id].Name + $"({count})";     
+                GridGroupRowInfo.GroupText = $"({(-e.RowHandle).ToString()})通道信息：" + GridGroupRowInfo.EditValue + ":" + mydic[id].Name + $"({count})"+
+                    $"({mydic[id].LabelStr})";
         }
 
         private List<VideoPlay> GetSelectRow()
@@ -854,7 +863,7 @@ namespace VideoRecordings
         }
 
         /// <summary>
-        /// 批量添加标签
+        /// 批量添加解帧
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -907,7 +916,6 @@ namespace VideoRecordings
             for (int i = -1; gridView1.IsGroupRow(i); i--)
             {
                 int row = gridView1.GetDataRowHandleByGroupRowHandle(i);
-
                 VideoPlay dr = (VideoPlay)gridView1.GetRow(row);
                 if (dr == null) return;
                 if (dr.EquipmentID==0)
@@ -915,6 +923,44 @@ namespace VideoRecordings
                     gridView1.SetRowExpanded(i, true);
                 }
             }
+        }
+
+        public void SetLabelsToEquipment(List<string> labels)
+        {
+            int index = gridView1.FocusedRowHandle;
+            int row = gridView1.GetDataRowHandleByGroupRowHandle(index);
+            VideoPlay dr = (VideoPlay)gridView1.GetRow(row);
+            int id = dr.EquipmentID;
+            if (id == 0) return;
+            List<int> ids = MyLabel.GetSelectIds(labels);
+            if (!LabelData.AddLabelToEquipment(id,ids))
+            {
+                MessageBox.Show("添加标签到通道失败");
+                return;
+            }
+            PostVideos();
+        }
+
+        private void AdsLabelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int index = gridView1.FocusedRowHandle;
+            int row = gridView1.GetDataRowHandleByGroupRowHandle(index);
+            VideoPlay dr = (VideoPlay)gridView1.GetRow(row);
+            int id = dr.EquipmentID;
+            if (id == 0) return;
+            SelectLabel select = new SelectLabel(RefreshType.StaticLabel, mydic[id].LabelStr);
+            select.MyRefreshEvent += new SelectLabel.MyDelegate(SetLabelsToEquipment);
+            select.ShowDialog();
+        }
+
+        private void ShowStaticLabels()
+        {
+            int index = gridView1.FocusedRowHandle;
+            int row = gridView1.GetDataRowHandleByGroupRowHandle(index);
+            VideoPlay dr = (VideoPlay)gridView1.GetRow(row);
+            int id = dr.EquipmentID;
+            ShowStaticLabel show = new ShowStaticLabel(id);
+            show.Show();
         }
     }
 }

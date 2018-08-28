@@ -174,7 +174,12 @@ namespace VideoRecordings.GetDatas
             return obj != null;
         }
 
-
+        /// <summary>
+        /// 保存时间
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="json"></param>
+        /// <returns></returns>
         public static bool SaveTime(int id, string json)
         {
             string url = Program.Urlpath + $"/video/{id}";
@@ -182,6 +187,12 @@ namespace VideoRecordings.GetDatas
             return obj != null;
         }
 
+        /// <summary>
+        /// 上传图片
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="json"></param>
+        /// <returns></returns>
         public static bool SaveImage(int id, string json)
         {
             string url = Program.Urlpath + $"/video/{id}/snapshots";
