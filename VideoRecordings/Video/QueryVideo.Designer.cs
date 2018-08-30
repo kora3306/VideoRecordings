@@ -44,6 +44,7 @@
             this.DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddlabelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteSolutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ADStaticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn_id = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -115,7 +116,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button_ref = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.ADStaticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.folderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
@@ -249,6 +250,7 @@
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
+            this.folderToolStripMenuItem,
             this.batchToolStripMenuItem,
             this.ADToolStripMenuItem,
             this.UPToolStripMenuItem,
@@ -260,7 +262,7 @@
             this.DeleteSolutionToolStripMenuItem,
             this.ADStaticToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 268);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 290);
             // 
             // openToolStripMenuItem
             // 
@@ -331,6 +333,13 @@
             this.DeleteSolutionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.DeleteSolutionToolStripMenuItem.Text = "清除解帧信息";
             this.DeleteSolutionToolStripMenuItem.Click += new System.EventHandler(this.DeleteSolutionToolStripMenuItem_Click);
+            // 
+            // ADStaticToolStripMenuItem
+            // 
+            this.ADStaticToolStripMenuItem.Name = "ADStaticToolStripMenuItem";
+            this.ADStaticToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ADStaticToolStripMenuItem.Text = "通道添加静态标签";
+            this.ADStaticToolStripMenuItem.Click += new System.EventHandler(this.ADStaticToolStripMenuItem_Click);
             // 
             // gridView1
             // 
@@ -1191,12 +1200,12 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // ADStaticToolStripMenuItem
+            // folderToolStripMenuItem
             // 
-            this.ADStaticToolStripMenuItem.Name = "ADStaticToolStripMenuItem";
-            this.ADStaticToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ADStaticToolStripMenuItem.Text = "通道添加静态标签";
-            this.ADStaticToolStripMenuItem.Click += new System.EventHandler(this.ADStaticToolStripMenuItem_Click);
+            this.folderToolStripMenuItem.Name = "folderToolStripMenuItem";
+            this.folderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.folderToolStripMenuItem.Text = "定位文件";
+            this.folderToolStripMenuItem.Click += new System.EventHandler(this.folderToolStripMenuItem_Click);
             // 
             // QueryVideo
             // 
@@ -1326,5 +1335,6 @@
         private System.Windows.Forms.ToolStripMenuItem batchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DeleteSolutionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ADStaticToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem folderToolStripMenuItem;
     }
 }

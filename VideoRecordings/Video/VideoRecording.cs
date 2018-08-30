@@ -473,7 +473,7 @@ namespace VideoRecordings
             {
                 saveimage.Add(GetPictureData(item));
             }
-            string json = new JavaScriptSerializer().Serialize(saveimage);
+            string json = JsonConvert.SerializeObject(saveimage);
             bool win = VideoData.SaveImage(videoplay.Id, json);
             if (!win)
             {

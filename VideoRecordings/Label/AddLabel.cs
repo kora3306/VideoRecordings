@@ -77,7 +77,7 @@ namespace VideoRecordings
             List<string> labels = GetLabels();
             if (labels.Count == 0||comboBox1.Text=="请选择要添加标签的种类")
                 return ;
-            if (!LabelData.AddLabels(int.Parse(comboBox1.Text.Split(':').First()),labels,GetLabelType()))
+            if (!LabelData.AddLabels(int.Parse(comboBox1.Text.Split(':').First()),labels,GetLabelType(),GetLabelRef()))
             {
                 MessageBox.Show("添加失败");
                 return;
@@ -110,17 +110,17 @@ namespace VideoRecordings
         {
             if (comboBox1.Text== "0:新建标签种类")
             {
-                comboBox2.Enabled = true;
-                comboBox2.Text = "动态标签";
+                comboBox_type.Enabled = true;
+                comboBox_type.Text = "动态标签";
                 return;
             }
-            comboBox2.Enabled = false;
-            comboBox2.Text = string.Empty;
+            comboBox_type.Enabled = false;
+            comboBox_type.Text = string.Empty;
         }
 
         private int GetLabelType()
         {
-            switch (comboBox2.Text)
+            switch (comboBox_type.Text)
             {
                 case "动态标签":
                     Type = RefreshType.DynamicLabel;
@@ -129,8 +129,15 @@ namespace VideoRecordings
                     Type = RefreshType.StaticLabel;
                     return 1;
                 default:
-                    return -1;
+                    return 0;
             }
+        }
+
+        private int GetLabelRef()
+        {
+            if (string.IsNullOrEmpty(comboBox_ref.Text.Trim()))
+                return 0;
+            return new MyLabels().GetSelectIds(comboBox_ref.Text);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace VideoRecordings.Models
         [DataMember(Name = "name")] public string Name { get; set; }
         [DataMember(Name = "children")] public List<VideoLabel> Labels { get; set; } = new List<VideoLabel>();
         [DataMember(Name = "type")] public int Type { get; set; }
-
+        [DataMember(Name = "ref")] public int Ref { get; set; }
 
         public object Clone()
         {
@@ -113,5 +113,9 @@ namespace VideoRecordings.Models
             return ids;
         }
 
+        public int GetSelectIds(string label)
+        {
+           return AllLabelsToDic.FirstOrDefault(t => t.Value == label).Key;
+        }
     }
 }

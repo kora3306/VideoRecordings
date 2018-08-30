@@ -1231,5 +1231,11 @@ namespace VideoRecordings
             ShowStaticLabel show = new ShowStaticLabel(id);
             show.Show();
         }
+
+        private void folderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (transmissionvideo == null) return;
+            Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
+        }
     }
 }

@@ -61,7 +61,7 @@ namespace SeemmoData.Controls
                 {
                     action?.Invoke();
                 }
-                finally
+                finally 
                 {
                     form._manualResetEventSlim.Wait();
                     form.DialogResult = DialogResult.OK;

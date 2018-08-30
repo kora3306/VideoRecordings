@@ -206,7 +206,7 @@ namespace VideoRecordings
             int rowIndex = gridView1.FocusedRowHandle;
             if (rowIndex < 0)
             {
-                return;
+                rowIndex = gridView1.GetDataRowHandleByGroupRowHandle(rowIndex);
             }
             transmissionvideo = (VideoPlay)gridView1.GetRow(rowIndex);
             RefreshImage();
@@ -358,6 +358,7 @@ namespace VideoRecordings
         /// </summary>
         public void RefreshImage()
         {
+            if (transmissionvideo == null) return;
             foreach (var item in videoplays)
             {
                 if (transmissionvideo.Id == item.Id)
@@ -512,6 +513,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void OpenfolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (transmissionvideo == null) return;
             Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
         }
 
@@ -522,7 +524,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void gridView1_MouseDown(object sender, MouseEventArgs e)
         {
-            hInfo = gridView1.CalcHitInfo(e.Y, e.Y);
+            hInfo = gridView1.CalcHitInfo(e.X, e.Y);
         }
 
         /// <summary>

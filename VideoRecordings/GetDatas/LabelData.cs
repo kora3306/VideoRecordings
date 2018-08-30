@@ -69,7 +69,7 @@ namespace VideoRecordings.GetDatas
             return obj != null;
         }
 
-        public static bool AddLabels(int parent_id, List<string> names,int type=-1)
+        public static bool AddLabels(int parent_id, List<string> names, int type, int label_ref)
         {
             string url = Program.Urlpath + "/labels";
             List<object> dics = new List<object>();
@@ -77,9 +77,9 @@ namespace VideoRecordings.GetDatas
             {
                 Dictionary<string, object> diclabel = new Dictionary<string, object>();
                 diclabel.Add("parent_id", parent_id);
+                diclabel.Add("label_ref", label_ref);
                 diclabel.Add("name", item);
-                if (type != -1)
-                    diclabel.Add("type",type);
+                diclabel.Add("type", type);
                 dics.Add(diclabel);
             }
             JObject obj = WebClinetHepler.Post_New(url, JsonConvert.SerializeObject(dics));
@@ -105,11 +105,11 @@ namespace VideoRecordings.GetDatas
         /// <param name="id"></param>
         /// <param name="labels"></param>
         /// <returns></returns>
-        public static bool AddLabelToEquipment(int id,List<int> labels)
+        public static bool AddLabelToEquipment(int id, List<int> labels)
         {
-            string url= Program.Urlpath + $"/video/equipment/{id}/add/labels"; 
-            JObject obj= WebClinetHepler.Post_New(url, JsonConvert.SerializeObject(labels));
-            return obj!=null;
+            string url = Program.Urlpath + $"/video/equipment/{id}/add/labels";
+            JObject obj = WebClinetHepler.Post_New(url, JsonConvert.SerializeObject(labels));
+            return obj != null;
         }
 
         public static List<TypeLabel> GetLabelToEquipment(int id)
@@ -127,7 +127,38 @@ namespace VideoRecordings.GetDatas
             {
                 videos.AddRange(item.Labels);
             }
-            return string.Join(",",videos);
+            return string.Join(",", videos);
+        }
+
+        /// <summary>
+        /// 设置关联
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <param name="label_ref"></param>
+        /// <returns></returns>
+        public static bool RelevanceLabel(List<int> ids, int label_ref)
+        {
+            string url = Program.Urlpath + $"/labels/set/ref";
+            var json = new
+            {
+                ids,
+                label_ref
+            };
+            JObject obj = WebClinetHepler.Post_New(url, JsonConvert.SerializeObject(json));
+            return obj != null;
+        }
+
+        public static bool SetLabelType(List<int> ids, bool isstatic)
+        {
+            string url = Program.Urlpath + $"/labels/set/type";
+            int label_type = isstatic ? 1 : 0;
+            var json = new
+            {
+                ids,
+                label_type
+            };
+            JObject obj = WebClinetHepler.Post_New(url, JsonConvert.SerializeObject(json));
+            return obj != null;
         }
     }
 }
