@@ -30,22 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddVideoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reffolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ModifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DELToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ModifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.repetitionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AutomaticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.Uer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn_Id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_name = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -62,16 +60,22 @@
             this.gridColumn_record_time = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_status = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_percent = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
             this.gridColumn_Dup = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.Uer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.statusStrip1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -98,18 +102,46 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(938, 530);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // gridControl1
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.gridControl1, 6);
+            this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
+            this.gridControl1.DataSource = this.bindingSource1;
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.EmbeddedNavigator.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.gridControl1.EmbeddedNavigator.Appearance.Options.UseFont = true;
+            this.gridControl1.EmbeddedNavigator.Enabled = false;
+            this.gridControl1.EmbeddedNavigator.TextStringFormat = "当前数量 {0} / {1}";
+            this.gridControl1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridControl1.Location = new System.Drawing.Point(3, 32);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemProgressBar1});
+            this.tableLayoutPanel1.SetRowSpan(this.gridControl1, 2);
+            this.gridControl1.Size = new System.Drawing.Size(932, 427);
+            this.gridControl1.TabIndex = 1;
+            this.gridControl1.UseEmbeddedNavigator = true;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            this.gridControl1.DoubleClick += new System.EventHandler(this.gridControl1_DoubleClick);
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddVideoToolStripMenuItem,
+            this.toolStripSeparator1,
             this.ToolStripMenuItem,
             this.reffolderToolStripMenuItem,
-            this.ModifyToolStripMenuItem,
             this.DELToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.ModifyToolStripMenuItem,
             this.RefToolStripMenuItem,
-            this.repetitionToolStripMenuItem});
+            this.toolStripSeparator3,
+            this.repetitionToolStripMenuItem,
+            this.AutomaticToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 220);
             // 
             // AddVideoToolStripMenuItem
             // 
@@ -117,6 +149,11 @@
             this.AddVideoToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.AddVideoToolStripMenuItem.Text = "添加视频";
             this.AddVideoToolStripMenuItem.Click += new System.EventHandler(this.AddVideoToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
             // 
             // ToolStripMenuItem
             // 
@@ -132,19 +169,24 @@
             this.reffolderToolStripMenuItem.Text = "重新扫描文件夹";
             this.reffolderToolStripMenuItem.Click += new System.EventHandler(this.reffolderToolStripMenuItem_Click);
             // 
-            // ModifyToolStripMenuItem
-            // 
-            this.ModifyToolStripMenuItem.Name = "ModifyToolStripMenuItem";
-            this.ModifyToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.ModifyToolStripMenuItem.Text = "修改文件信息";
-            this.ModifyToolStripMenuItem.Click += new System.EventHandler(this.ModifyToolStripMenuItem_Click);
-            // 
             // DELToolStripMenuItem
             // 
             this.DELToolStripMenuItem.Name = "DELToolStripMenuItem";
             this.DELToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.DELToolStripMenuItem.Text = "清除扫描的文件信息";
             this.DELToolStripMenuItem.Click += new System.EventHandler(this.DELToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(181, 6);
+            // 
+            // ModifyToolStripMenuItem
+            // 
+            this.ModifyToolStripMenuItem.Name = "ModifyToolStripMenuItem";
+            this.ModifyToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.ModifyToolStripMenuItem.Text = "修改文件信息";
+            this.ModifyToolStripMenuItem.Click += new System.EventHandler(this.ModifyToolStripMenuItem_Click);
             // 
             // RefToolStripMenuItem
             // 
@@ -153,71 +195,31 @@
             this.RefToolStripMenuItem.Text = "刷新文件夹信息";
             this.RefToolStripMenuItem.Click += new System.EventHandler(this.RefToolStripMenuItem_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(181, 6);
+            // 
             // repetitionToolStripMenuItem
             // 
             this.repetitionToolStripMenuItem.Name = "repetitionToolStripMenuItem";
             this.repetitionToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.repetitionToolStripMenuItem.Text = "视频查重";
+            this.repetitionToolStripMenuItem.Text = "添加视频查重";
             this.repetitionToolStripMenuItem.Click += new System.EventHandler(this.repetitionToolStripMenuItem_Click);
             // 
-            // defaultLookAndFeel1
+            // AutomaticToolStripMenuItem
             // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "The Bezier";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(754, 25);
-            this.toolStripStatusLabel2.Spring = true;
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(171, 25);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
-            // 
-            // statusStrip1
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.statusStrip1, 6);
-            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel2,
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 462);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(938, 30);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // Uer_ToolStripMenuItem
-            // 
-            this.Uer_ToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.Uer_ToolStripMenuItem.Name = "Uer_ToolStripMenuItem";
-            this.Uer_ToolStripMenuItem.Size = new System.Drawing.Size(70, 25);
-            this.Uer_ToolStripMenuItem.Text = "用户名";
-            // 
-            // menuStrip1
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.menuStrip1, 6);
-            this.menuStrip1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Uer_ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(938, 29);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // repositoryItemProgressBar1
-            // 
-            this.repositoryItemProgressBar1.AppearanceFocused.BackColor = System.Drawing.Color.Lime;
-            this.repositoryItemProgressBar1.AppearanceFocused.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
+            this.AutomaticToolStripMenuItem.Name = "AutomaticToolStripMenuItem";
+            this.AutomaticToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.AutomaticToolStripMenuItem.Text = "添加自动截图";
+            this.AutomaticToolStripMenuItem.Click += new System.EventHandler(this.AutomaticToolStripMenuItem_Click);
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.OddRow.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.OddRow.Options.UseFont = true;
+            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.Row.Options.UseFont = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn_Id,
             this.gridColumn_name,
@@ -482,6 +484,12 @@
             this.gridColumn_percent.VisibleIndex = 12;
             this.gridColumn_percent.Width = 73;
             // 
+            // repositoryItemProgressBar1
+            // 
+            this.repositoryItemProgressBar1.AppearanceFocused.BackColor = System.Drawing.Color.Lime;
+            this.repositoryItemProgressBar1.AppearanceFocused.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
+            // 
             // gridColumn_Dup
             // 
             this.gridColumn_Dup.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -494,29 +502,55 @@
             this.gridColumn_Dup.Visible = true;
             this.gridColumn_Dup.VisibleIndex = 13;
             // 
-            // gridControl1
+            // menuStrip1
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.gridControl1, 6);
-            this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
-            this.gridControl1.DataSource = this.bindingSource1;
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.EmbeddedNavigator.Appearance.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.gridControl1.EmbeddedNavigator.Appearance.Options.UseFont = true;
-            this.gridControl1.EmbeddedNavigator.Enabled = false;
-            this.gridControl1.EmbeddedNavigator.TextStringFormat = "当前数量 {0} / {1}";
-            this.gridControl1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.gridControl1.Location = new System.Drawing.Point(3, 32);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemProgressBar1});
-            this.tableLayoutPanel1.SetRowSpan(this.gridControl1, 2);
-            this.gridControl1.Size = new System.Drawing.Size(932, 427);
-            this.gridControl1.TabIndex = 1;
-            this.gridControl1.UseEmbeddedNavigator = true;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            this.gridControl1.DoubleClick += new System.EventHandler(this.gridControl1_DoubleClick);
+            this.tableLayoutPanel1.SetColumnSpan(this.menuStrip1, 6);
+            this.menuStrip1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Uer_ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(938, 29);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // Uer_ToolStripMenuItem
+            // 
+            this.Uer_ToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.Uer_ToolStripMenuItem.Name = "Uer_ToolStripMenuItem";
+            this.Uer_ToolStripMenuItem.Size = new System.Drawing.Size(70, 25);
+            this.Uer_ToolStripMenuItem.Text = "用户名";
+            // 
+            // statusStrip1
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.statusStrip1, 6);
+            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 462);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(938, 30);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(754, 25);
+            this.toolStripStatusLabel2.Spring = true;
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(171, 25);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // defaultLookAndFeel1
+            // 
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "The Bezier";
             // 
             // VideoInformation
             // 
@@ -531,15 +565,15 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -582,5 +616,9 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem AutomaticToolStripMenuItem;
     }
 }

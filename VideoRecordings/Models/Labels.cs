@@ -7,43 +7,53 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using VideoRecordings.GetDatas;
+using Common;
 
 namespace VideoRecordings.Models
 {
 
-    [DataContract, Serializable]
+    [DataContract]
     public class TypeLabel : ICloneable
     {
         [DataMember(Name = "id")] public int Id { get; set; }
         [DataMember(Name = "name")] public string Name { get; set; }
-        [DataMember(Name = "children")] public List<VideoLabel> Labels { get; set; } = new List<VideoLabel>();
+        [DataMember(Name = "children")] public VideoLabels Labels { get; set; } = new VideoLabels();
         [DataMember(Name = "type")] public int Type { get; set; }
         [DataMember(Name = "ref")] public int Ref { get; set; }
 
         public object Clone()
         {
-            TypeLabel typelabel = new TypeLabel() { Id = Id, Name = Name };
-            foreach (VideoLabel item in Labels)
-            {
-                VideoLabel label = (VideoLabel)item.Clone();
-                typelabel.Labels.Add(label);
-            }
-            return typelabel;
-        }
-
-        public TypeLabel DeepClone()
-        {
-            using (Stream objectStream = new MemoryStream())
-            {
-                IFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(objectStream, this);
-                objectStream.Seek(0, SeekOrigin.Begin);
-                return formatter.Deserialize(objectStream) as TypeLabel;
-            }
+            var temp = (TypeLabel)this.MemberwiseClone();
+            temp.Labels = (VideoLabels)Labels?.Clone();
+            return temp;
         }
     }
 
-    [DataContract, Serializable]
+    public class TypeLabels:List<TypeLabel>,ICloneable
+    {
+        public TypeLabels()
+        {
+
+        }
+
+        public TypeLabels(List<TypeLabel> types)
+        {
+            AddRange(types);
+        }
+
+        public object Clone()
+        {
+            return new TypeLabels(this.Select(t => (TypeLabel)t.Clone()).ToList());
+        }
+
+        public TypeLabels(List<TypeLabel> types1, List<TypeLabel> types2)
+        {
+            AddRange(types1);
+            AddRange(types2);
+        }
+    }
+
+    [DataContract]
     public class VideoLabel : ICloneable
     {
         [DataMember(Name = "id")] public int Id { get; set; }
@@ -57,14 +67,62 @@ namespace VideoRecordings.Models
 
     }
 
+    public class VideoLabels:List<VideoLabel>,ICloneable
+    {
+        public VideoLabels() { }
+
+        public string LabelNameStr => string.Join(",", this.Select(s => s.Name));
+
+        public VideoLabels(List<VideoLabels> list)
+        {
+            foreach (VideoLabels item in list)
+            {
+                AddRange(item);
+            }
+        }
+
+        public VideoLabels(List<VideoLabel> list)
+        {
+            AddRange(list);
+        }
+
+        public object Clone()
+        {
+             return new VideoLabels(this.Select(s =>(VideoLabel)s.Clone()).ToList());
+        }
+    }
+
     [DataContract]
     public class AllTypeLabel
     {
         [DataMember(Name = "dynamic")]
-        public List<TypeLabel> DynamicLabel { get; set; }
+        public TypeLabels DynamicLabel { get; set; }
 
         [DataMember(Name = "static")]
-        public List<TypeLabel> StaticLabel { get; set; }
+        public TypeLabels StaticLabel { get; set; }
+
+        public TypeLabels AllLabel
+        {
+            get
+            {
+                if (DynamicLabel != null && StaticLabel != null)
+                {
+                    return new TypeLabels(DynamicLabel, StaticLabel);
+                }
+                else if (DynamicLabel == null)
+                {
+                    return StaticLabel;
+                }
+                else if (StaticLabel == null)
+                {
+                    return DynamicLabel;
+                }
+                else
+                {
+                    return new TypeLabels();
+                }
+            }
+        }
     }
         
 
@@ -84,9 +142,9 @@ namespace VideoRecordings.Models
 
         public AllTypeLabel AllLabels { get; set; }
 
-        public List<TypeLabel> DynamicLabel { get => AllLabels.DynamicLabel; }
+        public TypeLabels DynamicLabel { get => AllLabels.DynamicLabel; }
 
-        public List<TypeLabel> StaticLabel { get => AllLabels.StaticLabel; }
+        public TypeLabels StaticLabel { get => AllLabels.StaticLabel; }
 
         public Dictionary<int, string> AllLabelsToDic
         {
@@ -100,7 +158,6 @@ namespace VideoRecordings.Models
                 return videoLabels.ToDictionary(t => t.Id, s => s.Name);
             }
         }
-
 
         public  List<int> GetSelectIds(List<string> label)
         {

@@ -19,10 +19,11 @@ namespace VideoRecordings
     {
         int index;
         RefreshType type;
-        public UpdateLabel(int id,RefreshType refresh)
+        public UpdateLabel(string info,RefreshType refresh)
         {
             InitializeComponent();
-            index = id;
+            index = int.Parse(info.Split(':').First());
+            textBox1.Text = info.Split(':').Last();
             type = refresh;
         }
 

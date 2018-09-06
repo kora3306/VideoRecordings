@@ -112,11 +112,11 @@ namespace VideoRecordings.GetDatas
             return obj != null;
         }
 
-        public static List<TypeLabel> GetLabelToEquipment(int id)
+        public static TypeLabels GetLabelToEquipment(int id)
         {
             string url = Program.Urlpath + $"/video/equipment/{id}/labels";
             JObject obj = WebClinetHepler.GetJObject(url);
-            return JsonConvert.DeserializeObject<List<TypeLabel>>(obj["result"].ToString());
+            return JsonConvert.DeserializeObject<TypeLabels>(obj["result"].ToString());
         }
 
         public static string GetListVideoLabels(int id)

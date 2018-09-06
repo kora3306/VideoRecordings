@@ -21,7 +21,7 @@ namespace VideoRecordings.Video
             MySaveEvent?.Invoke();
         }
 
-        private bool isclear = false;
+        public bool isclear = true;
 
         public AddEquipment(string city=null,string street=null,string site=null)
         {

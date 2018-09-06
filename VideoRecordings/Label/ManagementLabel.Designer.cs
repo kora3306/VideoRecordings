@@ -55,6 +55,9 @@
             this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -143,72 +146,75 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.RefreshToolStripMenuItem,
             this.OPenToolStripMenuItem,
             this.opendoneToolStripMenuItem,
+            this.toolStripSeparator1,
             this.onlycarToolStripMenuItem,
             this.onlypersonToolStripMenuItem,
-            this.RefreshToolStripMenuItem,
+            this.toolStripSeparator2,
             this.AddLabelToolStripMenuItem,
             this.UpLabelToolStripMenuItem,
             this.DelLabelToolStripMenuItem,
+            this.toolStripSeparator3,
             this.动态关联ToolStripMenuItem,
             this.设置标签类型ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(174, 224);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 264);
             // 
             // OPenToolStripMenuItem
             // 
             this.OPenToolStripMenuItem.Name = "OPenToolStripMenuItem";
-            this.OPenToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.OPenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.OPenToolStripMenuItem.Text = "打开/关闭节点(静)";
             this.OPenToolStripMenuItem.Click += new System.EventHandler(this.OPenToolStripMenuItem_Click);
             // 
             // opendoneToolStripMenuItem
             // 
             this.opendoneToolStripMenuItem.Name = "opendoneToolStripMenuItem";
-            this.opendoneToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.opendoneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.opendoneToolStripMenuItem.Text = "打开/关闭节点(动)";
             this.opendoneToolStripMenuItem.Click += new System.EventHandler(this.opendoneToolStripMenuItem_Click);
             // 
             // onlycarToolStripMenuItem
             // 
             this.onlycarToolStripMenuItem.Name = "onlycarToolStripMenuItem";
-            this.onlycarToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.onlycarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.onlycarToolStripMenuItem.Text = "不显示已关联车";
             this.onlycarToolStripMenuItem.Click += new System.EventHandler(this.onlycarToolStripMenuItem_Click);
             // 
             // onlypersonToolStripMenuItem
             // 
             this.onlypersonToolStripMenuItem.Name = "onlypersonToolStripMenuItem";
-            this.onlypersonToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.onlypersonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.onlypersonToolStripMenuItem.Text = "不显示已关联人";
             this.onlypersonToolStripMenuItem.Click += new System.EventHandler(this.onlypersonToolStripMenuItem_Click);
             // 
             // RefreshToolStripMenuItem
             // 
             this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
-            this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.RefreshToolStripMenuItem.Text = "刷新";
             this.RefreshToolStripMenuItem.Click += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
             // 
             // AddLabelToolStripMenuItem
             // 
             this.AddLabelToolStripMenuItem.Name = "AddLabelToolStripMenuItem";
-            this.AddLabelToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.AddLabelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.AddLabelToolStripMenuItem.Text = "新增标签";
             this.AddLabelToolStripMenuItem.Click += new System.EventHandler(this.AddLabelToolStripMenuItem_Click);
             // 
             // UpLabelToolStripMenuItem
             // 
             this.UpLabelToolStripMenuItem.Name = "UpLabelToolStripMenuItem";
-            this.UpLabelToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.UpLabelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.UpLabelToolStripMenuItem.Text = "修改标签名";
             this.UpLabelToolStripMenuItem.Click += new System.EventHandler(this.UpLabelToolStripMenuItem_Click);
             // 
             // DelLabelToolStripMenuItem
             // 
             this.DelLabelToolStripMenuItem.Name = "DelLabelToolStripMenuItem";
-            this.DelLabelToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.DelLabelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.DelLabelToolStripMenuItem.Text = "删除标签";
             this.DelLabelToolStripMenuItem.Click += new System.EventHandler(this.DelLabelToolStripMenuItem_Click);
             // 
@@ -219,7 +225,7 @@
             this.personToolStripMenuItem,
             this.noneToolStripMenuItem});
             this.动态关联ToolStripMenuItem.Name = "动态关联ToolStripMenuItem";
-            this.动态关联ToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.动态关联ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.动态关联ToolStripMenuItem.Text = "动态关联";
             // 
             // carToolStripMenuItem
@@ -251,7 +257,7 @@
             this.dnlabelToolStripMenuItem,
             this.staticlabelToolStripMenuItem});
             this.设置标签类型ToolStripMenuItem.Name = "设置标签类型ToolStripMenuItem";
-            this.设置标签类型ToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.设置标签类型ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.设置标签类型ToolStripMenuItem.Text = "设置标签类型";
             // 
             // dnlabelToolStripMenuItem
@@ -275,7 +281,7 @@
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(321, 638);
+            this.groupBox2.Size = new System.Drawing.Size(316, 638);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "动态标签";
@@ -294,7 +300,7 @@
             this.treeList2.OptionsBehavior.ReadOnly = true;
             this.treeList2.OptionsFind.AlwaysVisible = true;
             this.treeList2.OptionsView.ShowCheckBoxes = true;
-            this.treeList2.Size = new System.Drawing.Size(315, 613);
+            this.treeList2.Size = new System.Drawing.Size(310, 613);
             this.treeList2.TabIndex = 0;
             this.treeList2.CustomDrawNodeCell += new DevExpress.XtraTreeList.CustomDrawNodeCellEventHandler(this.treeList2_CustomDrawNodeCell);
             this.treeList2.Click += new System.EventHandler(this.treeList2_Click);
@@ -325,6 +331,21 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(171, 29);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // ManagementLabel
             // 
@@ -379,5 +400,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem noneToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem opendoneToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }

@@ -133,17 +133,7 @@ namespace VideoRecordings
                 node = treeList2.FocusedNode;
                 type = RefreshType.DynamicLabel;
             }
-            int id = 0;
-            if (node.Level == 0)
-            {
-               TypeLabel label = (TypeLabel)node.Tag;
-                id = label.Id;
-            }
-            else
-            {
-                id = int.Parse(node.Tag.ToString());
-            }  
-            UpdateLabel update=  new UpdateLabel(id,type);
+            UpdateLabel update = new UpdateLabel(node.GetValue(0).ToString(),type);
             update.MyRefreshEvent += new UpdateLabel.MyEvent(GetLabels);
             update.Show();
         }
@@ -255,7 +245,7 @@ namespace VideoRecordings
                         MessageBoxButtons.OKCancel) != DialogResult.OK)
                     return ;
             }
-            if (!LabelData.DeleteLabel(int.Parse(tree.FocusedNode.Tag.ToString())))
+            if (!LabelData.DeleteLabel(int.Parse(tree.FocusedNode.GetValue(0).ToString().Split(':').First())))
             {
                 MessageBox.Show("删除失败");
                 return;

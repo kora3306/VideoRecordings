@@ -53,7 +53,7 @@ namespace VideoRecordings
         /// </summary>
         public static string Urlpath = "http://192.168.1.198:16080";
         //public const string Urlpath = "http://192.168.1.225:18080";
-        public static List<TypeLabel> labels = new List<TypeLabel>();
+        public static TypeLabels labels = new TypeLabels();
 
         public static PersistentCache Persistent = new PersistentCache(@".\cache", 100000000000);
 
@@ -187,6 +187,7 @@ namespace VideoRecordings
                 case "md7":
                 case "md8":
                 case "md9":
+                case "md10":
                     return Url3 + url;
                 default:
                     break;

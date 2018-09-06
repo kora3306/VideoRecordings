@@ -726,7 +726,7 @@ namespace VideoRecordings
         private void button2_Click(object sender, EventArgs e)
         {
             button1.Focus();
-            SelectLabel select = new SelectLabel(RefreshType.DynamicLabel,textBox_label.Text);
+            SelectLabel select = new SelectLabel(RefreshType.None,textBox_label.Text);
             select.MyRefreshEvent += new SelectLabel.MyDelegate(StartScreening);
             select.ShowDialog();
         }

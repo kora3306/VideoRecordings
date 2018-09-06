@@ -98,5 +98,12 @@ namespace VideoRecordings.GetDatas
             return obj["result"] != null?int.Parse(obj["result"].ToString()) :0;
         }
 
+        public static EquipmentInfo GetEquipmentById(int id)
+        {
+            string url = Program.Urlpath + $"/video/equipments?id={id}";
+            JObject obj = WebClinetHepler.GetJObject(url);
+            return JsonConvert.DeserializeObject<EquipmentInfo>(obj["result"]["equipments"][0].ToString());
+        }
+
     }
 }

@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
@@ -108,17 +109,6 @@ namespace VideoRecordings
             return videoplay;
         }
 
-        public static List<TypeLabel> CopyToList(List<TypeLabel> list)
-        {
-            if (list == null || list.Count == 0) return new List<TypeLabel>();
-            List<TypeLabel> copys = new List<TypeLabel>(list.Count);
-            foreach (var item in list)
-            {
-                TypeLabel copy = item.Clone() as TypeLabel;
-                copys.Add(copy);
-            }
-            return copys;
-        }
 
         public static string ReadPath(string path)
         {
@@ -220,6 +210,60 @@ namespace VideoRecordings
             TabPage tabPageMapping = new TabPage(name) { Name = name };
             tabControlExHfrz.TabPages.Add(tabPageMapping);
             GenerateForm(formClass, tabPageMapping);
+        }
+
+
+
+        // 利用反射实现深拷贝
+        public static T DeepCopyWithReflection<T>(T obj)
+        {
+            Type type = obj.GetType();
+
+            // 如果是字符串或值类型则直接返回
+            if (obj is string || type.IsValueType) return obj;
+
+            if (type.IsArray)
+            {
+                Type elementType = Type.GetType(type.FullName.Replace("[]", string.Empty));
+                var array = obj as Array;
+                Array copied = Array.CreateInstance(elementType, array.Length);
+                for (int i = 0; i < array.Length; i++)
+                {
+                    copied.SetValue(DeepCopyWithReflection(array.GetValue(i)), i);
+                }
+
+                return (T)Convert.ChangeType(copied, obj.GetType());
+            }
+
+            object retval = Activator.CreateInstance(obj.GetType());
+
+            PropertyInfo[] properties = obj.GetType().GetProperties(
+                BindingFlags.Public | BindingFlags.NonPublic
+                | BindingFlags.Instance | BindingFlags.Static);
+            foreach (var property in properties)
+            {
+                var propertyValue = property.GetValue(obj, null);
+                if (propertyValue == null)
+                    continue;
+                property.SetValue(retval, DeepCopyWithReflection(propertyValue), null);
+            }
+
+            return (T)retval;
+        }
+
+        // 利用DataContractSerializer序列化和反序列化实现
+        public static T DeepCopy<T>(T obj)
+        {
+            object retval;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                DataContractSerializer ser = new DataContractSerializer(typeof(T));
+                ser.WriteObject(ms, obj);
+                ms.Seek(0, SeekOrigin.Begin);
+                retval = ser.ReadObject(ms);
+                ms.Close();
+            }
+            return (T)retval;
         }
 
 

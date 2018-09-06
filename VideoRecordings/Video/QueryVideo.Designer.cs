@@ -35,13 +35,18 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.batchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.folderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ADToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DELEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.INToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.batchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.AddlabelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteSolutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ADStaticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,6 +72,7 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_count = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_eq = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn_snapshoted = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
             this.imageListView1 = new Manina.Windows.Forms.ImageListView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -116,7 +122,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button_ref = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.folderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
@@ -186,11 +191,11 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 10;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -203,10 +208,10 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label1, 8);
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(523, 6);
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(533, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 25);
+            this.label1.Size = new System.Drawing.Size(106, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "视频资料查询";
             // 
@@ -214,9 +219,9 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.statusStrip1, 9);
             this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.statusStrip1.Location = new System.Drawing.Point(0, 675);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 674);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1305, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1305, 23);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -226,20 +231,19 @@
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip2;
             this.gridControl1.DataSource = this.bindingSource1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.EmbeddedNavigator.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.gridControl1.EmbeddedNavigator.Appearance.Options.UseFont = true;
             this.gridControl1.EmbeddedNavigator.Enabled = false;
             this.gridControl1.EmbeddedNavigator.TextStringFormat = "当前数量 {0} / {1}";
             this.gridControl1.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.gridControl1_EmbeddedNavigator_ButtonClick);
             this.gridControl1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridControl1.Location = new System.Drawing.Point(3, 232);
+            this.gridControl1.Location = new System.Drawing.Point(3, 208);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemFontEdit1,
             this.repositoryItemMemoEdit1,
             this.repositoryItemMemoEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(1299, 286);
+            this.gridControl1.Size = new System.Drawing.Size(1299, 303);
             this.gridControl1.TabIndex = 13;
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -251,93 +255,124 @@
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.folderToolStripMenuItem,
-            this.batchToolStripMenuItem,
+            this.toolStripSeparator1,
             this.ADToolStripMenuItem,
             this.UPToolStripMenuItem,
             this.DELEToolStripMenuItem,
+            this.toolStripSeparator2,
             this.INToolStripMenuItem,
             this.OUTToolStripMenuItem,
+            this.toolStripSeparator3,
             this.DToolStripMenuItem,
+            this.batchToolStripMenuItem,
+            this.toolStripSeparator4,
             this.AddlabelsToolStripMenuItem,
             this.DeleteSolutionToolStripMenuItem,
             this.ADStaticToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 290);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(173, 292);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.openToolStripMenuItem.Text = "展开/关闭分组";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click_1);
             // 
-            // batchToolStripMenuItem
+            // folderToolStripMenuItem
             // 
-            this.batchToolStripMenuItem.Name = "batchToolStripMenuItem";
-            this.batchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.batchToolStripMenuItem.Text = "批量解帧";
-            this.batchToolStripMenuItem.Click += new System.EventHandler(this.batchToolStripMenuItem_Click);
+            this.folderToolStripMenuItem.Name = "folderToolStripMenuItem";
+            this.folderToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.folderToolStripMenuItem.Text = "定位文件";
+            this.folderToolStripMenuItem.Click += new System.EventHandler(this.folderToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
             // 
             // ADToolStripMenuItem
             // 
             this.ADToolStripMenuItem.Name = "ADToolStripMenuItem";
-            this.ADToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ADToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.ADToolStripMenuItem.Text = "添加通道";
             this.ADToolStripMenuItem.Click += new System.EventHandler(this.ADToolStripMenuItem_Click);
             // 
             // UPToolStripMenuItem
             // 
             this.UPToolStripMenuItem.Name = "UPToolStripMenuItem";
-            this.UPToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.UPToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.UPToolStripMenuItem.Text = "修改通道名";
             this.UPToolStripMenuItem.Click += new System.EventHandler(this.UPToolStripMenuItem_Click);
             // 
             // DELEToolStripMenuItem
             // 
             this.DELEToolStripMenuItem.Name = "DELEToolStripMenuItem";
-            this.DELEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.DELEToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.DELEToolStripMenuItem.Text = "删除通道";
             this.DELEToolStripMenuItem.Click += new System.EventHandler(this.DELEToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(169, 6);
             // 
             // INToolStripMenuItem
             // 
             this.INToolStripMenuItem.Name = "INToolStripMenuItem";
-            this.INToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.INToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.INToolStripMenuItem.Text = "视频导入通道";
             this.INToolStripMenuItem.Click += new System.EventHandler(this.INToolStripMenuItem_Click);
             // 
             // OUTToolStripMenuItem
             // 
             this.OUTToolStripMenuItem.Name = "OUTToolStripMenuItem";
-            this.OUTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.OUTToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.OUTToolStripMenuItem.Text = "视频导出通道";
             this.OUTToolStripMenuItem.Click += new System.EventHandler(this.OUTToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(169, 6);
             // 
             // DToolStripMenuItem
             // 
             this.DToolStripMenuItem.Name = "DToolStripMenuItem";
-            this.DToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.DToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.DToolStripMenuItem.Text = "删除视频记录";
             this.DToolStripMenuItem.Click += new System.EventHandler(this.DToolStripMenuItem_Click);
+            // 
+            // batchToolStripMenuItem
+            // 
+            this.batchToolStripMenuItem.Name = "batchToolStripMenuItem";
+            this.batchToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.batchToolStripMenuItem.Text = "批量解帧";
+            this.batchToolStripMenuItem.Click += new System.EventHandler(this.batchToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(169, 6);
             // 
             // AddlabelsToolStripMenuItem
             // 
             this.AddlabelsToolStripMenuItem.Name = "AddlabelsToolStripMenuItem";
-            this.AddlabelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AddlabelsToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.AddlabelsToolStripMenuItem.Text = "批量添加标签";
             this.AddlabelsToolStripMenuItem.Click += new System.EventHandler(this.AddlabelsToolStripMenuItem_Click);
             // 
             // DeleteSolutionToolStripMenuItem
             // 
             this.DeleteSolutionToolStripMenuItem.Name = "DeleteSolutionToolStripMenuItem";
-            this.DeleteSolutionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.DeleteSolutionToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.DeleteSolutionToolStripMenuItem.Text = "清除解帧信息";
             this.DeleteSolutionToolStripMenuItem.Click += new System.EventHandler(this.DeleteSolutionToolStripMenuItem_Click);
             // 
             // ADStaticToolStripMenuItem
             // 
             this.ADStaticToolStripMenuItem.Name = "ADStaticToolStripMenuItem";
-            this.ADStaticToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ADStaticToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.ADStaticToolStripMenuItem.Text = "通道添加静态标签";
             this.ADStaticToolStripMenuItem.Click += new System.EventHandler(this.ADStaticToolStripMenuItem_Click);
             // 
@@ -364,7 +399,8 @@
             this.gridColumn4,
             this.gridColumn5,
             this.gridColumn_count,
-            this.gridColumn_eq});
+            this.gridColumn_eq,
+            this.gridColumn_snapshoted});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupCount = 2;
             this.gridView1.GroupFormat = "{0}: [#image]{1}{2}";
@@ -441,7 +477,7 @@
             this.gridColumn_uri.Name = "gridColumn_uri";
             this.gridColumn_uri.OptionsColumn.ReadOnly = true;
             this.gridColumn_uri.Visible = true;
-            this.gridColumn_uri.VisibleIndex = 12;
+            this.gridColumn_uri.VisibleIndex = 13;
             this.gridColumn_uri.Width = 263;
             // 
             // repositoryItemMemoEdit1
@@ -493,7 +529,7 @@
             this.gridColumn_frame_path.Name = "gridColumn_frame_path";
             this.gridColumn_frame_path.OptionsColumn.AllowEdit = false;
             this.gridColumn_frame_path.Visible = true;
-            this.gridColumn_frame_path.VisibleIndex = 13;
+            this.gridColumn_frame_path.VisibleIndex = 14;
             this.gridColumn_frame_path.Width = 37;
             // 
             // gridColumn1
@@ -570,7 +606,7 @@
             this.gridColumn_create_time.Name = "gridColumn_create_time";
             this.gridColumn_create_time.OptionsColumn.AllowEdit = false;
             this.gridColumn_create_time.Visible = true;
-            this.gridColumn_create_time.VisibleIndex = 14;
+            this.gridColumn_create_time.VisibleIndex = 15;
             this.gridColumn_create_time.Width = 100;
             // 
             // gridColumn4
@@ -617,6 +653,14 @@
             this.gridColumn_eq.FieldName = "EquipmentName";
             this.gridColumn_eq.Name = "gridColumn_eq";
             // 
+            // gridColumn_snapshoted
+            // 
+            this.gridColumn_snapshoted.Caption = "自动截图";
+            this.gridColumn_snapshoted.FieldName = "Snapshoted";
+            this.gridColumn_snapshoted.Name = "gridColumn_snapshoted";
+            this.gridColumn_snapshoted.Visible = true;
+            this.gridColumn_snapshoted.VisibleIndex = 12;
+            // 
             // repositoryItemFontEdit1
             // 
             this.repositoryItemFontEdit1.AutoHeight = false;
@@ -632,10 +676,10 @@
             this.imageListView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imageListView1.GroupHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.imageListView1.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.imageListView1.Location = new System.Drawing.Point(3, 524);
+            this.imageListView1.Location = new System.Drawing.Point(3, 517);
             this.imageListView1.Name = "imageListView1";
             this.tableLayoutPanel1.SetRowSpan(this.imageListView1, 2);
-            this.imageListView1.Size = new System.Drawing.Size(1299, 148);
+            this.imageListView1.Size = new System.Drawing.Size(1299, 154);
             this.imageListView1.TabIndex = 17;
             this.imageListView1.UseWIC = Manina.Windows.Forms.UseWIC.ThumbnailsOnly;
             this.imageListView1.DoubleClick += new System.EventHandler(this.imageListView1_DoubleClick);
@@ -658,10 +702,10 @@
             // 
             this.label_fid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_fid.AutoSize = true;
-            this.label_fid.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_fid.Location = new System.Drawing.Point(39, 45);
+            this.label_fid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_fid.Location = new System.Drawing.Point(43, 43);
             this.label_fid.Name = "label_fid";
-            this.label_fid.Size = new System.Drawing.Size(74, 21);
+            this.label_fid.Size = new System.Drawing.Size(65, 20);
             this.label_fid.TabIndex = 5;
             this.label_fid.Text = "数据编号";
             // 
@@ -669,10 +713,10 @@
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(347, 45);
+            this.label12.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.Location = new System.Drawing.Point(351, 43);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(74, 21);
+            this.label12.Size = new System.Drawing.Size(65, 20);
             this.label12.TabIndex = 33;
             this.label12.Text = "录制地点";
             // 
@@ -680,10 +724,10 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(39, 162);
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(43, 145);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 21);
+            this.label4.Size = new System.Drawing.Size(65, 20);
             this.label4.TabIndex = 4;
             this.label4.Text = "是否解帧";
             // 
@@ -692,10 +736,10 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(39, 123);
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(43, 112);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 21);
+            this.label3.Size = new System.Drawing.Size(65, 20);
             this.label3.TabIndex = 3;
             this.label3.Text = "视频状态";
             // 
@@ -703,48 +747,50 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(39, 84);
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(43, 77);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 21);
+            this.label2.Size = new System.Drawing.Size(65, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "视频名称";
             // 
             // textBox_name
             // 
             this.textBox_name.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_name.Location = new System.Drawing.Point(155, 78);
+            this.textBox_name.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_name.Location = new System.Drawing.Point(155, 72);
             this.textBox_name.Name = "textBox_name";
-            this.textBox_name.Size = new System.Drawing.Size(156, 27);
+            this.textBox_name.Size = new System.Drawing.Size(156, 26);
             this.textBox_name.TabIndex = 7;
             // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(347, 84);
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Location = new System.Drawing.Point(351, 77);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 21);
+            this.label7.Size = new System.Drawing.Size(65, 20);
             this.label7.TabIndex = 18;
             this.label7.Text = "视频编号";
             // 
             // textBox_vid
             // 
             this.textBox_vid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_vid.Location = new System.Drawing.Point(457, 78);
+            this.textBox_vid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_vid.Location = new System.Drawing.Point(457, 72);
             this.textBox_vid.Name = "textBox_vid";
-            this.textBox_vid.Size = new System.Drawing.Size(150, 27);
+            this.textBox_vid.Size = new System.Drawing.Size(150, 26);
             this.textBox_vid.TabIndex = 21;
             // 
             // label13
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(638, 45);
+            this.label13.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.Location = new System.Drawing.Point(642, 43);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(74, 21);
+            this.label13.Size = new System.Drawing.Size(65, 20);
             this.label13.TabIndex = 34;
             this.label13.Text = "拷贝人员";
             // 
@@ -752,10 +798,10 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(638, 84);
+            this.label8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Location = new System.Drawing.Point(642, 77);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 21);
+            this.label8.Size = new System.Drawing.Size(65, 20);
             this.label8.TabIndex = 19;
             this.label8.Text = "包含标签";
             // 
@@ -765,9 +811,10 @@
             this.textBox_label.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tableLayoutPanel1.SetColumnSpan(this.textBox_label, 3);
             this.textBox_label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_label.Location = new System.Drawing.Point(743, 78);
+            this.textBox_label.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_label.Location = new System.Drawing.Point(743, 72);
             this.textBox_label.Name = "textBox_label";
-            this.textBox_label.Size = new System.Drawing.Size(426, 27);
+            this.textBox_label.Size = new System.Drawing.Size(426, 26);
             this.textBox_label.TabIndex = 20;
             this.textBox_label.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_label_KeyDown);
             // 
@@ -776,10 +823,11 @@
             this.comboBox_proname.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox_proname.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboBox_proname.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox_proname.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_proname.FormattingEnabled = true;
             this.comboBox_proname.Location = new System.Drawing.Point(155, 40);
             this.comboBox_proname.Name = "comboBox_proname";
-            this.comboBox_proname.Size = new System.Drawing.Size(156, 27);
+            this.comboBox_proname.Size = new System.Drawing.Size(156, 28);
             this.comboBox_proname.TabIndex = 56;
             // 
             // comboBox_place
@@ -787,10 +835,11 @@
             this.comboBox_place.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBox_place.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboBox_place.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox_place.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_place.FormattingEnabled = true;
             this.comboBox_place.Location = new System.Drawing.Point(457, 40);
             this.comboBox_place.Name = "comboBox_place";
-            this.comboBox_place.Size = new System.Drawing.Size(150, 27);
+            this.comboBox_place.Size = new System.Drawing.Size(150, 28);
             this.comboBox_place.TabIndex = 57;
             // 
             // comboBox_replicator
@@ -798,10 +847,11 @@
             this.comboBox_replicator.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox_replicator.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboBox_replicator.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox_replicator.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_replicator.FormattingEnabled = true;
             this.comboBox_replicator.Location = new System.Drawing.Point(743, 40);
             this.comboBox_replicator.Name = "comboBox_replicator";
-            this.comboBox_replicator.Size = new System.Drawing.Size(162, 27);
+            this.comboBox_replicator.Size = new System.Drawing.Size(162, 28);
             this.comboBox_replicator.TabIndex = 58;
             // 
             // tableLayoutPanel2
@@ -815,20 +865,20 @@
             this.tableLayoutPanel2.Controls.Add(this.radioButton1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.radioButton2, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(155, 117);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(155, 109);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(296, 33);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(296, 27);
             this.tableLayoutPanel2.TabIndex = 62;
             // 
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.radioButton3.Location = new System.Drawing.Point(199, 3);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(76, 25);
+            this.radioButton3.Size = new System.Drawing.Size(69, 21);
             this.radioButton3.TabIndex = 49;
             this.radioButton3.TabStop = true;
             this.radioButton3.Tag = "3";
@@ -838,10 +888,10 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.radioButton1.Location = new System.Drawing.Point(3, 3);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(60, 25);
+            this.radioButton1.Size = new System.Drawing.Size(55, 21);
             this.radioButton1.TabIndex = 47;
             this.radioButton1.TabStop = true;
             this.radioButton1.Tag = "1";
@@ -851,10 +901,10 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.radioButton2.Location = new System.Drawing.Point(101, 3);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(60, 25);
+            this.radioButton2.Size = new System.Drawing.Size(55, 21);
             this.radioButton2.TabIndex = 48;
             this.radioButton2.TabStop = true;
             this.radioButton2.Tag = "2";
@@ -872,20 +922,20 @@
             this.tableLayoutPanel4.Controls.Add(this.radioButton7, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.radioButton8, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(155, 156);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(155, 142);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(296, 33);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(296, 27);
             this.tableLayoutPanel4.TabIndex = 64;
             // 
             // radioButton9
             // 
             this.radioButton9.AutoSize = true;
-            this.radioButton9.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton9.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.radioButton9.Location = new System.Drawing.Point(199, 3);
             this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(76, 25);
+            this.radioButton9.Size = new System.Drawing.Size(69, 21);
             this.radioButton9.TabIndex = 55;
             this.radioButton9.TabStop = true;
             this.radioButton9.Tag = "9";
@@ -895,10 +945,10 @@
             // radioButton7
             // 
             this.radioButton7.AutoSize = true;
-            this.radioButton7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.radioButton7.Location = new System.Drawing.Point(3, 3);
             this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(76, 25);
+            this.radioButton7.Size = new System.Drawing.Size(69, 21);
             this.radioButton7.TabIndex = 53;
             this.radioButton7.TabStop = true;
             this.radioButton7.Tag = "7";
@@ -908,10 +958,10 @@
             // radioButton8
             // 
             this.radioButton8.AutoSize = true;
-            this.radioButton8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.radioButton8.Location = new System.Drawing.Point(101, 3);
             this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(76, 25);
+            this.radioButton8.Size = new System.Drawing.Size(69, 21);
             this.radioButton8.TabIndex = 54;
             this.radioButton8.TabStop = true;
             this.radioButton8.Tag = "8";
@@ -922,10 +972,10 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(479, 200);
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(485, 178);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 21);
+            this.label5.Size = new System.Drawing.Size(93, 20);
             this.label5.TabIndex = 23;
             this.label5.Text = "视频起止时间";
             // 
@@ -940,11 +990,11 @@
             this.tableLayoutPanel6.Controls.Add(this.label9, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.timeEdit_end, 2, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(613, 195);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(613, 175);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(292, 31);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(292, 27);
             this.tableLayoutPanel6.TabIndex = 67;
             // 
             // timeEdit_start
@@ -953,7 +1003,7 @@
             this.timeEdit_start.EditValue = new System.DateTime(2018, 3, 26, 0, 0, 0, 0);
             this.timeEdit_start.Location = new System.Drawing.Point(3, 3);
             this.timeEdit_start.Name = "timeEdit_start";
-            this.timeEdit_start.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.timeEdit_start.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.timeEdit_start.Properties.Appearance.Options.UseFont = true;
             this.timeEdit_start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -966,7 +1016,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(135, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(21, 31);
+            this.label9.Size = new System.Drawing.Size(21, 27);
             this.label9.TabIndex = 26;
             this.label9.Text = "---------";
             // 
@@ -976,7 +1026,7 @@
             this.timeEdit_end.EditValue = new System.DateTime(2018, 3, 26, 0, 0, 0, 0);
             this.timeEdit_end.Location = new System.Drawing.Point(164, 3);
             this.timeEdit_end.Name = "timeEdit_end";
-            this.timeEdit_end.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.timeEdit_end.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.timeEdit_end.Properties.Appearance.Options.UseFont = true;
             this.timeEdit_end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -987,7 +1037,7 @@
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(1084, 46);
+            this.label14.Location = new System.Drawing.Point(1084, 43);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(47, 19);
             this.label14.TabIndex = 65;
@@ -1004,29 +1054,29 @@
             this.tableLayoutPanel5.Controls.Add(this.dateTimePicker2, 2, 0);
             this.tableLayoutPanel5.Controls.Add(this.label11, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(613, 156);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(613, 142);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(292, 33);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(292, 27);
             this.tableLayoutPanel5.TabIndex = 66;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dateTimePicker1.Location = new System.Drawing.Point(3, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(125, 29);
+            this.dateTimePicker1.Size = new System.Drawing.Size(125, 26);
             this.dateTimePicker1.TabIndex = 29;
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dateTimePicker2.Location = new System.Drawing.Point(164, 3);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(125, 29);
+            this.dateTimePicker2.Size = new System.Drawing.Size(125, 26);
             this.dateTimePicker2.TabIndex = 30;
             // 
             // label11
@@ -1034,7 +1084,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(134, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(21, 33);
+            this.label11.Size = new System.Drawing.Size(21, 27);
             this.label11.TabIndex = 32;
             this.label11.Text = "------";
             // 
@@ -1049,20 +1099,20 @@
             this.tableLayoutPanel3.Controls.Add(this.radioButton5, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.radioButton6, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(155, 195);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(155, 175);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(296, 31);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(296, 27);
             this.tableLayoutPanel3.TabIndex = 63;
             // 
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.radioButton4.Location = new System.Drawing.Point(3, 3);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(76, 25);
+            this.radioButton4.Size = new System.Drawing.Size(69, 21);
             this.radioButton4.TabIndex = 50;
             this.radioButton4.TabStop = true;
             this.radioButton4.Tag = "4";
@@ -1072,10 +1122,10 @@
             // radioButton5
             // 
             this.radioButton5.AutoSize = true;
-            this.radioButton5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.radioButton5.Location = new System.Drawing.Point(101, 3);
             this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(76, 25);
+            this.radioButton5.Size = new System.Drawing.Size(69, 21);
             this.radioButton5.TabIndex = 51;
             this.radioButton5.TabStop = true;
             this.radioButton5.Tag = "5";
@@ -1085,10 +1135,10 @@
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
-            this.radioButton6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.radioButton6.Location = new System.Drawing.Point(199, 3);
             this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(76, 25);
+            this.radioButton6.Size = new System.Drawing.Size(69, 21);
             this.radioButton6.TabIndex = 52;
             this.radioButton6.TabStop = true;
             this.radioButton6.Tag = "6";
@@ -1099,10 +1149,10 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(39, 200);
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(43, 178);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 21);
+            this.label6.Size = new System.Drawing.Size(65, 20);
             this.label6.TabIndex = 6;
             this.label6.Text = "是否记录";
             // 
@@ -1110,10 +1160,10 @@
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(479, 162);
+            this.label10.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.Location = new System.Drawing.Point(485, 145);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(106, 21);
+            this.label10.Size = new System.Drawing.Size(93, 20);
             this.label10.TabIndex = 31;
             this.label10.Text = "视频录制时间";
             // 
@@ -1121,19 +1171,20 @@
             // 
             this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox1.Location = new System.Drawing.Point(743, 117);
+            this.textBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(743, 109);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(162, 27);
+            this.textBox1.Size = new System.Drawing.Size(162, 26);
             this.textBox1.TabIndex = 69;
             this.textBox1.Visible = false;
             // 
             // button3
             // 
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.Location = new System.Drawing.Point(1175, 195);
+            this.button3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.Location = new System.Drawing.Point(1175, 175);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(127, 31);
+            this.button3.Size = new System.Drawing.Size(127, 27);
             this.button3.TabIndex = 70;
             this.button3.Text = "导出选中(Excel)";
             this.button3.UseVisualStyleBackColor = true;
@@ -1142,9 +1193,10 @@
             // button4
             // 
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Location = new System.Drawing.Point(1046, 195);
+            this.button4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button4.Location = new System.Drawing.Point(1046, 175);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 31);
+            this.button4.Size = new System.Drawing.Size(123, 27);
             this.button4.TabIndex = 71;
             this.button4.Text = "导出选中(Json)";
             this.button4.UseVisualStyleBackColor = true;
@@ -1158,20 +1210,20 @@
             this.tableLayoutPanel7.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.button_ref, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(1175, 78);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(1175, 72);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(127, 33);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(127, 31);
             this.tableLayoutPanel7.TabIndex = 72;
             // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(57, 27);
+            this.button1.Size = new System.Drawing.Size(57, 25);
             this.button1.TabIndex = 12;
             this.button1.Text = "开始查询";
             this.button1.UseVisualStyleBackColor = true;
@@ -1180,10 +1232,10 @@
             // button_ref
             // 
             this.button_ref.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_ref.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_ref.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_ref.Location = new System.Drawing.Point(66, 3);
             this.button_ref.Name = "button_ref";
-            this.button_ref.Size = new System.Drawing.Size(58, 27);
+            this.button_ref.Size = new System.Drawing.Size(58, 25);
             this.button_ref.TabIndex = 68;
             this.button_ref.Text = "重置";
             this.button_ref.UseVisualStyleBackColor = true;
@@ -1192,20 +1244,14 @@
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button2.Location = new System.Drawing.Point(1061, 120);
+            this.button2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(1061, 109);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 27);
+            this.button2.Size = new System.Drawing.Size(108, 26);
             this.button2.TabIndex = 46;
             this.button2.Text = "标签";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // folderToolStripMenuItem
-            // 
-            this.folderToolStripMenuItem.Name = "folderToolStripMenuItem";
-            this.folderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.folderToolStripMenuItem.Text = "定位文件";
-            this.folderToolStripMenuItem.Click += new System.EventHandler(this.folderToolStripMenuItem_Click);
             // 
             // QueryVideo
             // 
@@ -1336,5 +1382,10 @@
         private System.Windows.Forms.ToolStripMenuItem DeleteSolutionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ADStaticToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem folderToolStripMenuItem;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn_snapshoted;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }

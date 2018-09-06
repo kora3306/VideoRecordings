@@ -37,22 +37,28 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.dispalyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.batchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ADEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UPEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除设备ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddgroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UpdategroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.videotoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddlabelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExeclToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.JsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteSolution_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.OutInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExeclToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.jsonToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.AdsLabelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenfolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AutomaticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn_id = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -75,6 +81,7 @@
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn_eq = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn_snapshoted = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -128,11 +135,10 @@
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl1.DataSource = this.bindingSource1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.EmbeddedNavigator.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.gridControl1.EmbeddedNavigator.Appearance.Options.UseFont = true;
             this.gridControl1.EmbeddedNavigator.Enabled = false;
             this.gridControl1.EmbeddedNavigator.TextStringFormat = "当前数量 {0} / {1}";
-            this.gridControl1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridControl1.Location = new System.Drawing.Point(3, 33);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
@@ -150,31 +156,25 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dispalyToolStripMenuItem,
             this.refToolStripMenuItem,
             this.OpenToolStripMenuItem,
+            this.toolStripSeparator1,
             this.batchToolStripMenuItem,
-            this.DToolStripMenuItem,
-            this.ADEToolStripMenuItem,
-            this.UPEToolStripMenuItem,
-            this.删除设备ToolStripMenuItem,
+            this.DeleteSolution_ToolStripMenuItem,
+            this.groupToolStripMenuItem,
+            this.toolStripSeparator2,
             this.videotoToolStripMenuItem,
             this.OUTToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.DToolStripMenuItem,
             this.AddlabelsToolStripMenuItem,
-            this.ExeclToolStripMenuItem,
-            this.JsonToolStripMenuItem,
-            this.DeleteSolution_ToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.OutInfoToolStripMenuItem,
             this.AdsLabelToolStripMenuItem,
-            this.OpenfolderToolStripMenuItem});
+            this.OpenfolderToolStripMenuItem,
+            this.AutomaticToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 356);
-            // 
-            // dispalyToolStripMenuItem
-            // 
-            this.dispalyToolStripMenuItem.Name = "dispalyToolStripMenuItem";
-            this.dispalyToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.dispalyToolStripMenuItem.Text = "播放视频";
-            this.dispalyToolStripMenuItem.Click += new System.EventHandler(this.dispalyToolStripMenuItem_Click);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 314);
             // 
             // refToolStripMenuItem
             // 
@@ -190,6 +190,11 @@
             this.OpenToolStripMenuItem.Text = "关闭/展开设备分组";
             this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
+            // 
             // batchToolStripMenuItem
             // 
             this.batchToolStripMenuItem.Name = "batchToolStripMenuItem";
@@ -197,33 +202,41 @@
             this.batchToolStripMenuItem.Text = "批量解帧";
             this.batchToolStripMenuItem.Click += new System.EventHandler(this.batchToolStripMenuItem_Click);
             // 
-            // DToolStripMenuItem
+            // groupToolStripMenuItem
             // 
-            this.DToolStripMenuItem.Name = "DToolStripMenuItem";
-            this.DToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.DToolStripMenuItem.Text = "删除视频记录";
-            this.DToolStripMenuItem.Click += new System.EventHandler(this.DToolStripMenuItem_Click);
+            this.groupToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddgroupToolStripMenuItem,
+            this.UpdategroupToolStripMenuItem,
+            this.DeleteGroupToolStripMenuItem});
+            this.groupToolStripMenuItem.Name = "groupToolStripMenuItem";
+            this.groupToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.groupToolStripMenuItem.Text = "通道管理";
             // 
-            // ADEToolStripMenuItem
+            // AddgroupToolStripMenuItem
             // 
-            this.ADEToolStripMenuItem.Name = "ADEToolStripMenuItem";
-            this.ADEToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.ADEToolStripMenuItem.Text = "添加通道";
-            this.ADEToolStripMenuItem.Click += new System.EventHandler(this.ADEToolStripMenuItem_Click);
+            this.AddgroupToolStripMenuItem.Name = "AddgroupToolStripMenuItem";
+            this.AddgroupToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.AddgroupToolStripMenuItem.Text = "添加通道";
+            this.AddgroupToolStripMenuItem.Click += new System.EventHandler(this.AddgroupToolStripMenuItem_Click);
             // 
-            // UPEToolStripMenuItem
+            // UpdategroupToolStripMenuItem
             // 
-            this.UPEToolStripMenuItem.Name = "UPEToolStripMenuItem";
-            this.UPEToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.UPEToolStripMenuItem.Text = "修改通道名";
-            this.UPEToolStripMenuItem.Click += new System.EventHandler(this.UPEToolStripMenuItem_Click);
+            this.UpdategroupToolStripMenuItem.Name = "UpdategroupToolStripMenuItem";
+            this.UpdategroupToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.UpdategroupToolStripMenuItem.Text = "修改通道名";
+            this.UpdategroupToolStripMenuItem.Click += new System.EventHandler(this.UpdategroupToolStripMenuItem_Click);
             // 
-            // 删除设备ToolStripMenuItem
+            // DeleteGroupToolStripMenuItem
             // 
-            this.删除设备ToolStripMenuItem.Name = "删除设备ToolStripMenuItem";
-            this.删除设备ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.删除设备ToolStripMenuItem.Text = "删除通道";
-            this.删除设备ToolStripMenuItem.Click += new System.EventHandler(this.删除设备ToolStripMenuItem_Click);
+            this.DeleteGroupToolStripMenuItem.Name = "DeleteGroupToolStripMenuItem";
+            this.DeleteGroupToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.DeleteGroupToolStripMenuItem.Text = "删除通道";
+            this.DeleteGroupToolStripMenuItem.Click += new System.EventHandler(this.DeleteGroupToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(181, 6);
             // 
             // videotoToolStripMenuItem
             // 
@@ -239,6 +252,18 @@
             this.OUTToolStripMenuItem.Text = "视频导出通道";
             this.OUTToolStripMenuItem.Click += new System.EventHandler(this.OUTToolStripMenuItem_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(181, 6);
+            // 
+            // DToolStripMenuItem
+            // 
+            this.DToolStripMenuItem.Name = "DToolStripMenuItem";
+            this.DToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.DToolStripMenuItem.Text = "删除视频记录";
+            this.DToolStripMenuItem.Click += new System.EventHandler(this.DToolStripMenuItem_Click);
+            // 
             // AddlabelsToolStripMenuItem
             // 
             this.AddlabelsToolStripMenuItem.Name = "AddlabelsToolStripMenuItem";
@@ -246,26 +271,40 @@
             this.AddlabelsToolStripMenuItem.Text = "批量添加标签";
             this.AddlabelsToolStripMenuItem.Click += new System.EventHandler(this.AddlabelsToolStripMenuItem_Click);
             // 
-            // ExeclToolStripMenuItem
-            // 
-            this.ExeclToolStripMenuItem.Name = "ExeclToolStripMenuItem";
-            this.ExeclToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.ExeclToolStripMenuItem.Text = "导出信息到Execl";
-            this.ExeclToolStripMenuItem.Click += new System.EventHandler(this.ExeclToolStripMenuItem_Click);
-            // 
-            // JsonToolStripMenuItem
-            // 
-            this.JsonToolStripMenuItem.Name = "JsonToolStripMenuItem";
-            this.JsonToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.JsonToolStripMenuItem.Text = "导出信息到Json";
-            this.JsonToolStripMenuItem.Click += new System.EventHandler(this.JsonToolStripMenuItem_Click);
-            // 
             // DeleteSolution_ToolStripMenuItem
             // 
             this.DeleteSolution_ToolStripMenuItem.Name = "DeleteSolution_ToolStripMenuItem";
             this.DeleteSolution_ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.DeleteSolution_ToolStripMenuItem.Text = "清除解帧信息";
             this.DeleteSolution_ToolStripMenuItem.Click += new System.EventHandler(this.DeleteSolution_ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(181, 6);
+            // 
+            // OutInfoToolStripMenuItem
+            // 
+            this.OutInfoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ExeclToolStripMenuItem1,
+            this.jsonToolStripMenuItem1});
+            this.OutInfoToolStripMenuItem.Name = "OutInfoToolStripMenuItem";
+            this.OutInfoToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.OutInfoToolStripMenuItem.Text = "导出选中信息";
+            // 
+            // ExeclToolStripMenuItem1
+            // 
+            this.ExeclToolStripMenuItem1.Name = "ExeclToolStripMenuItem1";
+            this.ExeclToolStripMenuItem1.Size = new System.Drawing.Size(105, 22);
+            this.ExeclToolStripMenuItem1.Text = "Execl";
+            this.ExeclToolStripMenuItem1.Click += new System.EventHandler(this.eXeclToolStripMenuItem1_Click);
+            // 
+            // jsonToolStripMenuItem1
+            // 
+            this.jsonToolStripMenuItem1.Name = "jsonToolStripMenuItem1";
+            this.jsonToolStripMenuItem1.Size = new System.Drawing.Size(105, 22);
+            this.jsonToolStripMenuItem1.Text = "Json";
+            this.jsonToolStripMenuItem1.Click += new System.EventHandler(this.jsonToolStripMenuItem1_Click);
             // 
             // AdsLabelToolStripMenuItem
             // 
@@ -280,6 +319,13 @@
             this.OpenfolderToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.OpenfolderToolStripMenuItem.Text = "打开视频所在文件夹";
             this.OpenfolderToolStripMenuItem.Click += new System.EventHandler(this.OpenfolderToolStripMenuItem_Click);
+            // 
+            // AutomaticToolStripMenuItem
+            // 
+            this.AutomaticToolStripMenuItem.Name = "AutomaticToolStripMenuItem";
+            this.AutomaticToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.AutomaticToolStripMenuItem.Text = "添加自动截图";
+            this.AutomaticToolStripMenuItem.Click += new System.EventHandler(this.AutomaticToolStripMenuItem_Click);
             // 
             // gridView1
             // 
@@ -302,7 +348,8 @@
             this.gridColumn_create_time,
             this.gridColumn4,
             this.gridColumn_eq,
-            this.gridColumn5});
+            this.gridColumn5,
+            this.gridColumn_snapshoted});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupCount = 1;
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -376,7 +423,7 @@
             this.gridColumn_uri.Name = "gridColumn_uri";
             this.gridColumn_uri.OptionsColumn.ReadOnly = true;
             this.gridColumn_uri.Visible = true;
-            this.gridColumn_uri.VisibleIndex = 11;
+            this.gridColumn_uri.VisibleIndex = 12;
             this.gridColumn_uri.Width = 263;
             // 
             // repositoryItemMemoEdit1
@@ -428,7 +475,7 @@
             this.gridColumn_frame_path.Name = "gridColumn_frame_path";
             this.gridColumn_frame_path.OptionsColumn.AllowEdit = false;
             this.gridColumn_frame_path.Visible = true;
-            this.gridColumn_frame_path.VisibleIndex = 12;
+            this.gridColumn_frame_path.VisibleIndex = 13;
             this.gridColumn_frame_path.Width = 37;
             // 
             // gridColumn1
@@ -505,7 +552,7 @@
             this.gridColumn_create_time.Name = "gridColumn_create_time";
             this.gridColumn_create_time.OptionsColumn.AllowEdit = false;
             this.gridColumn_create_time.Visible = true;
-            this.gridColumn_create_time.VisibleIndex = 13;
+            this.gridColumn_create_time.VisibleIndex = 14;
             this.gridColumn_create_time.Width = 100;
             // 
             // gridColumn4
@@ -522,7 +569,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 14;
+            this.gridColumn4.VisibleIndex = 15;
             // 
             // repositoryItemButtonEdit1
             // 
@@ -553,6 +600,14 @@
             this.gridColumn5.Caption = "gridColumn5";
             this.gridColumn5.FieldName = "EquipmentID";
             this.gridColumn5.Name = "gridColumn5";
+            // 
+            // gridColumn_snapshoted
+            // 
+            this.gridColumn_snapshoted.Caption = "自动截图";
+            this.gridColumn_snapshoted.FieldName = "Snapshoted";
+            this.gridColumn_snapshoted.Name = "gridColumn_snapshoted";
+            this.gridColumn_snapshoted.Visible = true;
+            this.gridColumn_snapshoted.VisibleIndex = 11;
             // 
             // statusStrip1
             // 
@@ -673,7 +728,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem dispalyToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private DevExpress.Utils.ToolTipController toolTipController1;
@@ -686,8 +740,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripMenuItem OpenfolderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DeleteSolution_ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ExeclToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem JsonToolStripMenuItem;
         private Manina.Windows.Forms.ImageListView imageListView1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
@@ -715,12 +767,22 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
         private System.Windows.Forms.ToolStripMenuItem AddlabelsToolStripMenuItem;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit2;
-        private System.Windows.Forms.ToolStripMenuItem ADEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem UPEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 删除设备ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem batchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refToolStripMenuItem;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private System.Windows.Forms.ToolStripMenuItem AdsLabelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem groupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AddgroupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem UpdategroupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DeleteGroupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OutInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ExeclToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem jsonToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem AutomaticToolStripMenuItem;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn_snapshoted;
     }
 }

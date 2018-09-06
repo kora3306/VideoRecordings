@@ -57,6 +57,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.treeList2 = new DevExpress.XtraTreeList.TreeList();
             this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -109,7 +110,7 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 299F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 336F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 358F));
             this.tableLayoutPanel3.Controls.Add(this.treeList1, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -181,56 +182,57 @@
             this.updategroupToolStripMenuItem,
             this.DeleteEqipToolStripMenuItem,
             this.addeqToolStripMenuItem,
-            this.DelEqiToolStripMenuItem});
+            this.DelEqiToolStripMenuItem,
+            this.updateToolStripMenuItem});
             this.contextMenuStrip_group.Name = "contextMenuStrip1";
-            this.contextMenuStrip_group.Size = new System.Drawing.Size(154, 158);
+            this.contextMenuStrip_group.Size = new System.Drawing.Size(181, 202);
             // 
             // OPToolStripMenuItem
             // 
             this.OPToolStripMenuItem.Name = "OPToolStripMenuItem";
-            this.OPToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.OPToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.OPToolStripMenuItem.Text = "打开/关闭节点";
             this.OPToolStripMenuItem.Click += new System.EventHandler(this.OPToolStripMenuItem_Click);
             // 
             // AddgroupToolStripMenuItem
             // 
             this.AddgroupToolStripMenuItem.Name = "AddgroupToolStripMenuItem";
-            this.AddgroupToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.AddgroupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.AddgroupToolStripMenuItem.Text = "新建分组";
             this.AddgroupToolStripMenuItem.Click += new System.EventHandler(this.AddgroupToolStripMenuItem_Click);
             // 
             // deletegroupToolStripMenuItem
             // 
             this.deletegroupToolStripMenuItem.Name = "deletegroupToolStripMenuItem";
-            this.deletegroupToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.deletegroupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deletegroupToolStripMenuItem.Text = "删除分组";
             this.deletegroupToolStripMenuItem.Click += new System.EventHandler(this.deletegroupToolStripMenuItem_Click);
             // 
             // updategroupToolStripMenuItem
             // 
             this.updategroupToolStripMenuItem.Name = "updategroupToolStripMenuItem";
-            this.updategroupToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.updategroupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.updategroupToolStripMenuItem.Text = "修改分组";
             this.updategroupToolStripMenuItem.Click += new System.EventHandler(this.updategroupToolStripMenuItem_Click);
             // 
             // DeleteEqipToolStripMenuItem
             // 
             this.DeleteEqipToolStripMenuItem.Name = "DeleteEqipToolStripMenuItem";
-            this.DeleteEqipToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.DeleteEqipToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.DeleteEqipToolStripMenuItem.Text = "分组移除通道";
             this.DeleteEqipToolStripMenuItem.Click += new System.EventHandler(this.DeleteEqipToolStripMenuItem_Click);
             // 
             // addeqToolStripMenuItem
             // 
             this.addeqToolStripMenuItem.Name = "addeqToolStripMenuItem";
-            this.addeqToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.addeqToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addeqToolStripMenuItem.Text = "通道加入分组";
             this.addeqToolStripMenuItem.Click += new System.EventHandler(this.addtogroupToolStripMenuItem_Click);
             // 
             // DelEqiToolStripMenuItem
             // 
             this.DelEqiToolStripMenuItem.Name = "DelEqiToolStripMenuItem";
-            this.DelEqiToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.DelEqiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.DelEqiToolStripMenuItem.Text = "通道删除";
             this.DelEqiToolStripMenuItem.Click += new System.EventHandler(this.DelEqiToolStripMenuItem_Click);
             // 
@@ -430,6 +432,13 @@
             this.treeListColumn2.Visible = true;
             this.treeListColumn2.VisibleIndex = 0;
             // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateToolStripMenuItem.Text = "修改通道名";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
+            // 
             // Grouping
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -485,5 +494,6 @@
         private System.Windows.Forms.ToolStripMenuItem OPToolStripMenuItem;
         private Manina.Windows.Forms.ImageListView imageListView1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
     }
 }

@@ -200,6 +200,17 @@ namespace VideoRecordings.GetDatas
             return obj != null;
         }
 
+        public static bool AddAutomaticScreenshot(List<int> video_id)
+        {
+            if (video_id.Count == 0) return false;
+            string url = Program.Urlpath + $"/videos/auto/snapshot";
+            var json = new
+            {
+                video_id
+            };
+            JObject obj = WebClinetHepler.Post_New(url,JsonConvert.SerializeObject(json));
+            return obj != null;
+        }
     }
 
 }

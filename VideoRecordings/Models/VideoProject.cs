@@ -63,6 +63,7 @@ namespace VideoRecordings.Models
         [DataMember(Name = "status_name")]
         public string Status { get; set; }
 
+
         [DataMember(Name = "statistic")]
         public Completeness Statistic { get; set; }
 

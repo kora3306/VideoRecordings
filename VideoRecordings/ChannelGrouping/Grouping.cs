@@ -11,6 +11,7 @@ using DevExpress.XtraTreeList.Nodes;
 using Manina.Windows.Forms;
 using VideoRecordings.GetDatas;
 using VideoRecordings.Models;
+using VideoRecordings.Video;
 
 namespace VideoRecordings.ChannelGrouping
 {
@@ -228,7 +229,7 @@ namespace VideoRecordings.ChannelGrouping
 
         private void updategroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (treeList2.FocusedNode == null) return;
+            if (treeList2.FocusedNode == null||treeList2.FocusedNode.Level!=0) return;
             UpdateGroup updateGroup = new UpdateGroup(treeList2.FocusedNode);
             updateGroup.MySaveEvent += new UpdateGroup.MyEvent(SetShowGroups);
             updateGroup.ShowDialog();
@@ -436,6 +437,16 @@ namespace VideoRecordings.ChannelGrouping
         private void imageListView1_DoubleClick(object sender, EventArgs e)
         {
             Methods.ShowImage(imageListView1);
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(treeList1.FocusedNode==null) return ;
+            int id = int.Parse(treeList1.FocusedNode.Tag.ToString());
+            EquipmentInfo info = EquipmentData.GetEquipmentById(id);
+            UpdateEquipment write = new UpdateEquipment(info);
+            write.MyRefreshEvent += new UpdateEquipment.MyDelegate(InitializeComboBox);
+            write.Show();
         }
     }
 }

@@ -58,7 +58,7 @@ namespace VideoRecordings.Models
                 if (Labels.StaticLabel==null&&Labels.DynamicLabel==null)
                     return string.Empty;
                 List<VideoLabel> labels = new List<VideoLabel>();
-                foreach (TypeLabel item in Labels.StaticLabel.Union(Labels.DynamicLabel))
+                foreach (TypeLabel item in Labels.AllLabel)
                 {
                     labels.AddRange(item.Labels);
                 }
@@ -88,6 +88,9 @@ namespace VideoRecordings.Models
 
         [DataMember(Name = "project")]
         public Projects Project { get; set; }
+
+        [DataMember(Name = "snapshoted")]
+        public string Snapshoted { get; set; }
 
         [DataMember(Name = "equipment_info")]
         public EquipmentInfo Rquipment { get; set; }

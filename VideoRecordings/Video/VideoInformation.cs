@@ -347,6 +347,20 @@ namespace VideoRecordings
             addVideo.MyAddEvent += new AddVideo.MyDelegate(GetInformationShow);
             addVideo.Show();
         }
+
+        private void AutomaticToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool scan = VideoData.ScanFolder(focusedfolder);
+            if (!scan) return;
+            List<int> ids = VideoData.GetAllVideoPlay(focusedfolder.Name).Select(t => t.Id).ToList();
+            bool iswin = VideoData.AddAutomaticScreenshot(ids);
+            if (!iswin)
+            {
+                MessageBox.Show("添加失败");
+                return;
+            }
+            MessageBox.Show("添加成功");
+        }
     }
 
 }

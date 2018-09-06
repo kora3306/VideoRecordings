@@ -28,14 +28,14 @@ namespace VideoRecordings
     public partial class VideoRecording : DevExpress.XtraEditors.XtraForm
     {
 
-        List<TypeLabel> Selectlabels = new List<TypeLabel>(); //标签
+        TypeLabels Selectlabels = new TypeLabels(); //标签
         VideoPlay videoplay;      //传入的文件信息
         Process process = new Process();   //启动外部程序线程
         List<string> paths = new List<string>();  //截图路径
         Point po = new Point();         //窗口定位点
         int i = 1;            //Tag
         List<string> imageurl = new List<string>();        //已有图片读取
-        List<TypeLabel> staticlabel = new List<TypeLabel>();
+        TypeLabels staticlabel = new TypeLabels();
         bool folding = false;
         bool isuse;
         public VideoRecording(VideoPlay videopath, bool use)
@@ -70,8 +70,8 @@ namespace VideoRecordings
 
         private void VideoRecording_Load(object sender, EventArgs e)
         {
-            Selectlabels = Methods.CopyToList(videoplay.Labels.DynamicLabel);
-            staticlabel = Methods.CopyToList(videoplay.Labels.StaticLabel);
+            Selectlabels = (TypeLabels)videoplay.Labels.DynamicLabel.Clone();
+            staticlabel = (TypeLabels)videoplay.Labels.StaticLabel.Clone();
             PlayVideo();
             GetLabels();
             SetPoint();
@@ -168,7 +168,7 @@ namespace VideoRecordings
             var islabel = SaveLabel();
             var isimage = SaveImage();
             var istime = SaveTime();
-            if (!(islabel && isimage && istime))
+            if (!(islabel || isimage || istime))
             {
                 MessageBox.Show("保存失败");
                 return;
@@ -178,7 +178,6 @@ namespace VideoRecordings
             OnSave(videoplay);
             this.Close();
         }
-
 
         /// <summary>
         /// 选择标签加入已有标签栏
@@ -383,14 +382,14 @@ namespace VideoRecordings
             else
             {
                 TypeLabel type = Selectlabels.FirstOrDefault(t => t.Name == tree.Parent.Text);
-                VideoLabel label = type.Labels.FirstOrDefault(t => t.Name == tree.Text);
-                type.Labels.Remove(label);
                 if (tree.Parent.Nodes.Count == 1)
                 {
                     Selectlabels.Remove(type);
                     treeView1.Nodes.Remove(tree.Parent);
                     return;
                 }
+                VideoLabel label = type.Labels.FirstOrDefault(t => t.Name == tree.Text);
+                type.Labels.Remove(label);
                 treeView1.Nodes.Remove(tree);
             }
 
@@ -755,8 +754,10 @@ namespace VideoRecordings
             {
                 return;
             }
-            Program.labels = Methods.CopyToList(Selectlabels);
+            //Program.labels =(TypeLabels)Selectlabels.Clone();            
+            Program.labels = (TypeLabels)Selectlabels.Clone();
         }
+
         /// <summary>
         /// 粘贴
         /// </summary>
@@ -772,7 +773,7 @@ namespace VideoRecordings
             {
                 if (!Selectlabels.Contains(item))
                 {
-                    Selectlabels.Add(item);
+                    Selectlabels.Add((TypeLabel)item.Clone());
                     continue;
                 }
                 foreach (TypeLabel tree in Selectlabels)
@@ -783,7 +784,7 @@ namespace VideoRecordings
                         {
                             if (!tree.Labels.Contains(label))
                             {
-                                tree.Labels.Add(label);
+                                tree.Labels.Add((VideoLabel)label.Clone());
                             }
                         }
                     }

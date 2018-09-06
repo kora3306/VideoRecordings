@@ -32,6 +32,13 @@ namespace VideoRecordings
 {
     public partial class InformationDisplay : Form
     {
+        Dictionary<int, string> SnapshotedMap = new Dictionary<int, string>()
+        {
+            {0,"未截图"},
+            {1,"正在截图" },
+            {2,"截图完成" },
+            {3,"截图错误"}
+        };
         public VideoPlay transmissionvideo = new VideoPlay();     //当前选中的文件
         public List<VideoPlay> videoplays = new List<VideoPlay>();  //所有文件
         public List<string> imageurl = new List<string>();   //图片url
@@ -329,6 +336,7 @@ namespace VideoRecordings
             video.StartTime = play.StartTime;
             video.EndTime = play.EndTime;
             video.CreateTime = play.CreateTime;
+            video.RecordTime = play.RecordTime;
             video.Recorded = play.Recorded;
             bindingSource1.DataSource = videoplays;
             gridView1.RefreshData();
@@ -567,25 +575,6 @@ namespace VideoRecordings
             PostVideos();
         }
 
-        /// <summary>
-        /// 导出Excel按钮
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ExeclToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DataGridToExcel1(gridControl1);
-        }
-
-        /// <summary>
-        /// 导出Json数据按钮
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void JsonToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            WriteJson(GetCheckList());
-        }
 
         /// <summary>
         /// 导出GridControl选中的信息
@@ -777,16 +766,6 @@ namespace VideoRecordings
             PostVideos();
         }
 
-        /// <summary>
-        /// 添加通道
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ADEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            addEquipment.Show();
-        }
-
         private void gridView1_Click(object sender, EventArgs e)
         {
             int i = gridView1.FocusedRowHandle;
@@ -796,41 +775,6 @@ namespace VideoRecordings
             RefreshImage();
             GetIntToString();
             DeleteFolder(Program.ImageSavePath);
-        }
-
-        /// <summary>
-        /// 更改通道名
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void UPEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (transmissionvideo?.Rquipment == null) return;
-            UpdateEquipment write = new UpdateEquipment(transmissionvideo.Rquipment);
-            write.MyRefreshEvent += new UpdateEquipment.MyDelegate(PostVideos);
-            write.MySaveEvent += new UpdateEquipment.MyDelegate(RefEquipment);
-            write.Show();
-        }
-
-        /// <summary>
-        /// 删除通道
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void 删除设备ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (transmissionvideo?.Rquipment == null) return;
-            if (MessageBox.Show($"是否删除{transmissionvideo.EquipmentName}通道？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
-                return;
-            if (EquipmentData.DeleteEquipmengt(transmissionvideo.EquipmentID))
-            {
-                MessageBox.Show("删除成功");
-                GridViewClear();
-                PostVideos();
-                RefEquipment();
-                return;
-            }
-            MessageBox.Show("删除失败");
         }
 
         /// <summary>
@@ -963,6 +907,61 @@ namespace VideoRecordings
             int id = dr.EquipmentID;
             ShowStaticLabel show = new ShowStaticLabel(id);
             show.Show();
+        }
+
+        private void eXeclToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridToExcel1(gridControl1);
+        }
+
+        private void jsonToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            WriteJson(GetCheckList());
+        }
+
+        private void DeleteGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (transmissionvideo?.Rquipment == null) return;
+            if (MessageBox.Show($"是否删除{transmissionvideo.EquipmentName}通道？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
+                return;
+            if (EquipmentData.DeleteEquipmengt(transmissionvideo.EquipmentID))
+            {
+                MessageBox.Show("删除成功");
+                GridViewClear();
+                PostVideos();
+                RefEquipment();
+                return;
+            }
+            MessageBox.Show("删除失败");
+        }
+
+        private void UpdategroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (transmissionvideo?.Rquipment == null) return;
+            UpdateEquipment write = new UpdateEquipment(transmissionvideo.Rquipment);
+            write.MyRefreshEvent += new UpdateEquipment.MyDelegate(PostVideos);
+            write.MySaveEvent += new UpdateEquipment.MyDelegate(RefEquipment);
+            write.Show();
+        }
+
+        private void AddgroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addEquipment.Show();
+        }
+
+        private void AutomaticToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<int> ids = GetCheckList().Select(t => t.Id).ToList();
+            if (ids.Count == 0) return;
+            bool win = VideoData.AddAutomaticScreenshot(ids);
+            if (win)
+            {
+                MessageBox.Show("添加成功");
+                bindingSource1.DataSource = null;
+                PostVideos();
+                return;
+            }
+            MessageBox.Show("添加失败");
         }
     }
 }

@@ -78,7 +78,7 @@ namespace VideoRecordings
                 }
             }
             All_treeList.EndUpdate();
-            All_treeList.ExpandAll();
+            All_treeList.CollapseAll();
             IsExpand = true;
         }
 

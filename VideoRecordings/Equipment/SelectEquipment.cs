@@ -21,6 +21,7 @@ namespace VideoRecordings.Equipment
 
         private MyGroup showgroups;
         private List<GalleryGroup> galleries;
+        AddEquipment equipment;
         private List<int> postids;
 
         public List<int> PostIds
@@ -41,7 +42,7 @@ namespace VideoRecordings.Equipment
         private List<string> listOnit_uid = new List<string>();
         private List<string> listNew__uid = new List<string>();
 
-        public SelectEquipment()
+        public SelectEquipment(AddEquipment equipment=null)
         {
             InitializeComponent();
             InitializeComboBox();
@@ -52,6 +53,7 @@ namespace VideoRecordings.Equipment
         private void InitializeComboBox()
         {
             showgroups = MyGroup.GetGetGroups();
+            equipment = new AddEquipment();
             SetShowTree();
             SetCityComboBox();
         }
@@ -274,9 +276,16 @@ namespace VideoRecordings.Equipment
 
         private void ADDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddEquipment equipment = new AddEquipment(comboBox_city.Text,comboBox_street.Text,comboBox_site.Text);
-            equipment.MySaveEvent += new AddEquipment.MyDelegate(RefreshData);
-            equipment.Show();
+            if (equipment.isclear)
+            {
+                equipment = new AddEquipment(comboBox_city.Text, comboBox_street.Text, comboBox_site.Text);
+                equipment.MySaveEvent += new AddEquipment.MyDelegate(RefreshData);
+                equipment.Show();
+            }
+            else
+            {
+                equipment.Show();
+            }
         }
 
         private void imageListView1_DoubleClick(object sender, EventArgs e)

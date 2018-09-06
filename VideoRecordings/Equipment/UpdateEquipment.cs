@@ -24,10 +24,10 @@ namespace VideoRecordings.Video
 
         private void InitializeTextBox()
         {
-            TextBox_city.Text = equip.City;
-            TextBox_street.Text = equip.Street;
-            TextBox_site.Text = equip.Site;
-            TextBox_uid.Text = equip.Uid;
+            TextBox_city.Text = TextBox_newcity.Text = equip.City;
+            TextBox_street.Text = TextBox_newstreet.Text = equip.Street;
+            TextBox_site.Text = TextBox_newsite.Text= equip.Site;
+            TextBox_uid.Text = TextBox_newuid.Text=equip.Uid;
         }
 
         public event MyDelegate MySaveEvent;
