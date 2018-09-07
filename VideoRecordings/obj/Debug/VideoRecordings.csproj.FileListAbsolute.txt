@@ -312,4 +312,3 @@ E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.Update
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.RepetitionVideo.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.ShowRepetition.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Label.ShowStaticLabel.resources
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe.licenses

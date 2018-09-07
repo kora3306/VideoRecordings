@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using VideoRecordings.GetDatas;
 using VideoRecordings.Models;
-using Microsoft.Office.Interop.Excel;
 using DevExpress.XtraGrid;
 
 namespace VideoRecordings.Video

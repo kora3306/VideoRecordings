@@ -76,7 +76,7 @@ namespace VideoRecordings
 
             string json = JsonHelper.SerializeDataContractJson(video_project);
             JObject returnobj = WebClinetHepler.Post_New(posturl, json);
-            if (int.Parse(returnobj["code"].ToString()) != 0)
+            if (returnobj==null)
             {
                 MessageBox.Show("上传失败");
                 return;

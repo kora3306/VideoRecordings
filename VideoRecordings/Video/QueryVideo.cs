@@ -854,9 +854,11 @@ namespace VideoRecordings
         /// <param name="gridControl1"></param>
         private void DataGridToExcel(GridControl gridControl1)
         {
-            SaveFileDialog fileDialog = new SaveFileDialog();
-            fileDialog.Title = "导出数据信息";
-            fileDialog.Filter = "Microsoft Excel|*.xls";
+            SaveFileDialog fileDialog = new SaveFileDialog
+            {
+                Title = "导出数据信息",
+                Filter = "Microsoft Excel|*.xls"
+            };
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -886,9 +888,11 @@ namespace VideoRecordings
         {
             gridView1.OptionsSelection.MultiSelect = true;
             gridView1.OptionsPrint.PrintSelectedRowsOnly = true;
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Title = "导出Excel";
-            saveFileDialog.Filter = "Excel文件(*.pdf)|*.pdf";
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Title = "导出Excel",
+                Filter = "Excel文件(*.pdf)|*.pdf"
+            };
             saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
             DialogResult dialogResult = saveFileDialog.ShowDialog(this);
             if (dialogResult == DialogResult.OK)
@@ -903,9 +907,11 @@ namespace VideoRecordings
 
         public void WriteJson(List<VideoPlay> palys)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Title = "导出Json";
-            saveFileDialog.Filter = "Jsom文件(*.json)|*.json";
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Title = "导出Json",
+                Filter = "Jsom文件(*.json)|*.json"
+            };
             DialogResult dialogResult = saveFileDialog.ShowDialog(this);
             //构成配置文件路径 
             string con_file_path = saveFileDialog.FileName;
@@ -924,9 +930,11 @@ namespace VideoRecordings
                 serializer.NullValueHandling = NullValueHandling.Ignore;
 
                 //构建Json.net的写入流 
-                JsonWriter writer = new JsonTextWriter(sw);
-                //把模型数据序列化并写入Json.net的JsonWriter流中 
-                writer.Formatting = Formatting.Indented;
+                JsonWriter writer = new JsonTextWriter(sw)
+                {
+                    //把模型数据序列化并写入Json.net的JsonWriter流中 
+                    Formatting = Formatting.Indented
+                };
                 serializer.Serialize(writer, palys);
                 //ser.Serialize(writer, ht); 
                 DevExpress.XtraEditors.XtraMessageBox.Show("保存成功！", "提示",
