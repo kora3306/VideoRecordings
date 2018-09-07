@@ -37,6 +37,7 @@ namespace VideoRecordings
             if (!LabelData.UpdateLabelName(index,textBox1.Text.Trim()))
             {
                 MessageBox.Show("修改失败");
+                Program.log.Error($"修改标签名,label_id:{index},修改名:{textBox1.Text.Trim()}");
             }
             OnRefresh(type);
             this.Close();

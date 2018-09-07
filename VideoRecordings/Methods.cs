@@ -212,6 +212,16 @@ namespace VideoRecordings
             GenerateForm(formClass, tabPageMapping);
         }
 
+        public static List<string> IdConvetToPath(List<int> ids)
+        {
+            List<string> imageurl = new List<string>();
+            string url = Program.Urlpath + "/video/snapshot/";
+            foreach (var item in ids)
+            {
+                imageurl.Add(url + item);
+            }
+            return imageurl;
+        }
 
 
         // 利用反射实现深拷贝

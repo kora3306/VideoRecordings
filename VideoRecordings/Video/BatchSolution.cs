@@ -40,6 +40,7 @@ namespace VideoRecordings.Video
             if (!win)
             {
                 MessageBox.Show("添加解帧视频失败");
+                Program.log.Error($"添加解帧视频失败,间隔{interval}");
             }
             this.Close();
         }

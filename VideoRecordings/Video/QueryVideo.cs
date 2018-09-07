@@ -294,6 +294,11 @@ namespace VideoRecordings
             return true;
         }
 
+        /// <summary>
+        /// 转化类型到对象
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         private List<VideoPlay> GerQueryVideos(JObject obj)
         {
             queryvidoe.Clear();
@@ -456,6 +461,7 @@ namespace VideoRecordings
                     Directory.Delete(d);
                 }
             }
+            Program.log.Info($"清空{dir}文件夹内容");
         }
 
         /// <summary>
@@ -572,6 +578,7 @@ namespace VideoRecordings
             video.EndTime = play.EndTime;
             video.CreateTime = play.CreateTime;
             video.Recorded = play.Recorded;
+            video.RecordTime = play.RecordTime;
             bindingSource1.DataSource = videoplays;
             bindingSource1.DataSource = videoplays;
             gridView1.RefreshData();
@@ -614,6 +621,7 @@ namespace VideoRecordings
             Methods.DelImage(imageListView1, imageurl);
             RefreshImage();
             gridView1.RefreshData();
+            Program.log.Info($"删除图片,video_ids:{string.Join(",",imageListView1.SelectedItems.Select(t=>t.Name).ToList())}");
         }
 
         /// <summary>
@@ -795,6 +803,9 @@ namespace VideoRecordings
             return false;
         }
 
+        /// <summary>
+        /// 重置
+        /// </summary>
         private void RefAllConditions()
         {
             SetRadioButton();
@@ -887,6 +898,7 @@ namespace VideoRecordings
                 DevExpress.XtraEditors.XtraMessageBox.Show("保存成功！", "提示",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            Program.log.Info($"导出信息到Excel,路径:{saveFileDialog.FileName}");
         }
 
         public void WriteJson(List<VideoPlay> palys)
@@ -922,6 +934,7 @@ namespace VideoRecordings
                 writer.Close();
                 sw.Close();
             }
+            Program.log.Error($"导出信息到json,路径:{con_file_path}");
         }
 
         private List<VideoPlay> GetCheckList()
@@ -1007,11 +1020,13 @@ namespace VideoRecordings
                 if (!EquipmentData.DelteVideosFromEquipment(it, ids))
                 {
                     MessageBox.Show($"{string.Join(",", ids)}从设备删除视频失败");
+                    Program.log.Error($"{string.Join(",", ids)}从设备删除视频失败");
                 }
             }
             MessageBox.Show("从设备删除视频成功");
             bindingSource1.DataSource = null;
             button1.PerformClick();
+            Program.log.Info($"{string.Join(",", videos.Select(t => t.Id).ToList())}从设备删除视频失败");
         }
 
        private void SetTheUse()
@@ -1023,9 +1038,9 @@ namespace VideoRecordings
         /// 添加
         /// </summary>
         /// <param name="label"></param>
-        private void AddTheLabels(List<string> label)
+        private void AddTheLabels(List<string> labels)
         {
-            List<int> ids = MyLabels.GetSelectIds(label);
+            List<int> ids = MyLabels.GetSelectIds(labels);
             int[] rownumber = this.gridView1.GetSelectedRows();
             if (rownumber.Count() == 0) return;
             List<VideoPlay> videos = new List<VideoPlay>();
@@ -1039,10 +1054,12 @@ namespace VideoRecordings
             if (!LabelData.BatchAddLabels(ids1, ids))
             {
                 MessageBox.Show("添加标签失败");
+                Program.log.Error($"视频:{string.Join(",", ids1)}添加标签:{string.Join(",", labels)},失败");
                 return;
             }
             MessageBox.Show("添加标签成功");
             RefreshImage();
+            Program.log.Error($"视频:{string.Join(",", ids1)}添加标签:{string.Join(",", labels)},成功");
         }
 
         /// <summary>
@@ -1126,9 +1143,11 @@ namespace VideoRecordings
                 MessageBox.Show("删除成功");
                 RefreshImage();
                 RefEquipment();
+                Program.log.Info($"通道:{transmissionvideo.EquipmentID + transmissionvideo.EquipmentName}删除--成功");
                 return;
             }
             MessageBox.Show("删除失败");
+            Program.log.Error($"通道:{transmissionvideo.EquipmentID + transmissionvideo.EquipmentName}删除--失败");
             gridView1.EndDataUpdate();//结束数据的编辑
             gridView1.EndUpdate();   //结束视图的编辑
         }
@@ -1152,6 +1171,7 @@ namespace VideoRecordings
             BatchSolution batch = new BatchSolution(videos);
             batch.MyRefreshEvent += new BatchSolution.MyDeletgate(RefreshImage);
             batch.Show();
+            Program.log.Info($"video_ids:{string.Join(",", videos.Select(t => t.Id).ToList())}添加批量标签");
         }
 
         /// <summary>
@@ -1176,9 +1196,11 @@ namespace VideoRecordings
             if (!SolutionData.DeleteSolution(ids))
             {
                 MessageBox.Show("清除解帧信息失败");
+                Program.log.Error($"{string.Join(",", ids)}从设备删除视频失败");
                 return;
             }
             RefreshImage();
+            Program.log.Info($"{string.Join(",", videos.Select(t => t.Id).ToList())}从设备删除视频失败");
         }
 
         /// <summary>
@@ -1192,6 +1214,7 @@ namespace VideoRecordings
             if (ids.Count == 0) return;
             selectEquipment.PostIds = ids;
             selectEquipment.Show();
+            Program.log.Info($"viedo_id:{string.Join(",",ids)}添加通道");
         }
 
         private void ADStaticToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1204,6 +1227,7 @@ namespace VideoRecordings
             SelectLabel select = new SelectLabel(RefreshType.StaticLabel, mydic[id].LabelStr);
             select.MyRefreshEvent += new SelectLabel.MyDelegate(SetLabelsToEquipment);
             select.ShowDialog();
+            Program.log.Info($"显示静态标签,video_id:{id}");
         }
 
         public void SetLabelsToEquipment(List<string> labels)
@@ -1214,11 +1238,13 @@ namespace VideoRecordings
             int id = dr.EquipmentID;
             if (id == 0) return;
             List<int> ids = new MyLabels().GetSelectIds(labels);
-            if (!LabelData.AddLabelToEquipment(id, ids))
+            if (LabelData.AddLabelToEquipment(id, ids))
             {
                 MessageBox.Show("添加标签到通道失败");
+                Program.log.Error($"通道ID:{id},添加标签:{string.Join(",", labels)}--失败");
                 return;
             }
+            Program.log.Error($"通道ID:{id},添加标签:{string.Join(",", labels)}");
             RefreshImage();
         }
 
@@ -1236,6 +1262,7 @@ namespace VideoRecordings
         {
             if (transmissionvideo == null) return;
             Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
+            Program.log.Info($"定位文件夹,VideoId:{transmissionvideo.Id}");
         }
     }
 }

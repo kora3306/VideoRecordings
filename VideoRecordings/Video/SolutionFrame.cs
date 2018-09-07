@@ -53,6 +53,7 @@ namespace VideoRecordings.Video
                     OnRefresh(play);
                 }
                 this.Close();
+
             }
             catch (Exception)
             {
@@ -74,8 +75,10 @@ namespace VideoRecordings.Video
             if (obj == null)
             {
                 MessageBox.Show($"编号{id}解帧失败");
+                Program.log.Error($"编号{id}解帧失败");
                 return false;
             }
+            Program.log.Error($"编号{id}解帧,间隔{step}");
             return true;
         }
     }

@@ -218,6 +218,7 @@ namespace VideoRecordings.Equipment
             if (!EquipmentData.AddVideoInEquipment(int.Parse(treeList1.FocusedNode.Tag.ToString()), PostIds))
             {
                 MessageBox.Show("添加视频到通道失败");
+                Program.log.Error($"添加视频到通道失败,video_ids:{string.Join(",",PostIds)}");
                 return;
             }
             OnRefresh();

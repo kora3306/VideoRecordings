@@ -12,6 +12,7 @@ using System.Web.Script.Serialization;
 using Common;
 using Newtonsoft.Json.Linq;
 using VideoRecordings.Models;
+using Newtonsoft.Json;
 
 namespace VideoRecordings
 {
@@ -23,7 +24,7 @@ namespace VideoRecordings
         {
             InitializeComponent();
             videoProject = project;
-           oldinformation=(new JavaScriptSerializer()).Serialize(project);
+           oldinformation=JsonConvert.SerializeObject(project);
         }
 
         private void UpdateContent_Load(object sender, EventArgs e)
@@ -67,6 +68,7 @@ namespace VideoRecordings
             if (obj == null)
             {
                 MessageBox.Show("修改失败");
+                Program.log.Error($"project_id:{videoProject.Id},更改信息{json}");
                 return;
             }
             OnSave();

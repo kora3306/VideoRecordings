@@ -72,11 +72,12 @@ namespace VideoRecordings.Video
         private void ExeclToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataGridToExcel1(gridControl1);
+            Program.log.Info("导出查重信息到execl");
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PlayVideo(true);
+            PlayVideo();
         }
 
         private void oldToolStripMenuItem_Click(object sender, EventArgs e)
@@ -85,7 +86,7 @@ namespace VideoRecordings.Video
             PlayVideo(false);
         }
 
-        private void PlayVideo(bool isnew)
+        private void PlayVideo(bool isnew=true)
         {
             ReturnRepetition re = (ReturnRepetition)gridView1.GetRow(gridView1.FocusedRowHandle);
             VideoPlay play = new VideoPlay();

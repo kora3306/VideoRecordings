@@ -67,7 +67,7 @@
             // VideoToolStripMenuItem
             // 
             this.VideoToolStripMenuItem.Name = "VideoToolStripMenuItem";
-            this.VideoToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.VideoToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
             this.VideoToolStripMenuItem.Tag = "VideoRecordings.VideoInformation";
             this.VideoToolStripMenuItem.Text = "视频管理";
             this.VideoToolStripMenuItem.Click += new System.EventHandler(this.VideoToolStripMenuItem_Click);
@@ -75,7 +75,7 @@
             // queryVIdeoToolStripMenuItem
             // 
             this.queryVIdeoToolStripMenuItem.Name = "queryVIdeoToolStripMenuItem";
-            this.queryVIdeoToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.queryVIdeoToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
             this.queryVIdeoToolStripMenuItem.Tag = "VideoRecordings.QueryVideo";
             this.queryVIdeoToolStripMenuItem.Text = "查询视频";
             this.queryVIdeoToolStripMenuItem.Click += new System.EventHandler(this.queryVIdeoToolStripMenuItem_Click);
@@ -83,7 +83,7 @@
             // LabelToolStripMenuItem
             // 
             this.LabelToolStripMenuItem.Name = "LabelToolStripMenuItem";
-            this.LabelToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.LabelToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
             this.LabelToolStripMenuItem.Tag = "VideoRecordings.ManagementLabel";
             this.LabelToolStripMenuItem.Text = "标签管理";
             this.LabelToolStripMenuItem.Click += new System.EventHandler(this.LabelToolStripMenuItem_Click);
@@ -91,7 +91,7 @@
             // groupToolStripMenuItem
             // 
             this.groupToolStripMenuItem.Name = "groupToolStripMenuItem";
-            this.groupToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.groupToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
             this.groupToolStripMenuItem.Tag = "VideoRecordings.ChannelGrouping.Grouping";
             this.groupToolStripMenuItem.Text = "通道分组";
             this.groupToolStripMenuItem.Click += new System.EventHandler(this.groupToolStripMenuItem_Click);
@@ -99,7 +99,7 @@
             // repetitionVideoToolStripMenuItem
             // 
             this.repetitionVideoToolStripMenuItem.Name = "repetitionVideoToolStripMenuItem";
-            this.repetitionVideoToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.repetitionVideoToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
             this.repetitionVideoToolStripMenuItem.Tag = "VideoRecordings.Video.RepetitionVideo";
             this.repetitionVideoToolStripMenuItem.Text = "视频查重";
             this.repetitionVideoToolStripMenuItem.Click += new System.EventHandler(this.repetitionVideoToolStripMenuItem_Click);
@@ -134,6 +134,7 @@
             this.Name = "FileManagement";
             this.Text = "FileManagement";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FileManagement_FormClosing);
             this.Load += new System.EventHandler(this.FileManagement_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

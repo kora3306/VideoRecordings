@@ -136,6 +136,7 @@ namespace VideoRecordings
             UpdateLabel update = new UpdateLabel(node.GetValue(0).ToString(),type);
             update.MyRefreshEvent += new UpdateLabel.MyEvent(GetLabels);
             update.Show();
+            Program.log.Error($"更改标签名{node.GetValue(0).ToString()}");
         }
 
         private void DelLabelToolStripMenuItem_Click(object sender, EventArgs e)
@@ -160,6 +161,7 @@ namespace VideoRecordings
                 type = RefreshType.DynamicLabel;
             }          
             GetLabels(type);
+
         }
 
         public List<TreeListNode> GetChecked()//返回所有被选中的节点
@@ -250,6 +252,7 @@ namespace VideoRecordings
                 MessageBox.Show("删除失败");
                 return;
             }
+            Program.log.Error($"删除标签",new Exception($"{tree.FocusedNode.GetValue(0).ToString()}"));
         }
 
         /// <summary>
@@ -397,6 +400,7 @@ namespace VideoRecordings
             if (!LabelData.RelevanceLabel(ids, id))
                 MessageBox.Show("设置关联失败");
             GetLabels(RefreshType.DynamicLabel);
+            Program.log.Error($"设置关联{id},label_ids:{string.Join(",", ids)}");
         }
 
         /// <summary>

@@ -58,6 +58,7 @@ namespace VideoRecordings.Video
             OnSave();
             OnRefresh();
             this.Close();
+            Program.log.Error($"修改设备名,EquipmengtID:{equip.Id},设备名:{TextBox_newcity.Text.Trim()+TextBox_newstreet.Text.Trim()+TextBox_newsite.Text.Trim()+TextBox_newuid.Text.Trim()}");
         }
     }
 }

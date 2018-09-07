@@ -47,16 +47,19 @@ namespace VideoRecordings.Video
         private void Show20ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SetINfo(log,"20");
+            Program.log.Info("查看20条查重记录");
         }
 
         private void show50ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SetINfo(log,"50");
+            Program.log.Info("查看50条查重记录");
         }
 
         private void showallToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SetINfo(log,"-1");
+            Program.log.Info("查看所有查重记录");
         }
 
         private void gridView1_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
@@ -120,9 +123,11 @@ namespace VideoRecordings.Video
             if (!VideoData.DeleteRepetition(re.ID))
             {
                 MessageBox.Show("删除记录失败");
+                Program.log.Error($"删除查重记录{re.ID}--失败");
                 return;
             }
             MessageBox.Show("删除成功");
+            Program.log.Info($"删除查重记录{re.ID}");
             SetINfo(log);
         }
     }

@@ -55,7 +55,9 @@ namespace VideoRecordings
                 InformationDisplay information = new InformationDisplay(focusedfolder);
                 information.MyEvent += new InformationDisplay.MyDelegate(RefshData);
                 information.Show();
+                Program.log.Info($"打开{focusedfolder.Name}");
             }
+            
         }
 
         /// <summary>
@@ -134,12 +136,14 @@ namespace VideoRecordings
             Videos = VideoData.GetAllFolder();
             if (Videos == null || Videos.Count == 0)
             {
+                Program.log.Error("获取批次信息失败");
                 return;
             }
             bindingSource1.DataSource = Videos;
             FouseRow(video, fouse);
             ShowCompleteness();
             gridView1.RefreshData();
+            Program.log.Info("更新批次信息");
         }
 
         /// <summary>
@@ -152,6 +156,7 @@ namespace VideoRecordings
             UpdateContent update = new UpdateContent(focusedfolder);
             update.MyEvent += new UpdateContent.MyDelegate(GetInformationShow);
             update.Show();
+            Program.log.Info($"更改{focusedfolder.Name}的信息");
         }
 
         /// <summary>
@@ -217,6 +222,7 @@ namespace VideoRecordings
             int comple = Videos.Sum(t => t.Statistic.Recorded);
             toolStripStatusLabel1.Text = "总完成度:" + (Convert.ToDouble(comple) / Convert.ToDouble(all)).ToString(("0.00%"))
             + $"({comple}/{all})" + "         ";
+            Program.log.Info($"设置完成度{ toolStripStatusLabel1.Text}");
         }
 
         public void RefshData()
@@ -302,13 +308,19 @@ namespace VideoRecordings
             if (VideoData.RefreshFolder(focusedfolder.Id))
             {
                 MessageBox.Show("重新扫描成功");
+                Program.log.Info($"{focusedfolder.Name}重新扫描成功");
                 return; 
             }
             MessageBox.Show("重新扫描失败");
+            Program.log.Error("重新扫描失败");
             GetInformationShow();
         }
 
-
+        /// <summary>
+        /// 添加查重
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void repetitionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bool scan = VideoData.ScanFolder(focusedfolder);
@@ -318,9 +330,11 @@ namespace VideoRecordings
             if (!iswin)
             {
                 MessageBox.Show("添加失败");
+                Program.log.Error($"添加视频查重,批次{focusedfolder.Name},失败");              
                 return;
             }
             MessageBox.Show("添加成功");
+            Program.log.Info($"添加视频查重,批次{focusedfolder.Name},成功");
         }
 
         private void gridView1_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
@@ -341,6 +355,11 @@ namespace VideoRecordings
             }
         }
 
+        /// <summary>
+        /// 添加批次信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddVideoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddVideo addVideo = new AddVideo();
@@ -348,6 +367,11 @@ namespace VideoRecordings
             addVideo.Show();
         }
 
+        /// <summary>
+        /// 自动截图
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AutomaticToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bool scan = VideoData.ScanFolder(focusedfolder);
@@ -357,9 +381,11 @@ namespace VideoRecordings
             if (!iswin)
             {
                 MessageBox.Show("添加失败");
+                Program.log.Error($"添加批次{focusedfolder.Name}到自动截图失败");
                 return;
             }
             MessageBox.Show("添加成功");
+            Program.log.Info($"添加批次{focusedfolder.Name}到自动截图成功");
         }
     }
 

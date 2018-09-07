@@ -458,6 +458,7 @@ namespace VideoRecordings
             if (!win)
             {
                 MessageBox.Show("上传标签失败");
+                Program.log.Error($"保存标签失败label_id:{string.Join(",",ids)}");
             }
             return win;
         }
@@ -477,6 +478,7 @@ namespace VideoRecordings
             if (!win)
             {
                 MessageBox.Show("上传图片失败");
+                Program.log.Error($"上传图片失败,images:{string.Join(",",saveimage)}");
             }
             return win;
         }
@@ -665,6 +667,7 @@ namespace VideoRecordings
             }
             SetTheListView();
             ImageAdd();
+            Program.log.Info($"删除图片{string.Join(",",imageListView1.SelectedItems.Select(t=>t.Name).ToList())}");
         }
 
         /// <summary>
@@ -688,11 +691,12 @@ namespace VideoRecordings
             patchjson.Add("start_time", start);
             patchjson.Add("end_time", end);
             patchjson.Add("record_time", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
-            string json = (new JavaScriptSerializer()).Serialize(patchjson);
+            string json = JsonConvert.SerializeObject(patchjson);
             bool win = VideoData.SaveTime(videoplay.Id, json);
             if (!win)
             {
                 MessageBox.Show("上传时间失败");
+                Program.log.Info($"上传时间失败,{json}");
             }
             return win;
         }
@@ -756,6 +760,7 @@ namespace VideoRecordings
             }
             //Program.labels =(TypeLabels)Selectlabels.Clone();            
             Program.labels = (TypeLabels)Selectlabels.Clone();
+            Program.log.Info($"复制{string.Join(",", Program.labels)}");
         }
 
         /// <summary>

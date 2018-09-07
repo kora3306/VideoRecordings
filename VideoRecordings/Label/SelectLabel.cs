@@ -97,6 +97,7 @@ namespace VideoRecordings
                 OnRefresh(labels);
                 this.Close();
             }
+            Program.log.Info($"返回选中标签{string.Join(",",labels)}");
         }
 
         //

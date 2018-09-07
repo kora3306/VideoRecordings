@@ -93,6 +93,14 @@ namespace VideoRecordings
             if (item == null) return;
             SetForm(item.Tag.ToString(), item.Text);
         }
+
+        private void FileManagement_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(MessageBox.Show("是否关闭程序!","关闭提示",MessageBoxButtons.OKCancel)!=DialogResult.OK)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 
 

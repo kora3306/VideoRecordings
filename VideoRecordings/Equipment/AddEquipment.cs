@@ -42,13 +42,14 @@ namespace VideoRecordings.Video
             if (!EquipmentData.AddEquipment(textBox1.Text.Trim(), textBox2.Text.Trim(), textBox3.Text.Trim()
             , textBox4.Text.Trim()))
             {
-                MessageBox.Show("新建设备失败");
+                MessageBox.Show("新建设备失败");               
                 return;
             }
             MessageBox.Show("新建设备成功");
             ClearText();
             OnSave();         
             this.Hide();
+            Program.log.Error($"新建设备{textBox1.Text.Trim()+textBox2.Text.Trim()+textBox3.Text.Trim()+textBox4.Text.Trim()}");
         }
 
         private void AddEquipment_FormClosing(object sender, FormClosingEventArgs e)

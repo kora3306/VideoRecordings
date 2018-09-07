@@ -102,6 +102,11 @@ namespace VideoRecordings.GetDatas
             return videoplays.First();
         }
 
+        /// <summary>
+        /// 获取批次所有视频
+        /// </summary>
+        /// <param name="projectNmae"></param>
+        /// <returns></returns>
         public static List<VideoPlay> GetAllVideoPlay(string projectNmae)
         {
             string geturl = Program.Urlpath + $"/videos?project_name={projectNmae}";
@@ -200,6 +205,11 @@ namespace VideoRecordings.GetDatas
             return obj != null;
         }
 
+        /// <summary>
+        /// 添加自动截图
+        /// </summary>
+        /// <param name="video_id"></param>
+        /// <returns></returns>
         public static bool AddAutomaticScreenshot(List<int> video_id)
         {
             if (video_id.Count == 0) return false;
