@@ -390,7 +390,7 @@ namespace DXApplication1
 
         private void SavePic()
         {
-            axPlayer1.SetConfig(702, Application.StartupPath + "\\截图.bmp");
+            //axPlayer1.SetConfig(702, Application.StartupPath + "\\截图.bmp");
         }
 
         private void 截图ToolStripMenuItem_Click(object sender, EventArgs e)

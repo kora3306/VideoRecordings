@@ -488,7 +488,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void DToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show($"是否删除编号{transmissionvideo.Id}的视频？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
+            if (MessageBox.Show($"是否删除编号{transmissionvideo.Id}的视频,删除视频前请确认解帧图片一并删除？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
                 return;
             if (VideoData.DeleteVideo(transmissionvideo.Id))
             {

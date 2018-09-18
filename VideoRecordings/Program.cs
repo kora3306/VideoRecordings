@@ -69,6 +69,7 @@ namespace VideoRecordings
         public static string UpdateApi = string.Empty;
         public static string UserName = string.Empty;
         public static string LogName = string.Empty;
+        public static string LogPassWord = string.Empty;
         /// <summary>
         /// 获取配置信息
         /// </summary>
@@ -82,7 +83,7 @@ namespace VideoRecordings
             {
                 if (key == strKey)
                 {
-                    return config.AppSettings.Settings[strKey].Value.ToString();
+                    return config.AppSettings.Settings[strKey].Value;
                 }
             }
             return null;
@@ -282,6 +283,7 @@ namespace VideoRecordings
             }
             Version = GetAppConfig("Version");
             UpdateApi = GetAppConfig("UpdateApi");
+            LogPassWord = GetAppConfig("PassWord");
             string savepath = Directory.GetCurrentDirectory() + "\\" + "ScreenCapture";
             if (ImageSavePath != savepath)
             {

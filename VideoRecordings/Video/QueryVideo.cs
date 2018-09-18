@@ -16,6 +16,7 @@ using Newtonsoft.Json.Linq;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using DevExpress.XtraBars.Docking;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid;
 using Newtonsoft.Json;
@@ -38,6 +39,7 @@ namespace VideoRecordings
         bool isFirst = true;  //每次查询选择定位选中文件0
         bool iscollpase = false;
         public bool Hasbeen = false;
+        private bool isvisbel = false;
         List<VideoProject> Videos = new List<VideoProject>();
         GridHitInfo hInfo = new GridHitInfo();
         Dictionary<string, int> queryvidoe = new Dictionary<string, int>();
@@ -87,7 +89,6 @@ namespace VideoRecordings
             textBox1.AutoCompleteCustomSource.AddRange(text.ToArray());
             imageListView1.DiskCache = Program.Persistent;
             gridView1.OptionsBehavior.AutoExpandAllGroups = false;
-            label14.Text = $"欢迎:{Program.UserName}";
             Methods.AddIsTest(this);
         }
 
@@ -381,9 +382,6 @@ namespace VideoRecordings
                         return true;
                     }
                     return base.ProcessCmdKey(ref msg, keyData);
-                case Keys.Escape:
-                    this.WindowState = FormWindowState.Minimized;
-                    return true;
                 case Keys.F2:
                     Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri)));
                     return true;
@@ -673,7 +671,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void DToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show($"是否删除编号{transmissionvideo.Id}的视频？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
+            if (MessageBox.Show($"是否删除编号{transmissionvideo.Id}的视频,删除视频前请确认解帧图片一并删除？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
                 return;
             string url = Program.Urlpath + "/video/" + transmissionvideo.Id;
             JObject obj = WebClinetHepler.Delete_New(url);
@@ -877,8 +875,24 @@ namespace VideoRecordings
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            DataGridToExcel1(gridControl1);
+            if (dockPanel2.Visibility == DockVisibility.AutoHide)
+            {
+                dockPanel2.Visibility = DockVisibility.Visible;
+            }
+            if (!isvisbel)
+            {
+                dockPanel5.Visibility = DockVisibility.Visible;
+                isvisbel = true;
+                button3.Text = "隐藏高级选项↓";
+            }
+            else
+            {
+                dockPanel5.Visibility = DockVisibility.Hidden;
+                isvisbel = false;
+                button3.Text = "显示高级选项↑";
+            }
         }
+
 
         /// <summary>
         /// 导出GridControl选中的信息
@@ -959,10 +973,6 @@ namespace VideoRecordings
             return plays;
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            WriteJson(GetCheckList());
-        }
 
         /// <summary>
         /// 展开关闭节点
@@ -1271,6 +1281,16 @@ namespace VideoRecordings
             if (transmissionvideo == null) return;
             Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
             Program.log.Info($"定位文件夹,VideoId:{transmissionvideo.Id}");
+        }
+
+        private void OUTJsonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WriteJson(GetCheckList());
+        }
+
+        private void OUTExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataGridToExcel1(gridControl1);
         }
     }
 }

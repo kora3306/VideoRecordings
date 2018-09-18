@@ -24,16 +24,20 @@ namespace VideoRecordings
         public Login()
         {
             InitializeComponent();
-            textBox1.Text = Program.GetAppConfig("LogName");
-          
+            textBox_name.Text = Program.GetAppConfig("LogName");
+            if (!string.IsNullOrEmpty(Program.LogPassWord))
+            {
+                checkBox1.Checked = true;
+                textBox_passward.Text = Program.LogPassWord;
+            }
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
             if (Program.Version == "test")
             {
-                textBox1.Text = "xiekai";
-                textBox2.Text = "xk";
+                textBox_name.Text = "xiekai";
+                textBox_passward.Text = "xk";
                 button1.PerformClick();
             }
         }
@@ -46,20 +50,20 @@ namespace VideoRecordings
         private void button1_Click(object sender, EventArgs e)
         {
             string url = "http://192.168.1.225:19886/api/my/info";           
-            string name = textBox1.Text == string.Empty ? string.Empty : textBox1.Text.Trim();
-            string passWord = textBox2.Text == string.Empty ? string.Empty : textBox2.Text.Trim();
+            string name = textBox_name.Text == string.Empty ? string.Empty : textBox_name.Text.Trim();
+            string passWord = textBox_passward.Text == string.Empty ? string.Empty : textBox_passward.Text.Trim();
             if (name == string.Empty || passWord == string.Empty)
             {
                 MessageBox.Show("账号或者密码不能为空");
-                textBox2.Focus();
+                textBox_passward.Focus();
                 return;
             }
             WebClinetHepler.Cookies = Logining(name,passWord);
             if (WebClinetHepler.Cookies==string.Empty)
             {
                 MessageBox.Show("账号或者密码错误");
-                Program.log.Error("账号登录",new Exception($"{textBox1.Text}登录失败,账号密码错误"));
-                textBox2.Focus();
+                Program.log.Error("账号登录",new Exception($"{textBox_name.Text}登录失败,账号密码错误"));
+                textBox_passward.Focus();
                 return;
             }
             LogSucceed = true;
@@ -67,8 +71,21 @@ namespace VideoRecordings
             Program.UserName = obj["result"]["real_name"].ToString() ;
             Program.LogName = obj["result"]["name"].ToString();
             Program.UpdataLongName();
+            UpdataLongPassWord(passWord,checkBox1.Checked);
             this.Close();
            
+        }
+
+        public static void UpdataLongPassWord(string text,bool isupdate)
+        {
+            if (!isupdate)
+            {
+                text = string.Empty;
+            }
+            if (text != Program.GetAppConfig("PassWord"))
+            {
+                Program.UpdateAppConfig("PassWord", text);
+            }
         }
 
         /// <summary>
@@ -109,12 +126,6 @@ namespace VideoRecordings
             {               
                 request?.Abort();
             }
-        }
-
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
