@@ -88,7 +88,7 @@ namespace VideoRecordings
             selectEquipment.MySaveEvent += new SelectEquipment.MyEvent(PostVideos);
             selectEquipment.MyRefreshEvent += new SelectEquipment.MyEvent(GridViewClear);
             imageListView1.DiskCache = Program.Persistent;
-            label2.Text = $"欢迎:{Program.UserName}";
+            label2.Text = $"欢迎:{Program.User.RealName}";
             Methods.AddIsTest(this);
         }
 
@@ -490,7 +490,7 @@ namespace VideoRecordings
         {
             if (MessageBox.Show($"是否删除编号{transmissionvideo.Id}的视频,删除视频前请确认解帧图片一并删除？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
                 return;
-            if (VideoData.DeleteVideo(transmissionvideo.Id))
+            if (!VideoData.DeleteVideo(transmissionvideo.Id))
             {
                 MessageBox.Show("删除失败");
                 Program.log.Error($"删除{transmissionvideo.Id}失败", new Exception($"{transmissionvideo.Id}"));
@@ -1036,6 +1036,16 @@ namespace VideoRecordings
             }
             MessageBox.Show("添加失败");
             Program.log.Error($"添加自动截图,视频ID{string.Join(",", ids)}--失败");
+        }
+
+        private void Top_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<VideoPlay> videos = GetSelectRow();
+            if (videos == null) return;
+            BatchSolution batch = new BatchSolution(videos,true);
+            batch.MyRefreshEvent += new BatchSolution.MyDeletgate(RefEquipment);
+            batch.ShowDialog();
+            Program.log.Info($"添加批量解帧(置顶){string.Join(",", videos.Select(t => t.Id).ToList())}");
         }
     }
 }

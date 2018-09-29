@@ -36,8 +36,8 @@ namespace VideoRecordings
         {
             InitializeComponent();
             GetInformationShow();
-            Uer_ToolStripMenuItem.Text = $"欢迎:{Program.UserName}";
-            Methods.AddIsTest(this);
+            Uer_ToolStripMenuItem.Text = $"欢迎:{Program.User.RealName}";
+            Methods.AddIsTest(this);       
         }
 
 
@@ -118,8 +118,8 @@ namespace VideoRecordings
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
+        private void GridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {           
             int rowIndex = gridView1.FocusedRowHandle;
             if (rowIndex < 0 || rowIndex > Videos.Count - 1)
             {
@@ -140,9 +140,8 @@ namespace VideoRecordings
                 return;
             }
             bindingSource1.DataSource = Videos;
-            FouseRow(video, fouse);
+            gridView1.RefreshData();      
             ShowCompleteness();
-            gridView1.RefreshData();
             Program.log.Info("更新批次信息");
         }
 
@@ -153,30 +152,12 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void ModifyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (gridView1.FocusedRowHandle < 0) return;
+            focusedfolder = (VideoProject)gridView1.GetRow(gridView1.FocusedRowHandle);
             UpdateContent update = new UpdateContent(focusedfolder);
             update.MyEvent += new UpdateContent.MyDelegate(GetInformationShow);
             update.Show();
             Program.log.Info($"更改{focusedfolder.Name}的信息");
-        }
-
-        /// <summary>
-        /// 定位项
-        /// </summary>
-        /// <param name="video"></param>
-        /// <param name="fouse"></param>
-        public void FouseRow(VideoProject video, bool fouse)
-        {
-            if (!fouse) return;
-            int i = 0;
-            foreach (var item in Videos)
-            {
-                if (video.Name == item.Name)
-                {
-                    break;
-                }
-                i++;
-            }
-            gridView1.FocusedRowHandle = i;
         }
 
         private void DELToolStripMenuItem_Click(object sender, EventArgs e)
@@ -184,7 +165,7 @@ namespace VideoRecordings
             try
             {
                 if (focusedfolder == null || focusedfolder.Uri == null) return;
-                DialogResult dr = MessageBox.Show("删除扫描信息将会清除所有已经保存的视频信息,确认是否删除?", "是否删除扫描信息",
+                DialogResult dr =  MessageBox.Show("删除扫描信息将会清除所有已经保存的视频信息,确认是否删除?", "是否删除扫描信息",
                     MessageBoxButtons.OKCancel);
                 if (dr != DialogResult.OK)
                 {
@@ -206,7 +187,6 @@ namespace VideoRecordings
             }
 
         }
-
 
         private void gridView1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -326,7 +306,7 @@ namespace VideoRecordings
             bool scan = VideoData.ScanFolder(focusedfolder);
             if (!scan) return;
             List<int> ids = VideoData.GetAllVideoPlay(focusedfolder.Name).Select(t=>t.Id).ToList();
-            bool iswin = VideoData.VideoRepetition(Program.LogName, focusedfolder.Name+focusedfolder.Place, focusedfolder.Id,ids);
+            bool iswin = VideoData.VideoRepetition(Program.User.RealName, focusedfolder.Name+focusedfolder.Place, focusedfolder.Id,ids);
             if (!iswin)
             {
                 MessageBox.Show("添加失败");

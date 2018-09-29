@@ -740,7 +740,7 @@
             this.label5.TabIndex = 23;
             this.label5.Text = "视频起止时间";
             // 
-            // tableLayoutPanel6
+            // tableLayoutPanel_6
             // 
             this.tableLayoutPanel6.ColumnCount = 3;
             this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel6, 2);
@@ -752,7 +752,7 @@
             this.tableLayoutPanel6.Controls.Add(this.timeEdit_end, 2, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(594, 173);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.Name = "tableLayoutPanel_6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(286, 31);

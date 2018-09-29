@@ -50,9 +50,9 @@ namespace VideoRecordings
 
         public delegate void MyDelegate(VideoProject video = null, bool fouse = false);
         public event MyDelegate MyEvent;
-        public virtual void OnSave(VideoProject video = null, bool fouse = false)
+        public virtual void OnSave()
         {
-            MyEvent?.Invoke(video,fouse);
+            MyEvent?.Invoke(videoProject, true);
         }
 
 

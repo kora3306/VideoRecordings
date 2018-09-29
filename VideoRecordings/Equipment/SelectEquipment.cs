@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Dal;
 using DevExpress.XtraTreeList.Nodes;
 using VideoRecordings.Models;
 using VideoRecordings.GetDatas;

@@ -17,6 +17,7 @@ namespace VideoRecordings.Video
     public partial class BatchSolution : Form
     {
         private List<VideoPlay> plays;
+        bool _queue = false;
 
         public delegate void MyDeletgate();
         public event MyDeletgate MyRefreshEvent;
@@ -26,10 +27,11 @@ namespace VideoRecordings.Video
             MyRefreshEvent.Invoke();
         }
 
-        public BatchSolution(List<VideoPlay> videoPlays)
+        public BatchSolution(List<VideoPlay> videoPlays,bool queue=false)
         {
             InitializeComponent();
             plays = videoPlays;
+            _queue = queue;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -47,7 +49,15 @@ namespace VideoRecordings.Video
 
         private bool SolutionOfTheFrame(int step)
         {
-            string url = Program.Urlpath + $"/deframe";
+            string url =string.Empty;
+            if (_queue)
+            {
+               url = Program.Urlpath + $"/priority/deframe";
+            }
+            else
+            {
+                url = Program.Urlpath + $"/deframe";
+            }
             List<Solution> jsonDic = new List<Solution>();
             foreach (var video in plays)
             {

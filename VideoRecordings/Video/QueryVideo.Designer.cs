@@ -31,48 +31,28 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label_fid = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox_name = new System.Windows.Forms.TextBox();
+            this.comboBox_proname = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.comboBox_groups = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.comboBox_group = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox_vid = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox_label = new System.Windows.Forms.TextBox();
-            this.comboBox_proname = new System.Windows.Forms.ComboBox();
-            this.comboBox_place = new System.Windows.Forms.ComboBox();
-            this.comboBox_replicator = new System.Windows.Forms.ComboBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.timeEdit_start = new DevExpress.XtraEditors.TimeEdit();
-            this.label9 = new System.Windows.Forms.Label();
-            this.timeEdit_end = new DevExpress.XtraEditors.TimeEdit();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.button_ref = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox_name = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,10 +66,14 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.batchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Top_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.AddlabelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteSolutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ADStaticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OUTputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OUTJsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OUTExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.imageListView1 = new Manina.Windows.Forms.ImageListView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -102,14 +86,48 @@
             this.dockPanel3_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dockPanel4 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel4_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.dockPanel6 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel6_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.dockPanel5 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel5_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
+            this.radioGroup2 = new DevExpress.XtraEditors.RadioGroup();
+            this.radioGroup3 = new DevExpress.XtraEditors.RadioGroup();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.timeEdit_start = new DevExpress.XtraEditors.TimeEdit();
+            this.timeEdit_end = new DevExpress.XtraEditors.TimeEdit();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.hideContainerTop = new DevExpress.XtraBars.Docking.AutoHideContainer();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_name = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn_project_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_uri = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.gridColumn_status = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -128,22 +146,9 @@
             this.gridColumn_count = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_eq = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_snapshoted = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
-            this.OUTputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.OUTJsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.OUTExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dockPanel5 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel5_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.autoHideContainer1 = new DevExpress.XtraBars.Docking.AutoHideContainer();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit_start.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit_end.Properties)).BeginInit();
-            this.tableLayoutPanel5.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -153,67 +158,62 @@
             this.dockPanel1_Container.SuspendLayout();
             this.dockPanel3.SuspendLayout();
             this.dockPanel4.SuspendLayout();
+            this.dockPanel6.SuspendLayout();
+            this.dockPanel6_Container.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
+            this.dockPanel5.SuspendLayout();
+            this.dockPanel5_Container.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup3.Properties)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit_start.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit_end.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).BeginInit();
-            this.dockPanel5.SuspendLayout();
-            this.autoHideContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 9;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.66312F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.46271F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.77856F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.96921F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.999587F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.88375F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.35752F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.885958F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.999587F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.60843F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.00616F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.51013F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.88068F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.9946F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
             this.tableLayoutPanel1.Controls.Add(this.label_fid, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label12, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox_name, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox_vid, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label13, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox_label, 5, 1);
             this.tableLayoutPanel1.Controls.Add(this.comboBox_proname, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox_place, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox_replicator, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 3, 4);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 4, 4);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 4, 3);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 5, 2);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 8, 4);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel7, 8, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 7, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label22, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.comboBox_groups, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label21, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.comboBox_group, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox_vid, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox_label, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button2, 8, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button3, 8, 1);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 6, 1);
+            this.tableLayoutPanel1.Controls.Add(this.button_ref, 5, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Tahoma", 12F);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1297, 176);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1299, 70);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label_fid
@@ -221,72 +221,71 @@
             this.label_fid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_fid.AutoSize = true;
             this.label_fid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_fid.Location = new System.Drawing.Point(43, 6);
+            this.label_fid.Location = new System.Drawing.Point(23, 8);
             this.label_fid.Name = "label_fid";
             this.label_fid.Size = new System.Drawing.Size(65, 20);
             this.label_fid.TabIndex = 5;
             this.label_fid.Text = "数据编号";
             // 
-            // label12
+            // comboBox_proname
             // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(349, 6);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 20);
-            this.label12.TabIndex = 33;
-            this.label12.Text = "录制地点";
+            this.comboBox_proname.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox_proname.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_proname.FormattingEnabled = true;
+            this.comboBox_proname.Location = new System.Drawing.Point(114, 3);
+            this.comboBox_proname.Name = "comboBox_proname";
+            this.comboBox_proname.Size = new System.Drawing.Size(188, 28);
+            this.comboBox_proname.TabIndex = 56;
+            this.comboBox_proname.TextUpdate += new System.EventHandler(this.comboBox_proname_TextUpdate);
             // 
-            // label4
+            // label22
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(43, 108);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 20);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "是否解帧";
+            this.label22.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(23, 45);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(65, 20);
+            this.label22.TabIndex = 72;
+            this.label22.Text = "分组查询";
             // 
-            // label3
+            // comboBox_groups
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(43, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "视频状态";
+            this.comboBox_groups.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox_groups.FormattingEnabled = true;
+            this.comboBox_groups.Location = new System.Drawing.Point(114, 40);
+            this.comboBox_groups.Name = "comboBox_groups";
+            this.comboBox_groups.Size = new System.Drawing.Size(188, 27);
+            this.comboBox_groups.TabIndex = 83;
+            this.comboBox_groups.TextUpdate += new System.EventHandler(this.comboBox_groups_TextUpdate);
             // 
-            // label2
+            // label21
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(43, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "视频名称";
+            this.label21.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label21.Location = new System.Drawing.Point(328, 45);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(65, 20);
+            this.label21.TabIndex = 71;
+            this.label21.Text = "通道查询";
             // 
-            // textBox_name
+            // comboBox_group
             // 
-            this.textBox_name.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_name.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_name.Location = new System.Drawing.Point(154, 35);
-            this.textBox_name.Name = "textBox_name";
-            this.textBox_name.Size = new System.Drawing.Size(155, 26);
-            this.textBox_name.TabIndex = 7;
+            this.comboBox_group.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox_group.FormattingEnabled = true;
+            this.comboBox_group.Location = new System.Drawing.Point(419, 40);
+            this.comboBox_group.Name = "comboBox_group";
+            this.comboBox_group.Size = new System.Drawing.Size(232, 27);
+            this.comboBox_group.TabIndex = 82;
+            this.comboBox_group.TextUpdate += new System.EventHandler(this.comboBox_group_TextUpdate);
             // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(349, 40);
+            this.label7.Location = new System.Drawing.Point(328, 8);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 20);
             this.label7.TabIndex = 18;
@@ -296,28 +295,17 @@
             // 
             this.textBox_vid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_vid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_vid.Location = new System.Drawing.Point(454, 35);
+            this.textBox_vid.Location = new System.Drawing.Point(419, 3);
             this.textBox_vid.Name = "textBox_vid";
-            this.textBox_vid.Size = new System.Drawing.Size(149, 26);
+            this.textBox_vid.Size = new System.Drawing.Size(232, 26);
             this.textBox_vid.TabIndex = 21;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.Location = new System.Drawing.Point(638, 6);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(65, 20);
-            this.label13.TabIndex = 34;
-            this.label13.Text = "拷贝人员";
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(638, 40);
+            this.label8.Location = new System.Drawing.Point(677, 8);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 20);
             this.label8.TabIndex = 19;
@@ -330,335 +318,141 @@
             this.tableLayoutPanel1.SetColumnSpan(this.textBox_label, 3);
             this.textBox_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_label.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_label.Location = new System.Drawing.Point(738, 35);
+            this.textBox_label.Location = new System.Drawing.Point(768, 3);
             this.textBox_label.Name = "textBox_label";
-            this.textBox_label.Size = new System.Drawing.Size(423, 26);
+            this.textBox_label.Size = new System.Drawing.Size(383, 26);
             this.textBox_label.TabIndex = 20;
             this.textBox_label.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_label_KeyDown);
             // 
-            // comboBox_proname
+            // button2
             // 
-            this.comboBox_proname.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox_proname.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.comboBox_proname.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox_proname.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_proname.FormattingEnabled = true;
-            this.comboBox_proname.Location = new System.Drawing.Point(154, 3);
-            this.comboBox_proname.Name = "comboBox_proname";
-            this.comboBox_proname.Size = new System.Drawing.Size(155, 28);
-            this.comboBox_proname.TabIndex = 56;
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(1193, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(103, 30);
+            this.button2.TabIndex = 46;
+            this.button2.Text = "标签";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // comboBox_place
+            // button3
             // 
-            this.comboBox_place.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.comboBox_place.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.comboBox_place.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox_place.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_place.FormattingEnabled = true;
-            this.comboBox_place.Location = new System.Drawing.Point(454, 3);
-            this.comboBox_place.Name = "comboBox_place";
-            this.comboBox_place.Size = new System.Drawing.Size(149, 28);
-            this.comboBox_place.TabIndex = 57;
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.Location = new System.Drawing.Point(1193, 40);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(103, 30);
+            this.button3.TabIndex = 70;
+            this.button3.Text = "高级选项↑";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
-            // comboBox_replicator
+            // button1
             // 
-            this.comboBox_replicator.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox_replicator.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.comboBox_replicator.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox_replicator.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_replicator.FormattingEnabled = true;
-            this.comboBox_replicator.Location = new System.Drawing.Point(738, 3);
-            this.comboBox_replicator.Name = "comboBox_replicator";
-            this.comboBox_replicator.Size = new System.Drawing.Size(161, 28);
-            this.comboBox_replicator.TabIndex = 58;
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(920, 40);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 31);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "开始查询";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // tableLayoutPanel2
+            // button_ref
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel2, 2);
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Controls.Add(this.radioButton3, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.radioButton1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.radioButton2, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(154, 72);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(294, 27);
-            this.tableLayoutPanel2.TabIndex = 62;
+            this.button_ref.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_ref.Location = new System.Drawing.Point(768, 40);
+            this.button_ref.Name = "button_ref";
+            this.button_ref.Size = new System.Drawing.Size(118, 31);
+            this.button_ref.TabIndex = 68;
+            this.button_ref.Text = "重置查询条件";
+            this.button_ref.UseVisualStyleBackColor = true;
+            this.button_ref.Click += new System.EventHandler(this.button3_Click);
             // 
-            // radioButton3
+            // label12
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButton3.Location = new System.Drawing.Point(199, 3);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(69, 21);
-            this.radioButton3.TabIndex = 49;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Tag = "3";
-            this.radioButton3.Text = "不筛选";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.Location = new System.Drawing.Point(847, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(65, 20);
+            this.label12.TabIndex = 33;
+            this.label12.Text = "录制地点";
             // 
-            // radioButton1
+            // label13
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButton1.Location = new System.Drawing.Point(3, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(55, 21);
-            this.radioButton1.TabIndex = 47;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Tag = "1";
-            this.radioButton1.Text = "在用";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.Location = new System.Drawing.Point(847, 46);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 20);
+            this.label13.TabIndex = 34;
+            this.label13.Text = "拷贝人员";
             // 
-            // radioButton2
+            // label2
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButton2.Location = new System.Drawing.Point(101, 3);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(55, 21);
-            this.radioButton2.TabIndex = 48;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Tag = "2";
-            this.radioButton2.Text = "弃用";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(337, 84);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "视频名称";
             // 
-            // tableLayoutPanel4
+            // textBox_name
             // 
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel4, 2);
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.Controls.Add(this.radioButton9, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.radioButton7, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.radioButton8, 1, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(154, 105);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(294, 27);
-            this.tableLayoutPanel4.TabIndex = 64;
+            this.textBox_name.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_name.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_name.Location = new System.Drawing.Point(428, 78);
+            this.textBox_name.Name = "textBox_name";
+            this.textBox_name.Size = new System.Drawing.Size(404, 26);
+            this.textBox_name.TabIndex = 7;
             // 
-            // radioButton9
+            // label4
             // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButton9.Location = new System.Drawing.Point(199, 3);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(69, 21);
-            this.radioButton9.TabIndex = 55;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Tag = "9";
-            this.radioButton9.Text = "不筛选";
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(15, 84);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 20);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "是否解帧";
             // 
-            // radioButton7
+            // label3
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButton7.Location = new System.Drawing.Point(3, 3);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(69, 21);
-            this.radioButton7.TabIndex = 53;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Tag = "7";
-            this.radioButton7.Text = "已解帧";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButton8.Location = new System.Drawing.Point(101, 3);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(69, 21);
-            this.radioButton8.TabIndex = 54;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Tag = "8";
-            this.radioButton8.Text = "未解帧";
-            this.radioButton8.UseVisualStyleBackColor = true;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(15, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 20);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "视频状态";
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(482, 145);
+            this.label5.Location = new System.Drawing.Point(323, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 20);
             this.label5.TabIndex = 23;
             this.label5.Text = "视频起止时间";
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 3;
-            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel6, 2);
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.timeEdit_start, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label9, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.timeEdit_end, 2, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(609, 138);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(290, 35);
-            this.tableLayoutPanel6.TabIndex = 67;
-            // 
-            // timeEdit_start
-            // 
-            this.timeEdit_start.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.timeEdit_start.EditValue = new System.DateTime(2018, 3, 26, 0, 0, 0, 0);
-            this.timeEdit_start.Location = new System.Drawing.Point(3, 3);
-            this.timeEdit_start.Name = "timeEdit_start";
-            this.timeEdit_start.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.timeEdit_start.Properties.Appearance.Options.UseFont = true;
-            this.timeEdit_start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit_start.Size = new System.Drawing.Size(124, 26);
-            this.timeEdit_start.TabIndex = 27;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(134, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(21, 35);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "---------";
-            // 
-            // timeEdit_end
-            // 
-            this.timeEdit_end.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.timeEdit_end.EditValue = new System.DateTime(2018, 3, 26, 0, 0, 0, 0);
-            this.timeEdit_end.Location = new System.Drawing.Point(163, 3);
-            this.timeEdit_end.Name = "timeEdit_end";
-            this.timeEdit_end.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.timeEdit_end.Properties.Appearance.Options.UseFont = true;
-            this.timeEdit_end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit_end.Size = new System.Drawing.Size(124, 26);
-            this.timeEdit_end.TabIndex = 28;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel5, 2);
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.dateTimePicker1, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.dateTimePicker2, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label11, 1, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(609, 105);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(290, 27);
-            this.tableLayoutPanel5.TabIndex = 66;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(3, 3);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(124, 26);
-            this.dateTimePicker1.TabIndex = 29;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(163, 3);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(124, 26);
-            this.dateTimePicker2.TabIndex = 30;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(133, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(21, 27);
-            this.label11.TabIndex = 32;
-            this.label11.Text = "------";
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel3, 2);
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Controls.Add(this.radioButton4, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.radioButton5, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.radioButton6, 2, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(154, 138);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(294, 35);
-            this.tableLayoutPanel3.TabIndex = 63;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButton4.Location = new System.Drawing.Point(3, 3);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(69, 24);
-            this.radioButton4.TabIndex = 50;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Tag = "4";
-            this.radioButton4.Text = "已记录";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButton5.Location = new System.Drawing.Point(101, 3);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(69, 24);
-            this.radioButton5.TabIndex = 51;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Tag = "5";
-            this.radioButton5.Text = "未记录";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButton6.Location = new System.Drawing.Point(199, 3);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(69, 24);
-            this.radioButton6.TabIndex = 52;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Tag = "6";
-            this.radioButton6.Text = "不筛选";
-            this.radioButton6.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(43, 145);
+            this.label6.Location = new System.Drawing.Point(15, 46);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 20);
             this.label6.TabIndex = 6;
@@ -669,85 +463,11 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(482, 108);
+            this.label10.Location = new System.Drawing.Point(323, 9);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(93, 20);
             this.label10.TabIndex = 31;
             this.label10.Text = "视频录制时间";
-            // 
-            // textBox1
-            // 
-            this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(738, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 26);
-            this.textBox1.TabIndex = 69;
-            this.textBox1.Visible = false;
-            // 
-            // button3
-            // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.Location = new System.Drawing.Point(1167, 138);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(127, 35);
-            this.button3.TabIndex = 70;
-            this.button3.Text = "显示高级选项↑";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.button_ref, 1, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(1167, 35);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(127, 31);
-            this.tableLayoutPanel7.TabIndex = 72;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(57, 25);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "开始查询";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button_ref
-            // 
-            this.button_ref.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_ref.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_ref.Location = new System.Drawing.Point(66, 3);
-            this.button_ref.Name = "button_ref";
-            this.button_ref.Size = new System.Drawing.Size(58, 25);
-            this.button_ref.TabIndex = 68;
-            this.button_ref.Text = "重置";
-            this.button_ref.UseVisualStyleBackColor = true;
-            this.button_ref.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(1053, 72);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 26);
-            this.button2.TabIndex = 46;
-            this.button2.Text = "标签";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // contextMenuStrip2
             // 
@@ -764,13 +484,14 @@
             this.toolStripSeparator3,
             this.DToolStripMenuItem,
             this.batchToolStripMenuItem,
+            this.Top_ToolStripMenuItem,
             this.toolStripSeparator4,
             this.AddlabelsToolStripMenuItem,
             this.DeleteSolutionToolStripMenuItem,
             this.ADStaticToolStripMenuItem,
             this.OUTputToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(173, 314);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(173, 336);
             // 
             // openToolStripMenuItem
             // 
@@ -850,6 +571,13 @@
             this.batchToolStripMenuItem.Text = "批量解帧";
             this.batchToolStripMenuItem.Click += new System.EventHandler(this.batchToolStripMenuItem_Click);
             // 
+            // Top_ToolStripMenuItem
+            // 
+            this.Top_ToolStripMenuItem.Name = "Top_ToolStripMenuItem";
+            this.Top_ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.Top_ToolStripMenuItem.Text = "批量解帧(置顶)";
+            this.Top_ToolStripMenuItem.Click += new System.EventHandler(this.Top_ToolStripMenuItem_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
@@ -875,6 +603,29 @@
             this.ADStaticToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.ADStaticToolStripMenuItem.Text = "通道添加静态标签";
             this.ADStaticToolStripMenuItem.Click += new System.EventHandler(this.ADStaticToolStripMenuItem_Click);
+            // 
+            // OUTputToolStripMenuItem
+            // 
+            this.OUTputToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OUTJsonToolStripMenuItem,
+            this.OUTExcelToolStripMenuItem});
+            this.OUTputToolStripMenuItem.Name = "OUTputToolStripMenuItem";
+            this.OUTputToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.OUTputToolStripMenuItem.Text = "导出选中信息";
+            // 
+            // OUTJsonToolStripMenuItem
+            // 
+            this.OUTJsonToolStripMenuItem.Name = "OUTJsonToolStripMenuItem";
+            this.OUTJsonToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.OUTJsonToolStripMenuItem.Text = "导出Json";
+            this.OUTJsonToolStripMenuItem.Click += new System.EventHandler(this.OUTJsonToolStripMenuItem_Click);
+            // 
+            // OUTExcelToolStripMenuItem
+            // 
+            this.OUTExcelToolStripMenuItem.Name = "OUTExcelToolStripMenuItem";
+            this.OUTExcelToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.OUTExcelToolStripMenuItem.Text = "导出Excel";
+            this.OUTExcelToolStripMenuItem.Click += new System.EventHandler(this.OUTExcelToolStripMenuItem_Click);
             // 
             // imageListView1
             // 
@@ -907,14 +658,15 @@
             // dockManager1
             // 
             this.dockManager1.AutoHideContainers.AddRange(new DevExpress.XtraBars.Docking.AutoHideContainer[] {
-            this.hideContainerBottom,
-            this.autoHideContainer1});
+            this.hideContainerBottom});
             this.dockManager1.Form = this;
             this.dockManager1.HiddenPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
             this.dockPanel3,
-            this.dockPanel4});
+            this.dockPanel4,
+            this.dockPanel6});
             this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
-            this.dockPanel2});
+            this.dockPanel2,
+            this.dockPanel5});
             this.dockManager1.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
             "DevExpress.XtraBars.StandaloneBarDockControl",
@@ -930,12 +682,13 @@
             // 
             // hideContainerBottom
             // 
-            this.hideContainerBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.hideContainerBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.hideContainerBottom.Controls.Add(this.dockPanel1);
             this.hideContainerBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.hideContainerBottom.Location = new System.Drawing.Point(0, 677);
+            this.hideContainerBottom.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hideContainerBottom.Location = new System.Drawing.Point(0, 670);
             this.hideContainerBottom.Name = "hideContainerBottom";
-            this.hideContainerBottom.Size = new System.Drawing.Size(1305, 20);
+            this.hideContainerBottom.Size = new System.Drawing.Size(1305, 26);
             this.hideContainerBottom.Text = "图片显示";
             // 
             // dockPanel1
@@ -1005,25 +758,460 @@
             this.dockPanel4_Container.Size = new System.Drawing.Size(1297, 172);
             this.dockPanel4_Container.TabIndex = 0;
             // 
+            // dockPanel6
+            // 
+            this.dockPanel6.Controls.Add(this.dockPanel6_Container);
+            this.dockPanel6.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+            this.dockPanel6.ID = new System.Guid("ce38c245-50b9-412d-a1b1-8d3a8b88dd1a");
+            this.dockPanel6.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel6.Name = "dockPanel6";
+            this.dockPanel6.OriginalSize = new System.Drawing.Size(208, 200);
+            this.dockPanel6.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+            this.dockPanel6.SavedIndex = 1;
+            this.dockPanel6.SavedSizeFactor = 1D;
+            this.dockPanel6.Size = new System.Drawing.Size(208, 671);
+            this.dockPanel6.Text = "视频详细信息";
+            this.dockPanel6.Visibility = DevExpress.XtraBars.Docking.DockVisibility.Hidden;
+            // 
+            // dockPanel6_Container
+            // 
+            this.dockPanel6_Container.Controls.Add(this.tableLayoutPanel2);
+            this.dockPanel6_Container.Location = new System.Drawing.Point(4, 30);
+            this.dockPanel6_Container.Name = "dockPanel6_Container";
+            this.dockPanel6_Container.Size = new System.Drawing.Size(201, 638);
+            this.dockPanel6_Container.TabIndex = 0;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.textBox4, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.label16, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.textBox3, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label15, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label14, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.textBox2, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label17, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.textBox5, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.textBox6, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.label18, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.label19, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.textBox7, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.label20, 0, 7);
+            this.tableLayoutPanel2.Controls.Add(this.textBox8, 1, 7);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 10;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(201, 638);
+            this.tableLayoutPanel2.TabIndex = 5;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox4.Location = new System.Drawing.Point(73, 101);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(119, 21);
+            this.textBox4.TabIndex = 3;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(7, 103);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(56, 17);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "开始时间";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox3.Location = new System.Drawing.Point(73, 69);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(119, 21);
+            this.textBox3.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "视频ID";
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(7, 71);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(56, 17);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "录制时间";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox1.Location = new System.Drawing.Point(73, 5);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(119, 21);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(7, 39);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(56, 17);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "录制地点";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox2.Location = new System.Drawing.Point(73, 37);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(119, 21);
+            this.textBox2.TabIndex = 3;
+            // 
+            // label17
+            // 
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(7, 136);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(56, 17);
+            this.label17.TabIndex = 4;
+            this.label17.Text = "结束时间";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox5.Location = new System.Drawing.Point(73, 134);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(119, 21);
+            this.textBox5.TabIndex = 3;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox6.Location = new System.Drawing.Point(73, 166);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(119, 21);
+            this.textBox6.TabIndex = 3;
+            // 
+            // label18
+            // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(7, 168);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(56, 17);
+            this.label18.TabIndex = 5;
+            this.label18.Text = "拷贝人员";
+            // 
+            // label19
+            // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(7, 198);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(56, 17);
+            this.label19.TabIndex = 6;
+            this.label19.Text = "创建时间";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox7.Location = new System.Drawing.Point(73, 196);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(119, 21);
+            this.textBox7.TabIndex = 7;
+            // 
+            // label20
+            // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(7, 228);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(56, 17);
+            this.label20.TabIndex = 8;
+            this.label20.Text = "数据编号";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox8.Location = new System.Drawing.Point(73, 226);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(119, 21);
+            this.textBox8.TabIndex = 9;
+            // 
             // dockPanel2
             // 
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top;
             this.dockPanel2.ID = new System.Guid("5c40c24f-e8a0-4d2b-97e0-8af20f196e6d");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 20);
+            this.dockPanel2.Location = new System.Drawing.Point(0, 0);
             this.dockPanel2.Name = "dockPanel2";
-            this.dockPanel2.OriginalSize = new System.Drawing.Size(200, 204);
+            this.dockPanel2.OriginalSize = new System.Drawing.Size(200, 104);
             this.dockPanel2.SavedSizeFactor = 0D;
-            this.dockPanel2.Size = new System.Drawing.Size(1305, 204);
+            this.dockPanel2.Size = new System.Drawing.Size(1305, 104);
             this.dockPanel2.Text = "查询条件";
             // 
             // dockPanel2_Container
             // 
             this.dockPanel2_Container.Controls.Add(this.tableLayoutPanel1);
-            this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
+            this.dockPanel2_Container.Location = new System.Drawing.Point(3, 30);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(1297, 176);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(1299, 70);
             this.dockPanel2_Container.TabIndex = 0;
+            // 
+            // dockPanel5
+            // 
+            this.dockPanel5.Controls.Add(this.dockPanel5_Container);
+            this.dockPanel5.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top;
+            this.dockPanel5.FloatVertical = true;
+            this.dockPanel5.ID = new System.Guid("7461982d-619b-4f22-a308-71bce5b2d731");
+            this.dockPanel5.Location = new System.Drawing.Point(0, 104);
+            this.dockPanel5.Name = "dockPanel5";
+            this.dockPanel5.OriginalSize = new System.Drawing.Size(200, 147);
+            this.dockPanel5.SavedSizeFactor = 0D;
+            this.dockPanel5.Size = new System.Drawing.Size(1305, 147);
+            this.dockPanel5.Text = "高级搜索";
+            // 
+            // dockPanel5_Container
+            // 
+            this.dockPanel5_Container.Controls.Add(this.tableLayoutPanel8);
+            this.dockPanel5_Container.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dockPanel5_Container.Location = new System.Drawing.Point(3, 30);
+            this.dockPanel5_Container.Name = "dockPanel5_Container";
+            this.dockPanel5_Container.Size = new System.Drawing.Size(1299, 113);
+            this.dockPanel5_Container.TabIndex = 0;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 8;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.19143F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.25301F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.88889F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel8.Controls.Add(this.comboBox1, 5, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label10, 2, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label5, 2, 1);
+            this.tableLayoutPanel8.Controls.Add(this.radioGroup1, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label6, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.label4, 0, 2);
+            this.tableLayoutPanel8.Controls.Add(this.radioGroup2, 1, 1);
+            this.tableLayoutPanel8.Controls.Add(this.radioGroup3, 1, 2);
+            this.tableLayoutPanel8.Controls.Add(this.label12, 4, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label2, 2, 2);
+            this.tableLayoutPanel8.Controls.Add(this.textBox_name, 3, 2);
+            this.tableLayoutPanel8.Controls.Add(this.label13, 4, 1);
+            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel3, 3, 0);
+            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel4, 3, 1);
+            this.tableLayoutPanel8.Controls.Add(this.comboBox2, 5, 1);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 3;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.48276F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.62069F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.75862F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1299, 113);
+            this.tableLayoutPanel8.TabIndex = 0;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(928, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(120, 28);
+            this.comboBox1.TabIndex = 17;
+            // 
+            // radioGroup1
+            // 
+            this.radioGroup1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radioGroup1.Location = new System.Drawing.Point(98, 3);
+            this.radioGroup1.Name = "radioGroup1";
+            this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.radioGroup1.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroup1.Properties.Appearance.Options.UseFont = true;
+            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "在用"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "弃用"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "不筛选")});
+            this.radioGroup1.Size = new System.Drawing.Size(213, 32);
+            this.radioGroup1.TabIndex = 68;
+            // 
+            // radioGroup2
+            // 
+            this.radioGroup2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radioGroup2.Location = new System.Drawing.Point(98, 41);
+            this.radioGroup2.Name = "radioGroup2";
+            this.radioGroup2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.radioGroup2.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioGroup2.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroup2.Properties.Appearance.Options.UseFont = true;
+            this.radioGroup2.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "已记录"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "未记录"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "不筛选")});
+            this.radioGroup2.Size = new System.Drawing.Size(213, 31);
+            this.radioGroup2.TabIndex = 69;
+            // 
+            // radioGroup3
+            // 
+            this.radioGroup3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radioGroup3.Location = new System.Drawing.Point(98, 78);
+            this.radioGroup3.Name = "radioGroup3";
+            this.radioGroup3.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.radioGroup3.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioGroup3.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroup3.Properties.Appearance.Options.UseFont = true;
+            this.radioGroup3.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "已解帧"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "未解帧"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "不筛选")});
+            this.radioGroup3.Size = new System.Drawing.Size(213, 32);
+            this.radioGroup3.TabIndex = 70;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.label9, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.dateTimePicker1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.dateTimePicker2, 2, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(428, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(404, 32);
+            this.tableLayoutPanel3.TabIndex = 73;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(173, 6);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 20);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "--------";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateTimePicker1.Location = new System.Drawing.Point(3, 3);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(156, 26);
+            this.dateTimePicker1.TabIndex = 1;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateTimePicker2.Location = new System.Drawing.Point(245, 3);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(156, 26);
+            this.dateTimePicker2.TabIndex = 2;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.label11, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.timeEdit_start, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.timeEdit_end, 2, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(428, 41);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(404, 31);
+            this.tableLayoutPanel4.TabIndex = 74;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(173, 5);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(57, 20);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "--------";
+            // 
+            // timeEdit_start
+            // 
+            this.timeEdit_start.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeEdit_start.EditValue = new System.DateTime(2018, 9, 20, 0, 0, 0, 0);
+            this.timeEdit_start.Location = new System.Drawing.Point(3, 3);
+            this.timeEdit_start.Name = "timeEdit_start";
+            this.timeEdit_start.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeEdit_start.Properties.Appearance.Options.UseFont = true;
+            this.timeEdit_start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeEdit_start.Size = new System.Drawing.Size(156, 26);
+            this.timeEdit_start.TabIndex = 1;
+            // 
+            // timeEdit_end
+            // 
+            this.timeEdit_end.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeEdit_end.EditValue = new System.DateTime(2018, 9, 20, 0, 0, 0, 0);
+            this.timeEdit_end.Location = new System.Drawing.Point(245, 3);
+            this.timeEdit_end.Name = "timeEdit_end";
+            this.timeEdit_end.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeEdit_end.Properties.Appearance.Options.UseFont = true;
+            this.timeEdit_end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeEdit_end.Size = new System.Drawing.Size(156, 26);
+            this.timeEdit_end.TabIndex = 2;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(928, 41);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(120, 28);
+            this.comboBox2.TabIndex = 75;
             // 
             // hideContainerTop
             // 
@@ -1042,15 +1230,15 @@
             this.gridControl1.EmbeddedNavigator.Enabled = false;
             this.gridControl1.EmbeddedNavigator.TextStringFormat = "当前数量 {0} / {1}";
             this.gridControl1.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.gridControl1_EmbeddedNavigator_ButtonClick);
-            this.gridControl1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridControl1.Location = new System.Drawing.Point(0, 224);
+            this.gridControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gridControl1.Location = new System.Drawing.Point(0, 251);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemFontEdit1,
             this.repositoryItemMemoEdit1,
             this.repositoryItemMemoEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(1305, 453);
+            this.gridControl1.Size = new System.Drawing.Size(1305, 419);
             this.gridControl1.TabIndex = 13;
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1059,13 +1247,14 @@
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.FocusedRow.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridView1.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.FocusedRow.Options.UseFont = true;
+            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridView1.Appearance.Row.Options.UseFont = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn_id,
             this.gridColumn_name,
-            this.gridColumn_project_name,
             this.gridColumn_uri,
             this.gridColumn_status,
             this.gridColumn_recorded,
@@ -1081,7 +1270,8 @@
             this.gridColumn5,
             this.gridColumn_count,
             this.gridColumn_eq,
-            this.gridColumn_snapshoted});
+            this.gridColumn_snapshoted,
+            this.gridColumn6});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupCount = 2;
             this.gridView1.GroupFormat = "{0}: [#image]{1}{2}";
@@ -1101,8 +1291,8 @@
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.RowHeight = 30;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn_project_name, DevExpress.Data.ColumnSortOrder.Ascending),
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn_eq, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn_eq, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn6, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridView1_CustomDrawCell);
             this.gridView1.CustomDrawGroupRow += new DevExpress.XtraGrid.Views.Base.RowObjectCustomDrawEventHandler(this.gridView1_CustomDrawGroupRow);
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
@@ -1122,7 +1312,7 @@
             this.gridColumn_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_id.Visible = true;
             this.gridColumn_id.VisibleIndex = 1;
-            this.gridColumn_id.Width = 44;
+            this.gridColumn_id.Width = 57;
             // 
             // gridColumn_name
             // 
@@ -1135,19 +1325,6 @@
             this.gridColumn_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn_name.Width = 52;
             // 
-            // gridColumn_project_name
-            // 
-            this.gridColumn_project_name.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.gridColumn_project_name.AppearanceCell.Options.UseFont = true;
-            this.gridColumn_project_name.Caption = "数据编号";
-            this.gridColumn_project_name.FieldName = "ProjectName";
-            this.gridColumn_project_name.GroupFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.gridColumn_project_name.Name = "gridColumn_project_name";
-            this.gridColumn_project_name.OptionsColumn.AllowEdit = false;
-            this.gridColumn_project_name.Visible = true;
-            this.gridColumn_project_name.VisibleIndex = 2;
-            this.gridColumn_project_name.Width = 67;
-            // 
             // gridColumn_uri
             // 
             this.gridColumn_uri.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -1159,7 +1336,7 @@
             this.gridColumn_uri.OptionsColumn.ReadOnly = true;
             this.gridColumn_uri.Visible = true;
             this.gridColumn_uri.VisibleIndex = 13;
-            this.gridColumn_uri.Width = 263;
+            this.gridColumn_uri.Width = 157;
             // 
             // repositoryItemMemoEdit1
             // 
@@ -1174,8 +1351,8 @@
             this.gridColumn_status.Name = "gridColumn_status";
             this.gridColumn_status.OptionsColumn.AllowEdit = false;
             this.gridColumn_status.Visible = true;
-            this.gridColumn_status.VisibleIndex = 9;
-            this.gridColumn_status.Width = 50;
+            this.gridColumn_status.VisibleIndex = 3;
+            this.gridColumn_status.Width = 58;
             // 
             // gridColumn_recorded
             // 
@@ -1186,8 +1363,8 @@
             this.gridColumn_recorded.Name = "gridColumn_recorded";
             this.gridColumn_recorded.OptionsColumn.AllowEdit = false;
             this.gridColumn_recorded.Visible = true;
-            this.gridColumn_recorded.VisibleIndex = 10;
-            this.gridColumn_recorded.Width = 50;
+            this.gridColumn_recorded.VisibleIndex = 4;
+            this.gridColumn_recorded.Width = 62;
             // 
             // gridColumn_deframed
             // 
@@ -1198,8 +1375,8 @@
             this.gridColumn_deframed.Name = "gridColumn_deframed";
             this.gridColumn_deframed.OptionsColumn.AllowEdit = false;
             this.gridColumn_deframed.Visible = true;
-            this.gridColumn_deframed.VisibleIndex = 11;
-            this.gridColumn_deframed.Width = 50;
+            this.gridColumn_deframed.VisibleIndex = 5;
+            this.gridColumn_deframed.Width = 59;
             // 
             // gridColumn_frame_path
             // 
@@ -1211,7 +1388,7 @@
             this.gridColumn_frame_path.OptionsColumn.AllowEdit = false;
             this.gridColumn_frame_path.Visible = true;
             this.gridColumn_frame_path.VisibleIndex = 14;
-            this.gridColumn_frame_path.Width = 37;
+            this.gridColumn_frame_path.Width = 134;
             // 
             // gridColumn1
             // 
@@ -1221,10 +1398,10 @@
             this.gridColumn1.ColumnEdit = this.repositoryItemMemoEdit2;
             this.gridColumn1.FieldName = "Label";
             this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 6;
-            this.gridColumn1.Width = 111;
+            this.gridColumn1.VisibleIndex = 7;
+            this.gridColumn1.Width = 119;
             // 
             // repositoryItemMemoEdit2
             // 
@@ -1239,8 +1416,8 @@
             this.gridColumn_start.Name = "gridColumn_start";
             this.gridColumn_start.OptionsColumn.AllowEdit = false;
             this.gridColumn_start.Visible = true;
-            this.gridColumn_start.VisibleIndex = 4;
-            this.gridColumn_start.Width = 65;
+            this.gridColumn_start.VisibleIndex = 10;
+            this.gridColumn_start.Width = 50;
             // 
             // gridColumn_end
             // 
@@ -1251,8 +1428,8 @@
             this.gridColumn_end.Name = "gridColumn_end";
             this.gridColumn_end.OptionsColumn.AllowEdit = false;
             this.gridColumn_end.Visible = true;
-            this.gridColumn_end.VisibleIndex = 5;
-            this.gridColumn_end.Width = 65;
+            this.gridColumn_end.VisibleIndex = 11;
+            this.gridColumn_end.Width = 50;
             // 
             // gridColumn3
             // 
@@ -1263,8 +1440,8 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 3;
-            this.gridColumn3.Width = 70;
+            this.gridColumn3.VisibleIndex = 9;
+            this.gridColumn3.Width = 92;
             // 
             // gridColumn2
             // 
@@ -1275,8 +1452,8 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 7;
-            this.gridColumn2.Width = 40;
+            this.gridColumn2.VisibleIndex = 8;
+            this.gridColumn2.Width = 63;
             // 
             // gridColumn_create_time
             // 
@@ -1288,7 +1465,7 @@
             this.gridColumn_create_time.OptionsColumn.AllowEdit = false;
             this.gridColumn_create_time.Visible = true;
             this.gridColumn_create_time.VisibleIndex = 15;
-            this.gridColumn_create_time.Width = 100;
+            this.gridColumn_create_time.Width = 101;
             // 
             // gridColumn4
             // 
@@ -1299,8 +1476,8 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 8;
-            this.gridColumn4.Width = 61;
+            this.gridColumn4.VisibleIndex = 12;
+            this.gridColumn4.Width = 72;
             // 
             // gridColumn5
             // 
@@ -1312,7 +1489,7 @@
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 2;
-            this.gridColumn5.Width = 80;
+            this.gridColumn5.Width = 56;
             // 
             // gridColumn_count
             // 
@@ -1331,16 +1508,31 @@
             this.gridColumn_eq.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridColumn_eq.AppearanceCell.Options.UseFont = true;
             this.gridColumn_eq.Caption = "通道信息";
-            this.gridColumn_eq.FieldName = "EquipmentName";
+            this.gridColumn_eq.FieldName = "EquipmentID";
             this.gridColumn_eq.Name = "gridColumn_eq";
             // 
             // gridColumn_snapshoted
             // 
+            this.gridColumn_snapshoted.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gridColumn_snapshoted.AppearanceCell.Options.UseFont = true;
             this.gridColumn_snapshoted.Caption = "自动截图";
             this.gridColumn_snapshoted.FieldName = "Snapshoted";
             this.gridColumn_snapshoted.Name = "gridColumn_snapshoted";
+            this.gridColumn_snapshoted.OptionsColumn.AllowEdit = false;
             this.gridColumn_snapshoted.Visible = true;
-            this.gridColumn_snapshoted.VisibleIndex = 12;
+            this.gridColumn_snapshoted.VisibleIndex = 6;
+            this.gridColumn_snapshoted.Width = 72;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gridColumn6.AppearanceCell.Options.UseFont = true;
+            this.gridColumn6.Caption = "数据编号";
+            this.gridColumn6.FieldName = "ProjectName";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 2;
+            this.gridColumn6.Width = 66;
             // 
             // repositoryItemFontEdit1
             // 
@@ -1349,68 +1541,14 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemFontEdit1.Name = "repositoryItemFontEdit1";
             // 
-            // OUTputToolStripMenuItem
-            // 
-            this.OUTputToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.OUTJsonToolStripMenuItem,
-            this.OUTExcelToolStripMenuItem});
-            this.OUTputToolStripMenuItem.Name = "OUTputToolStripMenuItem";
-            this.OUTputToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.OUTputToolStripMenuItem.Text = "导出选中信息";
-            // 
-            // OUTJsonToolStripMenuItem
-            // 
-            this.OUTJsonToolStripMenuItem.Name = "OUTJsonToolStripMenuItem";
-            this.OUTJsonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.OUTJsonToolStripMenuItem.Text = "导出Json";
-            this.OUTJsonToolStripMenuItem.Click += new System.EventHandler(this.OUTJsonToolStripMenuItem_Click);
-            // 
-            // OUTExcelToolStripMenuItem
-            // 
-            this.OUTExcelToolStripMenuItem.Name = "OUTExcelToolStripMenuItem";
-            this.OUTExcelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.OUTExcelToolStripMenuItem.Text = "导出Excel";
-            this.OUTExcelToolStripMenuItem.Click += new System.EventHandler(this.OUTExcelToolStripMenuItem_Click);
-            // 
-            // dockPanel5
-            // 
-            this.dockPanel5.Controls.Add(this.dockPanel5_Container);
-            this.dockPanel5.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top;
-            this.dockPanel5.ID = new System.Guid("7461982d-619b-4f22-a308-71bce5b2d731");
-            this.dockPanel5.Location = new System.Drawing.Point(0, 0);
-            this.dockPanel5.Name = "dockPanel5";
-            this.dockPanel5.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dockPanel5.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Top;
-            this.dockPanel5.SavedIndex = 0;
-            this.dockPanel5.SavedSizeFactor = 1D;
-            this.dockPanel5.Size = new System.Drawing.Size(1305, 200);
-            this.dockPanel5.Text = "高级搜索";
-            this.dockPanel5.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
-            // 
-            // dockPanel5_Container
-            // 
-            this.dockPanel5_Container.Location = new System.Drawing.Point(4, 23);
-            this.dockPanel5_Container.Name = "dockPanel5_Container";
-            this.dockPanel5_Container.Size = new System.Drawing.Size(1297, 172);
-            this.dockPanel5_Container.TabIndex = 0;
-            // 
-            // autoHideContainer1
-            // 
-            this.autoHideContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.autoHideContainer1.Controls.Add(this.dockPanel5);
-            this.autoHideContainer1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.autoHideContainer1.Location = new System.Drawing.Point(0, 0);
-            this.autoHideContainer1.Name = "autoHideContainer1";
-            this.autoHideContainer1.Size = new System.Drawing.Size(1305, 20);
-            // 
             // QueryVideo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1305, 697);
+            this.ClientSize = new System.Drawing.Size(1305, 696);
             this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.dockPanel5);
             this.Controls.Add(this.dockPanel2);
-            this.Controls.Add(this.autoHideContainer1);
             this.Controls.Add(this.hideContainerBottom);
             this.ImeMode = System.Windows.Forms.ImeMode.On;
             this.Name = "QueryVideo";
@@ -1420,19 +1558,6 @@
             this.Load += new System.EventHandler(this.QueryVideo_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit_start.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit_end.Properties)).EndInit();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel7.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -1442,15 +1567,30 @@
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel3.ResumeLayout(false);
             this.dockPanel4.ResumeLayout(false);
+            this.dockPanel6.ResumeLayout(false);
+            this.dockPanel6_Container.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
+            this.dockPanel5.ResumeLayout(false);
+            this.dockPanel5_Container.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup3.Properties)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit_start.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit_end.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).EndInit();
-            this.dockPanel5.ResumeLayout(false);
-            this.autoHideContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1473,35 +1613,11 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem DELToolStripMenuItem;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label9;
-        private DevExpress.XtraEditors.TimeEdit timeEdit_start;
-        private DevExpress.XtraEditors.TimeEdit timeEdit_end;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem DToolStripMenuItem;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton9;
         private System.Windows.Forms.ComboBox comboBox_proname;
-        private System.Windows.Forms.ComboBox comboBox_place;
-        private System.Windows.Forms.ComboBox comboBox_replicator;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem INToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OUTToolStripMenuItem;
@@ -1525,16 +1641,12 @@
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel3;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel3_Container;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button_ref;
         private System.Windows.Forms.Button button2;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_id;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_name;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn_project_name;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_uri;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_status;
@@ -1562,6 +1674,47 @@
         private System.Windows.Forms.ToolStripMenuItem OUTExcelToolStripMenuItem;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel5;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel5_Container;
-        private DevExpress.XtraBars.Docking.AutoHideContainer autoHideContainer1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private DevExpress.XtraEditors.RadioGroup radioGroup1;
+        private DevExpress.XtraEditors.RadioGroup radioGroup2;
+        private DevExpress.XtraEditors.RadioGroup radioGroup3;
+        private DevExpress.XtraBars.Docking.DockPanel dockPanel6;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel6_Container;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox textBox7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ComboBox comboBox_group;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox comboBox_groups;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button_ref;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label label11;
+        private DevExpress.XtraEditors.TimeEdit timeEdit_start;
+        private DevExpress.XtraEditors.TimeEdit timeEdit_end;
+        private System.Windows.Forms.ToolStripMenuItem Top_ToolStripMenuItem;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

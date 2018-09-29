@@ -9,17 +9,18 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VideoRecordings.Video;
 
 namespace VideoRecordings
 {
     public partial class FileManagement : Form
     {
+        Frame Frame = new Frame();
         public FileManagement()
         {
             InitializeComponent();
             Methods.AddIsTest(this);
         }
-
 
         /// <summary>
         /// 反射获取窗体
@@ -61,33 +62,30 @@ namespace VideoRecordings
 
         private void VideoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem item= sender as ToolStripMenuItem;
-            if (item == null) return;
-            SetForm(item.Tag.ToString(),item.Text);
+            SetForms(sender);
         }
 
         private void queryVIdeoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem item = sender as ToolStripMenuItem;
-            if (item == null) return;
-            SetForm(item.Tag.ToString(), item.Text);
+            SetForms(sender);
         }
 
         private void LabelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem item = sender as ToolStripMenuItem;
-            if (item == null) return;
-            SetForm(item.Tag.ToString(), item.Text);
+            SetForms(sender);
         }
 
         private void groupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem item = sender as ToolStripMenuItem;
-            if (item == null) return;
-            SetForm(item.Tag.ToString(), item.Text);
+            SetForms(sender);
         }
 
         private void repetitionVideoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetForms(sender);
+        }
+
+        public void SetForms(object sender)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
             if (item == null) return;
@@ -100,6 +98,11 @@ namespace VideoRecordings
             {
                 e.Cancel = true;
             }
+        }
+
+        private void Frame_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetForms(sender);
         }
     }
 

@@ -44,8 +44,8 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.gridColumn_user_name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -161,28 +161,31 @@
             // 
             this.gridColumn_id.Caption = "编号";
             this.gridColumn_id.FieldName = "ID";
+            this.gridColumn_id.MaxWidth = 60;
             this.gridColumn_id.Name = "gridColumn_id";
             this.gridColumn_id.Visible = true;
             this.gridColumn_id.VisibleIndex = 0;
-            this.gridColumn_id.Width = 92;
+            this.gridColumn_id.Width = 40;
             // 
             // gridColumn2
             // 
             this.gridColumn2.Caption = "数据编号";
             this.gridColumn2.FieldName = "Info";
+            this.gridColumn2.MaxWidth = 100;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 143;
+            this.gridColumn2.Width = 100;
             // 
             // gridColumn3
             // 
             this.gridColumn3.Caption = "状态";
             this.gridColumn3.FieldName = "Status";
+            this.gridColumn3.MaxWidth = 100;
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 125;
+            this.gridColumn3.Width = 100;
             // 
             // gridColumn4
             // 
@@ -193,6 +196,15 @@
             this.gridColumn4.VisibleIndex = 4;
             this.gridColumn4.Width = 204;
             // 
+            // gridColumn_user_name
+            // 
+            this.gridColumn_user_name.Caption = "添加用户";
+            this.gridColumn_user_name.FieldName = "UserName";
+            this.gridColumn_user_name.MaxWidth = 100;
+            this.gridColumn_user_name.Name = "gridColumn_user_name";
+            this.gridColumn_user_name.Visible = true;
+            this.gridColumn_user_name.VisibleIndex = 3;
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -201,14 +213,6 @@
             this.statusStrip1.Size = new System.Drawing.Size(1057, 30);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // gridColumn_user_name
-            // 
-            this.gridColumn_user_name.Caption = "添加用户";
-            this.gridColumn_user_name.FieldName = "UserName";
-            this.gridColumn_user_name.Name = "gridColumn_user_name";
-            this.gridColumn_user_name.Visible = true;
-            this.gridColumn_user_name.VisibleIndex = 3;
             // 
             // RepetitionVideo
             // 

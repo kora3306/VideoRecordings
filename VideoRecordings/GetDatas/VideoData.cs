@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Common;
 using Newtonsoft.Json;
@@ -137,7 +138,7 @@ namespace VideoRecordings.GetDatas
 
         public static List<Repetitions> GetRepetitions(string name, string number = null)
         {
-            string url = Program.Urlpath + $"/video/check/user/status?user_name={name}";
+            string url = Program.Urlpath + $"/video/check/User/status?user_name={name}";
             if (number != null) url += $"&pull_number={number}";
             JObject obj = WebClinetHepler.GetJObject(url);
             if (obj == null) return new List<Repetitions>();
@@ -220,6 +221,29 @@ namespace VideoRecordings.GetDatas
             };
             JObject obj = WebClinetHepler.Post_New(url,JsonConvert.SerializeObject(json));
             return obj != null;
+        }
+
+        public static List<Solution> GetFrame()
+        {
+            string url = Program.Urlpath + $"/deframe/queue";
+            JObject obj = WebClinetHepler.GetJObject(url);
+            if (obj == null) return new List<Solution>();
+            List<Solution> repetitions = JsonConvert.DeserializeObject<List<Solution>>(obj["result"].ToString());
+            return repetitions;
+        }
+
+        public static bool QueueSolution(List<Solution> ids)
+        {
+            string url = Program.Urlpath + $"/priority/deframe";
+            foreach (var item in ids)
+            {              
+                List<string> uris= item.VideoUri.Split('/').ToList();
+                uris.RemoveRange(0,3);
+                item.VideoUri = "/" + string.Join("/", uris);
+            }
+            string json = JsonConvert.SerializeObject(ids);
+            JObject obj = WebClinetHepler.Post_New(url,json);
+            return obj!=null;
         }
     }
 
