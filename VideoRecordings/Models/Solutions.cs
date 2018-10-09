@@ -38,6 +38,9 @@ namespace VideoRecordings.Models
 
         [DataMember(Name = "step")]
         public int Step { get; set; }
+
+        [DataMember(Name = "Id")]
+        public int Id { get; set; }
     }
 
     /// <summary>

@@ -27,6 +27,7 @@ using VideoRecordings.Equipment;
 using VideoRecordings.GetDatas;
 using VideoRecordings.Models;
 using VideoRecordings.Label;
+using SeemmoData.Controls;
 
 namespace VideoRecordings
 {
@@ -49,10 +50,10 @@ namespace VideoRecordings
         GridHitInfo hInfo = new GridHitInfo();
         VideoProject project;      //传入的文件夹
         bool isFirst = true;      //初次定位文件夹为0
-        public bool Hasbeen = false;   //是否一致使用外部播放器
         MyLabels MyLabel;
         int total = 0;
         int recorded = 0;
+
         private AddEquipment addEquipment;
         private SelectEquipment selectEquipment;
         public delegate void MyDelegate();
@@ -64,15 +65,8 @@ namespace VideoRecordings
 
         public InformationDisplay(VideoProject focusedfolder)
         {
-            MyLabel = new MyLabels();
-            project = focusedfolder;
-            InitializeComponent();
-            ScanFolder();
-            PostVideos();
-            if (project != null)
-            {
-                toolStripStatusLabel1.Text = $"当前视频文件夹编号 :{project.Name}    地点:{project.Place}";
-            }
+            InitializeComponent();         
+            project = focusedfolder;             
         }
 
         /// <summary>
@@ -82,14 +76,17 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void InformationDisplay_Load(object sender, EventArgs e)
         {
+            ScanFolder();
+            PostVideos();
+            MyLabel = new MyLabels();
             addEquipment = new AddEquipment();
             selectEquipment = new SelectEquipment();
             addEquipment.MySaveEvent += new AddEquipment.MyDelegate(RefEquipment);
             selectEquipment.MySaveEvent += new SelectEquipment.MyEvent(PostVideos);
             selectEquipment.MyRefreshEvent += new SelectEquipment.MyEvent(GridViewClear);
             imageListView1.DiskCache = Program.Persistent;
-            label2.Text = $"欢迎:{Program.UserName}";
             Methods.AddIsTest(this);
+            toolStripStatusLabel1.Text = $"当前视频文件夹编号 :{project.Name}    地点:{project.Place}";
         }
 
         public void RefEquipment()
@@ -339,27 +336,7 @@ namespace VideoRecordings
             video.Recorded = play.Recorded;
             bindingSource1.DataSource = videoplays;
             gridView1.RefreshData();
-            gridView1.MoveNext();
             Program.log.Info($"保存并刷新{video.Id}");
-        }
-
-        private void RefreshAllData(VideoPlay Rplay)
-        {
-            VideoPlay play = Methods.GetNewImages(Rplay.Id);
-            RefreshData(play);
-            RefreshNewImage(play);
-            Program.log.Info("刷新所有视频信息");
-        }
-
-        public void RefreshNewImage(VideoPlay video)
-        {
-            imageurl.Clear();
-            string url = Program.Urlpath + "/video/snapshot/";
-            foreach (var item in video.ImageId)
-            {
-                imageurl.Add(url + item);
-            }
-            SetTheListView();
         }
 
         /// <summary>
@@ -385,20 +362,23 @@ namespace VideoRecordings
         /// <param name="na"></param>
         public void GettListVideo()
         {
-            videoplays.Clear();
-            equipments.Clear();
-            JObject obj = VideoData.GetAllVideoInfo(project.Name);
-            if (obj == null || obj["result"].ToString() == "[]") return;
-            for (int i = 0; i < obj["result"][0]["equipments"].Count(); i++)
+            WaitFormEx.Run(() =>
             {
-                EquipmentInfo equipment = JsonConvert.DeserializeObject<EquipmentInfo>(obj["result"][0]["equipments"][i]["equipment_info"].ToString());
-                List<VideoPlay> videos = JsonConvert.DeserializeObject<List<VideoPlay>>(obj["result"][0]["equipments"][i]["videos"].ToString());
-                videos.ForEach(t => t.Rquipment = equipment);
-                videoplays.AddRange(videos);
-                equipments.Add(equipment);
-                Completeness com = JsonHelper.DeserializeDataContractJson<Completeness>(obj["result"][0]["equipments"][i]["statistic"].ToString());
-                comple.Add(com);
-            }
+                videoplays.Clear();
+                equipments.Clear();
+                JObject obj = VideoData.GetAllVideoInfo(project.Name);
+                if (obj == null || obj["result"].ToString() == "[]") return;
+                for (int i = 0; i < obj["result"][0]["equipments"].Count(); i++)
+                {
+                    EquipmentInfo equipment = JsonConvert.DeserializeObject<EquipmentInfo>(obj["result"][0]["equipments"][i]["equipment_info"].ToString());
+                    List<VideoPlay> videos = JsonConvert.DeserializeObject<List<VideoPlay>>(obj["result"][0]["equipments"][i]["videos"].ToString());
+                    videos.ForEach(t => t.Rquipment = equipment);
+                    videoplays.AddRange(videos);
+                    equipments.Add(equipment);
+                    Completeness com = JsonHelper.DeserializeDataContractJson<Completeness>(obj["result"][0]["equipments"][i]["statistic"].ToString());
+                    comple.Add(com);
+                }
+            });
             Program.log.Error($"获取{project.Name}信息", new Exception("获取成功"));
         }
 
@@ -407,9 +387,8 @@ namespace VideoRecordings
         /// </summary>
         private void OpenVideoPaly()
         {
-            VideoRecording recording = new VideoRecording(transmissionvideo, Hasbeen);
-            recording.MyEvent += new VideoRecording.MyDelegate(RefreshAllData);
-            recording.SetMyRecordEvent += new VideoRecording.MyRecordDelegate(SetTheUse);
+            VideoRecording recording = new VideoRecording(transmissionvideo, videoplays);
+            recording.MyEvent += new VideoRecording.MyDelegate(PostVideos);
             recording.WindowState = FormWindowState.Maximized;
             if (transmissionvideo == null || transmissionvideo.Uri == null) return;
             if (File.Exists(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))))
@@ -490,7 +469,7 @@ namespace VideoRecordings
         {
             if (MessageBox.Show($"是否删除编号{transmissionvideo.Id}的视频,删除视频前请确认解帧图片一并删除？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
                 return;
-            if (VideoData.DeleteVideo(transmissionvideo.Id))
+            if (!VideoData.DeleteVideo(transmissionvideo.Id))
             {
                 MessageBox.Show("删除失败");
                 Program.log.Error($"删除{transmissionvideo.Id}失败", new Exception($"{transmissionvideo.Id}"));
@@ -578,7 +557,6 @@ namespace VideoRecordings
             PostVideos();
         }
 
-
         /// <summary>
         /// 导出GridControl选中的信息
         /// </summary>
@@ -663,21 +641,6 @@ namespace VideoRecordings
             }
 
             return plays;
-        }
-
-        /// <summary>
-        /// 更新页面完成度
-        /// </summary>
-        public void RefshHomePage()
-        {
-            recorded += 1;
-            SetText();
-            OnSave();
-        }
-
-        private void SetTheUse()
-        {
-            Hasbeen = !Hasbeen;
         }
 
         /// <summary>
@@ -1036,6 +999,16 @@ namespace VideoRecordings
             }
             MessageBox.Show("添加失败");
             Program.log.Error($"添加自动截图,视频ID{string.Join(",", ids)}--失败");
+        }
+
+        private void Top_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<VideoPlay> videos = GetSelectRow();
+            if (videos == null) return;
+            BatchSolution batch = new BatchSolution(videos,true);
+            batch.MyRefreshEvent += new BatchSolution.MyDeletgate(RefEquipment);
+            batch.ShowDialog();
+            Program.log.Info($"添加批量解帧(置顶){string.Join(",", videos.Select(t => t.Id).ToList())}");
         }
     }
 }

@@ -35,7 +35,9 @@
             this.LabelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.repetitionVideoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Frame_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._imagetoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlExHfrz = new MyControl.TabControlEx();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -44,7 +46,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.video_toolStripMenuItem,
-            this._imagetoolStripMenuItem});
+            this._imagetoolStripMenuItem,
+            this.userToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1048, 28);
@@ -58,16 +61,17 @@
             this.queryVIdeoToolStripMenuItem,
             this.LabelToolStripMenuItem,
             this.groupToolStripMenuItem,
-            this.repetitionVideoToolStripMenuItem});
+            this.repetitionVideoToolStripMenuItem,
+            this.Frame_ToolStripMenuItem});
             this.video_toolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.video_toolStripMenuItem.Name = "video_toolStripMenuItem";
-            this.video_toolStripMenuItem.Size = new System.Drawing.Size(105, 24);
+            this.video_toolStripMenuItem.Size = new System.Drawing.Size(105, 25);
             this.video_toolStripMenuItem.Text = "视频文件管理";
             // 
             // VideoToolStripMenuItem
             // 
             this.VideoToolStripMenuItem.Name = "VideoToolStripMenuItem";
-            this.VideoToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
+            this.VideoToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.VideoToolStripMenuItem.Tag = "VideoRecordings.VideoInformation";
             this.VideoToolStripMenuItem.Text = "视频管理";
             this.VideoToolStripMenuItem.Click += new System.EventHandler(this.VideoToolStripMenuItem_Click);
@@ -75,7 +79,7 @@
             // queryVIdeoToolStripMenuItem
             // 
             this.queryVIdeoToolStripMenuItem.Name = "queryVIdeoToolStripMenuItem";
-            this.queryVIdeoToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
+            this.queryVIdeoToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.queryVIdeoToolStripMenuItem.Tag = "VideoRecordings.QueryVideo";
             this.queryVIdeoToolStripMenuItem.Text = "查询视频";
             this.queryVIdeoToolStripMenuItem.Click += new System.EventHandler(this.queryVIdeoToolStripMenuItem_Click);
@@ -83,7 +87,7 @@
             // LabelToolStripMenuItem
             // 
             this.LabelToolStripMenuItem.Name = "LabelToolStripMenuItem";
-            this.LabelToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
+            this.LabelToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.LabelToolStripMenuItem.Tag = "VideoRecordings.ManagementLabel";
             this.LabelToolStripMenuItem.Text = "标签管理";
             this.LabelToolStripMenuItem.Click += new System.EventHandler(this.LabelToolStripMenuItem_Click);
@@ -91,7 +95,7 @@
             // groupToolStripMenuItem
             // 
             this.groupToolStripMenuItem.Name = "groupToolStripMenuItem";
-            this.groupToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
+            this.groupToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.groupToolStripMenuItem.Tag = "VideoRecordings.ChannelGrouping.Grouping";
             this.groupToolStripMenuItem.Text = "通道分组";
             this.groupToolStripMenuItem.Click += new System.EventHandler(this.groupToolStripMenuItem_Click);
@@ -99,18 +103,34 @@
             // repetitionVideoToolStripMenuItem
             // 
             this.repetitionVideoToolStripMenuItem.Name = "repetitionVideoToolStripMenuItem";
-            this.repetitionVideoToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
+            this.repetitionVideoToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.repetitionVideoToolStripMenuItem.Tag = "VideoRecordings.Video.RepetitionVideo";
             this.repetitionVideoToolStripMenuItem.Text = "视频查重";
             this.repetitionVideoToolStripMenuItem.Click += new System.EventHandler(this.repetitionVideoToolStripMenuItem_Click);
+            // 
+            // Frame_ToolStripMenuItem
+            // 
+            this.Frame_ToolStripMenuItem.Name = "Frame_ToolStripMenuItem";
+            this.Frame_ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.Frame_ToolStripMenuItem.Tag = "VideoRecordings.Video.Frame";
+            this.Frame_ToolStripMenuItem.Text = "解帧队列";
+            this.Frame_ToolStripMenuItem.Click += new System.EventHandler(this.Frame_ToolStripMenuItem_Click);
             // 
             // _imagetoolStripMenuItem
             // 
             this._imagetoolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this._imagetoolStripMenuItem.Name = "_imagetoolStripMenuItem";
-            this._imagetoolStripMenuItem.Size = new System.Drawing.Size(105, 24);
+            this._imagetoolStripMenuItem.Size = new System.Drawing.Size(105, 25);
             this._imagetoolStripMenuItem.Text = "图片文件管理";
             this._imagetoolStripMenuItem.Visible = false;
+            // 
+            // userToolStripMenuItem
+            // 
+            this.userToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.userToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
+            this.userToolStripMenuItem.Text = "用户名";
             // 
             // tabControlExHfrz
             // 
@@ -153,5 +173,7 @@
         private System.Windows.Forms.ToolStripMenuItem VideoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem groupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem repetitionVideoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Frame_ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
     }
 }

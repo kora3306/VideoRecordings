@@ -34,12 +34,15 @@ namespace VideoRecordings
 
         public VideoInformation()
         {
-            InitializeComponent();
-            GetInformationShow();
-            Uer_ToolStripMenuItem.Text = $"欢迎:{Program.UserName}";
-            Methods.AddIsTest(this);
+            InitializeComponent();    
         }
 
+
+        private void VideoInformation_Load(object sender, EventArgs e)
+        {
+            GetInformationShow();
+            Methods.AddIsTest(this);
+        }
 
         /// <summary>
         /// 双击打开文件夹
@@ -50,6 +53,7 @@ namespace VideoRecordings
         {
             if (gridView1.FocusedRowHandle < 0) return;
             focusedfolder = (VideoProject)gridView1.GetRow(gridView1.FocusedRowHandle);
+            if (focusedfolder == null) return;
             if (hInfo.InRowCell)
             {
                 InformationDisplay information = new InformationDisplay(focusedfolder);
@@ -58,33 +62,6 @@ namespace VideoRecordings
                 Program.log.Info($"打开{focusedfolder.Name}");
             }
             
-        }
-
-        /// <summary>
-        /// 扫描文件夹 按钮
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bool scan = VideoData.ScanFolder(focusedfolder);
-            if (!scan)
-            {
-                MessageBox.Show("扫描文件失败");
-                Program.log.Error("扫描文件失败", new Exception("扫描文件失败"));
-                return;
-            }
-            MessageBox.Show("扫描文件已完成");
-        }
-
-        /// <summary>
-        /// 读取并打开文件夹
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void scanning_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new InformationDisplay(focusedfolder).Show();
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -118,8 +95,8 @@ namespace VideoRecordings
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
+        private void GridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {           
             int rowIndex = gridView1.FocusedRowHandle;
             if (rowIndex < 0 || rowIndex > Videos.Count - 1)
             {
@@ -133,81 +110,29 @@ namespace VideoRecordings
         /// </summary>
         public void GetInformationShow(VideoProject video = null, bool fouse = false)
         {
-            Videos = VideoData.GetAllFolder();
-            if (Videos == null || Videos.Count == 0)
+            if (!fouse)
             {
-                Program.log.Error("获取批次信息失败");
-                return;
+                Videos = VideoData.GetAllFolder();
+                bindingSource1.DataSource = Videos;
+                gridView1.RefreshData();
+                ShowCompleteness();
             }
-            bindingSource1.DataSource = Videos;
-            FouseRow(video, fouse);
-            ShowCompleteness();
-            gridView1.RefreshData();
+            else
+            {
+                VideoProject project = Videos.FirstOrDefault(t=>t.Name==video.Name);
+                project = video;
+                gridView1.RefreshData();
+            }
             Program.log.Info("更新批次信息");
         }
 
+
+
         /// <summary>
-        /// 修改文件夹信息
+        /// 判断点击是不是数据行
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ModifyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            UpdateContent update = new UpdateContent(focusedfolder);
-            update.MyEvent += new UpdateContent.MyDelegate(GetInformationShow);
-            update.Show();
-            Program.log.Info($"更改{focusedfolder.Name}的信息");
-        }
-
-        /// <summary>
-        /// 定位项
-        /// </summary>
-        /// <param name="video"></param>
-        /// <param name="fouse"></param>
-        public void FouseRow(VideoProject video, bool fouse)
-        {
-            if (!fouse) return;
-            int i = 0;
-            foreach (var item in Videos)
-            {
-                if (video.Name == item.Name)
-                {
-                    break;
-                }
-                i++;
-            }
-            gridView1.FocusedRowHandle = i;
-        }
-
-        private void DELToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (focusedfolder == null || focusedfolder.Uri == null) return;
-                DialogResult dr = MessageBox.Show("删除扫描信息将会清除所有已经保存的视频信息,确认是否删除?", "是否删除扫描信息",
-                    MessageBoxButtons.OKCancel);
-                if (dr != DialogResult.OK)
-                {
-                    return;
-                }
-                string url = Program.Urlpath + "/clear/video/project/" + focusedfolder.Id;
-                JObject obj = WebClinetHepler.Post_New(url);
-                if (obj == null)
-                {
-                    MessageBox.Show("清除扫描信息失败");
-                    Program.log.Error("清除扫描信息", new Exception("清除扫描信息失败"));
-                }
-                Program.log.Error($"{focusedfolder.Id}清除扫描信息", new Exception($"清除扫描信息{obj == null}"));
-            }
-            catch (Exception ex)
-            {
-                Program.log.Error($"清除扫描信息", ex);
-                throw;
-            }
-
-        }
-
-
         private void gridView1_MouseDown(object sender, MouseEventArgs e)
         {
             hInfo = gridView1.CalcHitInfo(e.Y, e.Y);
@@ -225,15 +150,12 @@ namespace VideoRecordings
             Program.log.Info($"设置完成度{ toolStripStatusLabel1.Text}");
         }
 
+        /// <summary>
+        /// 刷新
+        /// </summary>
         public void RefshData()
         {
             GetInformationShow();
-            //if (project == null)
-            //{
-            //    GetInformationShow();
-            //    return;
-            //}
-            //List<VideoProject> videos = GetData.GetAllFolder(project.Name);
         }
 
         /// <summary>
@@ -298,11 +220,48 @@ namespace VideoRecordings
             }
         }
 
+        /// <summary>
+        /// 显示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void gridView1_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.FieldName == "DupChecked")
+            {
+                switch (e.DisplayText)
+                {
+                    case "0":
+                        e.DisplayText = "未查重";
+                        break;
+                    case "1":
+                        e.DisplayText = "已查重";
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+
+        #region 右键菜单
+
+
+        /// <summary>
+        /// 刷新
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RefToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GetInformationShow();
         }
 
+        /// <summary>
+        /// 重新扫描
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void reffolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (VideoData.RefreshFolder(focusedfolder.Id))
@@ -326,7 +285,7 @@ namespace VideoRecordings
             bool scan = VideoData.ScanFolder(focusedfolder);
             if (!scan) return;
             List<int> ids = VideoData.GetAllVideoPlay(focusedfolder.Name).Select(t=>t.Id).ToList();
-            bool iswin = VideoData.VideoRepetition(Program.LogName, focusedfolder.Name+focusedfolder.Place, focusedfolder.Id,ids);
+            bool iswin = VideoData.VideoRepetition(Program.User.RealName, focusedfolder.Name+focusedfolder.Place, focusedfolder.Id,ids);
             if (!iswin)
             {
                 MessageBox.Show("添加失败");
@@ -337,22 +296,80 @@ namespace VideoRecordings
             Program.log.Info($"添加视频查重,批次{focusedfolder.Name},成功");
         }
 
-        private void gridView1_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        /// <summary>
+        /// 扫描文件夹 按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (e.Column.FieldName == "DupChecked")
+            bool scan = VideoData.ScanFolder(focusedfolder);
+            if (!scan)
             {
-                switch (e.DisplayText)
-                {
-                    case "0":
-                        e.DisplayText = "未查重";
-                        break;
-                    case "1":
-                        e.DisplayText = "已查重";
-                        break;
-                    default:
-                        break;
-                }
+                MessageBox.Show("扫描文件失败");
+                Program.log.Error("扫描文件失败", new Exception("扫描文件失败"));
+                return;
             }
+            MessageBox.Show("扫描文件已完成");
+        }
+
+        /// <summary>
+        /// 读取并打开文件夹
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void scanning_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (focusedfolder == null) return;
+            new InformationDisplay(focusedfolder).Show();
+        }
+
+        /// <summary>
+        /// 修改文件夹信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ModifyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (gridView1.FocusedRowHandle < 0) return;
+            focusedfolder = (VideoProject)gridView1.GetRow(gridView1.FocusedRowHandle);
+            UpdateContent update = new UpdateContent(focusedfolder);
+            update.MyEvent += new UpdateContent.MyDelegate(GetInformationShow);
+            update.Show();
+            Program.log.Info($"更改{focusedfolder.Name}的信息");
+        }
+
+        /// <summary>
+        /// 清除扫描信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DELToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (focusedfolder == null || focusedfolder.Uri == null) return;
+                DialogResult dr = MessageBox.Show("删除扫描信息将会清除所有已经保存的视频信息,确认是否删除?", "是否删除扫描信息",
+                    MessageBoxButtons.OKCancel);
+                if (dr != DialogResult.OK)
+                {
+                    return;
+                }
+                string url = Program.Urlpath + "/clear/video/project/" + focusedfolder.Id;
+                JObject obj = WebClinetHepler.Post_New(url);
+                if (obj == null)
+                {
+                    MessageBox.Show("清除扫描信息失败");
+                    Program.log.Error("清除扫描信息", new Exception("清除扫描信息失败"));
+                }
+                Program.log.Error($"{focusedfolder.Id}清除扫描信息", new Exception($"清除扫描信息{obj == null}"));
+            }
+            catch (Exception ex)
+            {
+                Program.log.Error($"清除扫描信息", ex);
+                throw;
+            }
+
         }
 
         /// <summary>
@@ -387,6 +404,9 @@ namespace VideoRecordings
             MessageBox.Show("添加成功");
             Program.log.Info($"添加批次{focusedfolder.Name}到自动截图成功");
         }
+
+        #endregion
+
     }
 
 }

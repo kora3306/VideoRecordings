@@ -3,23 +3,31 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VideoRecordings.Video;
 
 namespace VideoRecordings
 {
     public partial class FileManagement : Form
     {
+        Frame Frame = new Frame();
         public FileManagement()
         {
             InitializeComponent();
             Methods.AddIsTest(this);
+            userToolStripMenuItem.Text = $"欢迎:{Program.User.RealName}";
         }
 
+        private void FileManagement_Load(object sender, EventArgs e)
+        {
+            VideoToolStripMenuItem.PerformClick();
+        }
 
         /// <summary>
         /// 反射获取窗体
@@ -42,9 +50,9 @@ namespace VideoRecordings
         /// 判断获取加载的窗体
         /// </summary>
         /// <param name="index"></param>
-        public  void SetForm(string formClass, string name)
+        public void SetForm(string formClass, string name)
         {
-            if (formClass =="VideoRecordings.VideoInformation"&&tabControlExHfrz.Contains(name))
+            if (formClass == "VideoRecordings.VideoInformation" && tabControlExHfrz.Contains(name))
                 return;
             tabControlExHfrz.SuspendLayout();
             TabPage tabPageMapping = new TabPage(name) { Name = name };
@@ -54,40 +62,32 @@ namespace VideoRecordings
             tabControlExHfrz.ResumeLayout(false);
         }
 
-        private void FileManagement_Load(object sender, EventArgs e)
-        {
-            VideoToolStripMenuItem.PerformClick();
-        }
-
         private void VideoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem item= sender as ToolStripMenuItem;
-            if (item == null) return;
-            SetForm(item.Tag.ToString(),item.Text);
+            SetForms(sender);
         }
 
         private void queryVIdeoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem item = sender as ToolStripMenuItem;
-            if (item == null) return;
-            SetForm(item.Tag.ToString(), item.Text);
+            SetForms(sender);
         }
 
         private void LabelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem item = sender as ToolStripMenuItem;
-            if (item == null) return;
-            SetForm(item.Tag.ToString(), item.Text);
+            SetForms(sender);
         }
 
         private void groupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem item = sender as ToolStripMenuItem;
-            if (item == null) return;
-            SetForm(item.Tag.ToString(), item.Text);
+            SetForms(sender);
         }
 
         private void repetitionVideoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetForms(sender);
+        }
+
+        public void SetForms(object sender)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
             if (item == null) return;
@@ -96,10 +96,15 @@ namespace VideoRecordings
 
         private void FileManagement_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(MessageBox.Show("是否关闭程序!","关闭提示",MessageBoxButtons.OKCancel)!=DialogResult.OK)
+            if (MessageBox.Show("是否关闭程序!", "关闭提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
             {
                 e.Cancel = true;
             }
+        }
+
+        private void Frame_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetForms(sender);
         }
     }
 

@@ -35,14 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\intedio_data_tools\Common\bin\Debug\Common.dll</HintPath>
-    </Reference>
-    <Reference Include="CSkin">
-      <HintPath>C:\Users\test\Downloads\CSkin 16.1.14.2\CSkin 4.0\CSkin.dll</HintPath>
-    </Reference>
-    <Reference Include="Dal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="DevExpress.BonusSkins.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -156,6 +149,7 @@
     <Compile Include="Models\ImageProject.cs" />
     <Compile Include="Models\Repetitions.cs" />
     <Compile Include="Models\Solutions.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\VideoPlay.cs" />
     <Compile Include="Models\VideoProject.cs" />
     <Compile Include="Equipment\AddEquipment.cs">
@@ -182,11 +176,23 @@
     <Compile Include="Images\ImageInformation.Designer.cs">
       <DependentUpon>ImageInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Video\BatchScreenshot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Video\BatchScreenshot.Designer.cs">
+      <DependentUpon>BatchScreenshot.cs</DependentUpon>
+    </Compile>
     <Compile Include="Video\BatchSolution.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Video\BatchSolution.Designer.cs">
       <DependentUpon>BatchSolution.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Video\Frame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Video\Frame.Designer.cs">
+      <DependentUpon>Frame.cs</DependentUpon>
     </Compile>
     <Compile Include="Video\InformationDisplay.cs">
       <SubType>Form</SubType>
@@ -326,15 +332,20 @@
     <EmbeddedResource Include="Label\ShowStaticLabel.resx">
       <DependentUpon>ShowStaticLabel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Video\AddVideo.resx">
       <DependentUpon>AddVideo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FileManagement .resx">
       <DependentUpon>FileManagement .cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Video\BatchScreenshot.resx">
+      <DependentUpon>BatchScreenshot.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Video\BatchSolution.resx">
       <DependentUpon>BatchSolution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Video\Frame.resx">
+      <DependentUpon>Frame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Video\InformationDisplay.resx">
       <DependentUpon>InformationDisplay.cs</DependentUpon>
@@ -394,7 +405,9 @@
     <EmbeddedResource Include="Equipment\UpdateEquipment.resx">
       <DependentUpon>UpdateEquipment.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -424,12 +437,20 @@
     <None Include="Resources\02.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\intedio_data_tools\Common\Common.csproj">
+      <Project>{16f51870-4fce-4868-bcac-2c2620c1a4fe}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\intedio_data_tools\Dal\Dal.csproj">
+      <Project>{206ed4e3-a46e-46c2-9ee6-204370e2cb94}</Project>
+      <Name>Dal</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\intedio_data_tools\ImageListView\ImageListView.csproj">
-      <Project>{0C295FB8-C6C6-4A40-9F19-05A43F353A04}</Project>
+      <Project>{0c295fb8-c6c6-4a40-9f19-05a43f353a04}</Project>
       <Name>ImageListView</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\intedio_data_tools\MyControl\MyControl.csproj">
-      <Project>{433BE916-116D-41F4-A309-88A18920B21D}</Project>
+      <Project>{433be916-116d-41f4-a309-88a18920b21d}</Project>
       <Name>MyControl</Name>
     </ProjectReference>
     <ProjectReference Include="..\DXApplication1\DXApplication1\DXApplication.csproj">
@@ -437,7 +458,15 @@
       <Name>DXApplication</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

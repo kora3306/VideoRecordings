@@ -90,4 +90,14 @@ namespace VideoRecordings.Models
         public int Total { get; set; }
     }
 
+    [DataContract]
+    public class VideoPath
+    {
+        [DataMember(Name = "name")]
+        public string Name { get; set; }
+
+        [DataMember(Name = "path")]
+        public string Path { get; set; }
+    }
+
 }

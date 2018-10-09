@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageListView", "..\intedio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\intedio_data_tools\Common\Common.csproj", "{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dal", "..\intedio_data_tools\Dal\Dal.csproj", "{206ED4E3-A46E-46C2-9EE6-204370E2CB94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,12 @@ Global
 		{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}.Release_optimize|Any CPU.Build.0 = Release|Any CPU
 		{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16F51870-4FCE-4868-BCAC-2C2620C1A4FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{206ED4E3-A46E-46C2-9EE6-204370E2CB94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{206ED4E3-A46E-46C2-9EE6-204370E2CB94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{206ED4E3-A46E-46C2-9EE6-204370E2CB94}.Release_optimize|Any CPU.ActiveCfg = Release|Any CPU
+		{206ED4E3-A46E-46C2-9EE6-204370E2CB94}.Release_optimize|Any CPU.Build.0 = Release|Any CPU
+		{206ED4E3-A46E-46C2-9EE6-204370E2CB94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{206ED4E3-A46E-46C2-9EE6-204370E2CB94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

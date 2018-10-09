@@ -17,6 +17,8 @@ using System.Threading;
 using System.Net;
 using System.Web.Script.Serialization;
 using VideoRecordings.Models;
+using Dal;
+using VideoRecordings.GetDatas;
 
 namespace VideoRecordings
 {
@@ -30,7 +32,7 @@ namespace VideoRecordings
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //BonusSkins.Register();
+            BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
             Directory.CreateDirectory("Log");
@@ -46,8 +48,9 @@ namespace VideoRecordings
 
         public static ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        public static string VideoPlay;
+        public static List<VideoPath> VideoPlayPath;
         public const string PlayerPath = @".\VideoPlayPath.txt";    //储存的播放器路径
+        public readonly static List<string> Paths = new List<string>() { "StormPlayer", "KMPIAYER", "XMP", "VLC" };
         /// <summary>
         /// 接口
         /// </summary>
@@ -67,8 +70,10 @@ namespace VideoRecordings
         public static string Cookies = string.Empty;
         public static string Version = string.Empty;
         public static string UpdateApi = string.Empty;
-        public static string UserName = string.Empty;
-        public static string LogName = string.Empty;
+        //public static string UserName = string.Empty;
+        //public static string LogName = string.Empty;
+        public static User User;
+
         public static string LogPassWord = string.Empty;
         /// <summary>
         /// 获取配置信息
@@ -77,7 +82,7 @@ namespace VideoRecordings
         /// <returns></returns>
         public static string GetAppConfig(string strKey)
         {
-            string file = System.Windows.Forms.Application.ExecutablePath;
+            string file = Application.ExecutablePath;
             Configuration config = ConfigurationManager.OpenExeConfiguration(file);
             foreach (string key in config.AppSettings.Settings.AllKeys)
             {
@@ -96,7 +101,7 @@ namespace VideoRecordings
         ///<param name="newValue"></param>  
         public static void UpdateAppConfig(string newKey, string newValue)
         {
-            string file = System.Windows.Forms.Application.ExecutablePath;
+            string file = Application.ExecutablePath;
             Configuration config = ConfigurationManager.OpenExeConfiguration(file);
             bool exist = false;
             foreach (string key in config.AppSettings.Settings.AllKeys)
@@ -135,7 +140,7 @@ namespace VideoRecordings
                 proc.StartInfo.RedirectStandardError = true;
                 proc.StartInfo.CreateNoWindow = true;
                 proc.Start();
-                string dosLine = "net use " + remoteHost + " " + passWord + " /user:" + userName;
+                string dosLine = "net use " + remoteHost + " " + passWord + " /User:" + userName;
                 proc.StandardInput.WriteLine(dosLine);
                 proc.StandardInput.WriteLine("exit");
                 while (!proc.HasExited)
@@ -144,7 +149,7 @@ namespace VideoRecordings
                 }
                 string errormsg = proc.StandardError.ReadToEnd();
                 proc.StandardError.Close();
-                if (String.IsNullOrEmpty(errormsg))
+                if (string.IsNullOrEmpty(errormsg))
                 {
                     Flag = true;
                 }
@@ -189,6 +194,7 @@ namespace VideoRecordings
                 case "md8":
                 case "md9":
                 case "md10":
+                case "md11":
                     return Url3 + url;
                 default:
                     break;
@@ -246,9 +252,9 @@ namespace VideoRecordings
 
         public static void UpdataLongName()
         {
-            if (LogName != GetAppConfig("LogName"))
+            if (User.Name != GetAppConfig("LogName"))
             {
-                UpdateAppConfig("LogName", LogName);
+                UpdateAppConfig("LogName", User.Name);
             }
         }
 
@@ -268,9 +274,10 @@ namespace VideoRecordings
 
         private static void Checkconfiguration()
         {
-            bool open = Connect(PathUrl, "leets", "songnana1234");
-            bool open1 = Connect("\\\\192.168.1.234", "work", "test234");
-            VideoPlay = Methods.ReadPath(PlayerPath);
+            bool open158 = Connect(PathUrl, "leets", "songnana1234");
+            bool open234 = Connect("\\\\192.168.1.234", "work", "test234");
+            bool open198 = Connect("\\\\192.168.1.198", "work", "test198");
+            VideoPlayPath = Methods.ReadPath(PlayerPath);
             ImageSavePath = GetAppConfig(ImageName);
             IsTest = GetAppConfig("TestApi") == "1";
             if (!IsTest)
@@ -295,13 +302,17 @@ namespace VideoRecordings
                 Directory.CreateDirectory(ImageSavePath);
             }
             CopyConfig();
-            if (!open)
+            if (!open158)
             {
                 log.Error("连接服务器", new Exception("158连接失败"));
             }
-            if (!open1)
+            if (!open234)
             {
                 log.Error("连接服务器", new Exception("234连接失败"));
+            }
+            if (!open198)
+            {
+                log.Error("连接服务器", new Exception("198连接失败"));
             }
         }
 
@@ -397,4 +408,5 @@ namespace VideoRecordings
         }
 
     }
+
 }

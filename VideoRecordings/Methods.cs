@@ -1,6 +1,7 @@
 ﻿using Common;
 using Manina.Windows.Forms;
 using MyControl;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -110,21 +111,21 @@ namespace VideoRecordings
         }
 
 
-        public static string ReadPath(string path)
+        public static List<VideoPath> ReadPath(string path)
         {
             if (!File.Exists(path))
             {
-                return string.Empty;
+                return new List<VideoPath>();
             }
             FileStream fs = new FileStream(path, FileMode.Open);
             StreamReader sr = new StreamReader(fs, Encoding.Default);
             string read = sr.ReadToEnd();
             sr.Close();
             fs.Close();
-            return read;
+            return JsonConvert.DeserializeObject<List<VideoPath>>(read);
         }
 
-        public static void WritePath(string path, string text)
+        public static void WritePath(string path, List<VideoPath> text)
         {
             if (!File.Exists(path))
             {
@@ -132,7 +133,7 @@ namespace VideoRecordings
             }
             FileStream fs = new FileStream(path, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs, Encoding.Default);
-            sw.Write(text);
+            sw.Write(JsonConvert.SerializeObject(text));
             sw.Close();
             fs.Close();
         }
@@ -275,7 +276,6 @@ namespace VideoRecordings
             }
             return (T)retval;
         }
-
 
     }
 

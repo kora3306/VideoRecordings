@@ -42,7 +42,7 @@ namespace VideoRecordings.Images
             {
                 toolStripStatusLabel1.Text = $"视频 :{project.Name}    {project.Place}";
             }
-            label2.Text = $"欢迎:{Program.UserName}";
+            label2.Text = $"欢迎:{Program.User.RealName}";
         }
 
 

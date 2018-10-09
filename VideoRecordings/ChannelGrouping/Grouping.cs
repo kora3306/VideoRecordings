@@ -21,6 +21,8 @@ namespace VideoRecordings.ChannelGrouping
         private List<GalleryGroup> galleries;
         private string _selectgroup = string.Empty;
         private bool IsExpand = true;
+
+
         public Grouping()
         {
             InitializeComponent();

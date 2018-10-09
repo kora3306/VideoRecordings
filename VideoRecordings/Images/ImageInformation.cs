@@ -25,7 +25,7 @@ namespace VideoRecordings
             InitializeComponent();
             GetInformationShow();
             TestText();
-            label2.Text = $"欢迎:{Program.UserName}";
+            label2.Text = $"欢迎:{Program.User.RealName}";
         }
 
         private void TestText()

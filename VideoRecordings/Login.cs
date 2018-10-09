@@ -15,6 +15,8 @@ using Common;
 using log4net;
 using System.Reflection;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using VideoRecordings.Models;
 
 namespace VideoRecordings
 {
@@ -68,8 +70,7 @@ namespace VideoRecordings
             }
             LogSucceed = true;
             JObject obj = WebClinetHepler.GetJObject(url);
-            Program.UserName = obj["result"]["real_name"].ToString() ;
-            Program.LogName = obj["result"]["name"].ToString();
+            Program.User = JsonConvert.DeserializeObject<User>(obj["result"].ToString());
             Program.UpdataLongName();
             UpdataLongPassWord(passWord,checkBox1.Checked);
             this.Close();

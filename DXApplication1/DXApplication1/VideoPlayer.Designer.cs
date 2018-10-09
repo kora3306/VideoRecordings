@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoPlayers_test));
             this.axPlayer1 = new AxAPlayer3Lib.AxPlayer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -46,8 +45,8 @@
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbltitle = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.playpause = new System.Windows.Forms.ToolStripMenuItem();
             this.停止toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.快进 = new System.Windows.Forms.ToolStripMenuItem();
@@ -134,7 +133,7 @@
             // panelbottom
             // 
             this.panelbottom.BackColor = System.Drawing.Color.Transparent;
-            this.panelbottom.BackgroundImage = global::DXApplication1.Properties.Resources.bottom;
+            this.panelbottom.BackgroundImage = global::DXApplication1.Properties.Resources.blue;
             this.panelbottom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelbottom.Controls.Add(this.pictureBox1);
             this.panelbottom.Controls.Add(this.colorSlidersound);
@@ -267,7 +266,7 @@
             // paneltop
             // 
             this.paneltop.BackColor = System.Drawing.Color.Transparent;
-            this.paneltop.BackgroundImage = global::DXApplication1.Properties.Resources.top;
+            this.paneltop.BackgroundImage = global::DXApplication1.Properties.Resources.blue;
             this.paneltop.Controls.Add(this.lbltitle);
             this.paneltop.Controls.Add(this.label4);
             this.paneltop.Dock = System.Windows.Forms.DockStyle.Fill;

@@ -22,69 +22,50 @@ using VideoRecordings.Models;
 using System.Reflection;
 using System.Threading.Tasks;
 using VideoRecordings.Label;
+using DevExpress.XtraTreeList.Nodes;
+using DevExpress.Utils.Menu;
+using DevExpress.XtraTreeList;
+using DevExpress.XtraTreeList.ViewInfo;
 
 namespace VideoRecordings
 {
-    public partial class VideoRecording : DevExpress.XtraEditors.XtraForm
+    public partial class VideoRecording : Form
     {
 
         TypeLabels Selectlabels = new TypeLabels(); //标签
-        VideoPlay videoplay;      //传入的文件信息
+        VideoPlay videoplay;      //传入的视频
+        List<VideoPlay> videos;
         Process process = new Process();   //启动外部程序线程
         List<string> paths = new List<string>();  //截图路径
-        Point po = new Point();         //窗口定位点
         int i = 1;            //Tag
+        int pageindex = 1;
         List<string> imageurl = new List<string>();        //已有图片读取
         TypeLabels staticlabel = new TypeLabels();
         bool folding = false;
-        bool isuse;
-        public VideoRecording(VideoPlay videopath, bool use)
+
+        public VideoRecording(VideoPlay videopath,List<VideoPlay> videoPlays)
         {
             videoplay = videopath;
-            isuse = use;
+            videos = videoPlays;
             InitializeComponent();
             videoPlayer1.MyEvent += new DXApplication1.VideoPlayers_test.MyDelegate(ImageAdd);
             videoPlayer1.path = Program.ImageSavePath;
+            dropDownButton1.DropDownControl = CreateDXPopupMenu();
+            SetAllListNodes(videoPlays);
         }
 
 
-        public delegate void MyDelegate(VideoPlay play);
+        public delegate void MyDelegate();
         public event MyDelegate MyEvent;
-        public virtual void OnSave(VideoPlay play)
+        public virtual void OnSave()
         {
-            MyEvent?.Invoke(play);
-        }
-
-        public event MyRecordDelegate SetMyRecordEvent;
-        public virtual void OnUse()
-        {
-            SetMyRecordEvent.Invoke();
-        }
-
-        public delegate void MyRecordDelegate();
-        public event MyRecordDelegate MyRecordEvent;
-        public virtual void OnRefresh()
-        {
-            MyRecordEvent?.Invoke();
+            MyEvent?.Invoke();
         }
 
         private void VideoRecording_Load(object sender, EventArgs e)
         {
-            Selectlabels = (TypeLabels)videoplay.Labels.DynamicLabel.Clone();
-            staticlabel = (TypeLabels)videoplay.Labels.StaticLabel.Clone();
-            PlayVideo();
-            GetLabels();
-            SetPoint();
-            SetLabelText();
-            GetIntToString();
-            linkLabel1.LinkBehavior = LinkBehavior.HoverUnderline;    //鼠标悬停显示下划线
-            linkLabel1.LinkBehavior = LinkBehavior.NeverUnderline;   //不显示下划线
+  
             linkLabel1.Text = Program.ImageSavePath;
-            timeEdit_start.Time = DateTime.Parse(videoplay.StartTime);
-            timeEdit_end.Time = DateTime.Parse(videoplay.EndTime);
-            dateTimePicker1.Text = videoplay.RecordTime;
-            label6.Text = videoplay.Id.ToString();
-            label6.ForeColor = Color.Red;
             imageListView1.Focus();
             imageListView1.DiskCache = Program.Persistent;
             Methods.AddIsTest(this);
@@ -92,7 +73,6 @@ namespace VideoRecordings
             {
                 label_treeView.Nodes[0].Expand();
             }
-            button1.Text = isuse ? "使用页面播放器" : "使用外部播放器";
         }
 
         /// <summary>
@@ -127,35 +107,7 @@ namespace VideoRecordings
             openFileDialog1.RestoreDirectory = true;
             openFileDialog1.ShowDialog();
         }
-
-        /// <summary>
-        /// 使用外部播放器播放
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void other_button_Click(object sender, EventArgs e)
-        {
-            if (Program.VideoPlay != string.Empty)
-            {
-                if (!File.Exists(Program.VideoPlay))
-                {
-                    MessageBox.Show("没有指定播放器");
-                    return;
-                }
-                process = Process.Start(Program.VideoPlay, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
-                return;
-            }
-            else
-            {
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    Program.VideoPlay = openFileDialog1.FileName;
-                    Methods.WritePath(Program.PlayerPath, openFileDialog1.FileName);
-                    process = Process.Start(Program.VideoPlay, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
-                    Program.log.Info("使用关联播放器播放", new Exception($"Program.VideoPlay"));
-                }
-            }
-        }
+     
 
         /// <summary>
         /// 保存按钮
@@ -173,10 +125,18 @@ namespace VideoRecordings
                 MessageBox.Show("保存失败");
                 return;
             }
-
             DeleteFolder(Program.ImageSavePath);
-            OnSave(videoplay);
-            this.Close();
+            if (treeList1.FocusedNode==treeList1.Nodes.LastNode.LastNode)
+            {
+                treeList1.FocusedNode = treeList1.Nodes.FirstNode;
+            }
+            treeList1.MoveNext();
+            while (treeList1.FocusedNode.Level==0)
+            {
+                treeList1.MoveNext();
+            }
+            //OnSave(videoplay);
+            //this.Close();
         }
 
         /// <summary>
@@ -213,22 +173,6 @@ namespace VideoRecordings
         }
 
         /// <summary>
-        /// 选择标签加入已有标签栏
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void label_treeView_DoubleClick(object sender, EventArgs e)
-        {
-            //TreeNode tree = label_treeView.SelectedNode;
-            //if (labels.Contains(tree.Text))
-            //{
-            //    return;
-            //}
-            //labels.Add(tree.Text);
-            //SetLabelText();
-        }
-
-        /// <summary>
         /// 双击删除已有的标签
         /// </summary>
         /// <param name="sender"></param>
@@ -256,34 +200,20 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void DeletePToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Program.VideoPlay = string.Empty;
+            VideoPath path = Program.VideoPlayPath.FirstOrDefault(t=>t.Name==dropDownButton1.Text);
+            if (path!=null)
+            {
+                Program.VideoPlayPath.Remove(path);
+            }
+            Methods.WritePath(Program.PlayerPath, Program.VideoPlayPath);
         }
 
-        /// <summary>
-        /// 设置使用播放器状态
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (isuse)
-            {
-                button1.Text = "使用外部播放器";
-                OnUse();
-            }
-            else
-            {
-                button1.Text = "使用页面播放器";
-                OnUse();
-            }
-        }
         //
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             switch (keyData)
             {
                 case Keys.F6:
-                    SetPoint();
                     videoPlayer1.Screenshots();
                     return true;
                 case Keys.S:
@@ -331,37 +261,6 @@ namespace VideoRecordings
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        /// <summary>
-        /// 关联关闭外部播放器
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void VideoRecording_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (isuse)
-            {
-                try
-                {
-                    process.Kill();
-                }
-                catch (Exception)
-                {
-                    return;
-                }
-
-            }
-        }
-
-        /// <summary>
-        /// 移动更新坐标
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void VideoRecording_Move(object sender, EventArgs e)
-        {
-            po = PointToScreen(new Point(videoPlayer1.Left, videoPlayer1.Top));
-            videoPlayer1.point = po;
-        }
 
         /// <summary>
         /// 删除已经选择的标签
@@ -420,7 +319,7 @@ namespace VideoRecordings
                 }
                 paths.Add(f.FullName.Replace("bmp", "jpg"));//添加文件的路径到列表
             }
-            imageListView1.ThumbnailSize = new Size(150, 70);
+            imageListView1.ThumbnailSize = new Size(180, 90);
             foreach (var item in paths)
             {
                 imageListView1
@@ -433,15 +332,6 @@ namespace VideoRecordings
                     });
             }
             i++;
-        }
-
-        /// <summary>
-        /// 设置内部截图的坐标
-        /// </summary>
-        public void SetPoint()
-        {
-            po = PointToScreen(new Point(videoPlayer1.Left, videoPlayer1.Top));
-            videoPlayer1.point = po;
         }
 
         /// <summary>
@@ -506,20 +396,20 @@ namespace VideoRecordings
             label_treeView.Nodes.AddRange(items.ToArray());
         }
 
-        ///// <summary>
-        ///// 将已有标签加入标签栏
-        ///// </summary>
+        /// <summary>
+        /// 将已有标签加入标签栏
+        /// </summary>
         //private void AlreadyLabels()
         //{
         //    foreach (var item in videoplay.Labels)
         //    {
-        //        TreeNode tree = new TreeNode() {Text = Name = item.Name, Tag = item.Id};
+        //        TreeNode tree = new TreeNode() { Text = Name = item.Name, Tag = item.Id };
         //        foreach (var it in item.Labels)
         //        {
-        //            TreeNode node = new TreeNode() {Text = Name = it.Name, Tag = it.Id};
+        //            TreeNode node = new TreeNode() { Text = Name = it.Name, Tag = it.Id };
         //            tree.Nodes.Add(node);
         //        }
-        //    }          
+        //    }
         //}
 
         /// <summary>
@@ -552,11 +442,11 @@ namespace VideoRecordings
         /// </summary>
         private void PlayVideo()
         {
-            if (isuse)
+            if (toggleSwitch1.IsOn)
             {
                 try
                 {
-                    process = Process.Start(Program.VideoPlay, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
+                    process = Process.Start(Program.VideoPlayPath.FirstOrDefault(t=>t.Name==dropDownButton1.Text).Path, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
                     return;
                 }
                 catch (Exception ex)
@@ -621,18 +511,18 @@ namespace VideoRecordings
         }
 
         /// <summary>
-        /// 本机屏幕截图
-        /// </summary>
-        public void CaptureTheScreen()
-        {
-            Point point = new Point(po.X, po.Y + 50);
-            Bitmap bit = new Bitmap(videoPlayer1.Width, videoPlayer1.Height - 150);
-            Graphics g = Graphics.FromImage(bit);
-            g.CopyFromScreen(point, new Point(0, 0), bit.Size);
-            string photoname = DateTime.Now.Ticks.ToString();
-            bit.Save(Program.ImageSavePath + "\\" + photoname + ".jpg", ImageFormat.Jpeg);
-            g.Dispose();
-        }
+        ///// 本机屏幕截图
+        ///// </summary>
+        //public void CaptureTheScreen()
+        //{
+        //    Point point = new Point(po.X, po.Y + 50);
+        //    Bitmap bit = new Bitmap(videoPlayer1.Width, videoPlayer1.Height - 150);
+        //    Graphics g = Graphics.FromImage(bit);
+        //    g.CopyFromScreen(point, new Point(0, 0), bit.Size);
+        //    string photoname = DateTime.Now.Ticks.ToString();
+        //    bit.Save(Program.ImageSavePath + "\\" + photoname + ".jpg", ImageFormat.Jpeg);
+        //    g.Dispose();
+        //}
 
         /// <summary>
         /// 删除图片 本地..网络
@@ -810,6 +700,159 @@ namespace VideoRecordings
             int id = videoplay.EquipmentID;
             ShowStaticLabel show = new ShowStaticLabel(id);
             show.Show();
+        }
+
+        private void SetAllListNodes(List<VideoPlay> videoplays)
+        {
+            if (videoplays == null) return;
+            treeList1.BeginUpdate();
+            treeList1.Nodes.Clear();
+            TreeListNode selectnode = new TreeListNode();
+            foreach (IGrouping<string,VideoPlay> item in videoplays.GroupBy(t=>t.EquipmentName.Split(':').First()).OrderByDescending(t=>int.Parse(t.Key.Split(':').First())))
+            {
+                TreeListNode ParentNode = treeList1.AppendNode(null, null);
+                ParentNode.SetValue(treeList1.Columns[0],item.First().EquipmentName);
+                foreach (VideoPlay video in item.OrderBy(t=>t.Id))
+                {
+                    TreeListNode tree = ParentNode.Nodes.Add("");
+                    tree.SetValue(treeList1.Columns[0], video.Id);
+                    tree.Tag = pageindex;                   
+                    if (video==videoplay)
+                    {
+                        selectnode = tree;
+                    }
+                    pageindex++;
+                }
+            }
+            treeList1.EndUpdate();
+            treeList1.CollapseAll();
+            if (selectnode != null)
+                treeList1.FocusedNode = selectnode;
+        }
+
+        private void treeList1_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
+        {
+            if (treeList1.FocusedNode.Level == 0) return;
+            videoplay = VideoData.GetIndexVideoInfo(int.Parse(treeList1.FocusedNode.GetValue(0).ToString()));
+            SetFocusInfo();
+            SetLabel(int.Parse(treeList1.FocusedNode.Tag.ToString()));
+            PlayVideo();
+        }
+
+        private void SetFocusInfo()
+        {
+            Selectlabels = (TypeLabels)videoplay.Labels.DynamicLabel.Clone();
+            staticlabel = (TypeLabels)videoplay.Labels.StaticLabel.Clone();
+            timeEdit_start.Time = DateTime.Parse(videoplay.StartTime);
+            timeEdit_end.Time = DateTime.Parse(videoplay.EndTime);
+            dateTimePicker1.Text = videoplay.RecordTime;
+            GetLabels();
+            GetIntToString();
+            SetLabelText();
+        }
+
+        private void VideoRecording_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            OnSave();
+            videoPlayer1.Dispose();
+        }
+
+        /// <summary>
+        /// 添加播放器选择
+        /// </summary>
+        /// <returns></returns>
+        private DXPopupMenu CreateDXPopupMenu()
+        {
+            DXPopupMenu menu = new DXPopupMenu();
+            foreach (var item in Program.Paths)
+            {
+                menu.Items.Add(new DXMenuItem(item, OnItemClick));
+            }          
+            return menu;
+        }
+
+        private void OnItemClick(object sender, EventArgs e)
+        {
+            DXMenuItem item = sender as DXMenuItem;
+            dropDownButton1.Text = item.Caption;
+        }
+
+        /// <summary>
+        /// 使用外部播放器播放
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dropDownButton1_Click(object sender, EventArgs e)
+        {
+            VideoPath path = Program.VideoPlayPath.FirstOrDefault(t => t.Name == dropDownButton1.Text);
+            if (path != null)
+            {
+                if (!File.Exists(path.Path))
+                {
+                    MessageBox.Show("没有指定播放器");
+                    return;
+                }
+                process = Process.Start(path.Path, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
+                return;
+            }
+            else
+            {
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    VideoPath videoPath = new VideoPath() { Name = dropDownButton1.Text };
+                    videoPath.Path = openFileDialog1.FileName;
+                    process = Process.Start(videoPath.Path, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
+                    Program.log.Info("使用关联播放器播放", new Exception($"Program.VideoPlay"));
+                    Program.VideoPlayPath.Add(videoPath);
+                    Methods.WritePath(Program.PlayerPath, Program.VideoPlayPath);
+                }
+            }
+        }
+
+        private void SetLabel(int index)
+        {
+            label2.Text = $"{index}/{videos.Count}";
+        }
+
+        private void toolTipController1_GetActiveObjectInfo(object sender, DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventArgs e)
+        {
+            try
+            {
+                if (e.SelectedControl is DevExpress.XtraTreeList.TreeList)
+
+                {
+
+                    TreeList tree = (TreeList)e.SelectedControl;
+
+                    TreeListHitInfo hit = tree.CalcHitInfo(e.ControlMousePosition);
+
+                    if (hit.HitInfoType == HitInfoType.Cell)
+
+                    {
+
+                        object cellInfo = new TreeListCellToolTipInfo(hit.Node, hit.Column, null);
+
+                        string toolTip = $"{videos.FirstOrDefault(t => t.Id == int.Parse(hit.Node[hit.Column].ToString())).Name}";
+
+                        //string.Format("{0} (Column: {1}, Node ID: {2})", hit.Node[hit.Column],
+                        //hit.Column.VisibleIndex, hit.Node.Id);
+
+                        e.Info = new DevExpress.Utils.ToolTipControlInfo(cellInfo, toolTip);
+
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+                TreeList tree = (TreeList)e.SelectedControl;
+                TreeListHitInfo hit = tree.CalcHitInfo(e.ControlMousePosition);
+                object cellInfo = new TreeListCellToolTipInfo(hit.Node, hit.Column, null);
+                string toolTip = $"{hit.Node[hit.Column]}";
+                e.Info = new DevExpress.Utils.ToolTipControlInfo(cellInfo, toolTip);
+            }
+      
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
@@ -31,21 +30,29 @@ using VideoRecordings.Label;
 
 namespace VideoRecordings
 {
-    public partial class QueryVideo : DevExpress.XtraEditors.XtraForm
+    public partial class QueryVideo : XtraForm
     {
         public VideoPlay transmissionvideo = new VideoPlay();     //选中的文件
         public List<VideoPlay> videoplays = new List<VideoPlay>();  //所有筛选的文件
         public List<string> imageurl = new List<string>();       //选中文件的图片的url
         bool isFirst = true;  //每次查询选择定位选中文件0
         bool iscollpase = false;
-        public bool Hasbeen = false;
         private bool isvisbel = false;
         List<VideoProject> Videos = new List<VideoProject>();
         GridHitInfo hInfo = new GridHitInfo();
-        Dictionary<string, int> queryvidoe = new Dictionary<string, int>();
         private List<EquipmentInfo> equipments = new List<EquipmentInfo>();
         private Dictionary<int, EquipmentInfo> mydic = new Dictionary<int, EquipmentInfo>();
         List<string> replicators = new List<string>();
+        List<string> places = new List<string>();
+
+        List<string> listOnitGroup = new List<string>();
+        List<string> listNewGrouop = new List<string>();  //搜索集合
+
+        List<string> listOnitGroups = new List<string>();
+        List<string> listNewGrouops = new List<string>();  //搜索集合
+
+        List<string> listOnitProName = new List<string>();
+        List<string> listNewProName = new List<string>();
 
         private MyLabels MyLabels;
 
@@ -62,9 +69,7 @@ namespace VideoRecordings
         public QueryVideo()
         {
             InitializeComponent();
-            Videos = VideoData.GetAllFolder(); ;
-            timeEdit_start.Time = DateTime.MinValue;
-            timeEdit_end.Time = DateTime.MaxValue;
+           
         }
 
         private void QueryVideo_Load(object sender, EventArgs e)
@@ -74,22 +79,34 @@ namespace VideoRecordings
             addEquipment.MySaveEvent += new AddEquipment.MyDelegate(RefEquipment);
             selectEquipment.MySaveEvent += new SelectEquipment.MyEvent(RefreshImage);
             selectEquipment.MyRefreshEvent += new SelectEquipment.MyEvent(GridViewClear);
-            MyLabels= new MyLabels();
-            SetInformations();
-            SetRadioButton();
-            comboBox_proname.SelectedIndex = -1;
-            comboBox_place.SelectedIndex = -1;
-            comboBox_replicator.SelectedIndex = -1;
-            dateTimePicker1.Value = Convert.ToDateTime("2010-1-1");
-            dateTimePicker2.Value = DateTime.Now;
+            dockPanel5.Visibility = DockVisibility.Hidden;
+            WaitFormEx.Run(() => 
+            {
+                Videos = VideoData.GetAllFolder();
+                MyLabels = new MyLabels();
+              
+                places = RepeatList(Videos, "place");
+                replicators = RepeatList(Videos, "replicator");
+                listOnitProName = Videos.Select(t => t.Name).ToList();
+                listOnitGroups = GroupData.GetAllGalleryGroup().OrderBy(t => t.Id).Select(t => $"{t.Id}:{t.Name}").ToList();
+                listOnitGroup = MyGroup.GetGetGroups().Equipments.OrderBy(t => t.Id).Select(t => $"{t.Id}:{t.Name}").ToList();
+            });
+
             List<string> text = MyLabels.AllLabelsToDic.Select(t => t.Value).ToList();
             textBox_label.AutoCompleteCustomSource.Clear();
             textBox_label.AutoCompleteCustomSource.AddRange(text.ToArray());
-            textBox1.AutoCompleteCustomSource.Clear();
-            textBox1.AutoCompleteCustomSource.AddRange(text.ToArray());
+
+            SetComboBoxInfo(places, comboBox1);
+            SetComboBoxInfo(replicators, comboBox2);
+
+            comboBox_proname.Items.AddRange(listOnitProName.ToArray());
+            comboBox_groups.Items.AddRange(listOnitGroups.ToArray());
+            comboBox_group.Items.AddRange(listOnitGroup.ToArray());
+
             imageListView1.DiskCache = Program.Persistent;
             gridView1.OptionsBehavior.AutoExpandAllGroups = false;
             Methods.AddIsTest(this);
+            RefAllConditions();
         }
 
         public void RefEquipment()
@@ -102,23 +119,11 @@ namespace VideoRecordings
             bindingSource1.DataSource = null;
         }
 
-        private void SetInformations()
+        public  void SetComboBoxInfo(List<string>texts, System.Windows.Forms.ComboBox combo)
         {
-            if (Videos == null || Videos.Count == 0) return;
-            string getpath = Program.Urlpath + "/video/projects";
-            var result = Videos.Where(p => !Videos.Any(q => (p != q && p.Scenes == q.Scenes)));
-            List<string> pronames = Videos.Select(t => t.Name).ToList();
-            comboBox_proname.DataSource = pronames;
-            comboBox_proname.AutoCompleteCustomSource.Clear();
-            comboBox_proname.AutoCompleteCustomSource.AddRange(pronames.ToArray());
-            List<string> places = RepeatList(Videos, "place");
-            comboBox_place.DataSource = places;
-            comboBox_place.AutoCompleteCustomSource.Clear();
-            comboBox_place.AutoCompleteCustomSource.AddRange(places.ToArray());
-            replicators = RepeatList(Videos, "replicator");
-            comboBox_replicator.DataSource = replicators;
-            comboBox_replicator.AutoCompleteCustomSource.Clear();
-            comboBox_replicator.AutoCompleteCustomSource.AddRange(replicators.ToArray());
+            combo.DataSource = texts;
+            combo.AutoCompleteCustomSource.Clear();
+            combo.AutoCompleteCustomSource.AddRange(texts.ToArray());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -144,13 +149,13 @@ namespace VideoRecordings
                 {
                     getjson += $"project_name={comboBox_proname.Text.Trim()}&";
                 }
-                if (comboBox_place.SelectedIndex != -1)
+                if (comboBox1.SelectedIndex != -1)
                 {
-                    getjson += $"place={comboBox_place.Text}&";
+                    getjson += $"place={comboBox1.Text}&";
                 }
-                if (comboBox_replicator.SelectedIndex != -1)
+                if (comboBox2.SelectedIndex != -1)
                 {
-                    getjson += $"replicator={comboBox_replicator.Text}&";
+                    getjson += $"replicator={comboBox2.Text}&";
                 }
                 if (!string.IsNullOrEmpty(textBox_name.Text))
                 {
@@ -160,35 +165,28 @@ namespace VideoRecordings
                 {
                     getjson += $"id={textBox_vid.Text.Trim()}&";
                 }
-                if (!radioButton3.Checked)
+                if (radioGroup1.SelectedIndex!=2)
                 {
-                    if (radioButton1.Checked)
-                    {
-                        getjson += "status=0&";
-                    }
-                    if (radioButton2.Checked)
-                    {
-                        getjson += "status=1&";
-                    }
+                    getjson += $"status={radioGroup1.SelectedIndex}&";
                 }
-                if (!radioButton6.Checked)
+                if (radioGroup2.SelectedIndex!=2)
                 {
-                    if (radioButton4.Checked)
+                    if (radioGroup2.SelectedIndex==0)
                     {
                         getjson += "recorded=1&";
                     }
-                    if (radioButton5.Checked)
+                    if (radioGroup2.SelectedIndex ==1)
                     {
                         getjson += "recorded=0&";
                     }
                 }
-                if (!radioButton9.Checked)
+                if (radioGroup3.SelectedIndex!=2)
                 {
-                    if (radioButton7.Checked)
+                    if (radioGroup3.SelectedIndex==0)
                     {
                         getjson += "deframed=2&";
                     }
-                    if (radioButton8.Checked)
+                    if (radioGroup3.SelectedIndex==1)
                     {
                         getjson += "deframed=0&";
                     }
@@ -196,6 +194,17 @@ namespace VideoRecordings
                 getjson += $"start_date={dateTimePicker1.Value.ToString("yyyy-MM-dd")}&end_date={dateTimePicker2.Value.ToString("yyyy-MM-dd")}&";
 
                 getjson += $"start_time={timeEdit_start.Text}&end_time={timeEdit_end.Text}&";
+
+                List<int> ids = GetEquipmenIds(comboBox_group.Text.Trim());
+                if (ids.Count!=0)
+                {
+                    getjson += $"equipments=[{string.Join(",",ids)}]&";
+                }
+
+                if (!string.IsNullOrEmpty(comboBox_groups.Text.Trim()))
+                {
+                    getjson += $"equip_groups=[{int.Parse(comboBox_groups.Text.Trim().Split(':').First())}]&";
+                }
 
                 if (textBox_label.Text.Trim() != string.Empty)
                 {
@@ -230,7 +239,7 @@ namespace VideoRecordings
             if (string.IsNullOrEmpty(json)) return;
             WaitFormEx.Run(() =>
             {
-                string url = Program.Urlpath + "/videos?"+json;
+                string url = Program.Urlpath + "/videos?" + json;
                 if (!GettListVideo(url))
                     return;
             });
@@ -302,7 +311,6 @@ namespace VideoRecordings
         /// <returns></returns>
         private List<VideoPlay> GerQueryVideos(JObject obj)
         {
-            queryvidoe.Clear();
             equipments.Clear();
             List<VideoPlay> palys = new List<VideoPlay>();
             for (int i = 0; i < obj["result"].Count(); i++)
@@ -317,17 +325,9 @@ namespace VideoRecordings
                     if (equipments.Count(t=>t.Id==equipment.Id)==0)
                         equipments.Add(equipment);
                     palys.AddRange(videos);
-                    if (queryvidoe.Keys.Contains(project.ProjectId))
-                    {
-                        queryvidoe[project.ProjectId] += comple.Total;
-                    }
-                    else
-                    {
-                        queryvidoe.Add(project.ProjectId, comple.Total);
-                    }
                 }
             }
-            return palys;
+            return palys.OrderBy(t=>t.EquipmentID).ToList();
         }
 
         /// <summary>
@@ -347,10 +347,7 @@ namespace VideoRecordings
             switch (keyData)
             {
                 //case Keys.Enter:
-                //    if (SetScreeningLabels())
-                //    {
-                //        return true;
-                //    }
+                //    if(comboBox_group.Focused)
                 //    button1.PerformClick();
                 //    break;
                 case Keys.D:
@@ -528,9 +525,8 @@ namespace VideoRecordings
         /// </summary>
         private void OpenVideoPaly()
         {
-            VideoRecording recording = new VideoRecording(transmissionvideo, Hasbeen);
-            recording.MyEvent += new VideoRecording.MyDelegate(RefreshAllData);
-            recording.SetMyRecordEvent += new VideoRecording.MyRecordDelegate(SetTheUse);
+            VideoRecording recording = new VideoRecording(transmissionvideo,videoplays);
+            //recording.MyEvent += new VideoRecording.MyDelegate(RefreshImage);
             if (transmissionvideo.Uri == null) return;
             if (File.Exists(Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri))))
             {
@@ -673,25 +669,15 @@ namespace VideoRecordings
         {
             if (MessageBox.Show($"是否删除编号{transmissionvideo.Id}的视频,删除视频前请确认解帧图片一并删除？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
                 return;
-            string url = Program.Urlpath + "/video/" + transmissionvideo.Id;
-            JObject obj = WebClinetHepler.Delete_New(url);
-            if (obj == null)
+            if (!VideoData.DeleteVideo(transmissionvideo.Id))
             {
                 MessageBox.Show("删除失败");
-                Program.log.Error($"删除{transmissionvideo.Id}失败", new Exception($"{url}"));
+                Program.log.Error($"删除{transmissionvideo.Id}失败", new Exception($"{transmissionvideo.Id}"));
             }
             videoplays.Remove(transmissionvideo);
             bindingSource1.DataSource = videoplays;
             gridView1.RefreshData();
             OnSave();
-            Program.log.Error($"删除{transmissionvideo.Id}", new Exception($"{url}"));
-        }
-
-        private void SetRadioButton()
-        {
-            radioButton1.Checked = true;
-            radioButton4.Checked = true;
-            radioButton9.Checked = true;
         }
 
         /// <summary>
@@ -708,7 +694,7 @@ namespace VideoRecordings
                 case "place":
                     foreach (var item in video)
                     {
-                        if (!relist.Contains(item.Place))
+                        if (!relist.Contains(item.Place)&&!string.IsNullOrEmpty(item.Place))
                         {
                             relist.Add(item.Place);
                         }
@@ -717,7 +703,7 @@ namespace VideoRecordings
                 case "replicator":
                     foreach (var item in video)
                     {
-                        if (!relist.Contains(item.Replicator))
+                        if (!relist.Contains(item.Replicator)&&!string.IsNullOrEmpty(item.Replicator))
                         {
                             relist.Add(item.Replicator);
                         }
@@ -790,29 +776,22 @@ namespace VideoRecordings
             hInfo = gridView1.CalcHitInfo(e.Y, e.Y);
         }
 
-        private bool SetScreeningLabels()
-        {
-            if (textBox1.Focused)
-            {
-                textBox_label.Text += textBox1.Text + ",";
-                textBox1.Text = string.Empty;
-                return true;
-            }
-            return false;
-        }
-
         /// <summary>
         /// 重置
         /// </summary>
         private void RefAllConditions()
         {
-            SetRadioButton();
+            radioGroup1.SelectedIndex = 0;
+            radioGroup2.SelectedIndex = 0;
+            radioGroup3.SelectedIndex = 2;
             comboBox_proname.SelectedIndex = -1;
             comboBox_proname.Text = string.Empty;
-            comboBox_replicator.SelectedIndex = -1;
-            comboBox_replicator.Text = string.Empty;
-            comboBox_place.SelectedIndex = -1;
-            comboBox_place.Text = string.Empty;
+            comboBox2.SelectedIndex = -1;
+            comboBox2.Text = string.Empty;
+            comboBox1.SelectedIndex = -1;
+            comboBox_group.SelectedIndex = -1;
+            comboBox_groups.SelectedIndex = -1;
+            comboBox1.Text = string.Empty;
             dateTimePicker1.Value = Convert.ToDateTime("2010-1-1");
             dateTimePicker2.Value = DateTime.Now;
             timeEdit_start.Time = DateTime.MinValue;
@@ -828,21 +807,22 @@ namespace VideoRecordings
             GridView gridview = sender as GridView;
             if (GridGroupRowInfo.Column.GroupIndex == 0)
             {
-                int index = gridview.GetDataRowHandleByGroupRowHandle(e.RowHandle);
-                string uri = gridview.GetRowCellValue(index, "Uri").ToString();
-                string project_name = gridview.GetRowCellValue(index, "ProjectName").ToString();
-                GridGroupRowInfo.GroupText = "数据编号:" + uri.Split('/').ToList()
-                     .First(t => t.StartsWith("SP") || t.StartsWith("Sp")) + $" (数量:{queryvidoe[$"{project_name}"]})";
+                int id = int.Parse(GridGroupRowInfo.EditValue.ToString());
+                int count = videoplays.Count(t => t.EquipmentID == id);
+                if (id == 0)
+                    GridGroupRowInfo.GroupText = $"通道信息:{GridGroupRowInfo.EditValue}:无通道信息(数量:{count})";
+                else
+                    GridGroupRowInfo.GroupText = $"通道信息：{GridGroupRowInfo.EditValue} :{mydic[id].Name}({mydic[id].LabelStr})(数量:{count})";
             }
             else
             {
-                int id = int.Parse(GridGroupRowInfo.EditValue.ToString().Split(':').First());
-                int count = videoplays.Count(t => t.EquipmentID == id);
-                if (id == 0)
-                    GridGroupRowInfo.GroupText = $"通道信息：" + GridGroupRowInfo.EditValue + $"({count})";
-                else
-                    GridGroupRowInfo.GroupText = $"通道信息：" + GridGroupRowInfo.EditValue + $"({count})" +
-                        $"({mydic[id].LabelStr})";
+                int index = gridview.GetDataRowHandleByGroupRowHandle(e.RowHandle);
+                string uri = gridview.GetRowCellValue(index, "Uri").ToString();
+                string project_name = gridview.GetRowCellValue(index, "ProjectName").ToString();
+                int EquipmentID = int.Parse(gridview.GetRowCellValue(index, "EquipmentID").ToString());
+                int count = videoplays.Count(t => t.EquipmentID == EquipmentID&&t.ProjectName==project_name);
+                GridGroupRowInfo.GroupText = "数据编号:" + uri.Split('/').ToList()
+                     .First(t => t.StartsWith("SP") || t.StartsWith("Sp")) + $" (数量:{count})";
             }
         }
 
@@ -873,6 +853,11 @@ namespace VideoRecordings
             }
         }
 
+        /// <summary>
+        /// 显示高级
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click_1(object sender, EventArgs e)
         {
             if (dockPanel2.Visibility == DockVisibility.AutoHide)
@@ -883,13 +868,13 @@ namespace VideoRecordings
             {
                 dockPanel5.Visibility = DockVisibility.Visible;
                 isvisbel = true;
-                button3.Text = "隐藏高级选项↓";
+                button3.Text = "高级选项↓";
             }
             else
             {
                 dockPanel5.Visibility = DockVisibility.Hidden;
                 isvisbel = false;
-                button3.Text = "显示高级选项↑";
+                button3.Text = "高级选项↑";
             }
         }
 
@@ -1047,10 +1032,6 @@ namespace VideoRecordings
             Program.log.Info($"{string.Join(",", videos.Select(t => t.Id).ToList())}从设备删除视频失败");
         }
 
-       private void SetTheUse()
-        {
-            Hasbeen = !Hasbeen;
-        }
 
         /// <summary>
         /// 添加
@@ -1291,6 +1272,121 @@ namespace VideoRecordings
         private void OUTExcelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataGridToExcel1(gridControl1);
+        }
+
+        private void SetInfo()
+        {
+
+        }
+
+        private List<int> GetEquipmenIds(string text)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(text))
+                    return new List<int>();
+                List<int> ids = new List<int>();
+                if (text.Split(':').Length == 2)
+                {
+                    ids.Add(int.Parse(text.Split(':').First()));
+                    return ids;
+                }
+                List<string> name = text.Split('-').ToList();
+                MyGroup showgroups;
+                switch (name.Count)
+                {
+                    case 1:
+                        showgroups= GroupData.GetGroupShows(name[0]);                       
+                        break;
+                    case 2:
+                        showgroups= GroupData.GetGroupShows(name[0],name[1]);
+                        break;
+                    case 3:
+                        showgroups= GroupData.GetGroupShows(name[0],name[1],name[2]);
+                        break;
+                    case 4:
+                        showgroups= GroupData.GetGroupShows(name[0],name[1],name[2],name[3]);
+                        break;
+                    default:
+                        return new List<int>();
+                }
+                ids = showgroups.Equipments.Select(t => t.Id).ToList();
+                return ids;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("输入的设备编号有问题");
+                return new List<int>();
+            }
+
+        }
+
+        private void SetComboxBox(System.Windows.Forms.ComboBox com, List<string> listOnit, List<string> listNew)
+        {
+            string text = com.Text;
+            List<string> first = listOnit.Where(t => t.Contains(com.Text)).ToList();
+            if (first.Count == 0)
+            {
+                return;
+            }
+            try
+            {
+                com.Items.Clear();
+                listNew.Clear();
+                foreach (var item in listOnit)
+                {
+                    if (item.Contains(com.Text))
+                    {
+                        listNew.Add(item);
+                    }
+                }
+                com.Items.AddRange(listNew.ToArray());
+                com.SelectionStart = com.Text.Length;
+                Cursor = Cursors.Default;
+                com.DroppedDown = true;
+
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            finally
+            {
+                com.Text = text;
+                com.Select(com.Text.Length, 0);
+            }
+        }
+
+        private void comboBox_groups_TextUpdate(object sender, EventArgs e)
+        {
+            SetComboxBox(comboBox_groups,listOnitGroups,listNewGrouops);
+        }
+
+        private void comboBox_group_TextUpdate(object sender, EventArgs e)
+        {
+            SetComboxBox(comboBox_group, listOnitGroup, listNewGrouop);
+        }
+
+        private void comboBox_proname_TextUpdate(object sender, EventArgs e)
+        {
+            SetComboxBox(comboBox_proname, listOnitProName, listNewProName);
+        }
+
+        private void Top_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int[] rownumber = gridView1.GetSelectedRows();
+            if (rownumber.Count() == 0) return;
+            List<VideoPlay> videos = new List<VideoPlay>();
+            foreach (var it in rownumber)
+            {
+                if (it < 0) continue;
+                VideoPlay video = (VideoPlay)gridView1.GetRow(it);
+                videos.Add(video);
+            }
+            BatchSolution batch = new BatchSolution(videos,true);
+            batch.MyRefreshEvent += new BatchSolution.MyDeletgate(RefreshImage);
+            batch.Show();
+            Program.log.Info($"video_ids:{string.Join(",", videos.Select(t => t.Id).ToList())}添加批量标签(置顶)");
         }
     }
 }

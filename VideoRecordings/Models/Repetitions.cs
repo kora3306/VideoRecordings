@@ -93,8 +93,6 @@ namespace VideoRecordings.Models
         public int ID { get; set; }        
     }
 
-
-
     /// <summary>
     /// 视频查重返回
     /// </summary>
@@ -125,5 +123,22 @@ namespace VideoRecordings.Models
         public string Path { get; set; } = string.Empty;
         [DataMember(Name = "video_id")]
         public int Id { get; set; } = 0;
+    }
+
+
+    [DataContract]
+    public class BatchScreenshots
+    {
+        [DataMember(Name = "batch_id")]
+        public int BatchId { get; set; }
+
+        [DataMember(Name = "seq_id")]
+        public int ID { get; set; }
+
+        [DataMember(Name = "status")]
+        public string Status { get; set; }
+
+        [DataMember(Name = "user_name")]
+        public string UserName { get; set; }
     }
 }

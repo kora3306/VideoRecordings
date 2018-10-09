@@ -27,7 +27,6 @@ namespace DXApplication1
         {
             InitializeComponent();
             tableLayoutPanel1.BackColor = Color.Black;
-           
         }
 
 
@@ -44,7 +43,7 @@ namespace DXApplication1
             axPlayer1.OnSeekCompleted += new _IPlayerEvents_OnSeekCompletedEventHandler(axPlayer1_OnSeekCompleted);
             axPlayer1.OnOpenSucceeded += new EventHandler(axPlayer1_OnOpenSucceeded);
             axPlayer1.OnDownloadCodec += new _IPlayerEvents_OnDownloadCodecEventHandler(axPlayer1_OnDownloadCodec);
-            axPlayer1.SetCustomLogo(Properties.Resources.logo.GetHbitmap().ToInt32());  //自定义logo
+            axPlayer1.SetCustomLogo(Resources.logo.GetHbitmap().ToInt32());  //自定义logo
             axPlayer1.SetVolume(50);
             this.Resize += new EventHandler(FormResize);
             pic_play_pause.SizeMode = PictureBoxSizeMode.Zoom;
@@ -62,9 +61,9 @@ namespace DXApplication1
             switch (e.nMessage)
             {
                 case conf.WM_RBUTTONDOWN:
-                    int tempstatus = axPlayer1.GetState();
+                    int tempstatus = _Player.GetState();
 
-                    if (axPlayer1.GetState() == 5)
+                    if (_Player.GetState() == 5)
                     {
                         contextMenuStrip1.Items["playpause"].Text = "暂停";
                     }
@@ -72,7 +71,7 @@ namespace DXApplication1
                     {
                         contextMenuStrip1.Items["playpause"].Text = "播放";
                     }
-                    contextMenuStrip1.Show(axPlayer1, axPlayer1.PointToClient(Cursor.Position));
+                    contextMenuStrip1.Show(_Player, _Player.PointToClient(Cursor.Position));
                     break;
                 default: break;
             }
@@ -103,9 +102,9 @@ namespace DXApplication1
         void axPlayer1_OnOpenSucceeded(object sender, EventArgs e)
         {
             label1.Text = "00:00:00";
-            label2.Text = TimeToString(TimeSpan.FromMilliseconds(axPlayer1.GetDuration()));
+            label2.Text = TimeToString(TimeSpan.FromMilliseconds(_Player.GetDuration()));
             colorSlider2.Enabled = true;
-            colorSlider2.Maximum = axPlayer1.GetDuration()/1000;
+            colorSlider2.Maximum = _Player.GetDuration()/1000;
             timer1.Start();
         }
         /// <summary>
@@ -190,7 +189,7 @@ namespace DXApplication1
                 ofd.Multiselect = false;
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    axPlayer1.Open(ofd.FileName);
+                    _Player.Open(ofd.FileName);
                 }
             }
 
@@ -200,7 +199,7 @@ namespace DXApplication1
         {
             if (URL != string.Empty)
             {
-                axPlayer1.Open(URL);
+                _Player.Open(URL);
             }
         }
 
@@ -210,13 +209,13 @@ namespace DXApplication1
             int tempstatus = _Player.GetState();
             if (tempstatus == 5 || tempstatus == 3)
             {
-                if (axPlayer1.GetState() == 5)  //播放-暂停
+                if (_Player.GetState() == 5)  //播放-暂停
                 {
-                    axPlayer1.Pause();
+                    _Player.Pause();
                 }
                 else
                 {
-                    axPlayer1.Play();
+                    _Player.Play();
                 }
             }
             if (tempstatus==0)
@@ -227,7 +226,7 @@ namespace DXApplication1
 
         private void Stop()
         {
-            axPlayer1.Close();
+            _Player.Close();
         }
 
         /// <summary>
@@ -237,9 +236,9 @@ namespace DXApplication1
         /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label1.Text = TimeToString(TimeSpan.FromMilliseconds(axPlayer1.GetPosition()));
-            colorSlider2.Value = axPlayer1.GetPosition() <= 0 ? 0 : axPlayer1.GetPosition()/1000;
-            if (axPlayer1.GetDuration()-1==axPlayer1.GetPosition())
+            label1.Text = TimeToString(TimeSpan.FromMilliseconds(_Player.GetPosition()));
+            colorSlider2.Value = _Player.GetPosition() <= 0 ? 0 : _Player.GetPosition()/1000;
+            if (axPlayer1.GetDuration()-1== _Player.GetPosition())
             {
                 VideoPalying();
             }
@@ -269,12 +268,12 @@ namespace DXApplication1
             if ((sender as ToolStripMenuItem).Text == "显示字幕")
             {
                 (sender as ToolStripMenuItem).Text = "隐藏字幕";
-                axPlayer1.SetConfig(504, "1");
+                _Player.SetConfig(504, "1");
             }
             else
             {
                 (sender as ToolStripMenuItem).Text = "显示字幕";
-                axPlayer1.SetConfig(504, "0");
+                _Player.SetConfig(504, "0");
             }
         }
         
@@ -401,7 +400,7 @@ namespace DXApplication1
 
         private void colorSlider1_Scroll(object sender, ScrollEventArgs e)
         {
-            axPlayer1.SetVolume(colorSlidersound.Value * 10);  //10倍
+            _Player.SetVolume(colorSlidersound.Value * 10);  //10倍
         }
 
         private void colorSlider2_MouseHover(object sender, EventArgs e)
@@ -411,7 +410,7 @@ namespace DXApplication1
 
         private void colorSlider2_Scroll(object sender, ScrollEventArgs e)
         {
-            axPlayer1.SetPosition(colorSlider2.Value*1000);
+            _Player.SetPosition(colorSlider2.Value*1000);
             label1.Text = TimeToString(TimeSpan.FromMilliseconds(colorSlider2.Value*1000));
         }
 
@@ -461,7 +460,7 @@ namespace DXApplication1
             string photoname = DateTime.Now.Ticks.ToString();
             if (path.Substring(path.Length - 1, 1) != @"\")
                 path = path + @"\";
-            axPlayer1.SetConfig(702, path + "\\" + photoname + ".jpg");
+            _Player.SetConfig(702, path + "\\" + photoname + ".jpg");
         }
 
         public delegate void MyDelegate();
@@ -471,7 +470,7 @@ namespace DXApplication1
         public void CaptureTheScreen()
         {
             SetPoint();
-            Bitmap bit = new Bitmap(axPlayer1.Width+10, axPlayer1.Height+25);
+            Bitmap bit = new Bitmap(_Player.Width+10, _Player.Height+25);
             Graphics g = Graphics.FromImage(bit);
             g.CopyFromScreen(point, new Point(0, 0), bit.Size);
             string photoname = DateTime.Now.Ticks.ToString();
@@ -547,21 +546,21 @@ namespace DXApplication1
                     colorSlider2.Value = 1 ;
                     break;
                 case TimeType.Append:
-                    if (colorSlider2.Value > (axPlayer1.GetDuration() / 1000)-100)
+                    if (colorSlider2.Value > (_Player.GetDuration() / 1000)-100)
                     {
-                        colorSlider2.Value = (axPlayer1.GetDuration() / 1000) - 1;
+                        colorSlider2.Value = (_Player.GetDuration() / 1000) - 1;
                         break;
                     }
                     colorSlider2.Value += 30;
                     break;
                 case TimeType.End:
-                    colorSlider2.Value = (axPlayer1.GetDuration() / 1000)-1;
+                    colorSlider2.Value = (_Player.GetDuration() / 1000)-1;
                     PlayOrPause();
                     break;
                 default:
                     break;
             }
-            axPlayer1.SetPosition(colorSlider2.Value * 1000);
+            _Player.SetPosition(colorSlider2.Value * 1000);
             label1.Text = TimeToString(TimeSpan.FromMilliseconds(colorSlider2.Value * 1000));
         }
 
