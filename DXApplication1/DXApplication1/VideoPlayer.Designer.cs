@@ -133,7 +133,7 @@
             // panelbottom
             // 
             this.panelbottom.BackColor = System.Drawing.Color.Transparent;
-            this.panelbottom.BackgroundImage = global::DXApplication1.Properties.Resources.bottom;
+            this.panelbottom.BackgroundImage = global::DXApplication1.Properties.Resources.blue;
             this.panelbottom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelbottom.Controls.Add(this.pictureBox1);
             this.panelbottom.Controls.Add(this.colorSlidersound);
@@ -266,7 +266,7 @@
             // paneltop
             // 
             this.paneltop.BackColor = System.Drawing.Color.Transparent;
-            this.paneltop.BackgroundImage = global::DXApplication1.Properties.Resources.top;
+            this.paneltop.BackgroundImage = global::DXApplication1.Properties.Resources.blue;
             this.paneltop.Controls.Add(this.lbltitle);
             this.paneltop.Controls.Add(this.label4);
             this.paneltop.Dock = System.Windows.Forms.DockStyle.Fill;

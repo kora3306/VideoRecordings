@@ -27,37 +27,37 @@ namespace VideoRecordings.Video
 
         GridHitInfo hInfo = new GridHitInfo();
 
-        private  string log;
+        private string log;
 
         public RepetitionVideo()
         {
             InitializeComponent();
             log = Program.User.Name;
-            SetINfo(log);
+            SetINfo();
         }
 
-        private void SetINfo(string logname,string number=null)
+        private void SetINfo(int number=-1)
         {
-            List<Repetitions> repetitions = VideoData.GetRepetitions(logname,number);
+            List<Repetitions> repetitions = VideoData.GetRepetitions(number);
             bindingSource1.DataSource = repetitions.OrderByDescending(t=>t.ID);
             gridView1.RefreshData();
         }
 
         private void Show20ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetINfo(log,"20");
+            SetINfo(20);
             Program.log.Info("查看20条查重记录");
         }
 
         private void show50ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetINfo(log,"50");
+            SetINfo(50);
             Program.log.Info("查看50条查重记录");
         }
 
         private void showallToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetINfo(log,"-1");
+            SetINfo(-1);
             Program.log.Info("查看所有查重记录");
         }
 
@@ -90,7 +90,7 @@ namespace VideoRecordings.Video
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetINfo(log);
+            SetINfo();
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
@@ -127,7 +127,7 @@ namespace VideoRecordings.Video
             }
             MessageBox.Show("删除成功");
             Program.log.Info($"删除查重记录{re.ID}");
-            SetINfo(log);
+            SetINfo();
         }
     }
 }

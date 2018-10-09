@@ -18,6 +18,7 @@ using System.Net;
 using System.Web.Script.Serialization;
 using VideoRecordings.Models;
 using Dal;
+using VideoRecordings.GetDatas;
 
 namespace VideoRecordings
 {
@@ -31,7 +32,7 @@ namespace VideoRecordings
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //BonusSkins.Register();
+            BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
             Directory.CreateDirectory("Log");
@@ -47,8 +48,9 @@ namespace VideoRecordings
 
         public static ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        public static string VideoPlay;
+        public static List<VideoPath> VideoPlayPath;
         public const string PlayerPath = @".\VideoPlayPath.txt";    //储存的播放器路径
+        public readonly static List<string> Paths = new List<string>() { "StormPlayer", "KMPIAYER", "XMP", "VLC" };
         /// <summary>
         /// 接口
         /// </summary>
@@ -192,6 +194,7 @@ namespace VideoRecordings
                 case "md8":
                 case "md9":
                 case "md10":
+                case "md11":
                     return Url3 + url;
                 default:
                     break;
@@ -274,7 +277,7 @@ namespace VideoRecordings
             bool open158 = Connect(PathUrl, "leets", "songnana1234");
             bool open234 = Connect("\\\\192.168.1.234", "work", "test234");
             bool open198 = Connect("\\\\192.168.1.198", "work", "test198");
-            VideoPlay = Methods.ReadPath(PlayerPath);
+            VideoPlayPath = Methods.ReadPath(PlayerPath);
             ImageSavePath = GetAppConfig(ImageName);
             IsTest = GetAppConfig("TestApi") == "1";
             if (!IsTest)
@@ -405,4 +408,5 @@ namespace VideoRecordings
         }
 
     }
+
 }

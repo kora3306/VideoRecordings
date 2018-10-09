@@ -1,1 +1,1 @@
-E:\Baofeng\StormPlayer\StormPlayer.exe
+[{"name":"StormPlayer","path":"D:\\Baofeng\\StormPlayer\\StormPlayer.exe"},{"name":"KMPIAYER","path":"C:\\KMPlayer\\KMPlayer.exe"}]

@@ -37,13 +37,13 @@ namespace VideoRecordings
         public List<string> imageurl = new List<string>();       //选中文件的图片的url
         bool isFirst = true;  //每次查询选择定位选中文件0
         bool iscollpase = false;
-        public bool Hasbeen = false;
         private bool isvisbel = false;
         List<VideoProject> Videos = new List<VideoProject>();
         GridHitInfo hInfo = new GridHitInfo();
         private List<EquipmentInfo> equipments = new List<EquipmentInfo>();
         private Dictionary<int, EquipmentInfo> mydic = new Dictionary<int, EquipmentInfo>();
         List<string> replicators = new List<string>();
+        List<string> places = new List<string>();
 
         List<string> listOnitGroup = new List<string>();
         List<string> listNewGrouop = new List<string>();  //搜索集合
@@ -69,7 +69,7 @@ namespace VideoRecordings
         public QueryVideo()
         {
             InitializeComponent();
-            Videos = VideoData.GetAllFolder(); ;
+           
         }
 
         private void QueryVideo_Load(object sender, EventArgs e)
@@ -79,25 +79,34 @@ namespace VideoRecordings
             addEquipment.MySaveEvent += new AddEquipment.MyDelegate(RefEquipment);
             selectEquipment.MySaveEvent += new SelectEquipment.MyEvent(RefreshImage);
             selectEquipment.MyRefreshEvent += new SelectEquipment.MyEvent(GridViewClear);
-            MyLabels = new MyLabels();
-            SetInformations();
-            SetRadioButton();
-            comboBox_proname.SelectedIndex = -1;
-            comboBox1.SelectedIndex = -1;
-            comboBox2.SelectedIndex = -1;
-            comboBox_group.SelectedIndex = -1;
-            comboBox_groups.SelectedIndex = -1;
-            dateTimePicker1.Value = Convert.ToDateTime("2010-1-1");
-            dateTimePicker2.Value = DateTime.Now;
-            timeEdit_start.Time = DateTime.MinValue;
-            timeEdit_end.Time = DateTime.MaxValue;
+            dockPanel5.Visibility = DockVisibility.Hidden;
+            WaitFormEx.Run(() => 
+            {
+                Videos = VideoData.GetAllFolder();
+                MyLabels = new MyLabels();
+              
+                places = RepeatList(Videos, "place");
+                replicators = RepeatList(Videos, "replicator");
+                listOnitProName = Videos.Select(t => t.Name).ToList();
+                listOnitGroups = GroupData.GetAllGalleryGroup().OrderBy(t => t.Id).Select(t => $"{t.Id}:{t.Name}").ToList();
+                listOnitGroup = MyGroup.GetGetGroups().Equipments.OrderBy(t => t.Id).Select(t => $"{t.Id}:{t.Name}").ToList();
+            });
+
             List<string> text = MyLabels.AllLabelsToDic.Select(t => t.Value).ToList();
             textBox_label.AutoCompleteCustomSource.Clear();
             textBox_label.AutoCompleteCustomSource.AddRange(text.ToArray());
+
+            SetComboBoxInfo(places, comboBox1);
+            SetComboBoxInfo(replicators, comboBox2);
+
+            comboBox_proname.Items.AddRange(listOnitProName.ToArray());
+            comboBox_groups.Items.AddRange(listOnitGroups.ToArray());
+            comboBox_group.Items.AddRange(listOnitGroup.ToArray());
+
             imageListView1.DiskCache = Program.Persistent;
             gridView1.OptionsBehavior.AutoExpandAllGroups = false;
             Methods.AddIsTest(this);
-            dockPanel5.Visibility = DockVisibility.Hidden;
+            RefAllConditions();
         }
 
         public void RefEquipment()
@@ -110,25 +119,11 @@ namespace VideoRecordings
             bindingSource1.DataSource = null;
         }
 
-        private void SetInformations()
+        public  void SetComboBoxInfo(List<string>texts, System.Windows.Forms.ComboBox combo)
         {
-            if (Videos == null || Videos.Count == 0) return;
-            string getpath = Program.Urlpath + "/video/projects";
-            var result = Videos.Where(p => !Videos.Any(q => (p != q && p.Scenes == q.Scenes)));
-            listOnitProName = Videos.Select(t => t.Name).ToList();
-            comboBox_proname.Items.AddRange(listOnitProName.ToArray());
-            List<string> places = RepeatList(Videos, "place");
-            comboBox1.DataSource = places;
-            comboBox1.AutoCompleteCustomSource.Clear();
-            comboBox1.AutoCompleteCustomSource.AddRange(places.ToArray());
-            replicators = RepeatList(Videos, "replicator");
-            comboBox2.DataSource = replicators;
-            comboBox2.AutoCompleteCustomSource.Clear();
-            comboBox2.AutoCompleteCustomSource.AddRange(replicators.ToArray());
-            listOnitGroups = GroupData.GetAllGalleryGroup().OrderBy(t=>t.Id).Select(t=>$"{t.Id}:{t.Name}").ToList();
-            comboBox_groups.Items.AddRange(listOnitGroups.ToArray());
-            listOnitGroup = MyGroup.GetGetGroups().Equipments.OrderBy(t=>t.Id).Select(t => $"{t.Id}:{t.Name}").ToList();
-            comboBox_group.Items.AddRange(listOnitGroup.ToArray());
+            combo.DataSource = texts;
+            combo.AutoCompleteCustomSource.Clear();
+            combo.AutoCompleteCustomSource.AddRange(texts.ToArray());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -530,9 +525,8 @@ namespace VideoRecordings
         /// </summary>
         private void OpenVideoPaly()
         {
-            VideoRecording recording = new VideoRecording(transmissionvideo, Hasbeen);
-            recording.MyEvent += new VideoRecording.MyDelegate(RefreshAllData);
-            recording.SetMyRecordEvent += new VideoRecording.MyRecordDelegate(SetTheUse);
+            VideoRecording recording = new VideoRecording(transmissionvideo,videoplays);
+            //recording.MyEvent += new VideoRecording.MyDelegate(RefreshImage);
             if (transmissionvideo.Uri == null) return;
             if (File.Exists(Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri))))
             {
@@ -675,25 +669,15 @@ namespace VideoRecordings
         {
             if (MessageBox.Show($"是否删除编号{transmissionvideo.Id}的视频,删除视频前请确认解帧图片一并删除？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
                 return;
-            string url = Program.Urlpath + "/video/" + transmissionvideo.Id;
-            JObject obj = WebClinetHepler.Delete_New(url);
-            if (obj == null)
+            if (!VideoData.DeleteVideo(transmissionvideo.Id))
             {
                 MessageBox.Show("删除失败");
-                Program.log.Error($"删除{transmissionvideo.Id}失败", new Exception($"{url}"));
+                Program.log.Error($"删除{transmissionvideo.Id}失败", new Exception($"{transmissionvideo.Id}"));
             }
             videoplays.Remove(transmissionvideo);
             bindingSource1.DataSource = videoplays;
             gridView1.RefreshData();
             OnSave();
-            Program.log.Error($"删除{transmissionvideo.Id}", new Exception($"{url}"));
-        }
-
-        private void SetRadioButton()
-        {
-            radioGroup1.SelectedIndex = 0;
-            radioGroup2.SelectedIndex = 0;
-            radioGroup3.SelectedIndex = 2;
         }
 
         /// <summary>
@@ -797,7 +781,9 @@ namespace VideoRecordings
         /// </summary>
         private void RefAllConditions()
         {
-            SetRadioButton();
+            radioGroup1.SelectedIndex = 0;
+            radioGroup2.SelectedIndex = 0;
+            radioGroup3.SelectedIndex = 2;
             comboBox_proname.SelectedIndex = -1;
             comboBox_proname.Text = string.Empty;
             comboBox2.SelectedIndex = -1;
@@ -824,10 +810,9 @@ namespace VideoRecordings
                 int id = int.Parse(GridGroupRowInfo.EditValue.ToString());
                 int count = videoplays.Count(t => t.EquipmentID == id);
                 if (id == 0)
-                    GridGroupRowInfo.GroupText = $"通道信息：" + GridGroupRowInfo.EditValue +$":无通道信息(数量:{count})";
+                    GridGroupRowInfo.GroupText = $"通道信息:{GridGroupRowInfo.EditValue}:无通道信息(数量:{count})";
                 else
-                    GridGroupRowInfo.GroupText = $"通道信息：" + GridGroupRowInfo.EditValue + $":{mydic[id].Name}(数量:{count})" +
-                        $"({mydic[id].LabelStr})";
+                    GridGroupRowInfo.GroupText = $"通道信息：{GridGroupRowInfo.EditValue} :{mydic[id].Name}({mydic[id].LabelStr})(数量:{count})";
             }
             else
             {
@@ -868,6 +853,11 @@ namespace VideoRecordings
             }
         }
 
+        /// <summary>
+        /// 显示高级
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click_1(object sender, EventArgs e)
         {
             if (dockPanel2.Visibility == DockVisibility.AutoHide)
@@ -1042,10 +1032,6 @@ namespace VideoRecordings
             Program.log.Info($"{string.Join(",", videos.Select(t => t.Id).ToList())}从设备删除视频失败");
         }
 
-       private void SetTheUse()
-        {
-            Hasbeen = !Hasbeen;
-        }
 
         /// <summary>
         /// 添加

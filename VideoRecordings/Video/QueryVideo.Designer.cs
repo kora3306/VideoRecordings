@@ -191,7 +191,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.51013F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.88068F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.9946F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
             this.tableLayoutPanel1.Controls.Add(this.label_fid, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBox_proname, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label22, 0, 1);
@@ -234,7 +234,7 @@
             this.comboBox_proname.FormattingEnabled = true;
             this.comboBox_proname.Location = new System.Drawing.Point(114, 3);
             this.comboBox_proname.Name = "comboBox_proname";
-            this.comboBox_proname.Size = new System.Drawing.Size(188, 28);
+            this.comboBox_proname.Size = new System.Drawing.Size(187, 28);
             this.comboBox_proname.TabIndex = 56;
             this.comboBox_proname.TextUpdate += new System.EventHandler(this.comboBox_proname_TextUpdate);
             // 
@@ -255,7 +255,7 @@
             this.comboBox_groups.FormattingEnabled = true;
             this.comboBox_groups.Location = new System.Drawing.Point(114, 40);
             this.comboBox_groups.Name = "comboBox_groups";
-            this.comboBox_groups.Size = new System.Drawing.Size(188, 27);
+            this.comboBox_groups.Size = new System.Drawing.Size(187, 27);
             this.comboBox_groups.TabIndex = 83;
             this.comboBox_groups.TextUpdate += new System.EventHandler(this.comboBox_groups_TextUpdate);
             // 
@@ -264,7 +264,7 @@
             this.label21.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label21.Location = new System.Drawing.Point(328, 45);
+            this.label21.Location = new System.Drawing.Point(327, 45);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(65, 20);
             this.label21.TabIndex = 71;
@@ -274,9 +274,9 @@
             // 
             this.comboBox_group.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox_group.FormattingEnabled = true;
-            this.comboBox_group.Location = new System.Drawing.Point(419, 40);
+            this.comboBox_group.Location = new System.Drawing.Point(418, 40);
             this.comboBox_group.Name = "comboBox_group";
-            this.comboBox_group.Size = new System.Drawing.Size(232, 27);
+            this.comboBox_group.Size = new System.Drawing.Size(231, 27);
             this.comboBox_group.TabIndex = 82;
             this.comboBox_group.TextUpdate += new System.EventHandler(this.comboBox_group_TextUpdate);
             // 
@@ -285,7 +285,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(328, 8);
+            this.label7.Location = new System.Drawing.Point(327, 8);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 20);
             this.label7.TabIndex = 18;
@@ -295,9 +295,9 @@
             // 
             this.textBox_vid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_vid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_vid.Location = new System.Drawing.Point(419, 3);
+            this.textBox_vid.Location = new System.Drawing.Point(418, 3);
             this.textBox_vid.Name = "textBox_vid";
-            this.textBox_vid.Size = new System.Drawing.Size(232, 26);
+            this.textBox_vid.Size = new System.Drawing.Size(231, 26);
             this.textBox_vid.TabIndex = 21;
             // 
             // label8
@@ -305,7 +305,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(677, 8);
+            this.label8.Location = new System.Drawing.Point(675, 8);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 20);
             this.label8.TabIndex = 19;
@@ -318,9 +318,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.textBox_label, 3);
             this.textBox_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_label.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_label.Location = new System.Drawing.Point(768, 3);
+            this.textBox_label.Location = new System.Drawing.Point(766, 3);
             this.textBox_label.Name = "textBox_label";
-            this.textBox_label.Size = new System.Drawing.Size(383, 26);
+            this.textBox_label.Size = new System.Drawing.Size(380, 26);
             this.textBox_label.TabIndex = 20;
             this.textBox_label.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_label_KeyDown);
             // 
@@ -352,9 +352,9 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(920, 40);
+            this.button1.Location = new System.Drawing.Point(917, 40);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 31);
+            this.button1.Size = new System.Drawing.Size(115, 31);
             this.button1.TabIndex = 12;
             this.button1.Text = "开始查询";
             this.button1.UseVisualStyleBackColor = true;
@@ -363,7 +363,7 @@
             // button_ref
             // 
             this.button_ref.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_ref.Location = new System.Drawing.Point(768, 40);
+            this.button_ref.Location = new System.Drawing.Point(766, 40);
             this.button_ref.Name = "button_ref";
             this.button_ref.Size = new System.Drawing.Size(118, 31);
             this.button_ref.TabIndex = 68;
@@ -1291,7 +1291,7 @@
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.RowHeight = 30;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn_eq, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn_eq, DevExpress.Data.ColumnSortOrder.Descending),
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn6, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridView1_CustomDrawCell);
             this.gridView1.CustomDrawGroupRow += new DevExpress.XtraGrid.Views.Base.RowObjectCustomDrawEventHandler(this.gridView1_CustomDrawGroupRow);

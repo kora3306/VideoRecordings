@@ -172,3 +172,17 @@ E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\zh-Hans\DevExp
 E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\zh-Hans\DevExpress.XtraEditors.v18.1.resources.dll
 E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\zh-Hans\DevExpress.Printing.v18.1.Core.resources.dll
 E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\zh-Hans\DevExpress.Pdf.v18.1.Core.resources.dll
+E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\DevExpress.XtraLayout.v18.1.dll
+E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\DevExpress.XtraTreeList.v18.1.dll
+E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\DevExpress.XtraLayout.v18.1.xml
+E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\DevExpress.XtraTreeList.v18.1.xml
+E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\de\DevExpress.XtraLayout.v18.1.resources.dll
+E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\es\DevExpress.XtraLayout.v18.1.resources.dll
+E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\ja\DevExpress.XtraLayout.v18.1.resources.dll
+E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\ru\DevExpress.XtraLayout.v18.1.resources.dll
+E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\zh-Hans\DevExpress.XtraLayout.v18.1.resources.dll
+E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\de\DevExpress.XtraTreeList.v18.1.resources.dll
+E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\es\DevExpress.XtraTreeList.v18.1.resources.dll
+E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\ja\DevExpress.XtraTreeList.v18.1.resources.dll
+E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\ru\DevExpress.XtraTreeList.v18.1.resources.dll
+E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\zh-Hans\DevExpress.XtraTreeList.v18.1.resources.dll

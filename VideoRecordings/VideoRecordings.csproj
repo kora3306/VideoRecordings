@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -174,6 +175,12 @@
     </Compile>
     <Compile Include="Images\ImageInformation.Designer.cs">
       <DependentUpon>ImageInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Video\BatchScreenshot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Video\BatchScreenshot.Designer.cs">
+      <DependentUpon>BatchScreenshot.cs</DependentUpon>
     </Compile>
     <Compile Include="Video\BatchSolution.cs">
       <SubType>Form</SubType>
@@ -325,12 +332,14 @@
     <EmbeddedResource Include="Label\ShowStaticLabel.resx">
       <DependentUpon>ShowStaticLabel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Video\AddVideo.resx">
       <DependentUpon>AddVideo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FileManagement .resx">
       <DependentUpon>FileManagement .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Video\BatchScreenshot.resx">
+      <DependentUpon>BatchScreenshot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Video\BatchSolution.resx">
       <DependentUpon>BatchSolution.cs</DependentUpon>
@@ -451,6 +460,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -27,7 +27,6 @@ namespace DXApplication1
         {
             InitializeComponent();
             tableLayoutPanel1.BackColor = Color.Black;
-           
         }
 
 
@@ -44,7 +43,7 @@ namespace DXApplication1
             axPlayer1.OnSeekCompleted += new _IPlayerEvents_OnSeekCompletedEventHandler(axPlayer1_OnSeekCompleted);
             axPlayer1.OnOpenSucceeded += new EventHandler(axPlayer1_OnOpenSucceeded);
             axPlayer1.OnDownloadCodec += new _IPlayerEvents_OnDownloadCodecEventHandler(axPlayer1_OnDownloadCodec);
-            axPlayer1.SetCustomLogo(Properties.Resources.logo.GetHbitmap().ToInt32());  //自定义logo
+            axPlayer1.SetCustomLogo(Resources.logo.GetHbitmap().ToInt32());  //自定义logo
             axPlayer1.SetVolume(50);
             this.Resize += new EventHandler(FormResize);
             pic_play_pause.SizeMode = PictureBoxSizeMode.Zoom;

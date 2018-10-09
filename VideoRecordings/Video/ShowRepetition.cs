@@ -104,7 +104,7 @@ namespace VideoRecordings.Video
                 MessageBox.Show("不存在该视频");
                 return;
             }
-            VideoRecording recording = new VideoRecording(play, false);
+            VideoRecording recording = new VideoRecording(play,null);
             if (play == null || play.Uri == null) return;
             if (File.Exists(Program.ReturnStringUrl(Methods.ConversionString(play.Uri))))
             {

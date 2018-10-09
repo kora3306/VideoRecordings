@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -20,6 +21,12 @@ namespace VideoRecordings
         {
             InitializeComponent();
             Methods.AddIsTest(this);
+            userToolStripMenuItem.Text = $"欢迎:{Program.User.RealName}";
+        }
+
+        private void FileManagement_Load(object sender, EventArgs e)
+        {
+            VideoToolStripMenuItem.PerformClick();
         }
 
         /// <summary>
@@ -43,9 +50,9 @@ namespace VideoRecordings
         /// 判断获取加载的窗体
         /// </summary>
         /// <param name="index"></param>
-        public  void SetForm(string formClass, string name)
+        public void SetForm(string formClass, string name)
         {
-            if (formClass =="VideoRecordings.VideoInformation"&&tabControlExHfrz.Contains(name))
+            if (formClass == "VideoRecordings.VideoInformation" && tabControlExHfrz.Contains(name))
                 return;
             tabControlExHfrz.SuspendLayout();
             TabPage tabPageMapping = new TabPage(name) { Name = name };
@@ -53,11 +60,6 @@ namespace VideoRecordings
             GenerateForm(formClass, tabPageMapping);
             tabControlExHfrz.SelectTabEx(name);
             tabControlExHfrz.ResumeLayout(false);
-        }
-
-        private void FileManagement_Load(object sender, EventArgs e)
-        {
-            VideoToolStripMenuItem.PerformClick();
         }
 
         private void VideoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -94,7 +96,7 @@ namespace VideoRecordings
 
         private void FileManagement_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(MessageBox.Show("是否关闭程序!","关闭提示",MessageBoxButtons.OKCancel)!=DialogResult.OK)
+            if (MessageBox.Show("是否关闭程序!", "关闭提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
             {
                 e.Cancel = true;
             }

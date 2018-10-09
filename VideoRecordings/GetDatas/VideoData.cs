@@ -136,10 +136,10 @@ namespace VideoRecordings.GetDatas
             return obj != null;
         }
 
-        public static List<Repetitions> GetRepetitions(string name, string number = null)
+
+        public static List<Repetitions> GetRepetitions(int number)
         {
-            string url = Program.Urlpath + $"/video/check/User/status?user_name={name}";
-            if (number != null) url += $"&pull_number={number}";
+            string url = Program.Urlpath + $"/video/check/user/status?pull_number={number}";
             JObject obj = WebClinetHepler.GetJObject(url);
             if (obj == null) return new List<Repetitions>();
             List<Repetitions> repetitions = JsonConvert.DeserializeObject<List<Repetitions>>(obj["data"]["result"].ToString());

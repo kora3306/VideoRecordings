@@ -26,7 +26,7 @@ namespace VideoRecordings.Video
             e.Cancel = true;
         }
 
-        public void Refresh()
+        public void  NewRefresh()
         {
             gridControl1.DataSource = null;
             frames = GetDatas.VideoData.GetFrame();
@@ -53,7 +53,7 @@ namespace VideoRecordings.Video
             if(solutions==null||solutions.Count==0) return;
             if (GetDatas.VideoData.QueueSolution(solutions))
             {
-                Refresh();
+                NewRefresh();
                 return;
             }
             MessageBox.Show("置顶失败");
@@ -61,7 +61,7 @@ namespace VideoRecordings.Video
 
         private void Ref_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Refresh();
+            NewRefresh();
         }
     }
 }

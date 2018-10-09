@@ -82,32 +82,40 @@ namespace VideoRecordings
             if (textBox_name.Text != videoProject.Name)
             {
                 postjson.Add("name", textBox_name.Text);
+                videoProject.Name = textBox_name.Text;
             }
             if (textBox_place.Text != videoProject.Place)
             {
                 postjson.Add("place", textBox_place.Text);
+                videoProject.Place = textBox_place.Text;
             }
             if (comboBox_scenes.SelectedIndex != videoProject.Scenes)
             {
                 postjson.Add("scenes", comboBox_scenes.SelectedIndex);
+                videoProject.Scenes = comboBox_scenes.SelectedIndex;
+                videoProject.ScenesName = comboBox_scenes.Text;
             }
             if (dateTimePicker_s.Value != DateTime.Parse(videoProject.StartDate))
             {
                 postjson.Add("start_date", dateTimePicker_s.Value.ToString("yyyy-MM-dd"));
+                videoProject.StartDate = dateTimePicker_s.Value.ToString("yyyy-MM-dd");
             }
             if (dateTimePicker_e.Value != DateTime.Parse(videoProject.EndDate))
             {
                 postjson.Add("end_date", dateTimePicker_e.Value.ToString("yyyy-MM-dd"));
+                videoProject.EndDate = dateTimePicker_e.Value.ToString("yyyy-MM-dd");
             }
             if (textBox_siza.Text != videoProject.Size)
             {
                 postjson.Add("size", textBox_siza.Text);
+                videoProject.Size = textBox_siza.Text;
             }
             if (textBox_count.Text != videoProject.VideoCount.ToString())
             {
                 try
                 {
                     postjson.Add("video_count", int.Parse(textBox_count.Text));
+                    videoProject.VideoCount = int.Parse(textBox_count.Text);
                 }
                 catch (Exception)
                 {
@@ -118,18 +126,22 @@ namespace VideoRecordings
             if (textBox_rep.Text != videoProject.Replicator)
             {
                 postjson.Add("replicator", textBox_rep.Text);
+                videoProject.Replicator = textBox_rep.Text;
             }
             if (textBox_rec.Text != videoProject.Recorder)
             {
                 postjson.Add("recorder", textBox_rec.Text);
+                videoProject.Recorder = textBox_rec.Text;
             }
             if (textBox_note.Text != videoProject.Note)
             {
                 postjson.Add("note", textBox_note.Text);
+                videoProject.Note = textBox_note.Text;
             }
             if (textBox_uri.Text != videoProject.Uri)
             {
                 postjson.Add("uri",StringToString(textBox_uri.Text));
+                videoProject.Uri = StringToString(textBox_uri.Text);
             }
             string json = (new JavaScriptSerializer()).Serialize(postjson);
             return json;

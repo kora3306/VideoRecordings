@@ -34,8 +34,8 @@ namespace VideoRecordings
         {
             if (items == null || items.Count == 0) return;
             ImageFromWebTest();
-            pictureBox2.Image = Resources._01;
-            pictureBox3.Image = Resources._02;
+            //pictureBox2.Image = Resources._01;
+            //pictureBox3.Image = Resources._02;
 
         }
 
