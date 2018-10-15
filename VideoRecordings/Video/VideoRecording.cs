@@ -717,7 +717,7 @@ namespace VideoRecordings
                     TreeListNode tree = ParentNode.Nodes.Add("");
                     tree.SetValue(treeList1.Columns[0], video.Id);
                     tree.Tag = pageindex;                   
-                    if (video==videoplay)
+                    if (video.Id==videoplay.Id)
                     {
                         selectnode = tree;
                     }

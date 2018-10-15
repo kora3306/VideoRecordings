@@ -19,6 +19,8 @@ namespace VideoRecordings.Video
     {
         List<ReturnRepetition> returns = new List<ReturnRepetition>();
 
+        GridHitInfo Info;
+
         private Dictionary<int, string> nameDic = new Dictionary<int, string>()
         {
             { 0,"正常"},
@@ -90,21 +92,28 @@ namespace VideoRecordings.Video
         {
             ReturnRepetition re = (ReturnRepetition)gridView1.GetRow(gridView1.FocusedRowHandle);
             VideoPlay play = new VideoPlay();
+            List<VideoPlay> plays = new List<VideoPlay>();
             if(isnew)
             {
                 play= VideoData.GetIndexVideoInfo(re.ID);
+                plays.Add(play);
             }
             else
             {
                 if (re.DuplicateId == 0) return;
                 play= VideoData.GetIndexVideoInfo(re.DuplicateId);
+                foreach (var item in re.Duplicates)
+                {
+                    VideoPlay video= VideoData.GetIndexVideoInfo(item.Id);
+                    plays.Add(video);
+                }
             }
             if(play==null)
             {
-                MessageBox.Show("不存在该视频");
+                MessageBox.Show("不存在该视频或者已经被删除");
                 return;
             }
-            VideoRecording recording = new VideoRecording(play,null);
+            VideoRecording recording = new VideoRecording(play,plays);
             if (play == null || play.Uri == null) return;
             if (File.Exists(Program.ReturnStringUrl(Methods.ConversionString(play.Uri))))
             {
@@ -164,6 +173,33 @@ namespace VideoRecordings.Video
                     break;
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (gridView1.FocusedRowHandle < 0) return;
+            if (Info.InRowCell)
+            {
+                switch (Info.Column.AbsoluteIndex)
+                {
+                    case 0:
+                    case 1:
+                        PlayVideo();
+                        break;
+                    case 3:
+                    case 4:
+                        PlayVideo(false);
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+        }
+
+        private void gridView1_MouseDown(object sender, MouseEventArgs e)
+        {
+            Info = gridView1.CalcHitInfo(e.X,e.Y);
         }
     }
 }

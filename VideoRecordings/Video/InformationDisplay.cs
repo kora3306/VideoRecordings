@@ -540,13 +540,13 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void DeleteSolution_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (GetSelectRow() == null)
-            {
-                MessageBox.Show("没有勾选需要删除的解帧视频");
-                return;
-            }
             if (MessageBox.Show("是否删除解帧文件夹？", "提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
                 return;
+            if (GetSelectRow() == null)
+            {
+                MessageBox.Show("没有需要删除的解帧视频");
+                return;
+            }
             List<int> ids = GetSelectRow().Select(t => t.Id).ToList();
             if (!SolutionData.DeleteSolution(ids))
             {
