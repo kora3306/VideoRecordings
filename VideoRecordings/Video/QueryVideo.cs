@@ -816,13 +816,21 @@ namespace VideoRecordings
             }
             else
             {
-                int index = gridview.GetDataRowHandleByGroupRowHandle(e.RowHandle);
-                string uri = gridview.GetRowCellValue(index, "Uri").ToString();
-                string project_name = gridview.GetRowCellValue(index, "ProjectName").ToString();
-                int EquipmentID = int.Parse(gridview.GetRowCellValue(index, "EquipmentID").ToString());
-                int count = videoplays.Count(t => t.EquipmentID == EquipmentID&&t.ProjectName==project_name);
-                GridGroupRowInfo.GroupText = "数据编号:" + uri.Split('/').ToList()
-                     .First(t => t.StartsWith("SP") || t.StartsWith("Sp")) + $" (数量:{count})";
+                try
+                {
+                    int index = gridview.GetDataRowHandleByGroupRowHandle(e.RowHandle);
+                    string uri = gridview.GetRowCellValue(index, "Uri").ToString();
+                    string project_name = gridview.GetRowCellValue(index, "ProjectName").ToString();
+                    int EquipmentID = int.Parse(gridview.GetRowCellValue(index, "EquipmentID").ToString());
+                    int count = videoplays.Count(t => t.EquipmentID == EquipmentID && t.ProjectName == project_name);
+                    GridGroupRowInfo.GroupText = "数据编号:" + uri.Split('/').ToList()
+                         .First(t => t.StartsWith("SP") || t.StartsWith("Sp")) + $" (数量:{count})";
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+
             }
         }
 
