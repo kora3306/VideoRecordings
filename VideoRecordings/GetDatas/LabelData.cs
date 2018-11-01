@@ -92,10 +92,10 @@ namespace VideoRecordings.GetDatas
         /// <param name="id"></param>
         /// <param name="labels"></param>
         /// <returns></returns>
-        public static bool AddLabelToVideo(int id, List<int> labels)
+        public static async Task<bool> AddLabelToVideoAsync(int id, List<int> labels)
         {
             string url = Program.Urlpath + $"/video/{id}/labels";
-            JObject obj = WebClinetHepler.Post_New(url, JsonConvert.SerializeObject(labels));
+            JObject obj = await WebClinetHepler.PostAsync(url, JsonConvert.SerializeObject(labels)).ConfigureAwait(false);
             return obj != null;
         }
 

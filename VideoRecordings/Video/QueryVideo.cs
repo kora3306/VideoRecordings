@@ -1182,7 +1182,7 @@ namespace VideoRecordings
         }
 
         /// <summary>
-        ///  删除视频从通道
+        ///  清除解帧信息
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -1380,21 +1380,5 @@ namespace VideoRecordings
             SetComboxBox(comboBox_proname, listOnitProName, listNewProName);
         }
 
-        private void Top_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            int[] rownumber = gridView1.GetSelectedRows();
-            if (rownumber.Count() == 0) return;
-            List<VideoPlay> videos = new List<VideoPlay>();
-            foreach (var it in rownumber)
-            {
-                if (it < 0) continue;
-                VideoPlay video = (VideoPlay)gridView1.GetRow(it);
-                videos.Add(video);
-            }
-            BatchSolution batch = new BatchSolution(videos,true);
-            batch.MyRefreshEvent += new BatchSolution.MyDeletgate(RefreshImage);
-            batch.Show();
-            Program.log.Info($"video_ids:{string.Join(",", videos.Select(t => t.Id).ToList())}添加批量标签(置顶)");
-        }
     }
 }

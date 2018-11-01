@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -41,7 +41,6 @@
             this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.batchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Top_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteSolution_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddgroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -157,7 +156,6 @@
             this.OpenToolStripMenuItem,
             this.toolStripSeparator1,
             this.batchToolStripMenuItem,
-            this.Top_ToolStripMenuItem,
             this.DeleteSolution_ToolStripMenuItem,
             this.groupToolStripMenuItem,
             this.toolStripSeparator2,
@@ -172,7 +170,7 @@
             this.OpenfolderToolStripMenuItem,
             this.AutomaticToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 336);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 314);
             // 
             // refToolStripMenuItem
             // 
@@ -199,13 +197,6 @@
             this.batchToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.batchToolStripMenuItem.Text = "批量解帧";
             this.batchToolStripMenuItem.Click += new System.EventHandler(this.batchToolStripMenuItem_Click);
-            // 
-            // Top_ToolStripMenuItem
-            // 
-            this.Top_ToolStripMenuItem.Name = "Top_ToolStripMenuItem";
-            this.Top_ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.Top_ToolStripMenuItem.Text = "批量解帧(置顶)";
-            this.Top_ToolStripMenuItem.Click += new System.EventHandler(this.Top_ToolStripMenuItem_Click);
             // 
             // DeleteSolution_ToolStripMenuItem
             // 
@@ -591,7 +582,7 @@
             this.repositoryItemButtonEdit1.AppearanceFocused.Options.UseFont = true;
             this.repositoryItemButtonEdit1.AutoHeight = false;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "解帧", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "解帧", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
@@ -771,6 +762,5 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem AutomaticToolStripMenuItem;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_snapshoted;
-        private System.Windows.Forms.ToolStripMenuItem Top_ToolStripMenuItem;
     }
 }

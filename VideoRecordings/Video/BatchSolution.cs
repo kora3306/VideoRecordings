@@ -17,8 +17,7 @@ namespace VideoRecordings.Video
     public partial class BatchSolution : Form
     {
         private List<VideoPlay> plays;
-        bool _queue = false;
-
+       
         public delegate void MyDeletgate();
         public event MyDeletgate MyRefreshEvent;
 
@@ -27,59 +26,34 @@ namespace VideoRecordings.Video
             MyRefreshEvent.Invoke();
         }
 
-        public BatchSolution(List<VideoPlay> videoPlays,bool queue=false)
+        public BatchSolution(List<VideoPlay> videoPlays)
         {
             InitializeComponent();
             plays = videoPlays;
-            _queue = queue;
+            comboBox_top.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(textBox1.Text.Trim(),out int interval))
+            if (string.IsNullOrEmpty(textBox_folder.Text)||!int.TryParse(textBox1.Text.Trim(),out int interval))
+            {
+                MessageBox.Show("有必填项错误或为空");
                 return;
-            bool win = SolutionOfTheFrame(interval);
+            }
+            string folder = textBox_folder.Text.Trim();
+            string note = textBox_note.Text.Trim();
+            int top = comboBox_top.SelectedIndex;
+            bool win = GetDatas.SolutionData.SolutionOfTheFrame(new Solution(folder,note,plays.Select(t=>t.Id).ToList(), interval,top));
             if (!win)
             {
                 MessageBox.Show("添加解帧视频失败");
-                Program.log.Error($"添加解帧视频失败,间隔{interval}");
+                Program.log.Error($"添加解帧视频失败,信息{string.Concat(folder, note,string.Join(",",plays.Select(t => t.Id).ToList()), interval, top)}");
+                return;
             }
+            OnRefresh();
             this.Close();
         }
 
-        private bool SolutionOfTheFrame(int step)
-        {
-            string url =string.Empty;
-            if (_queue)
-            {
-               url = Program.Urlpath + $"/priority/deframe";
-            }
-            else
-            {
-                url = Program.Urlpath + $"/deframe";
-            }
-            List<Solution> jsonDic = new List<Solution>();
-            foreach (var video in plays)
-            {
-                Solution solution=new Solution(video.Uri,video.Id,step);
-                jsonDic.Add(solution);
-            }
-            string json = JsonConvert.SerializeObject(jsonDic);
-            JObject obj = WebClinetHepler.Post_New(url, json);
-            if (obj != null)
-            {
-                BackSolution back = JsonConvert.DeserializeObject<BackSolution>(obj.ToString());
-                int wincount = plays.Count - back.Deframing.Count - back.FrameExists.Count - back.NotFound.Count;
-                MessageShow messageShow = new MessageShow("本次成功添加视频:",wincount, "已经添加过解帧的视频：",back.Deframing.Count
-                , "已经解帧完成的视频：",back.FrameExists.Count, "没有找到的视频：",back.NotFound.Count, "队列中解帧视频数：",back.WaitTasks);
-                messageShow.ShowDialog();
-                OnRefresh();
-                DialogResult = DialogResult.OK;
-                return true;
-            }
-
-            DialogResult = DialogResult.Cancel;
-            return false;
-        }
+   
     }
 }

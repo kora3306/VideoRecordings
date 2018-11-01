@@ -13,11 +13,23 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            List<int> ids = new List<int>() { 12214 , 12215 , 12216, 12217 };
+            int index = 12963;
+            List<int> ids = new List<int>() ;
+            for (int i = 0; i < 56; i++)
+            {
+                ids.Add(index + i);
+            }
+            index = 13139;
+            for (int i = 0; i < 52; i++)
+            {
+                ids.Add(index + i);
+            }
             foreach (int item in ids)
             {
-                Console.WriteLine(item+"---"+ Get(item));
-            }       
+                bool b = Get(item).Result;
+                Console.WriteLine(item+"---"+ b);
+            }
+            Console.WriteLine($"结束-----{ids.Count}");
             Console.ReadKey();
         }
 
@@ -26,11 +38,11 @@ namespace Test
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        private static bool Get(int id)
+        private static async Task<bool> Get(int id)
         {
             Dictionary<string, string> keys = new Dictionary<string, string>();
             keys.Add("deframed","未解帧");
-            bool obj = VideoRecordings.GetDatas.VideoData.SaveTime(id,JsonConvert.SerializeObject(keys));
+            bool obj = await VideoRecordings.GetDatas.VideoData.SaveTimeAsync(id,JsonConvert.SerializeObject(keys));
             return obj;
         }
     }

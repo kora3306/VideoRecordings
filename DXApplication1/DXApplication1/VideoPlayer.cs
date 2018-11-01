@@ -540,28 +540,36 @@ namespace DXApplication1
 
         public void  SetTime(int time)
         {
-            switch ((TimeType)time)
+            try
             {
-                case TimeType.Start:
-                    colorSlider2.Value = 1 ;
-                    break;
-                case TimeType.Append:
-                    if (colorSlider2.Value > (_Player.GetDuration() / 1000)-100)
-                    {
-                        colorSlider2.Value = (_Player.GetDuration() / 1000) - 1;
+                switch ((TimeType)time)
+                {
+                    case TimeType.Start:
+                        colorSlider2.Value = 1;
                         break;
-                    }
-                    colorSlider2.Value += 30;
-                    break;
-                case TimeType.End:
-                    colorSlider2.Value = (_Player.GetDuration() / 1000)-1;
-                    PlayOrPause();
-                    break;
-                default:
-                    break;
+                    case TimeType.Append:
+                        if (colorSlider2.Value > (_Player.GetDuration() / 1000) - 100)
+                        {
+                            colorSlider2.Value = (_Player.GetDuration() / 1000) - 1;
+                            break;
+                        }
+                        colorSlider2.Value += 30;
+                        break;
+                    case TimeType.End:
+                        colorSlider2.Value = (_Player.GetDuration() / 1000) - 1;
+                        PlayOrPause();
+                        break;
+                    default:
+                        break;
+                }
+                _Player.SetPosition(colorSlider2.Value * 1000);
+                label1.Text = TimeToString(TimeSpan.FromMilliseconds(colorSlider2.Value * 1000));
             }
-            _Player.SetPosition(colorSlider2.Value * 1000);
-            label1.Text = TimeToString(TimeSpan.FromMilliseconds(colorSlider2.Value * 1000));
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+         
         }
 
     }

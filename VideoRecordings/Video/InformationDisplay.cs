@@ -548,13 +548,16 @@ namespace VideoRecordings
                 return;
             }
             List<int> ids = GetSelectRow().Select(t => t.Id).ToList();
-            if (!SolutionData.DeleteSolution(ids))
+            if (SolutionData.DeleteSolution(ids))
             {
-                MessageBox.Show("清除解帧信息失败");
-                Program.log.Error($"清除解帧信息失败.Id:{string.Join(",",ids)}");
+                MessageBox.Show("清除解帧信息成功");
+                bindingSource1.DataSource = null;
+                PostVideos();
+                return;
             }
-            bindingSource1.DataSource = null;
-            PostVideos();
+            MessageBox.Show("清除解帧信息失败");
+            Program.log.Error($"清除解帧信息失败.Id:{string.Join(",", ids)}");
+
         }
 
         /// <summary>
@@ -1001,14 +1004,5 @@ namespace VideoRecordings
             Program.log.Error($"添加自动截图,视频ID{string.Join(",", ids)}--失败");
         }
 
-        private void Top_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            List<VideoPlay> videos = GetSelectRow();
-            if (videos == null) return;
-            BatchSolution batch = new BatchSolution(videos,true);
-            batch.MyRefreshEvent += new BatchSolution.MyDeletgate(RefEquipment);
-            batch.ShowDialog();
-            Program.log.Info($"添加批量解帧(置顶){string.Join(",", videos.Select(t => t.Id).ToList())}");
-        }
     }
 }

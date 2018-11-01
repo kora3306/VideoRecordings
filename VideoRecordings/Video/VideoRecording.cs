@@ -107,24 +107,17 @@ namespace VideoRecordings
             openFileDialog1.RestoreDirectory = true;
             openFileDialog1.ShowDialog();
         }
-     
+    
 
         /// <summary>
         /// 保存按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void save_button_ClickAsync(object sender, EventArgs e)
+        private async void save_button_ClickAsync(object sender, EventArgs e)
         {
             ImageAdd();
-            var islabel = SaveLabel();
-            var isimage = SaveImage();
-            var istime = SaveTime();
-            if (!(islabel || isimage || istime))
-            {
-                MessageBox.Show("保存失败");
-                return;
-            }
+            await SaveInfo();
             DeleteFolder(Program.ImageSavePath);
             if (treeList1.FocusedNode==treeList1.Nodes.LastNode.LastNode)
             {
@@ -135,8 +128,17 @@ namespace VideoRecordings
             {
                 treeList1.MoveNext();
             }
-            //OnSave(videoplay);
-            //this.Close();
+        }
+
+        private async Task SaveInfo()
+        {
+            var islabel =  SaveLabelAsync();
+            var isimage =  SaveImageAsync();
+            var istime  =  SaveTimeAsync();
+            await Task.WhenAll(islabel,isimage,istime);
+            if (islabel.Result & isimage.Result & istime.Result)
+                return;
+            MessageBox.Show("保存失败");
         }
 
         /// <summary>
@@ -337,26 +339,21 @@ namespace VideoRecordings
         /// <summary>
         /// Post保存标签
         /// </summary>
-        public bool SaveLabel()
+        public async Task<bool> SaveLabelAsync()
         {
             List<VideoLabel> ids = new List<VideoLabel>();
             foreach (TypeLabel tree in staticlabel.Union(Selectlabels))
             {
                 ids.AddRange(tree.Labels);
             }
-            bool win = LabelData.AddLabelToVideo(videoplay.Id, ids.Select(t => t.Id).ToList());
-            if (!win)
-            {
-                MessageBox.Show("上传标签失败");
-                Program.log.Error($"保存标签失败label_id:{string.Join(",",ids)}");
-            }
+            bool win = await LabelData.AddLabelToVideoAsync(videoplay.Id, ids.Select(t => t.Id).ToList());
             return win;
         }
 
         /// <summary>
         /// post保存图片
         /// </summary>
-        public bool SaveImage()
+        public async Task<bool> SaveImageAsync()
         {
             List<string> saveimage = new List<string>();
             foreach (var item in paths)
@@ -364,12 +361,7 @@ namespace VideoRecordings
                 saveimage.Add(GetPictureData(item));
             }
             string json = JsonConvert.SerializeObject(saveimage);
-            bool win = VideoData.SaveImage(videoplay.Id, json);
-            if (!win)
-            {
-                MessageBox.Show("上传图片失败");
-                Program.log.Error($"上传图片失败,images:{string.Join(",",saveimage)}");
-            }
+            bool win = await VideoData.SaveImageAsync(videoplay.Id, json);
             return win;
         }
 
@@ -573,7 +565,7 @@ namespace VideoRecordings
         /// <summary>
         /// 保存时间
         /// </summary>
-        private bool SaveTime()
+        private async Task<bool> SaveTimeAsync()
         {
             Dictionary<string, string> patchjson = new Dictionary<string, string>();
             string start = timeEdit_start.Text;
@@ -582,12 +574,7 @@ namespace VideoRecordings
             patchjson.Add("end_time", end);
             patchjson.Add("record_time", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
             string json = JsonConvert.SerializeObject(patchjson);
-            bool win = VideoData.SaveTime(videoplay.Id, json);
-            if (!win)
-            {
-                MessageBox.Show("上传时间失败");
-                Program.log.Info($"上传时间失败,{json}");
-            }
+            bool win = await VideoData.SaveTimeAsync(videoplay.Id, json);
             return win;
         }
 

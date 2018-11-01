@@ -186,10 +186,10 @@ namespace VideoRecordings.GetDatas
         /// <param name="id"></param>
         /// <param name="json"></param>
         /// <returns></returns>
-        public static bool SaveTime(int id, string json)
+        public static async Task<bool> SaveTimeAsync(int id, string json)
         {
             string url = Program.Urlpath + $"/video/{id}";
-            JObject obj = WebClinetHepler.Patch_New(url, json);
+            JObject obj = await WebClinetHepler.PatchAsync(url, json).ConfigureAwait(false);
             return obj != null;
         }
 
@@ -199,10 +199,10 @@ namespace VideoRecordings.GetDatas
         /// <param name="id"></param>
         /// <param name="json"></param>
         /// <returns></returns>
-        public static bool SaveImage(int id, string json)
+        public static async Task<bool> SaveImageAsync(int id, string json)
         {
             string url = Program.Urlpath + $"/video/{id}/snapshots";
-            JObject obj = WebClinetHepler.Post_New(url, json);
+            JObject obj = await WebClinetHepler.PostAsync(url, json).ConfigureAwait(false);
             return obj != null;
         }
 
@@ -223,28 +223,6 @@ namespace VideoRecordings.GetDatas
             return obj != null;
         }
 
-        public static List<Solution> GetFrame()
-        {
-            string url = Program.Urlpath + $"/deframe/queue";
-            JObject obj = WebClinetHepler.GetJObject(url);
-            if (obj == null) return new List<Solution>();
-            List<Solution> repetitions = JsonConvert.DeserializeObject<List<Solution>>(obj["result"].ToString());
-            return repetitions;
-        }
-
-        public static bool QueueSolution(List<Solution> ids)
-        {
-            string url = Program.Urlpath + $"/priority/deframe";
-            foreach (var item in ids)
-            {              
-                List<string> uris= item.VideoUri.Split('/').ToList();
-                uris.RemoveRange(0,3);
-                item.VideoUri = "/" + string.Join("/", uris);
-            }
-            string json = JsonConvert.SerializeObject(ids);
-            JObject obj = WebClinetHepler.Post_New(url,json);
-            return obj!=null;
-        }
     }
 
 }

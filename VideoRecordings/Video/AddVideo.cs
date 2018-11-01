@@ -28,6 +28,7 @@ namespace VideoRecordings
         {
             MyAddEvent.Invoke(video,focuse);
         }
+
         /// <summary>
         /// 将填入的信息转化成类,并加入文件夹集合
         /// </summary>
