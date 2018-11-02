@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Remoting.Contexts;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
@@ -60,14 +61,9 @@ namespace VideoRecordings
 
         public static void AddIsTest(Form form)
         {
-            if (Program.IsTest)
-            {
-                form.Text += "(测试)";
-            }
-            else
-            {
-                form.Text += $"(Version:{Program.Version})";
-            }
+            if (AppSettings.IsTestApi)
+                form.Text += "(测试库)";
+            form.Text += $"(Version:{AppSettings.Version})";
         }
 
         /// <summary>
@@ -75,7 +71,7 @@ namespace VideoRecordings
         /// </summary>
         public static void DelImage(ImageListView image, List<string> imageurl)
         {
-            string url = Program.Urlpath + "/video/snapshot/";
+            string url = AppSettings.Urlpath + "/video/snapshot/";
             if (image.SelectedItems.Count == 0)
             {
                 return;
@@ -96,7 +92,7 @@ namespace VideoRecordings
 
         public static VideoPlay GetNewImages(int index)
         {
-            string url = Program.Urlpath + $"/videos?id={index}";
+            string url = AppSettings.Urlpath + $"/videos?id={index}";
             JObject obj = WebClinetHepler.GetJObject(url);
             VideoPlay videoplay = new VideoPlay();
             for (int i = 0; i < obj["result"].Count(); i++)
@@ -216,7 +212,7 @@ namespace VideoRecordings
         public static List<string> IdConvetToPath(List<int> ids)
         {
             List<string> imageurl = new List<string>();
-            string url = Program.Urlpath + "/video/snapshot/";
+            string url = AppSettings.Urlpath + "/video/snapshot/";
             foreach (var item in ids)
             {
                 imageurl.Add(url + item);
@@ -276,6 +272,46 @@ namespace VideoRecordings
             }
             return (T)retval;
         }
+
+
+
+        /// <summary>
+        /// 复制文件
+        /// </summary>
+        /// <param name="srcPath"></param>
+        /// <param name="destPath"></param>
+        public static void CopyDirectory(string srcPath, string destPath)
+        {
+            try
+            {
+                DirectoryInfo dir = new DirectoryInfo(srcPath);
+                FileSystemInfo[] fileinfo = dir.GetFileSystemInfos();  //获取目录下（不包含子目录）的文件和子目录
+                foreach (FileSystemInfo i in fileinfo)
+                {
+                    if (i is DirectoryInfo)     //判断是否文件夹
+                    {
+                        if (!Directory.Exists(destPath + "\\" + i.Name))
+                        {
+                            Directory.CreateDirectory(destPath + "\\" + i.Name);   //目标目录下不存在此文件夹即创建子文件夹
+                        }
+                        CopyDirectory(i.FullName, destPath + "\\" + i.Name);    //递归调用复制子文件夹
+                    }
+                    else
+                    {
+                        if (!File.Exists(destPath + "\\" + i.Name))
+                        {
+                            File.Copy(i.FullName, destPath + "\\" + i.Name, true);
+                        }
+                        //不是文件夹即复制文件，true表示可以覆盖同名文件
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+ 
 
     }
 

@@ -13,6 +13,23 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -70,6 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettings.cs" />
     <Compile Include="ChannelGrouping\AddGroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,36 +117,6 @@
     <Compile Include="GetDatas\LabelData.cs" />
     <Compile Include="GetDatas\SolutionData.cs" />
     <Compile Include="GetDatas\VideoData.cs" />
-    <Compile Include="Images\AddImage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Images\AddImage.Designer.cs">
-      <DependentUpon>AddImage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Images\ImageDisplay.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Images\ImageDisplay.Designer.cs">
-      <DependentUpon>ImageDisplay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Images\ImagePull.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Images\ImagePull.Designer.cs">
-      <DependentUpon>ImagePull.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Images\QueryImage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Images\QueryImage.Designer.cs">
-      <DependentUpon>QueryImage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Images\UpdateImage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Images\UpdateImage.Designer.cs">
-      <DependentUpon>UpdateImage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Label\AddLabel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,18 +157,6 @@
     </Compile>
     <Compile Include="FileManagement .Designer.cs">
       <DependentUpon>FileManagement .cs</DependentUpon>
-    </Compile>
-    <Compile Include="Images\ImageInformation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Images\ImageInformation.Designer.cs">
-      <DependentUpon>ImageInformation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Video\BatchScreenshot.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Video\BatchScreenshot.Designer.cs">
-      <DependentUpon>BatchScreenshot.cs</DependentUpon>
     </Compile>
     <Compile Include="Video\BatchSolution.cs">
       <SubType>Form</SubType>
@@ -305,24 +281,6 @@
     <EmbeddedResource Include="Equipment\SelectEquipment.resx">
       <DependentUpon>SelectEquipment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Images\AddImage.resx">
-      <DependentUpon>AddImage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\ImageDisplay.resx">
-      <DependentUpon>ImageDisplay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\ImageInformation.resx">
-      <DependentUpon>ImageInformation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\ImagePull.resx">
-      <DependentUpon>ImagePull.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\QueryImage.resx">
-      <DependentUpon>QueryImage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images\UpdateImage.resx">
-      <DependentUpon>UpdateImage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Label\AddLabel.resx">
       <DependentUpon>AddLabel.cs</DependentUpon>
     </EmbeddedResource>
@@ -332,15 +290,11 @@
     <EmbeddedResource Include="Label\ShowStaticLabel.resx">
       <DependentUpon>ShowStaticLabel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Video\AddVideo.resx">
       <DependentUpon>AddVideo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FileManagement .resx">
       <DependentUpon>FileManagement .cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Video\BatchScreenshot.resx">
-      <DependentUpon>BatchScreenshot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Video\BatchSolution.resx">
       <DependentUpon>BatchSolution.cs</DependentUpon>
@@ -467,6 +421,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\blue.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

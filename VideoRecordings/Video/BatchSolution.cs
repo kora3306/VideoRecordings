@@ -50,6 +50,7 @@ namespace VideoRecordings.Video
                 Program.log.Error($"添加解帧视频失败,信息{string.Concat(folder, note,string.Join(",",plays.Select(t => t.Id).ToList()), interval, top)}");
                 return;
             }
+            MessageBox.Show("添加成功");
             OnRefresh();
             this.Close();
         }

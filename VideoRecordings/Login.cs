@@ -26,17 +26,17 @@ namespace VideoRecordings
         public Login()
         {
             InitializeComponent();
-            textBox_name.Text = Program.GetAppConfig("LogName");
-            if (!string.IsNullOrEmpty(Program.LogPassWord))
+            textBox_name.Text = AppSettings.GetAppConfig("LogName");
+            if (!string.IsNullOrEmpty(AppSettings.LogPassWord))
             {
                 checkBox1.Checked = true;
-                textBox_passward.Text = Program.LogPassWord;
+                textBox_passward.Text = AppSettings.LogPassWord;
             }
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
-            if (Program.Version == "test")
+            if (AppSettings.IsTestApi)
             {
                 textBox_name.Text = "xiekai";
                 textBox_passward.Text = "xk";
@@ -70,8 +70,8 @@ namespace VideoRecordings
             }
             LogSucceed = true;
             JObject obj = WebClinetHepler.GetJObject(url);
-            Program.User = JsonConvert.DeserializeObject<User>(obj["result"].ToString());
-            Program.UpdataLongName();
+            AppSettings.User = JsonConvert.DeserializeObject<User>(obj["result"].ToString());
+            AppSettings.UpdataLongName();
             UpdataLongPassWord(passWord,checkBox1.Checked);
             this.Close();
            
@@ -83,9 +83,9 @@ namespace VideoRecordings
             {
                 text = string.Empty;
             }
-            if (text != Program.GetAppConfig("PassWord"))
+            if (text != AppSettings.GetAppConfig("PassWord"))
             {
-                Program.UpdateAppConfig("PassWord", text);
+                AppSettings.UpdateAppConfig("PassWord", text);
             }
         }
 

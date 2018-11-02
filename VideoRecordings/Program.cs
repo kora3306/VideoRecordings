@@ -19,6 +19,7 @@ using System.Web.Script.Serialization;
 using VideoRecordings.Models;
 using Dal;
 using VideoRecordings.GetDatas;
+using System.Text;
 
 namespace VideoRecordings
 {
@@ -30,290 +31,99 @@ namespace VideoRecordings
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            //全局异常处理
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+            Application.ThreadException += Application_ThreadException;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
             Directory.CreateDirectory("Log");
+            if(!AppSettings.Initialize())
+            {
+                MessageBox.Show("配置文件出错");
+                return;
+            }
             CheckedFile();
             Checkconfiguration();
-            if (Version != "test")
+            if (!AppSettings.IsTest)
                 CheckUpdate();
             Login log = new Login();
             log.ShowDialog();
             if (!log.LogSucceed) return;
             Application.Run(new FileManagement());
+         
         }
 
-        public static ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-
-        public static List<VideoPath> VideoPlayPath;
-        public const string PlayerPath = @".\VideoPlayPath.txt";    //储存的播放器路径
-        public readonly static List<string> Paths = new List<string>() { "StormPlayer", "KMPIAYER", "XMP", "VLC" };
-        /// <summary>
-        /// 接口
-        /// </summary>
-        public static string Urlpath = "http://192.168.1.225:18080";
-        //public const string Urlpath = "http://192.168.1.225:18080";
-        public static TypeLabels labels = new TypeLabels();
-
-        public static PersistentCache Persistent = new PersistentCache(@".\cache", 100000000000);
-
-        public const string PathUrl = @"\\192.168.1.158";
-        /// <summary>
-        /// 截图存储位置
-        /// </summary>
-        public static string ImageSavePath;
-        public const string ImageName = "ImageName";
-
-        public static string Cookies = string.Empty;
-        public static string Version = string.Empty;
-        public static string UpdateApi = string.Empty;
-        //public static string UserName = string.Empty;
-        //public static string LogName = string.Empty;
-        public static User User;
-
-        public static string LogPassWord = string.Empty;
-        /// <summary>
-        /// 获取配置信息
-        /// </summary>
-        /// <param name="strKey"></param>
-        /// <returns></returns>
-        public static string GetAppConfig(string strKey)
+        static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
         {
-            string file = Application.ExecutablePath;
-            Configuration config = ConfigurationManager.OpenExeConfiguration(file);
-            foreach (string key in config.AppSettings.Settings.AllKeys)
-            {
-                if (key == strKey)
-                {
-                    return config.AppSettings.Settings[strKey].Value;
-                }
-            }
-            return null;
+            string str = GetExceptionMsg(e.Exception, e.ToString());
+            MessageBox.Show(str, "系统错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //LogManager.WriteLog(str);
+            
         }
 
-        ///<summary>  
-        ///在*.exe.config文件中appSettings配置节增加一对键值对  
-        ///</summary>  
-        ///<param name="newKey"></param>  
-        ///<param name="newValue"></param>  
-        public static void UpdateAppConfig(string newKey, string newValue)
+        static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            string file = Application.ExecutablePath;
-            Configuration config = ConfigurationManager.OpenExeConfiguration(file);
-            bool exist = false;
-            foreach (string key in config.AppSettings.Settings.AllKeys)
-            {
-                if (key == newKey)
-                {
-                    exist = true;
-                }
-            }
-            if (exist)
-            {
-                config.AppSettings.Settings.Remove(newKey);
-            }
-            config.AppSettings.Settings.Add(newKey, newValue);
-            config.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection("appSettings");
+            string str = GetExceptionMsg(e.ExceptionObject as Exception, e.ToString());
+            MessageBox.Show(str, "系统错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //LogManager.WriteLog(str);
         }
 
         /// <summary>
-        /// 连接共享文件夹
+        /// 生成自定义异常消息
         /// </summary>
-        /// <param name="remoteHost"></param>
-        /// <param name="userName"></param>
-        /// <param name="passWord"></param>
-        /// <returns></returns>
-        public static bool Connect(string remoteHost, string userName, string passWord)
+        /// <param name="ex">异常对象</param>
+        /// <param name="backStr">备用异常消息：当ex为null时有效</param>
+        /// <returns>异常字符串文本</returns>
+        static string GetExceptionMsg(Exception ex, string backStr)
         {
-            bool Flag = false;
-            Process proc = new Process();
-            try
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("****************************异常文本****************************");
+            sb.AppendLine("【出现时间】：" + DateTime.Now.ToString());
+            if (ex != null)
             {
-                proc.StartInfo.FileName = "cmd.exe";
-                proc.StartInfo.UseShellExecute = false;
-                proc.StartInfo.RedirectStandardInput = true;
-                proc.StartInfo.RedirectStandardOutput = true;
-                proc.StartInfo.RedirectStandardError = true;
-                proc.StartInfo.CreateNoWindow = true;
-                proc.Start();
-                string dosLine = "net use " + remoteHost + " " + passWord + " /User:" + userName;
-                proc.StandardInput.WriteLine(dosLine);
-                proc.StandardInput.WriteLine("exit");
-                while (!proc.HasExited)
-                {
-                    proc.WaitForExit(1000);
-                }
-                string errormsg = proc.StandardError.ReadToEnd();
-                proc.StandardError.Close();
-                if (string.IsNullOrEmpty(errormsg))
-                {
-                    Flag = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                proc.Close();
-                proc.Dispose();
-            }
-            return Flag;
-        }
-
-        /// <summary>
-        /// 根据文件名判断共享文件路径
-        /// </summary>
-        /// <param name="url"></param>
-        /// <returns></returns>
-        public static string ReturnStringUrl(string url)
-        {
-            string Url1 = @"\\192.168.1.158";
-            string Url2 = @"\\192.168.1.198";
-            string Url3 = @"\\192.168.1.234";
-
-            List<string> list = url.Split('\\').ToList();
-            switch (list[1])
-            {
-                case "msdata":
-                    return Url1 + url;
-                case "md0":
-                case "md1":
-                case "md2":
-                case "md3":
-                case "md4":
-                    return Url2 + @"\iscdata" + url;
-                case "md5":
-                case "md6":
-                case "md7":
-                case "md8":
-                case "md9":
-                case "md10":
-                case "md11":
-                    return Url3 + url;
-                default:
-                    break;
-            }
-            return string.Empty;
-        }
-
-        /// <summary>
-        /// 复制文件
-        /// </summary>
-        /// <param name="srcPath"></param>
-        /// <param name="destPath"></param>
-        public static void CopyDirectory(string srcPath, string destPath)
-        {
-            try
-            {
-                DirectoryInfo dir = new DirectoryInfo(srcPath);
-                FileSystemInfo[] fileinfo = dir.GetFileSystemInfos();  //获取目录下（不包含子目录）的文件和子目录
-                foreach (FileSystemInfo i in fileinfo)
-                {
-                    if (i is DirectoryInfo)     //判断是否文件夹
-                    {
-                        if (!Directory.Exists(destPath + "\\" + i.Name))
-                        {
-                            Directory.CreateDirectory(destPath + "\\" + i.Name);   //目标目录下不存在此文件夹即创建子文件夹
-                        }
-                        CopyDirectory(i.FullName, destPath + "\\" + i.Name);    //递归调用复制子文件夹
-                    }
-                    else
-                    {
-                        if (!File.Exists(destPath + "\\" + i.Name))
-                        {
-                            File.Copy(i.FullName, destPath + "\\" + i.Name, true);
-                        }
-                        //不是文件夹即复制文件，true表示可以覆盖同名文件
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// 复制解码库
-        /// </summary>
-        public static void CopyConfig()
-        {
-            string newpath = @"C:\Users\Public\Thunder Network\APlayer\codecs";
-            Directory.CreateDirectory(newpath);
-            string oldpath = @".\codecs";
-            CopyDirectory(oldpath, newpath);
-        }
-
-        public static void UpdataLongName()
-        {
-            if (User.Name != GetAppConfig("LogName"))
-            {
-                UpdateAppConfig("LogName", User.Name);
-            }
-        }
-
-        public static bool _istest;
-
-        public static bool IsTest
-        {
-            get
-            {
-                return _istest;
-            }
-            set
-            {
-                _istest = value;
-            }
-        }
-
-        private static void Checkconfiguration()
-        {
-            bool open158 = Connect(PathUrl, "leets", "songnana1234");
-            bool open234 = Connect("\\\\192.168.1.234", "work", "test234");
-            bool open198 = Connect("\\\\192.168.1.198", "work", "test198");
-            VideoPlayPath = Methods.ReadPath(PlayerPath);
-            ImageSavePath = GetAppConfig(ImageName);
-            IsTest = GetAppConfig("TestApi") == "1";
-            if (!IsTest)
-            {
-                Urlpath = GetAppConfig("UrlPath");
+                sb.AppendLine("【异常类型】：" + ex.GetType().Name);
+                sb.AppendLine("【异常信息】：" + ex.Message);
+                sb.AppendLine("【堆栈调用】：" + ex.StackTrace);
+                sb.AppendLine("【异常方法】：" + ex.TargetSite);
             }
             else
             {
-                Urlpath = GetAppConfig("TestPath");
+                sb.AppendLine("【未处理异常】：" + backStr);
             }
-            Version = GetAppConfig("Version");
-            UpdateApi = GetAppConfig("UpdateApi");
-            LogPassWord = GetAppConfig("PassWord");
-            string savepath = Directory.GetCurrentDirectory() + "\\" + "ScreenCapture";
-            if (ImageSavePath != savepath)
+            sb.AppendLine("***************************************************************");
+            return sb.ToString();
+        }
+
+        public static ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
+        public static TypeLabels labels = new TypeLabels();
+
+        private static void Checkconfiguration()
+        {
+            try
             {
-                ImageSavePath = savepath;
-                UpdateAppConfig(ImageName, ImageSavePath);
+                foreach (var item in AppSettings.Connects)
+                {
+                    Connect(item.Path, item.UserNmae, item.PassWord);
+                }
+                if (!Directory.Exists(AppSettings.ImageSavePath))
+                {
+                    Directory.CreateDirectory(AppSettings.ImageSavePath);
+                }
+                CopyConfig();
             }
-            if (!Directory.Exists(ImageSavePath))
+            catch (Exception ex)
             {
-                Directory.CreateDirectory(ImageSavePath);
+                MessageBox.Show(ex.ToString());
             }
-            CopyConfig();
-            if (!open158)
-            {
-                log.Error("连接服务器", new Exception("158连接失败"));
-            }
-            if (!open234)
-            {
-                log.Error("连接服务器", new Exception("234连接失败"));
-            }
-            if (!open198)
-            {
-                log.Error("连接服务器", new Exception("198连接失败"));
-            }
+
         }
 
         /// <summary>
@@ -345,7 +155,7 @@ namespace VideoRecordings
         private static bool CheckUpdate()
         {
             CheckUpdaterUpdate();
-            if (WebClinetHepler.Get($"{UpdateApi}/api/VideoRecordings/verson") == Version ||
+            if (WebClinetHepler.Get($"{AppSettings.UpdateApi}/api/VideoRecordings/verson") == AppSettings.Version ||
                 !File.Exists("Updater.exe"))
                 return false;
             if (MessageBox.Show("有新版本需要更新？", @"提示", MessageBoxButtons.OKCancel) != DialogResult.OK)
@@ -392,7 +202,7 @@ namespace VideoRecordings
         /// </summary>
         private static void CheckUpdaterUpdate()
         {
-            string newversion = WebClinetHepler.Get($"{UpdateApi}/api/Updater/verson");
+            string newversion = WebClinetHepler.Get($"{AppSettings.UpdateApi}/api/Updater/verson");
             if (File.Exists("Updater.exe") &&
                 FileVersionInfo.GetVersionInfo("Updater.exe").FileVersion == newversion)
                 return;
@@ -400,11 +210,74 @@ namespace VideoRecordings
             {
                 File.Delete("Updater.exe");
                 foreach (var temp in (Dictionary<string, object>)new JavaScriptSerializer().DeserializeObject(
-                    WebClinetHepler.Get($"{UpdateApi}/api/Updater/{newversion}/filelist")))
+                    WebClinetHepler.Get($"{AppSettings.UpdateApi}/api/Updater/{newversion}/filelist")))
                 {
-                    webclient.DownloadFile($"{UpdateApi}/api/{temp.Value}", temp.Key);
+                    webclient.DownloadFile($"{AppSettings.UpdateApi}/api/{temp.Value}", temp.Key);
                 }
             }
+        }
+
+
+        /// <summary>
+        /// 复制解码库
+        /// </summary>
+        public static void CopyConfig()
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            string newpath = @"C:\Users\Public\Thunder Network\APlayer\codecs";
+            Directory.CreateDirectory(newpath);
+            string oldpath = @".\codecs";
+            Methods.CopyDirectory(oldpath, newpath);
+            stopwatch.Stop();
+            long time = stopwatch.ElapsedMilliseconds;
+        }
+
+
+        /// <summary>
+        /// 连接共享文件夹
+        /// </summary>
+        /// <param name="remoteHost"></param>
+        /// <param name="userName"></param>
+        /// <param name="passWord"></param>
+        /// <returns></returns>
+        public static bool Connect(string remoteHost, string userName, string passWord)
+        {
+            bool Flag = false;
+            Process proc = new Process();
+            try
+            {
+                proc.StartInfo.FileName = "cmd.exe";
+                proc.StartInfo.UseShellExecute = false;
+                proc.StartInfo.RedirectStandardInput = true;
+                proc.StartInfo.RedirectStandardOutput = true;
+                proc.StartInfo.RedirectStandardError = true;
+                proc.StartInfo.CreateNoWindow = true;
+                proc.Start();
+                string dosLine = "net use " + remoteHost + " " + passWord + " /User:" + userName;
+                proc.StandardInput.WriteLine(dosLine);
+                proc.StandardInput.WriteLine("exit");
+                while (!proc.HasExited)
+                {
+                    proc.WaitForExit(1000);
+                }
+                string errormsg = proc.StandardError.ReadToEnd();
+                proc.StandardError.Close();
+                if (string.IsNullOrEmpty(errormsg))
+                {
+                    Flag = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                proc.Close();
+                proc.Dispose();
+            }
+            return Flag;
         }
 
     }

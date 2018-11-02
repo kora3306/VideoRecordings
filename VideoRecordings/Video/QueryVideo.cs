@@ -83,8 +83,7 @@ namespace VideoRecordings
             WaitFormEx.Run(() => 
             {
                 Videos = VideoData.GetAllFolder();
-                MyLabels = new MyLabels();
-              
+                MyLabels = new MyLabels();            
                 places = RepeatList(Videos, "place");
                 replicators = RepeatList(Videos, "replicator");
                 listOnitProName = Videos.Select(t => t.Name).ToList();
@@ -103,7 +102,7 @@ namespace VideoRecordings
             comboBox_groups.Items.AddRange(listOnitGroups.ToArray());
             comboBox_group.Items.AddRange(listOnitGroup.ToArray());
 
-            imageListView1.DiskCache = Program.Persistent;
+            imageListView1.DiskCache = AppSettings.Persistent;
             gridView1.OptionsBehavior.AutoExpandAllGroups = false;
             Methods.AddIsTest(this);
             RefAllConditions();
@@ -140,7 +139,7 @@ namespace VideoRecordings
         /// 将填入的信息整理并转换成查询条件
         /// </summary>
         /// <returns></returns>
-        public string GetJson()
+        public string GetCriteriaJson()
         {
             string getjson = string.Empty;
             try
@@ -235,11 +234,11 @@ namespace VideoRecordings
         /// </summary>
         public void RefreshImage()
         {
-            string json = GetJson();
+            string json = GetCriteriaJson();
             if (string.IsNullOrEmpty(json)) return;
             WaitFormEx.Run(() =>
             {
-                string url = Program.Urlpath + "/videos?" + json;
+                string url = AppSettings.Urlpath + "/videos?" + json;
                 if (!GettListVideo(url))
                     return;
             });
@@ -263,7 +262,7 @@ namespace VideoRecordings
         public void RefreshNewImage(VideoPlay video)
         {
             imageurl.Clear();
-            string url = Program.Urlpath + "/video/snapshot/";
+            string url = AppSettings.Urlpath + "/video/snapshot/";
             foreach (var item in video.ImageId)
             {
                 imageurl.Add(url + item);
@@ -380,7 +379,7 @@ namespace VideoRecordings
                     }
                     return base.ProcessCmdKey(ref msg, keyData);
                 case Keys.F2:
-                    Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri)));
+                    Methods.OpenFolderAndSelectFile(AppSettings.ReturnStringUrl(ConversionString(transmissionvideo.Uri)));
                     return true;
                 case Keys.Q:
                     ShowStaticLabels();
@@ -428,7 +427,7 @@ namespace VideoRecordings
             }
             transmissionvideo = (VideoPlay)gridView1.GetRow(rowIndex);
             GetIntToString();
-            DeleteFolder(Program.ImageSavePath);
+            DeleteFolder(AppSettings.ImageSavePath);
         }
 
         /// <summary>
@@ -470,7 +469,7 @@ namespace VideoRecordings
                 return;
             }
             imageurl.Clear();
-            string url = Program.Urlpath + "/video/snapshot/";
+            string url = AppSettings.Urlpath + "/video/snapshot/";
             imageurl = transmissionvideo.ImageId.Select(t => url + t).ToList();
             SetTheListView();
         }
@@ -504,7 +503,7 @@ namespace VideoRecordings
             int index = gridView1.GetDataRowHandleByGroupRowHandle(i);
             transmissionvideo = (VideoPlay)gridView1.GetRow(index);
             GetIntToString();
-            DeleteFolder(Program.ImageSavePath);
+            DeleteFolder(AppSettings.ImageSavePath);
         }
 
         /// <summary>
@@ -528,10 +527,10 @@ namespace VideoRecordings
             VideoRecording recording = new VideoRecording(transmissionvideo,videoplays);
             //recording.MyEvent += new VideoRecording.MyDelegate(RefreshImage);
             if (transmissionvideo.Uri == null) return;
-            if (File.Exists(Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri))))
+            if (File.Exists(AppSettings.ReturnStringUrl(ConversionString(transmissionvideo.Uri))))
             {
                 recording.Show();
-                Program.log.Error($"打开{Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))}", new Exception("打开成功"));
+                Program.log.Error($"打开{AppSettings.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))}", new Exception("打开成功"));
             }
             else
             {
@@ -1268,7 +1267,7 @@ namespace VideoRecordings
         private void folderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (transmissionvideo == null) return;
-            Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
+            Methods.OpenFolderAndSelectFile(AppSettings.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
             Program.log.Info($"定位文件夹,VideoId:{transmissionvideo.Id}");
         }
 

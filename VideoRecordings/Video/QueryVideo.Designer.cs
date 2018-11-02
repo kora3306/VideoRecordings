@@ -190,7 +190,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.51013F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.88068F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.9946F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
             this.tableLayoutPanel1.Controls.Add(this.label_fid, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBox_proname, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label22, 0, 1);
@@ -233,7 +233,7 @@
             this.comboBox_proname.FormattingEnabled = true;
             this.comboBox_proname.Location = new System.Drawing.Point(114, 3);
             this.comboBox_proname.Name = "comboBox_proname";
-            this.comboBox_proname.Size = new System.Drawing.Size(185, 28);
+            this.comboBox_proname.Size = new System.Drawing.Size(184, 28);
             this.comboBox_proname.TabIndex = 56;
             this.comboBox_proname.TextUpdate += new System.EventHandler(this.comboBox_proname_TextUpdate);
             // 
@@ -254,7 +254,7 @@
             this.comboBox_groups.FormattingEnabled = true;
             this.comboBox_groups.Location = new System.Drawing.Point(114, 40);
             this.comboBox_groups.Name = "comboBox_groups";
-            this.comboBox_groups.Size = new System.Drawing.Size(185, 27);
+            this.comboBox_groups.Size = new System.Drawing.Size(184, 27);
             this.comboBox_groups.TabIndex = 83;
             this.comboBox_groups.TextUpdate += new System.EventHandler(this.comboBox_groups_TextUpdate);
             // 
@@ -263,7 +263,7 @@
             this.label21.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label21.Location = new System.Drawing.Point(325, 46);
+            this.label21.Location = new System.Drawing.Point(324, 46);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(65, 20);
             this.label21.TabIndex = 71;
@@ -273,9 +273,9 @@
             // 
             this.comboBox_group.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox_group.FormattingEnabled = true;
-            this.comboBox_group.Location = new System.Drawing.Point(416, 40);
+            this.comboBox_group.Location = new System.Drawing.Point(415, 40);
             this.comboBox_group.Name = "comboBox_group";
-            this.comboBox_group.Size = new System.Drawing.Size(229, 27);
+            this.comboBox_group.Size = new System.Drawing.Size(227, 27);
             this.comboBox_group.TabIndex = 82;
             this.comboBox_group.TextUpdate += new System.EventHandler(this.comboBox_group_TextUpdate);
             // 
@@ -284,7 +284,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(325, 8);
+            this.label7.Location = new System.Drawing.Point(324, 8);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 20);
             this.label7.TabIndex = 18;
@@ -294,9 +294,9 @@
             // 
             this.textBox_vid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_vid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_vid.Location = new System.Drawing.Point(416, 3);
+            this.textBox_vid.Location = new System.Drawing.Point(415, 3);
             this.textBox_vid.Name = "textBox_vid";
-            this.textBox_vid.Size = new System.Drawing.Size(229, 26);
+            this.textBox_vid.Size = new System.Drawing.Size(227, 26);
             this.textBox_vid.TabIndex = 21;
             // 
             // label8
@@ -304,7 +304,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(671, 8);
+            this.label8.Location = new System.Drawing.Point(668, 8);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 20);
             this.label8.TabIndex = 19;
@@ -317,9 +317,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.textBox_label, 3);
             this.textBox_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_label.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_label.Location = new System.Drawing.Point(762, 3);
+            this.textBox_label.Location = new System.Drawing.Point(759, 3);
             this.textBox_label.Name = "textBox_label";
-            this.textBox_label.Size = new System.Drawing.Size(377, 26);
+            this.textBox_label.Size = new System.Drawing.Size(374, 26);
             this.textBox_label.TabIndex = 20;
             this.textBox_label.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_label_KeyDown);
             // 
@@ -351,9 +351,9 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(912, 40);
+            this.button1.Location = new System.Drawing.Point(908, 40);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 31);
+            this.button1.Size = new System.Drawing.Size(113, 31);
             this.button1.TabIndex = 12;
             this.button1.Text = "开始查询";
             this.button1.UseVisualStyleBackColor = true;
@@ -362,7 +362,7 @@
             // button_ref
             // 
             this.button_ref.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_ref.Location = new System.Drawing.Point(762, 40);
+            this.button_ref.Location = new System.Drawing.Point(759, 40);
             this.button_ref.Name = "button_ref";
             this.button_ref.Size = new System.Drawing.Size(118, 31);
             this.button_ref.TabIndex = 68;
@@ -489,109 +489,109 @@
             this.ADStaticToolStripMenuItem,
             this.OUTputToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 336);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(173, 314);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.openToolStripMenuItem.Text = "展开/关闭分组";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click_1);
             // 
             // folderToolStripMenuItem
             // 
             this.folderToolStripMenuItem.Name = "folderToolStripMenuItem";
-            this.folderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.folderToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.folderToolStripMenuItem.Text = "定位文件";
             this.folderToolStripMenuItem.Click += new System.EventHandler(this.folderToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
             // 
             // ADToolStripMenuItem
             // 
             this.ADToolStripMenuItem.Name = "ADToolStripMenuItem";
-            this.ADToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ADToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.ADToolStripMenuItem.Text = "添加通道";
             this.ADToolStripMenuItem.Click += new System.EventHandler(this.ADToolStripMenuItem_Click);
             // 
             // UPToolStripMenuItem
             // 
             this.UPToolStripMenuItem.Name = "UPToolStripMenuItem";
-            this.UPToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.UPToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.UPToolStripMenuItem.Text = "修改通道名";
             this.UPToolStripMenuItem.Click += new System.EventHandler(this.UPToolStripMenuItem_Click);
             // 
             // DELEToolStripMenuItem
             // 
             this.DELEToolStripMenuItem.Name = "DELEToolStripMenuItem";
-            this.DELEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.DELEToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.DELEToolStripMenuItem.Text = "删除通道";
             this.DELEToolStripMenuItem.Click += new System.EventHandler(this.DELEToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(169, 6);
             // 
             // INToolStripMenuItem
             // 
             this.INToolStripMenuItem.Name = "INToolStripMenuItem";
-            this.INToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.INToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.INToolStripMenuItem.Text = "视频导入通道";
             this.INToolStripMenuItem.Click += new System.EventHandler(this.INToolStripMenuItem_Click);
             // 
             // OUTToolStripMenuItem
             // 
             this.OUTToolStripMenuItem.Name = "OUTToolStripMenuItem";
-            this.OUTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.OUTToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.OUTToolStripMenuItem.Text = "视频导出通道";
             this.OUTToolStripMenuItem.Click += new System.EventHandler(this.OUTToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(169, 6);
             // 
             // DToolStripMenuItem
             // 
             this.DToolStripMenuItem.Name = "DToolStripMenuItem";
-            this.DToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.DToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.DToolStripMenuItem.Text = "删除视频记录";
             this.DToolStripMenuItem.Click += new System.EventHandler(this.DToolStripMenuItem_Click);
             // 
             // batchToolStripMenuItem
             // 
             this.batchToolStripMenuItem.Name = "batchToolStripMenuItem";
-            this.batchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.batchToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.batchToolStripMenuItem.Text = "批量解帧";
             this.batchToolStripMenuItem.Click += new System.EventHandler(this.batchToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(169, 6);
             // 
             // AddlabelsToolStripMenuItem
             // 
             this.AddlabelsToolStripMenuItem.Name = "AddlabelsToolStripMenuItem";
-            this.AddlabelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AddlabelsToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.AddlabelsToolStripMenuItem.Text = "批量添加标签";
             this.AddlabelsToolStripMenuItem.Click += new System.EventHandler(this.AddlabelsToolStripMenuItem_Click);
             // 
             // DeleteSolutionToolStripMenuItem
             // 
             this.DeleteSolutionToolStripMenuItem.Name = "DeleteSolutionToolStripMenuItem";
-            this.DeleteSolutionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.DeleteSolutionToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.DeleteSolutionToolStripMenuItem.Text = "清除解帧信息";
             this.DeleteSolutionToolStripMenuItem.Click += new System.EventHandler(this.DeleteSolutionToolStripMenuItem_Click);
             // 
             // ADStaticToolStripMenuItem
             // 
             this.ADStaticToolStripMenuItem.Name = "ADStaticToolStripMenuItem";
-            this.ADStaticToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ADStaticToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.ADStaticToolStripMenuItem.Text = "通道添加静态标签";
             this.ADStaticToolStripMenuItem.Click += new System.EventHandler(this.ADStaticToolStripMenuItem_Click);
             // 
@@ -601,7 +601,7 @@
             this.OUTJsonToolStripMenuItem,
             this.OUTExcelToolStripMenuItem});
             this.OUTputToolStripMenuItem.Name = "OUTputToolStripMenuItem";
-            this.OUTputToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.OUTputToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.OUTputToolStripMenuItem.Text = "导出选中信息";
             // 
             // OUTJsonToolStripMenuItem

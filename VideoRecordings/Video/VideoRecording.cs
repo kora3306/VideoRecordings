@@ -49,7 +49,7 @@ namespace VideoRecordings
             videos = videoPlays;
             InitializeComponent();
             videoPlayer1.MyEvent += new DXApplication1.VideoPlayers_test.MyDelegate(ImageAdd);
-            videoPlayer1.path = Program.ImageSavePath;
+            videoPlayer1.path = AppSettings.ImageSavePath;
             dropDownButton1.DropDownControl = CreateDXPopupMenu();
             SetAllListNodes(videoPlays);
         }
@@ -65,9 +65,9 @@ namespace VideoRecordings
         private void VideoRecording_Load(object sender, EventArgs e)
         {
   
-            linkLabel1.Text = Program.ImageSavePath;
+            linkLabel1.Text = AppSettings.ImageSavePath;
             imageListView1.Focus();
-            imageListView1.DiskCache = Program.Persistent;
+            imageListView1.DiskCache = AppSettings.Persistent;
             Methods.AddIsTest(this);
             if (label_treeView.Nodes.Count != 0)
             {
@@ -118,7 +118,7 @@ namespace VideoRecordings
         {
             ImageAdd();
             await SaveInfo();
-            DeleteFolder(Program.ImageSavePath);
+            DeleteFolder(AppSettings.ImageSavePath);
             if (treeList1.FocusedNode==treeList1.Nodes.LastNode.LastNode)
             {
                 treeList1.FocusedNode = treeList1.Nodes.FirstNode;
@@ -202,12 +202,12 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void DeletePToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VideoPath path = Program.VideoPlayPath.FirstOrDefault(t=>t.Name==dropDownButton1.Text);
+            VideoPath path = AppSettings.VideoPlayPath.FirstOrDefault(t=>t.Name==dropDownButton1.Text);
             if (path!=null)
             {
-                Program.VideoPlayPath.Remove(path);
+                AppSettings.VideoPlayPath.Remove(path);
             }
-            Methods.WritePath(Program.PlayerPath, Program.VideoPlayPath);
+            Methods.WritePath(AppSettings.PlayerPath, AppSettings.VideoPlayPath);
         }
 
         //
@@ -302,12 +302,12 @@ namespace VideoRecordings
         private void ImageAdd()
         {
             paths.Clear();
-            if (Program.ImageSavePath == string.Empty)
+            if (AppSettings.ImageSavePath == string.Empty)
             {
                 MessageBox.Show("请设置截图读取路径,与图片保存保持一致");
                 return;
             }
-            DirectoryInfo dir = new DirectoryInfo(Program.ImageSavePath);
+            DirectoryInfo dir = new DirectoryInfo(AppSettings.ImageSavePath);
             FileInfo[] fil = dir.GetFiles();
             if (fil.Count() == 0) return;
             foreach (FileInfo f in fil)
@@ -438,7 +438,7 @@ namespace VideoRecordings
             {
                 try
                 {
-                    process = Process.Start(Program.VideoPlayPath.FirstOrDefault(t=>t.Name==dropDownButton1.Text).Path, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
+                    process = Process.Start(AppSettings.VideoPlayPath.FirstOrDefault(t=>t.Name==dropDownButton1.Text).Path, AppSettings.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
                     return;
                 }
                 catch (Exception ex)
@@ -450,7 +450,7 @@ namespace VideoRecordings
             }
             else
             {
-                videoPlayer1.URL = Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri));
+                videoPlayer1.URL = AppSettings.ReturnStringUrl(Methods.ConversionString(videoplay.Uri));
                 videoPlayer1.VideoPalying();
             }
         }
@@ -461,7 +461,7 @@ namespace VideoRecordings
         public void GetIntToString()
         {
             imageurl.Clear();
-            string url = Program.Urlpath + "/video/snapshot/";
+            string url = AppSettings.Urlpath + "/video/snapshot/";
             foreach (var item in videoplay.ImageId)
             {
                 imageurl.Add(url + item);
@@ -521,7 +521,7 @@ namespace VideoRecordings
         /// </summary>
         public void DelImage()
         {
-            string url = Program.Urlpath + "/video/snapshot/";
+            string url = AppSettings.Urlpath + "/video/snapshot/";
             if (imageListView1.SelectedItems.Count == 0)
             {
                 return;
@@ -752,7 +752,7 @@ namespace VideoRecordings
         private DXPopupMenu CreateDXPopupMenu()
         {
             DXPopupMenu menu = new DXPopupMenu();
-            foreach (var item in Program.Paths)
+            foreach (var item in AppSettings.Paths)
             {
                 menu.Items.Add(new DXMenuItem(item, OnItemClick));
             }          
@@ -772,7 +772,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void dropDownButton1_Click(object sender, EventArgs e)
         {
-            VideoPath path = Program.VideoPlayPath.FirstOrDefault(t => t.Name == dropDownButton1.Text);
+            VideoPath path = AppSettings.VideoPlayPath.FirstOrDefault(t => t.Name == dropDownButton1.Text);
             if (path != null)
             {
                 if (!File.Exists(path.Path))
@@ -780,7 +780,7 @@ namespace VideoRecordings
                     MessageBox.Show("没有指定播放器");
                     return;
                 }
-                process = Process.Start(path.Path, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
+                process = Process.Start(path.Path, AppSettings.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
                 return;
             }
             else
@@ -789,10 +789,10 @@ namespace VideoRecordings
                 {
                     VideoPath videoPath = new VideoPath() { Name = dropDownButton1.Text };
                     videoPath.Path = openFileDialog1.FileName;
-                    process = Process.Start(videoPath.Path, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
+                    process = Process.Start(videoPath.Path, AppSettings.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
                     Program.log.Info("使用关联播放器播放", new Exception($"Program.VideoPlay"));
-                    Program.VideoPlayPath.Add(videoPath);
-                    Methods.WritePath(Program.PlayerPath, Program.VideoPlayPath);
+                    AppSettings.VideoPlayPath.Add(videoPath);
+                    Methods.WritePath(AppSettings.PlayerPath, AppSettings.VideoPlayPath);
                 }
             }
         }

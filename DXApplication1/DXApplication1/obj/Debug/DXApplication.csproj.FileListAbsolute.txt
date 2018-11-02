@@ -165,7 +165,6 @@ E:\源码\VideoRecordings\DXApplication1\DXApplication1\obj\Debug\DXApplication.
 E:\源码\VideoRecordings\DXApplication1\DXApplication1\obj\Debug\DXApplication.csproj.CopyComplete
 E:\源码\VideoRecordings\DXApplication1\DXApplication1\obj\Debug\DXApplication1.dll
 E:\源码\VideoRecordings\DXApplication1\DXApplication1\obj\Debug\DXApplication1.pdb
-E:\源码\VideoRecordings\DXApplication1\DXApplication1\obj\Debug\DXApplication.csprojAssemblyReference.cache
 E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\zh-Hans\DevExpress.Data.v18.1.resources.dll
 E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\zh-Hans\DevExpress.Utils.v18.1.resources.dll
 E:\源码\VideoRecordings\DXApplication1\DXApplication1\bin\Debug\zh-Hans\DevExpress.Sparkline.v18.1.Core.resources.dll

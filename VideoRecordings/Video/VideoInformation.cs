@@ -57,7 +57,7 @@ namespace VideoRecordings
             if (hInfo.InRowCell)
             {
                 InformationDisplay information = new InformationDisplay(focusedfolder);
-                information.MyEvent += new InformationDisplay.MyDelegate(RefshData);
+                information.MyEvent += new InformationDisplay.MyDelegate(GetInformationShow);
                 information.Show();
                 Program.log.Info($"打开{focusedfolder.Name}");
             }
@@ -108,21 +108,12 @@ namespace VideoRecordings
         /// <summary>
         /// 获取所有文件夹信息
         /// </summary>
-        public void GetInformationShow(VideoProject video = null, bool fouse = false)
+        public void GetInformationShow()
         {
-            if (!fouse)
-            {
-                Videos = VideoData.GetAllFolder();
-                bindingSource1.DataSource = Videos;
-                gridView1.RefreshData();
-                ShowCompleteness();
-            }
-            else
-            {
-                VideoProject project = Videos.FirstOrDefault(t=>t.Name==video.Name);
-                project = video;
-                gridView1.RefreshData();
-            }
+            Videos = VideoData.GetAllFolder();
+            bindingSource1.DataSource = Videos;
+            gridView1.RefreshData();
+            ShowCompleteness();
             Program.log.Info("更新批次信息");
         }
 
@@ -148,14 +139,6 @@ namespace VideoRecordings
             toolStripStatusLabel1.Text = "总完成度:" + (Convert.ToDouble(comple) / Convert.ToDouble(all)).ToString(("0.00%"))
             + $"({comple}/{all})" + "         ";
             Program.log.Info($"设置完成度{ toolStripStatusLabel1.Text}");
-        }
-
-        /// <summary>
-        /// 刷新
-        /// </summary>
-        public void RefshData()
-        {
-            GetInformationShow();
         }
 
         /// <summary>
@@ -285,7 +268,7 @@ namespace VideoRecordings
             bool scan = VideoData.ScanFolder(focusedfolder);
             if (!scan) return;
             List<int> ids = VideoData.GetAllVideoPlay(focusedfolder.Name).Select(t=>t.Id).ToList();
-            bool iswin = VideoData.VideoRepetition(Program.User.RealName, focusedfolder.Name+focusedfolder.Place, focusedfolder.Id,ids);
+            bool iswin = VideoData.VideoRepetition(AppSettings.User.RealName, focusedfolder.Name+focusedfolder.Place, focusedfolder.Id,ids);
             if (!iswin)
             {
                 MessageBox.Show("添加失败");
@@ -355,14 +338,13 @@ namespace VideoRecordings
                 {
                     return;
                 }
-                string url = Program.Urlpath + "/clear/video/project/" + focusedfolder.Id;
-                JObject obj = WebClinetHepler.Post_New(url);
-                if (obj == null)
+                bool win = VideoData.DeleteScanFolder(focusedfolder.Id);
+                if (!win)
                 {
                     MessageBox.Show("清除扫描信息失败");
                     Program.log.Error("清除扫描信息", new Exception("清除扫描信息失败"));
                 }
-                Program.log.Error($"{focusedfolder.Id}清除扫描信息", new Exception($"清除扫描信息{obj == null}"));
+                Program.log.Error($"{focusedfolder.Id}清除扫描信息", new Exception($"清除扫描信息"));
             }
             catch (Exception ex)
             {

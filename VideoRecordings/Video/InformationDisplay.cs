@@ -84,7 +84,7 @@ namespace VideoRecordings
             addEquipment.MySaveEvent += new AddEquipment.MyDelegate(RefEquipment);
             selectEquipment.MySaveEvent += new SelectEquipment.MyEvent(PostVideos);
             selectEquipment.MyRefreshEvent += new SelectEquipment.MyEvent(GridViewClear);
-            imageListView1.DiskCache = Program.Persistent;
+            imageListView1.DiskCache = AppSettings.Persistent;
             Methods.AddIsTest(this);
             toolStripStatusLabel1.Text = $"当前视频文件夹编号 :{project.Name}    地点:{project.Place}";
         }
@@ -161,7 +161,7 @@ namespace VideoRecordings
                     this.WindowState = FormWindowState.Minimized;
                     return true;
                 case Keys.F2:
-                    Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
+                    Methods.OpenFolderAndSelectFile(AppSettings.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
                     return true;
                 case Keys.Space:
                     if (gridView1.FocusedRowHandle < 0) return true;
@@ -217,7 +217,7 @@ namespace VideoRecordings
             transmissionvideo = (VideoPlay)gridView1.GetRow(rowIndex);
             RefreshImage();
             GetIntToString();
-            DeleteFolder(Program.ImageSavePath);
+            DeleteFolder(AppSettings.ImageSavePath);
         }
 
         /// <summary>
@@ -391,10 +391,10 @@ namespace VideoRecordings
             recording.MyEvent += new VideoRecording.MyDelegate(PostVideos);
             recording.WindowState = FormWindowState.Maximized;
             if (transmissionvideo == null || transmissionvideo.Uri == null) return;
-            if (File.Exists(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))))
+            if (File.Exists(AppSettings.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))))
             {
                 recording.Show();
-                Program.log.Error($"打开{Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))}", new Exception("打开成功"));
+                Program.log.Error($"打开{AppSettings.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))}", new Exception("打开成功"));
             }
             else
             {
@@ -403,7 +403,7 @@ namespace VideoRecordings
                 if (MsgBoxResult != DialogResult.Yes)
                     return;
                 recording.Show();
-                Program.log.Error($"打开{Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))}", new Exception("没有找到视频"));
+                Program.log.Error($"打开{AppSettings.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))}", new Exception("没有找到视频"));
             }
         }
 
@@ -502,7 +502,7 @@ namespace VideoRecordings
         private void OpenfolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (transmissionvideo == null) return;
-            Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
+            Methods.OpenFolderAndSelectFile(AppSettings.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
         }
 
         /// <summary>
@@ -765,7 +765,7 @@ namespace VideoRecordings
             transmissionvideo = (VideoPlay)gridView1.GetRow(index);
             RefreshImage();
             GetIntToString();
-            DeleteFolder(Program.ImageSavePath);
+            DeleteFolder(AppSettings.ImageSavePath);
         }
 
         /// <summary>

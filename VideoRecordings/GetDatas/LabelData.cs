@@ -16,6 +16,8 @@ namespace VideoRecordings.GetDatas
 {
     public class LabelData
     {
+        public static string Url = AppSettings.Urlpath;
+
         /// <summary>
         /// 批量增加标签
         /// </summary>
@@ -24,7 +26,7 @@ namespace VideoRecordings.GetDatas
         /// <returns></returns>
         public static bool BatchAddLabels(List<int> ids, List<int> label)
         {
-            string url = Program.Urlpath + "/bulk/add/video/labels";
+            string url = Url + "/bulk/add/video/labels";
             var str = new
             {
                 videos = ids,
@@ -37,7 +39,7 @@ namespace VideoRecordings.GetDatas
 
         public static AllTypeLabel GetAllLabel()
         {
-            string url = Program.Urlpath + "/labels";
+            string url = Url + "/labels";
             JObject obj = WebClinetHepler.GetJObject(url);
             AllTypeLabel AllLabel = JsonConvert.DeserializeObject<AllTypeLabel>(obj["result"].ToString());
             return AllLabel;
@@ -45,7 +47,7 @@ namespace VideoRecordings.GetDatas
 
         public static AllTypeLabel GetAllLabel(int id)
         {
-            string url = Program.Urlpath + $"/labels?video={id}";
+            string url = Url + $"/labels?video={id}";
             JObject obj = WebClinetHepler.GetJObject(url);
             AllTypeLabel AllLabel = JsonConvert.DeserializeObject<AllTypeLabel>(obj["result"].ToString());
             return AllLabel;
@@ -53,7 +55,7 @@ namespace VideoRecordings.GetDatas
 
         public static bool UpdateLabelName(int id, string name)
         {
-            string url = Program.Urlpath + $"/label/{id}";
+            string url = Url + $"/label/{id}";
             var up = new
             {
                 name
@@ -64,14 +66,14 @@ namespace VideoRecordings.GetDatas
 
         public static bool DeleteLabel(int id)
         {
-            string url = Program.Urlpath + $"/label/{id}";
+            string url = Url + $"/label/{id}";
             JObject obj = WebClinetHepler.Delete_New(url);
             return obj != null;
         }
 
         public static bool AddLabels(int parent_id, List<string> names, int type, int label_ref)
         {
-            string url = Program.Urlpath + "/labels";
+            string url = Url + "/labels";
             List<object> dics = new List<object>();
             foreach (var item in names)
             {
@@ -94,7 +96,7 @@ namespace VideoRecordings.GetDatas
         /// <returns></returns>
         public static async Task<bool> AddLabelToVideoAsync(int id, List<int> labels)
         {
-            string url = Program.Urlpath + $"/video/{id}/labels";
+            string url = Url + $"/video/{id}/labels";
             JObject obj = await WebClinetHepler.PostAsync(url, JsonConvert.SerializeObject(labels)).ConfigureAwait(false);
             return obj != null;
         }
@@ -107,14 +109,14 @@ namespace VideoRecordings.GetDatas
         /// <returns></returns>
         public static bool AddLabelToEquipment(int id, List<int> labels)
         {
-            string url = Program.Urlpath + $"/video/equipment/{id}/add/labels";
+            string url = Url + $"/video/equipment/{id}/add/labels";
             JObject obj = WebClinetHepler.Post_New(url, JsonConvert.SerializeObject(labels));
             return obj != null;
         }
 
         public static TypeLabels GetLabelToEquipment(int id)
         {
-            string url = Program.Urlpath + $"/video/equipment/{id}/labels";
+            string url = Url + $"/video/equipment/{id}/labels";
             JObject obj = WebClinetHepler.GetJObject(url);
             return JsonConvert.DeserializeObject<TypeLabels>(obj["result"].ToString());
         }
@@ -138,7 +140,7 @@ namespace VideoRecordings.GetDatas
         /// <returns></returns>
         public static bool RelevanceLabel(List<int> ids, int label_ref)
         {
-            string url = Program.Urlpath + $"/labels/set/ref";
+            string url = Url + $"/labels/set/ref";
             var json = new
             {
                 ids,
@@ -150,7 +152,7 @@ namespace VideoRecordings.GetDatas
 
         public static bool SetLabelType(List<int> ids, bool isstatic)
         {
-            string url = Program.Urlpath + $"/labels/set/type";
+            string url = Url + $"/labels/set/type";
             int label_type = isstatic ? 1 : 0;
             var json = new
             {

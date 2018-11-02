@@ -21,7 +21,7 @@ namespace VideoRecordings
         {
             InitializeComponent();
             Methods.AddIsTest(this);
-            userToolStripMenuItem.Text = $"欢迎:{Program.User.RealName}";
+            userToolStripMenuItem.Text = $"欢迎:{AppSettings.User.RealName}";
         }
 
         private void FileManagement_Load(object sender, EventArgs e)

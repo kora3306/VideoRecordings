@@ -169,12 +169,6 @@ E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.ChannelGroup
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.ChannelGrouping.Grouping.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.ChannelGrouping.UpdateGroup.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Equipment.SelectEquipment.resources
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Images.AddImage.resources
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Images.ImageDisplay.resources
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.ImageInformation.resources
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Images.ImagePull.resources
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Images.QueryImage.resources
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Images.UpdateImage.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.AddLabel.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.AddEquipment.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Label.ShowStaticLabel.resources
@@ -338,5 +332,6 @@ E:\源码\VideoRecordings\VideoRecordings\bin\Debug\zh-Hans\DevExpress.XtraPrint
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\zh-Hans\DevExpress.RichEdit.v18.1.Core.resources.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\zh-Hans\DevExpress.Office.v18.1.Core.resources.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.BonusSkins.v18.1.dll
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.BatchScreenshot.resources
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe.licenses
+E:\源码\VideoRecordings\VideoRecordings\bin\Debug\标签配置.json
+E:\源码\VideoRecordings\VideoRecordings\bin\Debug\颜色配置.json
+E:\源码\VideoRecordings\VideoRecordings\bin\Debug\appsettings.json
