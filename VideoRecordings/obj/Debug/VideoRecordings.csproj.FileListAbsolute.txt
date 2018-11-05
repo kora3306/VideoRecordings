@@ -339,4 +339,6 @@ E:\源码\VideoRecordings\VideoRecordings\bin\Debug\zh-Hans\DevExpress.RichEdit.
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\zh-Hans\DevExpress.Office.v18.1.Core.resources.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.BonusSkins.v18.1.dll
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.BatchScreenshot.resources
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe.licenses
+E:\源码\VideoRecordings\VideoRecordings\bin\Debug\标签配置.json
+E:\源码\VideoRecordings\VideoRecordings\bin\Debug\颜色配置.json
+E:\源码\VideoRecordings\VideoRecordings\bin\Debug\appsettings.json

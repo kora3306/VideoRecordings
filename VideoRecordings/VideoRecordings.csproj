@@ -332,7 +332,6 @@
     <EmbeddedResource Include="Label\ShowStaticLabel.resx">
       <DependentUpon>ShowStaticLabel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Video\AddVideo.resx">
       <DependentUpon>AddVideo.cs</DependentUpon>
     </EmbeddedResource>

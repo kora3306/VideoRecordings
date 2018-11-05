@@ -17,7 +17,7 @@ namespace VideoRecordings.Video
         public Frame()
         {
             InitializeComponent();
-            NewRefresh();
+            Refresh();
         }
 
         private void Frame_FormClosing(object sender, FormClosingEventArgs e)
