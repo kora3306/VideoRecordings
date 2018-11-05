@@ -54,7 +54,7 @@ namespace VideoRecordings
         /// <summary>
         /// 接口
         /// </summary>
-        public static string Urlpath = "http://192.168.1.198:16080";
+        public static string Urlpath = "http://192.168.1.225:18080";
         //public const string Urlpath = "http://192.168.1.225:18080";
         public static TypeLabels labels = new TypeLabels();
 
