@@ -375,17 +375,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="WMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\01.png" />
   </ItemGroup>
   <ItemGroup>
@@ -408,9 +397,9 @@
       <Project>{433be916-116d-41f4-a309-88a18920b21d}</Project>
       <Name>MyControl</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DXApplication1\DXApplication1\DXApplication.csproj">
-      <Project>{a396a433-6389-4fff-b4bb-2d1016363dc2}</Project>
-      <Name>DXApplication</Name>
+    <ProjectReference Include="..\Aplayer\Aplayer.csproj">
+      <Project>{4b61f43d-2725-4c08-b7cf-85acabd61403}</Project>
+      <Name>Aplayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

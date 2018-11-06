@@ -162,9 +162,6 @@ F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.Write.
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.AddEquipment.resources
 F:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe.licenses
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.csprojAssemblyReference.cache
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\Interop.WMPLib.dll
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\Interop.APlayer3Lib.dll
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.csproj.ResolveComReference.cache
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.ChannelGrouping.AddGroup.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.ChannelGrouping.Grouping.resources
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.ChannelGrouping.UpdateGroup.resources
@@ -196,7 +193,6 @@ E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.Video.Update
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.csproj.GenerateResource.cache
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.csproj.CoreCompileInputs.cache
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\VideoRecordings.exe.config
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\VideoRecordings.exe.manifest
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\VideoRecordings.exe
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\VideoRecordings.pdb
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\Common.dll
@@ -209,12 +205,10 @@ E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraEditors.v18.1
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraGrid.v18.1.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraLayout.v18.1.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraTreeList.v18.1.dll
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DXApplication1.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\ImageListView.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\log4net.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\MyControl.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\Newtonsoft.Json.dll
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\AxInterop.APlayer3Lib.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\ColorSlider.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\AForge.Video.DirectShow.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\MySql.Data.dll
@@ -229,14 +223,12 @@ E:\源码\VideoRecordings\VideoRecordings\bin\Debug\MySql.Data.EntityFramework.d
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.Sparkline.v18.1.Core.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.XtraPrinting.v18.1.dll
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\Interop.APlayer3Lib.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\AForge.Video.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.RichEdit.v18.1.Core.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\AForge.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.Office.v18.1.Core.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.Images.v18.1.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\ImageListView.pdb
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DXApplication1.pdb
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\Dal.pdb
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.Data.v18.1.xml
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.Printing.v18.1.Core.xml
@@ -307,9 +299,6 @@ E:\源码\VideoRecordings\VideoRecordings\bin\Debug\de\DevExpress.Office.v18.1.C
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\es\DevExpress.Office.v18.1.Core.resources.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\ja\DevExpress.Office.v18.1.Core.resources.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\ru\DevExpress.Office.v18.1.Core.resources.dll
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\APlayer_3.9.7.781.dll
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\Native.DXApplication1.manifest
-E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe.manifest
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.csproj.CopyComplete
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.exe
 E:\源码\VideoRecordings\VideoRecordings\obj\Debug\VideoRecordings.pdb
@@ -332,6 +321,7 @@ E:\源码\VideoRecordings\VideoRecordings\bin\Debug\zh-Hans\DevExpress.XtraPrint
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\zh-Hans\DevExpress.RichEdit.v18.1.Core.resources.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\zh-Hans\DevExpress.Office.v18.1.Core.resources.dll
 E:\源码\VideoRecordings\VideoRecordings\bin\Debug\DevExpress.BonusSkins.v18.1.dll
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\标签配置.json
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\颜色配置.json
-E:\源码\VideoRecordings\VideoRecordings\bin\Debug\appsettings.json
+E:\源码\VideoRecordings\VideoRecordings\bin\Debug\Aplayer.dll
+E:\源码\VideoRecordings\VideoRecordings\bin\Debug\Aplayer.pdb
+E:\源码\VideoRecordings\VideoRecordings\bin\Debug\AxInterop.APlayer3Lib.dll
+E:\源码\VideoRecordings\VideoRecordings\bin\Debug\Interop.APlayer3Lib.dll

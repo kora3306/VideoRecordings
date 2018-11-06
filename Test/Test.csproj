@@ -70,10 +70,6 @@
       <Project>{433be916-116d-41f4-a309-88a18920b21d}</Project>
       <Name>MyControl</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DXApplication1\DXApplication1\DXApplication.csproj">
-      <Project>{a396a433-6389-4fff-b4bb-2d1016363dc2}</Project>
-      <Name>DXApplication</Name>
-    </ProjectReference>
     <ProjectReference Include="..\VideoRecordings\VideoRecordings.csproj">
       <Project>{3b552fa2-d724-48fd-b6c5-092e36560734}</Project>
       <Name>VideoRecordings</Name>

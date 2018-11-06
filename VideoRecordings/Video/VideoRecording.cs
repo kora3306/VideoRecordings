@@ -48,8 +48,8 @@ namespace VideoRecordings
             videoplay = videopath;
             videos = videoPlays;
             InitializeComponent();
-            videoPlayer1.MyEvent += new DXApplication1.VideoPlayers_test.MyDelegate(ImageAdd);
-            videoPlayer1.path = AppSettings.ImageSavePath;
+            videoPlayers1.MyEvent += new Aplayer.VideoPlayers.MyDelegate(ImageAdd);
+            videoPlayers1.path = AppSettings.ImageSavePath;
             dropDownButton1.DropDownControl = CreateDXPopupMenu();
             SetAllListNodes(videoPlays);
         }
@@ -216,7 +216,7 @@ namespace VideoRecordings
             switch (keyData)
             {
                 case Keys.F6:
-                    videoPlayer1.Screenshots();
+                    videoPlayers1.Screenshots();
                     return true;
                 case Keys.S:
                     save_button.PerformClick();
@@ -234,16 +234,16 @@ namespace VideoRecordings
                     pasteToolStripMenuItem.PerformClick();
                     return true;
                 case Keys.Z:
-                    videoPlayer1.SetTime(0);
+                    videoPlayers1.SetTime(0);
                     return true;
                 case Keys.X:
-                    videoPlayer1.SetTime(1);
+                    videoPlayers1.SetTime(1);
                     return true;
                 case Keys.C:
-                    videoPlayer1.SetTime(2);
+                    videoPlayers1.SetTime(2);
                     return true;
                 case Keys.Space:
-                    videoPlayer1.PlayOrPause();
+                    videoPlayers1.PlayOrPause();
                     return true;
                 case Keys.E:
                     timeEdit_start.Focus();
@@ -450,8 +450,8 @@ namespace VideoRecordings
             }
             else
             {
-                videoPlayer1.URL = AppSettings.ReturnStringUrl(Methods.ConversionString(videoplay.Uri));
-                videoPlayer1.VideoPalying();
+                videoPlayers1.URL = AppSettings.ReturnStringUrl(Methods.ConversionString(videoplay.Uri));
+                videoPlayers1.VideoPalying();
             }
         }
 
@@ -742,7 +742,7 @@ namespace VideoRecordings
         {
             this.Hide();
             OnSave();
-            videoPlayer1.Dispose();
+            videoPlayers1.Dispose();
         }
 
         /// <summary>

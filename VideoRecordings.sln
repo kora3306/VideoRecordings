@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dal", "..\intedio_data_tool
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{690002FE-BC8C-44A5-BBDE-70D490E389DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aplayer", "Aplayer\Aplayer.csproj", "{4B61F43D-2725-4C08-B7CF-85ACABD61403}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,12 @@ Global
 		{690002FE-BC8C-44A5-BBDE-70D490E389DB}.Release_optimize|Any CPU.Build.0 = Release|Any CPU
 		{690002FE-BC8C-44A5-BBDE-70D490E389DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{690002FE-BC8C-44A5-BBDE-70D490E389DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B61F43D-2725-4C08-B7CF-85ACABD61403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B61F43D-2725-4C08-B7CF-85ACABD61403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B61F43D-2725-4C08-B7CF-85ACABD61403}.Release_optimize|Any CPU.ActiveCfg = Release|Any CPU
+		{4B61F43D-2725-4C08-B7CF-85ACABD61403}.Release_optimize|Any CPU.Build.0 = Release|Any CPU
+		{4B61F43D-2725-4C08-B7CF-85ACABD61403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B61F43D-2725-4C08-B7CF-85ACABD61403}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
