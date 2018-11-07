@@ -32,17 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AxInterop.APlayer3Lib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\VideoRecordings\bin\Debug\AxInterop.APlayer3Lib.dll</HintPath>
+    <Reference Include="AxInterop.APlayer3Lib">
+      <HintPath>C:\Users\sk\Downloads\VideoPlayer\VideoPlayer\bin\Debug\AxInterop.APlayer3Lib.dll</HintPath>
     </Reference>
-    <Reference Include="ColorSlider, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="ColorSlider">
       <HintPath>..\VideoRecordings\bin\Debug\ColorSlider.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.APlayer3Lib">
-      <HintPath>..\VideoRecordings\bin\Debug\Interop.APlayer3Lib.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

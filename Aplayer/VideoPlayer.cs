@@ -4,9 +4,9 @@ using System.Linq;
 using System.Windows.Forms;
 using VideoPlayer;
 using System.IO;
-using AxAPlayer3Lib;
 using System.Drawing;
 using Aplayer.Properties;
+using AxAPlayer3Lib;
 
 namespace Aplayer
 {
@@ -79,7 +79,7 @@ namespace Aplayer
         /// <param name="e"></param>
         void axPlayer1_OnDownloadCodec(object sender, _IPlayerEvents_OnDownloadCodecEvent e)
         {
-            MessageBox.Show("需要解码器:" + e.strCodecPath);
+            MessageBox.Show("格式不支持,需要解码器:" + e.strCodecPath+"\r\n请使用外部播放器播放");
             if (!Directory.Exists(@"codecs"))
             {
                 return;

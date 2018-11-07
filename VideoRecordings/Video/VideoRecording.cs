@@ -254,9 +254,9 @@ namespace VideoRecordings
                 case Keys.T:
                     dateTimePicker1.Focus();
                     return true;
-                case Keys.Q:
-                    ShowStaticLabels();
-                    return true;
+                //case Keys.Q:
+                //    ShowStaticLabels();
+                //    return true;
                 default:
                     break;
             }
@@ -740,8 +740,8 @@ namespace VideoRecordings
 
         private void VideoRecording_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
-            OnSave();
+            //this.Hide();
+            //OnSave();
             videoPlayers1.Dispose();
         }
 

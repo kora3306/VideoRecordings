@@ -236,6 +236,12 @@ namespace VideoRecordings
         {
             string json = GetCriteriaJson();
             if (string.IsNullOrEmpty(json)) return;
+            int count = VideoData.GetQueryVideoCount(json);
+            if (count>1000)
+            {
+               if(MessageBox.Show($"查询的条目共{count}条,查询时间过长,是否添加其他条件","提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Question)==DialogResult.OK)
+                return;
+            }
             WaitFormEx.Run(() =>
             {
                 string url = AppSettings.Urlpath + "/videos?" + json;
@@ -381,9 +387,9 @@ namespace VideoRecordings
                 case Keys.F2:
                     Methods.OpenFolderAndSelectFile(AppSettings.ReturnStringUrl(ConversionString(transmissionvideo.Uri)));
                     return true;
-                case Keys.Q:
-                    ShowStaticLabels();
-                    return true;
+                //case Keys.Q:
+                //    ShowStaticLabels();
+                //    return true;
                 default:
                     break;
             }

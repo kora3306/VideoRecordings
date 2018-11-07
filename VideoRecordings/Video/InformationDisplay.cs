@@ -169,9 +169,9 @@ namespace VideoRecordings
                     if (hInfo.InRowCell)
                         OpenVideoPaly();
                     return true;
-                case Keys.Q:
-                    ShowStaticLabels();
-                    return true;
+                //case Keys.Q:
+                //    ShowStaticLabels();
+                //    return true;
                 default:
                     break;
             }

@@ -246,6 +246,13 @@ namespace VideoRecordings.GetDatas
             return obj != null;
         }
 
+        public static int GetQueryVideoCount(string json)
+        {
+            string url = Url + $"/videos/count?{json}";
+            JObject obj = WebClinetHepler.GetJObject(url);
+            int? count= obj?["count"]?.ToObject<int>();
+            return count ?? 0;
+        }
     }
 
 }
