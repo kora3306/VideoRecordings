@@ -42,7 +42,6 @@
             this.DelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ReToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openimageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.videoPlayer1 = new DXApplication1.VideoPlayers_test();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
@@ -66,6 +65,7 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.videoPlayers1 = new Aplayer.VideoPlayers();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -97,7 +97,6 @@
             this.tableLayoutPanel1.Controls.Add(this.label_treeView, 8, 0);
             this.tableLayoutPanel1.Controls.Add(this.treeView1, 7, 0);
             this.tableLayoutPanel1.Controls.Add(this.imageListView1, 7, 5);
-            this.tableLayoutPanel1.Controls.Add(this.videoPlayer1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.treeList1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.linkLabel1, 7, 6);
@@ -106,6 +105,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 7, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 7, 3);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 7, 4);
+            this.tableLayoutPanel1.Controls.Add(this.videoPlayers1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -119,6 +119,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1460, 698);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -225,18 +226,6 @@
             this.openimageToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.openimageToolStripMenuItem.Text = "放大选中图片";
             this.openimageToolStripMenuItem.Click += new System.EventHandler(this.openimageToolStripMenuItem_Click);
-            // 
-            // videoPlayer1
-            // 
-            this.videoPlayer1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tableLayoutPanel1.SetColumnSpan(this.videoPlayer1, 6);
-            this.videoPlayer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoPlayer1.Location = new System.Drawing.Point(230, 7);
-            this.videoPlayer1.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.videoPlayer1.Name = "videoPlayer1";
-            this.tableLayoutPanel1.SetRowSpan(this.videoPlayer1, 6);
-            this.videoPlayer1.Size = new System.Drawing.Size(749, 607);
-            this.videoPlayer1.TabIndex = 22;
             // 
             // treeList1
             // 
@@ -388,7 +377,7 @@
             this.toggleSwitch1.Properties.Appearance.Options.UseForeColor = true;
             this.toggleSwitch1.Properties.OffText = "Off";
             this.toggleSwitch1.Properties.OnText = "On";
-            this.toggleSwitch1.Size = new System.Drawing.Size(110, 25);
+            this.toggleSwitch1.Size = new System.Drawing.Size(110, 29);
             this.toggleSwitch1.TabIndex = 35;
             // 
             // labelControl1
@@ -528,6 +517,18 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(164, 26);
             this.dateTimePicker1.TabIndex = 29;
             // 
+            // videoPlayers1
+            // 
+            this.videoPlayers1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tableLayoutPanel1.SetColumnSpan(this.videoPlayers1, 6);
+            this.videoPlayers1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoPlayers1.Location = new System.Drawing.Point(230, 5);
+            this.videoPlayers1.Margin = new System.Windows.Forms.Padding(5);
+            this.videoPlayers1.Name = "videoPlayers1";
+            this.tableLayoutPanel1.SetRowSpan(this.videoPlayers1, 6);
+            this.videoPlayers1.Size = new System.Drawing.Size(749, 611);
+            this.videoPlayers1.TabIndex = 41;
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -586,7 +587,6 @@
         private System.Windows.Forms.ToolStripMenuItem openimageToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private DevExpress.XtraEditors.DropDownButton dropDownButton1;
-        private DXApplication1.VideoPlayers_test videoPlayer1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.ToggleSwitch toggleSwitch1;
         private System.Windows.Forms.Label label1;
@@ -606,6 +606,7 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
         private System.Windows.Forms.Label label2;
         private DevExpress.Utils.ToolTipController toolTipController1;
+        private Aplayer.VideoPlayers videoPlayers1;
     }
 }
 

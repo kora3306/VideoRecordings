@@ -13,11 +13,11 @@ namespace VideoRecordings.Video
 {
     public partial class Frame : Form
     {
-        List<Solution> frames;
+        List<BackSolution> frames;
         public Frame()
         {
             InitializeComponent();
-            Refresh();
+            NewRefresh();
         }
 
         private void Frame_FormClosing(object sender, FormClosingEventArgs e)
@@ -29,19 +29,19 @@ namespace VideoRecordings.Video
         public void  NewRefresh()
         {
             gridControl1.DataSource = null;
-            frames = GetDatas.VideoData.GetFrame();
+            frames = GetDatas.SolutionData.GetFrame();
             gridControl1.DataSource = frames;
         }
 
-        private List<Solution> GetSelectRow()
+        private List<BackSolution> GetSelectRow()
         {
             int[] rownumber = gridView1.GetSelectedRows();
             if (rownumber.Count() == 0) return null;
-            List<Solution> videos = new List<Solution>();
+            List<BackSolution> videos = new List<BackSolution>();
             foreach (var it in rownumber)
             {
                 if (it < 0) continue;
-                Solution video = (Solution)gridView1.GetRow(it);
+                BackSolution video = (BackSolution)gridView1.GetRow(it);
                 videos.Add(video);
             }
             return videos;
@@ -49,9 +49,9 @@ namespace VideoRecordings.Video
 
         private void TOP_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            List<Solution> solutions = GetSelectRow();
+            List<BackSolution> solutions = GetSelectRow();
             if(solutions==null||solutions.Count==0) return;
-            if (GetDatas.VideoData.QueueSolution(solutions))
+            if (GetDatas.SolutionData.QueueSolution(solutions))
             {
                 NewRefresh();
                 return;

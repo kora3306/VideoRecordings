@@ -48,8 +48,8 @@ namespace VideoRecordings
             videoplay = videopath;
             videos = videoPlays;
             InitializeComponent();
-            videoPlayer1.MyEvent += new DXApplication1.VideoPlayers_test.MyDelegate(ImageAdd);
-            videoPlayer1.path = Program.ImageSavePath;
+            videoPlayers1.MyEvent += new Aplayer.VideoPlayers.MyDelegate(ImageAdd);
+            videoPlayers1.path = AppSettings.ImageSavePath;
             dropDownButton1.DropDownControl = CreateDXPopupMenu();
             SetAllListNodes(videoPlays);
         }
@@ -65,9 +65,9 @@ namespace VideoRecordings
         private void VideoRecording_Load(object sender, EventArgs e)
         {
   
-            linkLabel1.Text = Program.ImageSavePath;
+            linkLabel1.Text = AppSettings.ImageSavePath;
             imageListView1.Focus();
-            imageListView1.DiskCache = Program.Persistent;
+            imageListView1.DiskCache = AppSettings.Persistent;
             Methods.AddIsTest(this);
             if (label_treeView.Nodes.Count != 0)
             {
@@ -107,25 +107,18 @@ namespace VideoRecordings
             openFileDialog1.RestoreDirectory = true;
             openFileDialog1.ShowDialog();
         }
-     
+    
 
         /// <summary>
         /// 保存按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void save_button_ClickAsync(object sender, EventArgs e)
+        private async void save_button_ClickAsync(object sender, EventArgs e)
         {
             ImageAdd();
-            var islabel = SaveLabel();
-            var isimage = SaveImage();
-            var istime = SaveTime();
-            if (!(islabel || isimage || istime))
-            {
-                MessageBox.Show("保存失败");
-                return;
-            }
-            DeleteFolder(Program.ImageSavePath);
+            await SaveInfo();
+            DeleteFolder(AppSettings.ImageSavePath);
             if (treeList1.FocusedNode==treeList1.Nodes.LastNode.LastNode)
             {
                 treeList1.FocusedNode = treeList1.Nodes.FirstNode;
@@ -135,8 +128,17 @@ namespace VideoRecordings
             {
                 treeList1.MoveNext();
             }
-            //OnSave(videoplay);
-            //this.Close();
+        }
+
+        private async Task SaveInfo()
+        {
+            var islabel =  SaveLabelAsync();
+            var isimage =  SaveImageAsync();
+            var istime  =  SaveTimeAsync();
+            await Task.WhenAll(islabel,isimage,istime);
+            if (islabel.Result & isimage.Result & istime.Result)
+                return;
+            MessageBox.Show("保存失败");
         }
 
         /// <summary>
@@ -200,12 +202,12 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void DeletePToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VideoPath path = Program.VideoPlayPath.FirstOrDefault(t=>t.Name==dropDownButton1.Text);
+            VideoPath path = AppSettings.VideoPlayPath.FirstOrDefault(t=>t.Name==dropDownButton1.Text);
             if (path!=null)
             {
-                Program.VideoPlayPath.Remove(path);
+                AppSettings.VideoPlayPath.Remove(path);
             }
-            Methods.WritePath(Program.PlayerPath, Program.VideoPlayPath);
+            Methods.WritePath(AppSettings.PlayerPath, AppSettings.VideoPlayPath);
         }
 
         //
@@ -214,7 +216,7 @@ namespace VideoRecordings
             switch (keyData)
             {
                 case Keys.F6:
-                    videoPlayer1.Screenshots();
+                    videoPlayers1.Screenshots();
                     return true;
                 case Keys.S:
                     save_button.PerformClick();
@@ -232,16 +234,16 @@ namespace VideoRecordings
                     pasteToolStripMenuItem.PerformClick();
                     return true;
                 case Keys.Z:
-                    videoPlayer1.SetTime(0);
+                    videoPlayers1.SetTime(0);
                     return true;
                 case Keys.X:
-                    videoPlayer1.SetTime(1);
+                    videoPlayers1.SetTime(1);
                     return true;
                 case Keys.C:
-                    videoPlayer1.SetTime(2);
+                    videoPlayers1.SetTime(2);
                     return true;
                 case Keys.Space:
-                    videoPlayer1.PlayOrPause();
+                    videoPlayers1.PlayOrPause();
                     return true;
                 case Keys.E:
                     timeEdit_start.Focus();
@@ -252,9 +254,9 @@ namespace VideoRecordings
                 case Keys.T:
                     dateTimePicker1.Focus();
                     return true;
-                case Keys.Q:
-                    ShowStaticLabels();
-                    return true;
+                //case Keys.Q:
+                //    ShowStaticLabels();
+                //    return true;
                 default:
                     break;
             }
@@ -300,12 +302,12 @@ namespace VideoRecordings
         private void ImageAdd()
         {
             paths.Clear();
-            if (Program.ImageSavePath == string.Empty)
+            if (AppSettings.ImageSavePath == string.Empty)
             {
                 MessageBox.Show("请设置截图读取路径,与图片保存保持一致");
                 return;
             }
-            DirectoryInfo dir = new DirectoryInfo(Program.ImageSavePath);
+            DirectoryInfo dir = new DirectoryInfo(AppSettings.ImageSavePath);
             FileInfo[] fil = dir.GetFiles();
             if (fil.Count() == 0) return;
             foreach (FileInfo f in fil)
@@ -337,26 +339,21 @@ namespace VideoRecordings
         /// <summary>
         /// Post保存标签
         /// </summary>
-        public bool SaveLabel()
+        public async Task<bool> SaveLabelAsync()
         {
             List<VideoLabel> ids = new List<VideoLabel>();
             foreach (TypeLabel tree in staticlabel.Union(Selectlabels))
             {
                 ids.AddRange(tree.Labels);
             }
-            bool win = LabelData.AddLabelToVideo(videoplay.Id, ids.Select(t => t.Id).ToList());
-            if (!win)
-            {
-                MessageBox.Show("上传标签失败");
-                Program.log.Error($"保存标签失败label_id:{string.Join(",",ids)}");
-            }
+            bool win = await LabelData.AddLabelToVideoAsync(videoplay.Id, ids.Select(t => t.Id).ToList());
             return win;
         }
 
         /// <summary>
         /// post保存图片
         /// </summary>
-        public bool SaveImage()
+        public async Task<bool> SaveImageAsync()
         {
             List<string> saveimage = new List<string>();
             foreach (var item in paths)
@@ -364,12 +361,7 @@ namespace VideoRecordings
                 saveimage.Add(GetPictureData(item));
             }
             string json = JsonConvert.SerializeObject(saveimage);
-            bool win = VideoData.SaveImage(videoplay.Id, json);
-            if (!win)
-            {
-                MessageBox.Show("上传图片失败");
-                Program.log.Error($"上传图片失败,images:{string.Join(",",saveimage)}");
-            }
+            bool win = await VideoData.SaveImageAsync(videoplay.Id, json);
             return win;
         }
 
@@ -446,7 +438,7 @@ namespace VideoRecordings
             {
                 try
                 {
-                    process = Process.Start(Program.VideoPlayPath.FirstOrDefault(t=>t.Name==dropDownButton1.Text).Path, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
+                    process = Process.Start(AppSettings.VideoPlayPath.FirstOrDefault(t=>t.Name==dropDownButton1.Text).Path, AppSettings.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
                     return;
                 }
                 catch (Exception ex)
@@ -458,8 +450,8 @@ namespace VideoRecordings
             }
             else
             {
-                videoPlayer1.URL = Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri));
-                videoPlayer1.VideoPalying();
+                videoPlayers1.URL = AppSettings.ReturnStringUrl(Methods.ConversionString(videoplay.Uri));
+                videoPlayers1.VideoPalying();
             }
         }
 
@@ -469,7 +461,7 @@ namespace VideoRecordings
         public void GetIntToString()
         {
             imageurl.Clear();
-            string url = Program.Urlpath + "/video/snapshot/";
+            string url = AppSettings.Urlpath + "/video/snapshot/";
             foreach (var item in videoplay.ImageId)
             {
                 imageurl.Add(url + item);
@@ -529,7 +521,7 @@ namespace VideoRecordings
         /// </summary>
         public void DelImage()
         {
-            string url = Program.Urlpath + "/video/snapshot/";
+            string url = AppSettings.Urlpath + "/video/snapshot/";
             if (imageListView1.SelectedItems.Count == 0)
             {
                 return;
@@ -573,7 +565,7 @@ namespace VideoRecordings
         /// <summary>
         /// 保存时间
         /// </summary>
-        private bool SaveTime()
+        private async Task<bool> SaveTimeAsync()
         {
             Dictionary<string, string> patchjson = new Dictionary<string, string>();
             string start = timeEdit_start.Text;
@@ -582,12 +574,7 @@ namespace VideoRecordings
             patchjson.Add("end_time", end);
             patchjson.Add("record_time", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
             string json = JsonConvert.SerializeObject(patchjson);
-            bool win = VideoData.SaveTime(videoplay.Id, json);
-            if (!win)
-            {
-                MessageBox.Show("上传时间失败");
-                Program.log.Info($"上传时间失败,{json}");
-            }
+            bool win = await VideoData.SaveTimeAsync(videoplay.Id, json);
             return win;
         }
 
@@ -753,9 +740,9 @@ namespace VideoRecordings
 
         private void VideoRecording_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
-            OnSave();
-            videoPlayer1.Dispose();
+            //this.Hide();
+            //OnSave();
+            videoPlayers1.Dispose();
         }
 
         /// <summary>
@@ -765,7 +752,7 @@ namespace VideoRecordings
         private DXPopupMenu CreateDXPopupMenu()
         {
             DXPopupMenu menu = new DXPopupMenu();
-            foreach (var item in Program.Paths)
+            foreach (var item in AppSettings.Paths)
             {
                 menu.Items.Add(new DXMenuItem(item, OnItemClick));
             }          
@@ -785,7 +772,7 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void dropDownButton1_Click(object sender, EventArgs e)
         {
-            VideoPath path = Program.VideoPlayPath.FirstOrDefault(t => t.Name == dropDownButton1.Text);
+            VideoPath path = AppSettings.VideoPlayPath.FirstOrDefault(t => t.Name == dropDownButton1.Text);
             if (path != null)
             {
                 if (!File.Exists(path.Path))
@@ -793,7 +780,7 @@ namespace VideoRecordings
                     MessageBox.Show("没有指定播放器");
                     return;
                 }
-                process = Process.Start(path.Path, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
+                process = Process.Start(path.Path, AppSettings.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
                 return;
             }
             else
@@ -802,10 +789,10 @@ namespace VideoRecordings
                 {
                     VideoPath videoPath = new VideoPath() { Name = dropDownButton1.Text };
                     videoPath.Path = openFileDialog1.FileName;
-                    process = Process.Start(videoPath.Path, Program.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
+                    process = Process.Start(videoPath.Path, AppSettings.ReturnStringUrl(Methods.ConversionString(videoplay.Uri)));
                     Program.log.Info("使用关联播放器播放", new Exception($"Program.VideoPlay"));
-                    Program.VideoPlayPath.Add(videoPath);
-                    Methods.WritePath(Program.PlayerPath, Program.VideoPlayPath);
+                    AppSettings.VideoPlayPath.Add(videoPath);
+                    Methods.WritePath(AppSettings.PlayerPath, AppSettings.VideoPlayPath);
                 }
             }
         }

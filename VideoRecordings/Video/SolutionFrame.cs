@@ -30,6 +30,7 @@ namespace VideoRecordings.Video
             textBox_url.Text = video.Uri;
             textBox_SP.Text = video.ProjectName;
             textBox_numb.Text = video.Id.ToString();
+            comboBox_top.SelectedIndex = 0;
         }
 
         public delegate void MyDeletgate(VideoPlay play);
@@ -44,14 +45,20 @@ namespace VideoRecordings.Video
         {
             try
             {
-                if(!int.TryParse(textBox_interval.Text.Trim(),out int interval))
+                if(!int.TryParse(textBox_interval.Text.Trim(),out int step))
                     return;
-                bool win = SolutionOfTheFrame(video.Uri, video.Id, interval);
+                string folder = textBox_folder.Text.Trim();
+                string note = textBox_note.Text.Trim();
+                int top = comboBox_top.SelectedIndex;
+                List<int> ids = new List<int>() {video.Id};
+                bool win = GetDatas.SolutionData.SolutionOfTheFrame(new Solution(folder, note, ids, step, top));
                 if (win)
                 {
-                    VideoPlay play = Methods.GetNewImages(video.Id);
-                    OnRefresh(play);
+                    MessageBox.Show("添加失败");
+                    return;
                 }
+                VideoPlay play = Methods.GetNewImages(video.Id);
+                OnRefresh(play);
                 this.Close();
 
             }
@@ -61,25 +68,6 @@ namespace VideoRecordings.Video
                 return;
             }
 
-        }
-
-        private bool SolutionOfTheFrame(string uri, int id, int step)
-        {
-            //string url = $"http://192.168.1.224:8081/deframe";
-            string url = Program.Urlpath + $"/deframe";
-            List<Solution> jsonDic= new List<Solution>();
-            Solution solution= new Solution(uri,id,step);
-            jsonDic.Add(solution);
-            string json = JsonConvert.SerializeObject(jsonDic);
-            JObject obj = WebClinetHepler.Post_New(url, json);
-            if (obj == null)
-            {
-                MessageBox.Show($"编号{id}解帧失败");
-                Program.log.Error($"编号{id}解帧失败");
-                return false;
-            }
-            Program.log.Error($"编号{id}解帧,间隔{step}");
-            return true;
         }
     }
 }

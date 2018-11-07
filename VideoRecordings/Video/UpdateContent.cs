@@ -48,17 +48,17 @@ namespace VideoRecordings
             textBox_note.Text = string.IsNullOrEmpty(videoProject.Note) ? string.Empty : videoProject.Note;
         }
 
-        public delegate void MyDelegate(VideoProject video = null, bool fouse = false);
+        public delegate void MyDelegate();
         public event MyDelegate MyEvent;
         public virtual void OnSave()
         {
-            MyEvent?.Invoke(videoProject, true);
+            MyEvent?.Invoke();
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string url = Program.Urlpath + "/video/project/" + videoProject.Id;
+            string url = AppSettings.Urlpath + "/video/project/" + videoProject.Id;
             string json = RfreshDate();
             if (string.IsNullOrEmpty(json))
             {

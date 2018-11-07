@@ -66,7 +66,6 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.batchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Top_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.AddlabelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteSolutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -191,7 +190,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.51013F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.88068F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.9946F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
             this.tableLayoutPanel1.Controls.Add(this.label_fid, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBox_proname, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label22, 0, 1);
@@ -213,7 +212,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1299, 70);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1297, 76);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label_fid
@@ -234,7 +233,7 @@
             this.comboBox_proname.FormattingEnabled = true;
             this.comboBox_proname.Location = new System.Drawing.Point(114, 3);
             this.comboBox_proname.Name = "comboBox_proname";
-            this.comboBox_proname.Size = new System.Drawing.Size(187, 28);
+            this.comboBox_proname.Size = new System.Drawing.Size(184, 28);
             this.comboBox_proname.TabIndex = 56;
             this.comboBox_proname.TextUpdate += new System.EventHandler(this.comboBox_proname_TextUpdate);
             // 
@@ -243,7 +242,7 @@
             this.label22.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(23, 45);
+            this.label22.Location = new System.Drawing.Point(23, 46);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(65, 20);
             this.label22.TabIndex = 72;
@@ -255,7 +254,7 @@
             this.comboBox_groups.FormattingEnabled = true;
             this.comboBox_groups.Location = new System.Drawing.Point(114, 40);
             this.comboBox_groups.Name = "comboBox_groups";
-            this.comboBox_groups.Size = new System.Drawing.Size(187, 27);
+            this.comboBox_groups.Size = new System.Drawing.Size(184, 27);
             this.comboBox_groups.TabIndex = 83;
             this.comboBox_groups.TextUpdate += new System.EventHandler(this.comboBox_groups_TextUpdate);
             // 
@@ -264,7 +263,7 @@
             this.label21.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label21.Location = new System.Drawing.Point(327, 45);
+            this.label21.Location = new System.Drawing.Point(324, 46);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(65, 20);
             this.label21.TabIndex = 71;
@@ -274,9 +273,9 @@
             // 
             this.comboBox_group.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox_group.FormattingEnabled = true;
-            this.comboBox_group.Location = new System.Drawing.Point(418, 40);
+            this.comboBox_group.Location = new System.Drawing.Point(415, 40);
             this.comboBox_group.Name = "comboBox_group";
-            this.comboBox_group.Size = new System.Drawing.Size(231, 27);
+            this.comboBox_group.Size = new System.Drawing.Size(227, 27);
             this.comboBox_group.TabIndex = 82;
             this.comboBox_group.TextUpdate += new System.EventHandler(this.comboBox_group_TextUpdate);
             // 
@@ -285,7 +284,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(327, 8);
+            this.label7.Location = new System.Drawing.Point(324, 8);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 20);
             this.label7.TabIndex = 18;
@@ -295,9 +294,9 @@
             // 
             this.textBox_vid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_vid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_vid.Location = new System.Drawing.Point(418, 3);
+            this.textBox_vid.Location = new System.Drawing.Point(415, 3);
             this.textBox_vid.Name = "textBox_vid";
-            this.textBox_vid.Size = new System.Drawing.Size(231, 26);
+            this.textBox_vid.Size = new System.Drawing.Size(227, 26);
             this.textBox_vid.TabIndex = 21;
             // 
             // label8
@@ -305,7 +304,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(675, 8);
+            this.label8.Location = new System.Drawing.Point(668, 8);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 20);
             this.label8.TabIndex = 19;
@@ -318,9 +317,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.textBox_label, 3);
             this.textBox_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_label.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_label.Location = new System.Drawing.Point(766, 3);
+            this.textBox_label.Location = new System.Drawing.Point(759, 3);
             this.textBox_label.Name = "textBox_label";
-            this.textBox_label.Size = new System.Drawing.Size(380, 26);
+            this.textBox_label.Size = new System.Drawing.Size(374, 26);
             this.textBox_label.TabIndex = 20;
             this.textBox_label.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_label_KeyDown);
             // 
@@ -328,7 +327,7 @@
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.button2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(1193, 3);
+            this.button2.Location = new System.Drawing.Point(1191, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(103, 30);
             this.button2.TabIndex = 46;
@@ -340,7 +339,7 @@
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.button3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.Location = new System.Drawing.Point(1193, 40);
+            this.button3.Location = new System.Drawing.Point(1191, 41);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(103, 30);
             this.button3.TabIndex = 70;
@@ -352,9 +351,9 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(917, 40);
+            this.button1.Location = new System.Drawing.Point(908, 40);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 31);
+            this.button1.Size = new System.Drawing.Size(113, 31);
             this.button1.TabIndex = 12;
             this.button1.Text = "开始查询";
             this.button1.UseVisualStyleBackColor = true;
@@ -363,7 +362,7 @@
             // button_ref
             // 
             this.button_ref.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_ref.Location = new System.Drawing.Point(766, 40);
+            this.button_ref.Location = new System.Drawing.Point(759, 40);
             this.button_ref.Name = "button_ref";
             this.button_ref.Size = new System.Drawing.Size(118, 31);
             this.button_ref.TabIndex = 68;
@@ -376,7 +375,7 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(847, 9);
+            this.label12.Location = new System.Drawing.Point(846, 10);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 20);
             this.label12.TabIndex = 33;
@@ -387,7 +386,7 @@
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.Location = new System.Drawing.Point(847, 46);
+            this.label13.Location = new System.Drawing.Point(846, 49);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 20);
             this.label13.TabIndex = 34;
@@ -398,7 +397,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(337, 84);
+            this.label2.Location = new System.Drawing.Point(337, 89);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 20);
             this.label2.TabIndex = 2;
@@ -408,9 +407,9 @@
             // 
             this.textBox_name.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_name.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_name.Location = new System.Drawing.Point(428, 78);
+            this.textBox_name.Location = new System.Drawing.Point(428, 82);
             this.textBox_name.Name = "textBox_name";
-            this.textBox_name.Size = new System.Drawing.Size(404, 26);
+            this.textBox_name.Size = new System.Drawing.Size(403, 26);
             this.textBox_name.TabIndex = 7;
             // 
             // label4
@@ -418,7 +417,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(15, 84);
+            this.label4.Location = new System.Drawing.Point(15, 89);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 20);
             this.label4.TabIndex = 4;
@@ -430,7 +429,7 @@
             this.label3.AutoSize = true;
             this.label3.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(15, 9);
+            this.label3.Location = new System.Drawing.Point(15, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 20);
             this.label3.TabIndex = 3;
@@ -441,7 +440,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(323, 46);
+            this.label5.Location = new System.Drawing.Point(323, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 20);
             this.label5.TabIndex = 23;
@@ -452,7 +451,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(15, 46);
+            this.label6.Location = new System.Drawing.Point(15, 49);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 20);
             this.label6.TabIndex = 6;
@@ -463,7 +462,7 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(323, 9);
+            this.label10.Location = new System.Drawing.Point(323, 10);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(93, 20);
             this.label10.TabIndex = 31;
@@ -484,14 +483,13 @@
             this.toolStripSeparator3,
             this.DToolStripMenuItem,
             this.batchToolStripMenuItem,
-            this.Top_ToolStripMenuItem,
             this.toolStripSeparator4,
             this.AddlabelsToolStripMenuItem,
             this.DeleteSolutionToolStripMenuItem,
             this.ADStaticToolStripMenuItem,
             this.OUTputToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(173, 336);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(173, 314);
             // 
             // openToolStripMenuItem
             // 
@@ -570,13 +568,6 @@
             this.batchToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.batchToolStripMenuItem.Text = "批量解帧";
             this.batchToolStripMenuItem.Click += new System.EventHandler(this.batchToolStripMenuItem_Click);
-            // 
-            // Top_ToolStripMenuItem
-            // 
-            this.Top_ToolStripMenuItem.Name = "Top_ToolStripMenuItem";
-            this.Top_ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.Top_ToolStripMenuItem.Text = "批量解帧(置顶)";
-            this.Top_ToolStripMenuItem.Click += new System.EventHandler(this.Top_ToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -682,13 +673,13 @@
             // 
             // hideContainerBottom
             // 
-            this.hideContainerBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.hideContainerBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.hideContainerBottom.Controls.Add(this.dockPanel1);
             this.hideContainerBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.hideContainerBottom.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hideContainerBottom.Location = new System.Drawing.Point(0, 670);
+            this.hideContainerBottom.Location = new System.Drawing.Point(0, 676);
             this.hideContainerBottom.Name = "hideContainerBottom";
-            this.hideContainerBottom.Size = new System.Drawing.Size(1305, 26);
+            this.hideContainerBottom.Size = new System.Drawing.Size(1305, 20);
             this.hideContainerBottom.Text = "图片显示";
             // 
             // dockPanel1
@@ -986,9 +977,9 @@
             // dockPanel2_Container
             // 
             this.dockPanel2_Container.Controls.Add(this.tableLayoutPanel1);
-            this.dockPanel2_Container.Location = new System.Drawing.Point(3, 30);
+            this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(1299, 70);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(1297, 76);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // dockPanel5
@@ -1008,9 +999,9 @@
             // 
             this.dockPanel5_Container.Controls.Add(this.tableLayoutPanel8);
             this.dockPanel5_Container.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dockPanel5_Container.Location = new System.Drawing.Point(3, 30);
+            this.dockPanel5_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel5_Container.Name = "dockPanel5_Container";
-            this.dockPanel5_Container.Size = new System.Drawing.Size(1299, 113);
+            this.dockPanel5_Container.Size = new System.Drawing.Size(1297, 119);
             this.dockPanel5_Container.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -1048,16 +1039,16 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.48276F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.62069F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.75862F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1299, 113);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1297, 119);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // comboBox1
             // 
             this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(928, 3);
+            this.comboBox1.Location = new System.Drawing.Point(927, 3);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(120, 28);
+            this.comboBox1.Size = new System.Drawing.Size(119, 28);
             this.comboBox1.TabIndex = 17;
             // 
             // radioGroup1
@@ -1073,13 +1064,13 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "在用"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "弃用"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "不筛选")});
-            this.radioGroup1.Size = new System.Drawing.Size(213, 32);
+            this.radioGroup1.Size = new System.Drawing.Size(213, 34);
             this.radioGroup1.TabIndex = 68;
             // 
             // radioGroup2
             // 
             this.radioGroup2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioGroup2.Location = new System.Drawing.Point(98, 41);
+            this.radioGroup2.Location = new System.Drawing.Point(98, 43);
             this.radioGroup2.Name = "radioGroup2";
             this.radioGroup2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.radioGroup2.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -1089,13 +1080,13 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "已记录"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "未记录"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "不筛选")});
-            this.radioGroup2.Size = new System.Drawing.Size(213, 31);
+            this.radioGroup2.Size = new System.Drawing.Size(213, 33);
             this.radioGroup2.TabIndex = 69;
             // 
             // radioGroup3
             // 
             this.radioGroup3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioGroup3.Location = new System.Drawing.Point(98, 78);
+            this.radioGroup3.Location = new System.Drawing.Point(98, 82);
             this.radioGroup3.Name = "radioGroup3";
             this.radioGroup3.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.radioGroup3.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -1105,7 +1096,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "已解帧"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "未解帧"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "不筛选")});
-            this.radioGroup3.Size = new System.Drawing.Size(213, 32);
+            this.radioGroup3.Size = new System.Drawing.Size(213, 34);
             this.radioGroup3.TabIndex = 70;
             // 
             // tableLayoutPanel3
@@ -1122,14 +1113,14 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(404, 32);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(403, 34);
             this.tableLayoutPanel3.TabIndex = 73;
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(173, 6);
+            this.label9.Location = new System.Drawing.Point(172, 7);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(57, 20);
             this.label9.TabIndex = 0;
@@ -1140,13 +1131,13 @@
             this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateTimePicker1.Location = new System.Drawing.Point(3, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(156, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(155, 26);
             this.dateTimePicker1.TabIndex = 1;
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker2.Location = new System.Drawing.Point(245, 3);
+            this.dateTimePicker2.Location = new System.Drawing.Point(244, 3);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(156, 26);
             this.dateTimePicker2.TabIndex = 2;
@@ -1161,18 +1152,18 @@
             this.tableLayoutPanel4.Controls.Add(this.timeEdit_start, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.timeEdit_end, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(428, 41);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(428, 43);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(404, 31);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(403, 33);
             this.tableLayoutPanel4.TabIndex = 74;
             // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(173, 5);
+            this.label11.Location = new System.Drawing.Point(172, 6);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(57, 20);
             this.label11.TabIndex = 0;
@@ -1188,14 +1179,14 @@
             this.timeEdit_start.Properties.Appearance.Options.UseFont = true;
             this.timeEdit_start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit_start.Size = new System.Drawing.Size(156, 26);
+            this.timeEdit_start.Size = new System.Drawing.Size(155, 26);
             this.timeEdit_start.TabIndex = 1;
             // 
             // timeEdit_end
             // 
             this.timeEdit_end.Dock = System.Windows.Forms.DockStyle.Fill;
             this.timeEdit_end.EditValue = new System.DateTime(2018, 9, 20, 0, 0, 0, 0);
-            this.timeEdit_end.Location = new System.Drawing.Point(245, 3);
+            this.timeEdit_end.Location = new System.Drawing.Point(244, 3);
             this.timeEdit_end.Name = "timeEdit_end";
             this.timeEdit_end.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeEdit_end.Properties.Appearance.Options.UseFont = true;
@@ -1208,9 +1199,9 @@
             // 
             this.comboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(928, 41);
+            this.comboBox2.Location = new System.Drawing.Point(927, 43);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(120, 28);
+            this.comboBox2.Size = new System.Drawing.Size(119, 28);
             this.comboBox2.TabIndex = 75;
             // 
             // hideContainerTop
@@ -1238,7 +1229,7 @@
             this.repositoryItemFontEdit1,
             this.repositoryItemMemoEdit1,
             this.repositoryItemMemoEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(1305, 419);
+            this.gridControl1.Size = new System.Drawing.Size(1305, 425);
             this.gridControl1.TabIndex = 13;
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1713,7 +1704,6 @@
         private System.Windows.Forms.Label label11;
         private DevExpress.XtraEditors.TimeEdit timeEdit_start;
         private DevExpress.XtraEditors.TimeEdit timeEdit_end;
-        private System.Windows.Forms.ToolStripMenuItem Top_ToolStripMenuItem;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
     }

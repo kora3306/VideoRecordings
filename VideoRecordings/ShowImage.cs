@@ -70,7 +70,7 @@ namespace VideoRecordings
                
                 if (items[index].FileName.StartsWith("http"))
                 {
-                    string url = Program.Urlpath + "/video/snapshot/" + items[index].Text;
+                    string url = AppSettings.Urlpath + "/video/snapshot/" + items[index].Text;
                     HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                     using (WebResponse response = request.GetResponse())
                     {

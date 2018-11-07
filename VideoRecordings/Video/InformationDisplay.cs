@@ -84,7 +84,7 @@ namespace VideoRecordings
             addEquipment.MySaveEvent += new AddEquipment.MyDelegate(RefEquipment);
             selectEquipment.MySaveEvent += new SelectEquipment.MyEvent(PostVideos);
             selectEquipment.MyRefreshEvent += new SelectEquipment.MyEvent(GridViewClear);
-            imageListView1.DiskCache = Program.Persistent;
+            imageListView1.DiskCache = AppSettings.Persistent;
             Methods.AddIsTest(this);
             toolStripStatusLabel1.Text = $"当前视频文件夹编号 :{project.Name}    地点:{project.Place}";
         }
@@ -161,7 +161,7 @@ namespace VideoRecordings
                     this.WindowState = FormWindowState.Minimized;
                     return true;
                 case Keys.F2:
-                    Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
+                    Methods.OpenFolderAndSelectFile(AppSettings.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
                     return true;
                 case Keys.Space:
                     if (gridView1.FocusedRowHandle < 0) return true;
@@ -169,9 +169,9 @@ namespace VideoRecordings
                     if (hInfo.InRowCell)
                         OpenVideoPaly();
                     return true;
-                case Keys.Q:
-                    ShowStaticLabels();
-                    return true;
+                //case Keys.Q:
+                //    ShowStaticLabels();
+                //    return true;
                 default:
                     break;
             }
@@ -217,7 +217,7 @@ namespace VideoRecordings
             transmissionvideo = (VideoPlay)gridView1.GetRow(rowIndex);
             RefreshImage();
             GetIntToString();
-            DeleteFolder(Program.ImageSavePath);
+            DeleteFolder(AppSettings.ImageSavePath);
         }
 
         /// <summary>
@@ -391,10 +391,10 @@ namespace VideoRecordings
             recording.MyEvent += new VideoRecording.MyDelegate(PostVideos);
             recording.WindowState = FormWindowState.Maximized;
             if (transmissionvideo == null || transmissionvideo.Uri == null) return;
-            if (File.Exists(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))))
+            if (File.Exists(AppSettings.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))))
             {
                 recording.Show();
-                Program.log.Error($"打开{Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))}", new Exception("打开成功"));
+                Program.log.Error($"打开{AppSettings.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))}", new Exception("打开成功"));
             }
             else
             {
@@ -403,7 +403,7 @@ namespace VideoRecordings
                 if (MsgBoxResult != DialogResult.Yes)
                     return;
                 recording.Show();
-                Program.log.Error($"打开{Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))}", new Exception("没有找到视频"));
+                Program.log.Error($"打开{AppSettings.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))}", new Exception("没有找到视频"));
             }
         }
 
@@ -502,7 +502,7 @@ namespace VideoRecordings
         private void OpenfolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (transmissionvideo == null) return;
-            Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
+            Methods.OpenFolderAndSelectFile(AppSettings.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
         }
 
         /// <summary>
@@ -548,13 +548,16 @@ namespace VideoRecordings
                 return;
             }
             List<int> ids = GetSelectRow().Select(t => t.Id).ToList();
-            if (!SolutionData.DeleteSolution(ids))
+            if (SolutionData.DeleteSolution(ids))
             {
-                MessageBox.Show("清除解帧信息失败");
-                Program.log.Error($"清除解帧信息失败.Id:{string.Join(",",ids)}");
+                MessageBox.Show("清除解帧信息成功");
+                bindingSource1.DataSource = null;
+                PostVideos();
+                return;
             }
-            bindingSource1.DataSource = null;
-            PostVideos();
+            MessageBox.Show("清除解帧信息失败");
+            Program.log.Error($"清除解帧信息失败.Id:{string.Join(",", ids)}");
+
         }
 
         /// <summary>
@@ -762,7 +765,7 @@ namespace VideoRecordings
             transmissionvideo = (VideoPlay)gridView1.GetRow(index);
             RefreshImage();
             GetIntToString();
-            DeleteFolder(Program.ImageSavePath);
+            DeleteFolder(AppSettings.ImageSavePath);
         }
 
         /// <summary>
@@ -1001,14 +1004,5 @@ namespace VideoRecordings
             Program.log.Error($"添加自动截图,视频ID{string.Join(",", ids)}--失败");
         }
 
-        private void Top_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            List<VideoPlay> videos = GetSelectRow();
-            if (videos == null) return;
-            BatchSolution batch = new BatchSolution(videos,true);
-            batch.MyRefreshEvent += new BatchSolution.MyDeletgate(RefEquipment);
-            batch.ShowDialog();
-            Program.log.Info($"添加批量解帧(置顶){string.Join(",", videos.Select(t => t.Id).ToList())}");
-        }
     }
 }

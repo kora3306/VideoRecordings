@@ -34,8 +34,6 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ExeclToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -105,45 +103,29 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ExeclToolStripMenuItem,
-            this.newToolStripMenuItem,
-            this.oldToolStripMenuItem,
             this.LocationToolStripMenuItem,
             this.DeleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(217, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 70);
             // 
             // ExeclToolStripMenuItem
             // 
             this.ExeclToolStripMenuItem.Name = "ExeclToolStripMenuItem";
-            this.ExeclToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.ExeclToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.ExeclToolStripMenuItem.Text = "导出Execl";
             this.ExeclToolStripMenuItem.Click += new System.EventHandler(this.ExeclToolStripMenuItem_Click);
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.newToolStripMenuItem.Text = "查看目标视频(源文件)";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
-            // 
-            // oldToolStripMenuItem
-            // 
-            this.oldToolStripMenuItem.Name = "oldToolStripMenuItem";
-            this.oldToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.oldToolStripMenuItem.Text = "查看对比视频(数据库文件)";
-            this.oldToolStripMenuItem.Click += new System.EventHandler(this.oldToolStripMenuItem_Click);
             // 
             // LocationToolStripMenuItem
             // 
             this.LocationToolStripMenuItem.Name = "LocationToolStripMenuItem";
-            this.LocationToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.LocationToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.LocationToolStripMenuItem.Text = "定位目标文件";
             this.LocationToolStripMenuItem.Click += new System.EventHandler(this.LocationToolStripMenuItem_Click);
             // 
             // DeleteToolStripMenuItem
             // 
             this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
-            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.DeleteToolStripMenuItem.Text = "删除目标文件";
             this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
@@ -274,8 +256,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit repositoryItemMemoExEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit repositoryItemMemoExEdit2;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem oldToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem LocationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
     }

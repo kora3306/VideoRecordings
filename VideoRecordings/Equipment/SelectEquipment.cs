@@ -259,7 +259,7 @@ namespace VideoRecordings.Equipment
         /// </summary>
         public void SetTheListView(int id)
         {
-            string imageUrl = Program.Urlpath + $"/video/snapshot/{id}";
+            string imageUrl = AppSettings.Urlpath + $"/video/snapshot/{id}";
             imageListView1.Items.Clear();
             List<ImageListViewItem> items = new List<ImageListViewItem>();
             imageListView1.ThumbnailSize = new Size(290, 180);

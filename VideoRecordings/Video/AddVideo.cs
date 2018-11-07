@@ -22,12 +22,13 @@ namespace VideoRecordings
             InitializeComponent();
         }
 
-        public delegate void MyDelegate(VideoProject video,bool focuse);
+        public delegate void MyDelegate();
         public event MyDelegate MyAddEvent;
-        public void OnAdd(VideoProject video, bool focuse)
+        public void OnAdd()
         {
-            MyAddEvent.Invoke(video,focuse);
+            MyAddEvent.Invoke();
         }
+
         /// <summary>
         /// 将填入的信息转化成类,并加入文件夹集合
         /// </summary>
@@ -35,7 +36,6 @@ namespace VideoRecordings
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            string posturl = Program.Urlpath + "/video/project";
             string name = textBox_name.Text == string.Empty ? string.Empty : textBox_name.Text.Trim();
             string place = textBox_place.Text == string.Empty ? string.Empty : textBox_place.Text.Trim(); ;
             int scenes = comboBox_scenes.SelectedIndex;
@@ -73,21 +73,16 @@ namespace VideoRecordings
                 Recorder = recorder,              
                 Note = note,
             };
-
-            string json = JsonHelper.SerializeDataContractJson(video_project);
-            JObject returnobj = WebClinetHepler.Post_New(posturl, json);
-            if (returnobj==null)
+            if (!GetDatas.VideoData.AddFolder(video_project))
             {
                 MessageBox.Show("上传失败");
                 return;
             }
             else
-            {
                 MessageBox.Show("上传成功");
-            }
-            OnAdd(video_project,true);
+            OnAdd();
             this.Close();
-            Program.log.Error("上传文件夹", new Exception($"{json}"));
+            Program.log.Error("上传文件夹", new Exception($"{video_project.ToString()}"));
         }
 
         private void button2_Click(object sender, EventArgs e)

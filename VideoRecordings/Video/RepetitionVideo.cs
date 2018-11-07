@@ -32,7 +32,7 @@ namespace VideoRecordings.Video
         public RepetitionVideo()
         {
             InitializeComponent();
-            log = Program.User.Name;
+            log = AppSettings.User.Name;
             SetINfo();
         }
 

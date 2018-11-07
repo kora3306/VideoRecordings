@@ -12,6 +12,8 @@ namespace VideoRecordings.GetDatas
 {
     public class GroupData
     {
+
+        public static string Url = AppSettings.Urlpath;
         /// <summary>
         /// 获取通道
         /// </summary>
@@ -19,7 +21,7 @@ namespace VideoRecordings.GetDatas
         /// <returns></returns>
         public static List<GalleryGroup> GetAllGalleryGroup(string name = null)
         {
-            string url = Program.Urlpath + "/video/equipments/by/groups";
+            string url = Url + "/video/equipments/by/groups";
             if (name != null)
             {
                 url += $"?name={name}";
@@ -40,7 +42,7 @@ namespace VideoRecordings.GetDatas
         /// <returns></returns>
         public static MyGroup GetGroupShows(string city = null, string street = null, string site = null, string uid = null)
         {
-            string url = Program.Urlpath + "/video/equipments";
+            string url = Url + "/video/equipments";
             if (!string.IsNullOrEmpty(city)) url += $"?city={city}";
             if (!string.IsNullOrEmpty(street)) url += $"&street={street}";
             if (!string.IsNullOrEmpty(site)) url += $"&site={site}";
@@ -59,7 +61,7 @@ namespace VideoRecordings.GetDatas
         /// <returns></returns>
         public static bool AddEquipmentToGroup(int id, List<int> ids)
         {
-            string url = Program.Urlpath + $"/video/equipment/group/{id}/add/equipments";
+            string url = Url + $"/video/equipment/group/{id}/add/equipments";
             Dictionary<string, List<int>> jsondic = new Dictionary<string, List<int>>();
             jsondic.Add("equip_ids", ids);
             string json = JsonConvert.SerializeObject(jsondic);
@@ -69,7 +71,7 @@ namespace VideoRecordings.GetDatas
 
         public static bool DeleteEquipmentToGroup(int id, List<int> ids)
         {
-            string url = Program.Urlpath + $"/video/equipment/group/{id}/remove/equipments";
+            string url = Url + $"/video/equipment/group/{id}/remove/equipments";
             Dictionary<string, List<int>> jsondic = new Dictionary<string, List<int>>();
             jsondic.Add("equip_ids", ids);
             string json = JsonConvert.SerializeObject(jsondic);
@@ -84,7 +86,7 @@ namespace VideoRecordings.GetDatas
         /// <returns></returns>
         public static bool AddGroup(string name)
         {
-            string url = Program.Urlpath + $"/video/equipment/group";
+            string url = Url + $"/video/equipment/group";
             List<Dictionary<string, object>> jsondics = new List<Dictionary<string, object>>();
             Dictionary<string, object> jsondic = new Dictionary<string, object>();
             jsondic.Add("name", name);
@@ -102,14 +104,14 @@ namespace VideoRecordings.GetDatas
         /// <returns></returns>
         public static bool DeleteGroup(int id)
         {
-            string url = Program.Urlpath + $"/video/equipment/group/{id}";
+            string url = Url + $"/video/equipment/group/{id}";
             JObject obj = WebClinetHepler.Delete_New(url);
             return obj != null;
         }
 
         public static bool UpdateGroup(int id ,string name)
         {
-            string url = Program.Urlpath + $"/video/equipment/group/{id}";
+            string url = Url + $"/video/equipment/group/{id}";
             Dictionary<string, object> jsondic = new Dictionary<string, object>();
             jsondic.Add("name", name);
             jsondic.Add("parent_id", 0);

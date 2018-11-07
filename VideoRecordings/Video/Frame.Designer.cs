@@ -38,6 +38,8 @@
             this.gridColumn_ID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_step = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_uri = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn_name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn_note = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -87,7 +89,9 @@
             this.gridColumnId,
             this.gridColumn_ID,
             this.gridColumn_step,
-            this.gridColumn_uri});
+            this.gridColumn_uri,
+            this.gridColumn_name,
+            this.gridColumn_note});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.MultiSelect = true;
@@ -136,8 +140,24 @@
             this.gridColumn_uri.FieldName = "VideoUri";
             this.gridColumn_uri.Name = "gridColumn_uri";
             this.gridColumn_uri.Visible = true;
-            this.gridColumn_uri.VisibleIndex = 4;
+            this.gridColumn_uri.VisibleIndex = 6;
             this.gridColumn_uri.Width = 540;
+            // 
+            // gridColumn_name
+            // 
+            this.gridColumn_name.Caption = "存放文件夹";
+            this.gridColumn_name.FieldName = "TaskName";
+            this.gridColumn_name.Name = "gridColumn_name";
+            this.gridColumn_name.Visible = true;
+            this.gridColumn_name.VisibleIndex = 4;
+            // 
+            // gridColumn_note
+            // 
+            this.gridColumn_note.Caption = "备注";
+            this.gridColumn_note.FieldName = "Note";
+            this.gridColumn_note.Name = "gridColumn_note";
+            this.gridColumn_note.Visible = true;
+            this.gridColumn_note.VisibleIndex = 5;
             // 
             // Frame
             // 
@@ -166,5 +186,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem TOP_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Ref_ToolStripMenuItem;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn_name;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn_note;
     }
 }

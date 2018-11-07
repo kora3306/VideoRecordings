@@ -83,8 +83,7 @@ namespace VideoRecordings
             WaitFormEx.Run(() => 
             {
                 Videos = VideoData.GetAllFolder();
-                MyLabels = new MyLabels();
-              
+                MyLabels = new MyLabels();            
                 places = RepeatList(Videos, "place");
                 replicators = RepeatList(Videos, "replicator");
                 listOnitProName = Videos.Select(t => t.Name).ToList();
@@ -103,7 +102,7 @@ namespace VideoRecordings
             comboBox_groups.Items.AddRange(listOnitGroups.ToArray());
             comboBox_group.Items.AddRange(listOnitGroup.ToArray());
 
-            imageListView1.DiskCache = Program.Persistent;
+            imageListView1.DiskCache = AppSettings.Persistent;
             gridView1.OptionsBehavior.AutoExpandAllGroups = false;
             Methods.AddIsTest(this);
             RefAllConditions();
@@ -140,7 +139,7 @@ namespace VideoRecordings
         /// 将填入的信息整理并转换成查询条件
         /// </summary>
         /// <returns></returns>
-        public string GetJson()
+        public string GetCriteriaJson()
         {
             string getjson = string.Empty;
             try
@@ -235,11 +234,17 @@ namespace VideoRecordings
         /// </summary>
         public void RefreshImage()
         {
-            string json = GetJson();
+            string json = GetCriteriaJson();
             if (string.IsNullOrEmpty(json)) return;
+            int count = VideoData.GetQueryVideoCount(json);
+            if (count>1000)
+            {
+               if(MessageBox.Show($"查询的条目共{count}条,查询时间过长,是否添加其他条件","提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Question)==DialogResult.OK)
+                return;
+            }
             WaitFormEx.Run(() =>
             {
-                string url = Program.Urlpath + "/videos?" + json;
+                string url = AppSettings.Urlpath + "/videos?" + json;
                 if (!GettListVideo(url))
                     return;
             });
@@ -263,7 +268,7 @@ namespace VideoRecordings
         public void RefreshNewImage(VideoPlay video)
         {
             imageurl.Clear();
-            string url = Program.Urlpath + "/video/snapshot/";
+            string url = AppSettings.Urlpath + "/video/snapshot/";
             foreach (var item in video.ImageId)
             {
                 imageurl.Add(url + item);
@@ -380,11 +385,11 @@ namespace VideoRecordings
                     }
                     return base.ProcessCmdKey(ref msg, keyData);
                 case Keys.F2:
-                    Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri)));
+                    Methods.OpenFolderAndSelectFile(AppSettings.ReturnStringUrl(ConversionString(transmissionvideo.Uri)));
                     return true;
-                case Keys.Q:
-                    ShowStaticLabels();
-                    return true;
+                //case Keys.Q:
+                //    ShowStaticLabels();
+                //    return true;
                 default:
                     break;
             }
@@ -428,7 +433,7 @@ namespace VideoRecordings
             }
             transmissionvideo = (VideoPlay)gridView1.GetRow(rowIndex);
             GetIntToString();
-            DeleteFolder(Program.ImageSavePath);
+            DeleteFolder(AppSettings.ImageSavePath);
         }
 
         /// <summary>
@@ -470,7 +475,7 @@ namespace VideoRecordings
                 return;
             }
             imageurl.Clear();
-            string url = Program.Urlpath + "/video/snapshot/";
+            string url = AppSettings.Urlpath + "/video/snapshot/";
             imageurl = transmissionvideo.ImageId.Select(t => url + t).ToList();
             SetTheListView();
         }
@@ -504,7 +509,7 @@ namespace VideoRecordings
             int index = gridView1.GetDataRowHandleByGroupRowHandle(i);
             transmissionvideo = (VideoPlay)gridView1.GetRow(index);
             GetIntToString();
-            DeleteFolder(Program.ImageSavePath);
+            DeleteFolder(AppSettings.ImageSavePath);
         }
 
         /// <summary>
@@ -528,10 +533,10 @@ namespace VideoRecordings
             VideoRecording recording = new VideoRecording(transmissionvideo,videoplays);
             //recording.MyEvent += new VideoRecording.MyDelegate(RefreshImage);
             if (transmissionvideo.Uri == null) return;
-            if (File.Exists(Program.ReturnStringUrl(ConversionString(transmissionvideo.Uri))))
+            if (File.Exists(AppSettings.ReturnStringUrl(ConversionString(transmissionvideo.Uri))))
             {
                 recording.Show();
-                Program.log.Error($"打开{Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))}", new Exception("打开成功"));
+                Program.log.Error($"打开{AppSettings.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri))}", new Exception("打开成功"));
             }
             else
             {
@@ -816,13 +821,21 @@ namespace VideoRecordings
             }
             else
             {
-                int index = gridview.GetDataRowHandleByGroupRowHandle(e.RowHandle);
-                string uri = gridview.GetRowCellValue(index, "Uri").ToString();
-                string project_name = gridview.GetRowCellValue(index, "ProjectName").ToString();
-                int EquipmentID = int.Parse(gridview.GetRowCellValue(index, "EquipmentID").ToString());
-                int count = videoplays.Count(t => t.EquipmentID == EquipmentID&&t.ProjectName==project_name);
-                GridGroupRowInfo.GroupText = "数据编号:" + uri.Split('/').ToList()
-                     .First(t => t.StartsWith("SP") || t.StartsWith("Sp")) + $" (数量:{count})";
+                try
+                {
+                    int index = gridview.GetDataRowHandleByGroupRowHandle(e.RowHandle);
+                    string uri = gridview.GetRowCellValue(index, "Uri").ToString();
+                    string project_name = gridview.GetRowCellValue(index, "ProjectName").ToString();
+                    int EquipmentID = int.Parse(gridview.GetRowCellValue(index, "EquipmentID").ToString());
+                    int count = videoplays.Count(t => t.EquipmentID == EquipmentID && t.ProjectName == project_name);
+                    GridGroupRowInfo.GroupText = "数据编号:" + uri.Split('/').ToList()
+                         .First(t => t.StartsWith("SP") || t.StartsWith("Sp")) + $" (数量:{count})";
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+
             }
         }
 
@@ -1174,7 +1187,7 @@ namespace VideoRecordings
         }
 
         /// <summary>
-        ///  删除视频从通道
+        ///  清除解帧信息
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -1260,7 +1273,7 @@ namespace VideoRecordings
         private void folderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (transmissionvideo == null) return;
-            Methods.OpenFolderAndSelectFile(Program.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
+            Methods.OpenFolderAndSelectFile(AppSettings.ReturnStringUrl(Methods.ConversionString(transmissionvideo.Uri)));
             Program.log.Info($"定位文件夹,VideoId:{transmissionvideo.Id}");
         }
 
@@ -1372,21 +1385,5 @@ namespace VideoRecordings
             SetComboxBox(comboBox_proname, listOnitProName, listNewProName);
         }
 
-        private void Top_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            int[] rownumber = gridView1.GetSelectedRows();
-            if (rownumber.Count() == 0) return;
-            List<VideoPlay> videos = new List<VideoPlay>();
-            foreach (var it in rownumber)
-            {
-                if (it < 0) continue;
-                VideoPlay video = (VideoPlay)gridView1.GetRow(it);
-                videos.Add(video);
-            }
-            BatchSolution batch = new BatchSolution(videos,true);
-            batch.MyRefreshEvent += new BatchSolution.MyDeletgate(RefreshImage);
-            batch.Show();
-            Program.log.Info($"video_ids:{string.Join(",", videos.Select(t => t.Id).ToList())}添加批量标签(置顶)");
-        }
     }
 }
