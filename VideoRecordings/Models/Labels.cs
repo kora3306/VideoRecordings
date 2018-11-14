@@ -27,6 +27,25 @@ namespace VideoRecordings.Models
             temp.Labels = (VideoLabels)Labels?.Clone();
             return temp;
         }
+
+        public override bool Equals(object obj)
+        {
+            TypeLabel label = (TypeLabel)obj;
+            if (Id != label.Id || Name != label.Name || Type != label.Type || Ref != label.Ref)
+                return false;
+            foreach (var item in label.Labels)
+            {
+                VideoLabel video = this.Labels.FirstOrDefault(t => t.Id == item.Id);
+                if (video == null || !video.Equals(item))
+                    return false;
+            }
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 
     public class TypeLabels:List<TypeLabel>,ICloneable
@@ -51,6 +70,24 @@ namespace VideoRecordings.Models
             AddRange(types1);
             AddRange(types2);
         }
+
+        public override bool Equals(object obj)
+        {
+            TypeLabels types = (TypeLabels)obj;
+            if (this.Count != types.Count) return false;
+            foreach (var item in types)
+            {
+                TypeLabel label = this.FirstOrDefault(t =>t.Id==item.Id);
+                if (label == null || label.Equals(item))
+                    return false;
+            }
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 
     [DataContract]
@@ -65,6 +102,18 @@ namespace VideoRecordings.Models
             return label;
         }
 
+        public override bool Equals(object obj)
+        {
+            VideoLabel video = (VideoLabel)obj;
+            if (this.Id != video.Id || Name != video.Name)
+                return false;
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 
     public class VideoLabels:List<VideoLabel>,ICloneable

@@ -16,7 +16,7 @@ namespace VideoRecordings
 {
     public partial class SelectLabel : DevExpress.XtraEditors.XtraForm
     {
-        private MyLabels typeLabels = new MyLabels();
+        private MyLabels typeLabels;
         List<string> labels = new List<string>();
         private bool IsExpand = true;
         RefreshType Type;

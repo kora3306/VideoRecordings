@@ -52,7 +52,7 @@ namespace VideoRecordings.Video
                 int top = comboBox_top.SelectedIndex;
                 List<int> ids = new List<int>() {video.Id};
                 bool win = GetDatas.SolutionData.SolutionOfTheFrame(new Solution(folder, note, ids, step, top));
-                if (win)
+                if (!win)
                 {
                     MessageBox.Show("添加失败");
                     return;

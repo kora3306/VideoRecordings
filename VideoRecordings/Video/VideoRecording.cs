@@ -33,7 +33,7 @@ namespace VideoRecordings
     {
 
         TypeLabels Selectlabels = new TypeLabels(); //标签
-        VideoPlay videoplay;      //传入的视频
+        VideoPlay videoplay;      //选中的视频
         List<VideoPlay> videos;
         Process process = new Process();   //启动外部程序线程
         List<string> paths = new List<string>();  //截图路径
@@ -132,11 +132,11 @@ namespace VideoRecordings
 
         private async Task SaveInfo()
         {
-            var islabel =  SaveLabelAsync();
-            var isimage =  SaveImageAsync();
-            var istime  =  SaveTimeAsync();
-            await Task.WhenAll(islabel,isimage,istime);
-            if (islabel.Result & isimage.Result & istime.Result)
+            var islabel = await SaveLabelAsync().ConfigureAwait(false);
+            var isimage = await SaveImageAsync().ConfigureAwait(false);
+            var istime = await SaveTimeAsync().ConfigureAwait(false);
+            //await Task.WhenAll(islabel,isimage,istime);
+            if (islabel & isimage & istime)
                 return;
             MessageBox.Show("保存失败");
         }
@@ -342,6 +342,8 @@ namespace VideoRecordings
         public async Task<bool> SaveLabelAsync()
         {
             List<VideoLabel> ids = new List<VideoLabel>();
+            if (Selectlabels.Equals(videoplay.Labels.DynamicLabel))
+                return true;
             foreach (TypeLabel tree in staticlabel.Union(Selectlabels))
             {
                 ids.AddRange(tree.Labels);
@@ -360,6 +362,7 @@ namespace VideoRecordings
             {
                 saveimage.Add(GetPictureData(item));
             }
+            if (saveimage.Count == 0) return true;
             string json = JsonConvert.SerializeObject(saveimage);
             bool win = await VideoData.SaveImageAsync(videoplay.Id, json);
             return win;
@@ -570,13 +573,17 @@ namespace VideoRecordings
             Dictionary<string, string> patchjson = new Dictionary<string, string>();
             string start = timeEdit_start.Text;
             string end = timeEdit_end.Text;
+            string record = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+            if (start == videoplay.StartTime && end == videoplay.EndTime && record == videoplay.RecordTime)
+                return true;
             patchjson.Add("start_time", start);
             patchjson.Add("end_time", end);
-            patchjson.Add("record_time", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+            patchjson.Add("record_time", record);
             string json = JsonConvert.SerializeObject(patchjson);
             bool win = await VideoData.SaveTimeAsync(videoplay.Id, json);
             return win;
         }
+
 
         /// <summary>
         /// 清空指定的文件夹，但不删除文件夹
