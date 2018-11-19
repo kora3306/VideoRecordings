@@ -237,9 +237,9 @@ namespace VideoRecordings
             string json = GetCriteriaJson();
             if (string.IsNullOrEmpty(json)) return;
             int count = VideoData.GetQueryVideoCount(json);
-            if (count>1000)
+            if (count>5000)
             {
-               if(MessageBox.Show($"查询的条目共{count}条,查询时间过长,是否添加其他条件","提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Question)==DialogResult.OK)
+               if(MessageBox.Show($"查询的条目共{count}条,查询时间过长,是否添加其他条件","提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Question)==DialogResult.Cancel)
                 return;
             }
             WaitFormEx.Run(() =>
